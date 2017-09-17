@@ -16,7 +16,7 @@ public class paineis extends JPanel{
 		Border borda = BorderFactory.createLineBorder(Color.gray,2);
 		setBorder(borda);
 		setVisible(true);
-		setLocation(null);
+		
 		
 	}
 	
