@@ -2,6 +2,6 @@ package View;
 
 public class view {
 	
-	private botao botoes;
-	
+	private botoes botao;
+	private botoes botao2;
 }
