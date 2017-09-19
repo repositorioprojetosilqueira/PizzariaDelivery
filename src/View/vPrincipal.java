@@ -46,7 +46,7 @@ public class vPrincipal extends JFrame implements ActionListener{
         setContentPane(desktopPane);
 		
 		this.setVisible(true);
-		this.setIconImage(new ImageIcon(getClass().getResource("/imagens/pedido.png")).getImage());
+		
 		JMenus();
 		configuraFrame();
 		painelLateral();
@@ -54,6 +54,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 		this.setSize(800, 600);
 		this.setLocationRelativeTo(null);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH); //Janela Maximizada
+		this.setIconImage(new ImageIcon(getClass().getResource("/imagens/pedido.png")).getImage());
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		//this.addWindowListener((WindowListener) this);				
 		
