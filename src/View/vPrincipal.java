@@ -1,11 +1,14 @@
 package View;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -30,24 +33,63 @@ public class vPrincipal extends JFrame{
 	private botoes jbAtalhoPedido;
 	private botoes jbAtalhoCaixa;
 	
+	private JDesktopPane desktopPane;
+	
+	private InternalFrameUm frameUm;
+	
 	public vPrincipal() {
 		super("Pizzaria Delivery 1.0");
 
-		BorderLayout border = new BorderLayout();
-		this.setLayout(border);
+		//BorderLayout border = new BorderLayout();
+		//this.setLayout(border);
+		JMenus();
 		
-		//this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		desktopPane = new JDesktopPane();
+		desktopPane.setBackground(Color.gray);
+
+        jMiUsuario.addActionListener(new ActionListener(){
+ 
+            public void actionPerformed(ActionEvent evt){
+ 
+                if(frameUm == null){
+                    frameUm = new InternalFrameUm();
+                    frameUm.setLocation(desktopPane.getWidth()/2 - frameUm.getWidth()/2, desktopPane.getHeight()/2 - frameUm.getHeight()/2);
+                    frameUm.setVisible(true);
+                    desktopPane.add(frameUm);
+                }
+                else if(!frameUm.isVisible()){
+                    frameUm.setVisible(true);
+                    desktopPane.add(frameUm);
+                }
+            }
+        });
+ 
+      /*  menuItem2 = new JMenuItem("InternalFrameDois");
+        menuItem2.addActionListener(new ActionListener(){
+ 
+            public void actionPerformed(ActionEvent evt){
+ 
+                if(frameDois == null){
+                    frameDois = new InternalFrameDois();
+                    frameDois.setVisible(true);
+                    desktopPane.add(frameDois);
+                }
+                else if(!frameDois.isVisible()){
+                    frameDois.setVisible(true);
+                    desktopPane.add(frameDois);
+                }
+            }
+        });*/
+ 
+     
+        setContentPane(desktopPane);
+ 
 		
-		//this.setResizable(false);
 		
 		this.setVisible(true);
-		
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
 		configuraFrame();
-		JMenus();
 		painelLateral();
-		
 		this.setSize(800, 600);
 		this.setLocationRelativeTo(null);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH); //Janela Maximizada
@@ -71,7 +113,14 @@ public class vPrincipal extends JFrame{
 		jMnCadastro.add(jMiCliente);
 		jMnCadastro.add(jMiProdutos);
 		
-		
+		jMiUsuario.addActionListener( new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new vCadUsuario();
+				
+			}
+		});
 		
 		jMnMovimento = new JMenu("Movimento");
 		
@@ -90,7 +139,7 @@ public class vPrincipal extends JFrame{
 	}
 
 	private void painelLateral(){
-		jpAtalhosLateral = new paineis(100, 100);
+		jpAtalhosLateral = new paineis(120, 200);
 		
 		FlowLayout fl = new FlowLayout();
 		
@@ -104,12 +153,13 @@ public class vPrincipal extends JFrame{
 
 		jbAtalhoCaixa= new botoes("Caixasfd adf ", 100, 100);
 		
+		jpAtalhosLateral.setLocation(20,50);
 		
 		jpAtalhosLateral.add(jbAtalhoCliente);
 		jpAtalhosLateral.add(jbAtalhoPedido);
 		jpAtalhosLateral.add(jbAtalhoCaixa);
 		
-		this.add(jpAtalhosLateral, BorderLayout.WEST);
+		this.add(jpAtalhosLateral);
 		
 	}
 
@@ -120,6 +170,8 @@ public class vPrincipal extends JFrame{
 	      .getMaximumWindowBounds();
 	    setSize((int) rect.getWidth(), (int) rect.getHeight());
 	  }
+	
+	
 	
 
 }
