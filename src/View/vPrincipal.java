@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GraphicsEnvironment;
+import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -121,21 +122,24 @@ public class vPrincipal extends JFrame{
 	}
 
 	private void painelLateral(){
-		jpAtalhosLateral = new paineis(130, 500);
+		GridLayout gl = new GridLayout(3, 1);
+		
+		jpAtalhosLateral = new paineis(110, 310);
 		
 		FlowLayout fl = new FlowLayout();
 		
-		jpAtalhosLateral.setLayout(fl);
+		jpAtalhosLateral.setLayout(gl);
 		
-		jbAtalhoCliente = new botoes("Cliente", 100, 100);
+		jbAtalhoCliente = new botoes( 100, 100);
 		jbAtalhoCliente.setIcon(new ImageIcon(getClass().getResource("/imagens/cliente.png")));
 		
 		jbAtalhoPedido= new botoes(100, 100);
 		jbAtalhoPedido.setIcon(new ImageIcon(getClass().getResource("/imagens/pedido.png")));
 
-		jbAtalhoCaixa= new botoes("Caixasfd adf ", 100, 100);
+		jbAtalhoCaixa= new botoes(100, 100);
+		jbAtalhoCaixa.setIcon(new ImageIcon(getClass().getResource("/imagens/caixa.png")));
 		
-		jpAtalhosLateral.setLocation(20,50);
+		jpAtalhosLateral.setLocation(20,130);
 		
 		jpAtalhosLateral.add(jbAtalhoCliente);
 		jpAtalhosLateral.add(jbAtalhoPedido);
