@@ -5,17 +5,10 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.JPanel;
 
-public class vCadCliente extends JInternalFrame {  
+public class vCadCliente extends vCadPadrao {  
 	 
 	    public vCadCliente() {
-	        super("Cadastro Cliente",
-	              false, //resizable
-	               true, //closable
-	              false, //maximizable
-	               false);//iconifiable  
+	        super("Cadastro Cliente");  
 	        
-	        
-	        setSize(800,500);  
-	 
-	     }
+	    }
 	 }
