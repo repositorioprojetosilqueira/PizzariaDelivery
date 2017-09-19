@@ -11,5 +11,10 @@ public class botoes extends JButton {
 		setSize(50, 50);
 		setLocation(lar, alt);		
 	}
+	public botoes(int lar,int alt){		
+		super();
+		//setSize(50, 50);
+		setLocation(lar, alt);		
+	}
 }
  
