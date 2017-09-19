@@ -16,5 +16,8 @@ public class botoes extends JButton {
 		//setSize(50, 50);
 		setLocation(lar, alt);		
 	}
+	public botoes(String titulo) {
+		super(titulo);
+	}
 }
  
