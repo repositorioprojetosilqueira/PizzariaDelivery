@@ -1,18 +1,19 @@
 package View;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.border.TitledBorder;
 
-public class vCadPadrao extends JInternalFrame {  
+public class vTelaPadrao extends JInternalFrame {  
 		private paineis jpTop, jpCentro;
 		
 		private botoes jbNovo, jbSalvar, jbEditar, jbExcluir, jbCancelar;
 	 
-    public vCadPadrao(String titulo) {
+    public vTelaPadrao(String titulo) {
         super(titulo);
 	        
         BorderLayout border = new BorderLayout();
@@ -36,7 +37,7 @@ public class vCadPadrao extends JInternalFrame {
 			jpTop = new paineis(150, 150);
 			jpCentro = new paineis(50,50);
 			jpCentro.setLocation(10,10);
-			//jpCentro.setBackground(Color.gray);
+			//jpCentro.setBackground(Color.black);
 			jpCentro.setLayout(null);
 		
 			jbNovo = new botoes("Novo");
@@ -58,6 +59,7 @@ public class vCadPadrao extends JInternalFrame {
 			jpTop.add(jbEditar);
 			jpTop.add(jbExcluir);
 			jpTop.add(jbCancelar);
+			
 			this.add(jpTop, BorderLayout.NORTH);
 			this.add(jpCentro, BorderLayout.CENTER);
 		}

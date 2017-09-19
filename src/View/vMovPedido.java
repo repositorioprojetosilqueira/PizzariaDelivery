@@ -2,17 +2,10 @@ package View;
 
 import javax.swing.JInternalFrame;
 
-public class vMovPedido extends JInternalFrame{
+public class vMovPedido extends vTelaPadrao{
 
 	  public vMovPedido(){
-	        super("Pedidos",
-	              false, //resizable
-	               true, //closable
-	              false, //maximizable
-	               false);//iconifiable  
-	        
-	        
-	        setSize(800,500);  
+	        super("Pedidos");  
 	 
 	     }
 	 }
