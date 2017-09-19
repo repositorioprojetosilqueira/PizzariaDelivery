@@ -1,6 +1,5 @@
 package View;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GraphicsEnvironment;
@@ -20,24 +19,19 @@ import javax.swing.JMenuItem;
 public class vPrincipal extends JFrame{
 	private JMenuBar jMbar;
 	
-	private JMenu jMnCadastro;
-	private JMenuItem jMiUsuario;
-	private JMenuItem jMiCliente;
-	private JMenuItem jMiProdutos;
-	
-	private JMenu jMnMovimento;
-	private JMenuItem jMiPedidos;
-	private JMenuItem jMiCaixa;
+	private JMenu jMnCadastro, jMnMovimento;
+	private JMenuItem jMiUsuario, jMiCliente, jMiProdutos, jMiPedidos, jMiCaixa;
 	
 	private paineis jpAtalhosLateral; 
 	
-	private botoes jbAtalhoCliente;
-	private botoes jbAtalhoPedido;
-	private botoes jbAtalhoCaixa;
+	private botoes jbAtalhoCliente, jbAtalhoPedido, jbAtalhoCaixa;
 	
 	private JDesktopPane desktopPane;
 	
-	private vCadUsuario frameUm;
+	private vCadUsuario vCadUsuario;
+	private vCadCliente vCadCliente;
+	private vMovPedido vMovPedido;
+	private vMovCaixa vMovCaixa;
 	
 	public vPrincipal() {
 		super("Pizzaria Delivery 1.0");
@@ -102,21 +96,40 @@ public class vPrincipal extends JFrame{
 			 
             public void actionPerformed(ActionEvent evt){
  
-                if(frameUm == null){
-                    frameUm = new vCadUsuario();
-                    frameUm.setLocation(((desktopPane.getWidth()/2) - (frameUm.getWidth()/2)), 
-                    					((desktopPane.getHeight()/2) - (frameUm.getHeight()/2)) - 20);
-                    frameUm.setVisible(true);
-                    desktopPane.add(frameUm);
+                if(vCadUsuario == null){
+                    vCadUsuario = new vCadUsuario();
+                    vCadUsuario.setLocation(((desktopPane.getWidth()/2) - (vCadUsuario.getWidth()/2)), 
+                    					((desktopPane.getHeight()/2) - (vCadUsuario.getHeight()/2)) - 20);
+                    vCadUsuario.setVisible(true);
+                    desktopPane.add(vCadUsuario);
                 }
-                else if(!frameUm.isVisible()){
-                    frameUm.setVisible(true);
-                    desktopPane.add(frameUm);
+                else if(!vCadUsuario.isVisible()){
+                    vCadUsuario.setVisible(true);
+                    desktopPane.add(vCadUsuario);
                 }
             }
         });
 		
+		jMiCliente.addActionListener(new ActionListener(){
+			 
+            public void actionPerformed(ActionEvent evt){
+ 
+                if(vCadCliente == null){
+                	vCadCliente = new vCadCliente();
+                	vCadCliente.setLocation(((desktopPane.getWidth()/2) - (vCadCliente.getWidth()/2)), 
+                    					((desktopPane.getHeight()/2) - (vCadCliente.getHeight()/2)) - 20);
+                	vCadCliente.setVisible(true);
+                    desktopPane.add(vCadCliente);
+                }
+                else if(!vCadCliente.isVisible()){
+                	vCadCliente.setVisible(true);
+                    desktopPane.add(vCadCliente);
+                }
+            }
+        });
 	}
+	
+	
 
 	private void painelLateral(){
 		GridLayout gl = new GridLayout(3, 1);
@@ -130,11 +143,64 @@ public class vPrincipal extends JFrame{
 		jbAtalhoCliente = new botoes( 100, 100);
 		jbAtalhoCliente.setIcon(new ImageIcon(getClass().getResource("/imagens/cliente.png")));
 		
+		jbAtalhoCliente.addActionListener(new ActionListener(){
+			 
+            public void actionPerformed(ActionEvent evt){
+ 
+                if(vCadCliente == null){
+                	vCadCliente = new vCadCliente();
+                	vCadCliente.setLocation(((desktopPane.getWidth()/2) - (vCadCliente.getWidth()/2)), 
+                    					((desktopPane.getHeight()/2) - (vCadCliente.getHeight()/2)) - 20);
+                	vCadCliente.setVisible(true);
+                    desktopPane.add(vCadCliente);
+                }
+                else if(!vCadCliente.isVisible()){
+                	vCadCliente.setVisible(true);
+                    desktopPane.add(vCadCliente);
+                }
+            }
+        });
+		
 		jbAtalhoPedido= new botoes(100, 100);
 		jbAtalhoPedido.setIcon(new ImageIcon(getClass().getResource("/imagens/pedido.png")));
 
+		jbAtalhoPedido.addActionListener(new ActionListener(){
+			 
+            public void actionPerformed(ActionEvent evt){
+ 
+                if(vMovPedido == null){
+                	vMovPedido = new vMovPedido();
+                	vMovPedido.setLocation(((desktopPane.getWidth()/2) - (vMovPedido.getWidth()/2)), 
+                    					((desktopPane.getHeight()/2) - (vMovPedido.getHeight()/2)) - 20);
+                	vMovPedido.setVisible(true);
+                    desktopPane.add(vMovPedido);
+                }
+                else if(!vMovPedido.isVisible()){
+                	vMovPedido.setVisible(true);
+                    desktopPane.add(vMovPedido);
+                }
+            }
+        });
 		jbAtalhoCaixa= new botoes(100, 100);
 		jbAtalhoCaixa.setIcon(new ImageIcon(getClass().getResource("/imagens/caixa.png")));
+		
+		jbAtalhoCaixa.addActionListener(new ActionListener(){
+			 
+            public void actionPerformed(ActionEvent evt){
+ 
+                if(vMovCaixa == null){
+                	vMovCaixa = new vMovCaixa();
+                	vMovCaixa.setLocation(((desktopPane.getWidth()/2) - (vMovCaixa.getWidth()/2)), 
+                    					((desktopPane.getHeight()/2) - (vMovCaixa.getHeight()/2)) - 20);
+                	vMovCaixa.setVisible(true);
+                    desktopPane.add(vMovCaixa);
+                }
+                else if(!vMovCaixa.isVisible()){
+                	vMovCaixa.setVisible(true);
+                    desktopPane.add(vMovCaixa);
+                }
+            }
+        });
 		
 		jpAtalhosLateral.setLocation(20,130);
 		

@@ -1,14 +1,11 @@
 package View;
 
 import javax.swing.JInternalFrame;
-import java.awt.event.*;
-import java.awt.*;
-import javax.swing.JPanel;
 
-public class vCadCliente extends JInternalFrame {  
-	 
-	    public vCadCliente() {
-	        super("Cadastro Cliente",
+public class vMovPedido extends JInternalFrame{
+
+	  public vMovPedido(){
+	        super("Pedidos",
 	              false, //resizable
 	               true, //closable
 	              false, //maximizable
@@ -19,3 +16,4 @@ public class vCadCliente extends JInternalFrame {
 	 
 	     }
 	 }
+
