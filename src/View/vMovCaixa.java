@@ -2,17 +2,12 @@ package View;
 
 import javax.swing.JInternalFrame;
 
-public class vMovCaixa extends JInternalFrame{
+public class vMovCaixa extends vTelaPadrao{
 
 	  public vMovCaixa(){
-	        super("Caixa - Recebimento",
-	              false, //resizable
-	               true, //closable
-	              false, //maximizable
-	               false);//iconifiable  
+	        super("Caixa - Recebimento");
 	        
-	        
-	        setSize(800,500);  
+	       
 	 
 	     }
 	 }
