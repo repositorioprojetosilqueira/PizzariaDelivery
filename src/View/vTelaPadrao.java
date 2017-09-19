@@ -17,7 +17,7 @@ public class vTelaPadrao extends JInternalFrame {
         super(titulo);
 	        
         BorderLayout border = new BorderLayout();
-        	 
+        	  
         	this.setSize(800,500);
         	
         	this.setLayout(border);
