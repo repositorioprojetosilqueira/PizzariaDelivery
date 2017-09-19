@@ -13,3 +13,4 @@ public class vCadCliente extends vTelaPadrao {
 	        this.setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/cliente16x16.png")));
 	    }
 	 }
+ 
