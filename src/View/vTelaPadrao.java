@@ -27,9 +27,10 @@ public class vTelaPadrao extends JInternalFrame {
             this.setMaximizable(false);
             this.setIconifiable(false);  
             
+            //this.setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/pedido.png")));
+          
             componentes();
-            
-        	this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         	
  
      }

@@ -46,7 +46,7 @@ public class vPrincipal extends JFrame implements ActionListener{
         setContentPane(desktopPane);
 		
 		this.setVisible(true);
-		
+		this.setIconImage(new ImageIcon(getClass().getResource("/imagens/pedido.png")).getImage());
 		JMenus();
 		configuraFrame();
 		painelLateral();
