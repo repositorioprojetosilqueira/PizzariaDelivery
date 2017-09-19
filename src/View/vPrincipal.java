@@ -37,13 +37,11 @@ public class vPrincipal extends JFrame{
 	
 	private JDesktopPane desktopPane;
 	
-	private vTelaCadUsuario frameUm;
+	private vCadUsuario frameUm;
 	
 	public vPrincipal() {
 		super("Pizzaria Delivery 1.0");
 
-		//BorderLayout border = new BorderLayout();
-		//this.setLayout(border);
 		JMenus();
 		
 		desktopPane = new JDesktopPane();
@@ -58,7 +56,6 @@ public class vPrincipal extends JFrame{
 		this.setSize(800, 600);
 		this.setLocationRelativeTo(null);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH); //Janela Maximizada
-		
 		
 		//this.addWindowListener((WindowListener) this);				
 		
@@ -106,7 +103,7 @@ public class vPrincipal extends JFrame{
             public void actionPerformed(ActionEvent evt){
  
                 if(frameUm == null){
-                    frameUm = new vTelaCadUsuario();
+                    frameUm = new vCadUsuario();
                     frameUm.setLocation(((desktopPane.getWidth()/2) - (frameUm.getWidth()/2)), 
                     					((desktopPane.getHeight()/2) - (frameUm.getHeight()/2)) - 20);
                     frameUm.setVisible(true);

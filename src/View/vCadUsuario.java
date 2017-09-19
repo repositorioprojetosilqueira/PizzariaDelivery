@@ -1,15 +1,20 @@
 package View;
-
 import javax.swing.JInternalFrame;
-
-public class vCadUsuario extends JInternalFrame{
-	
-	public vCadUsuario() {
-		super("Cadastro Usuário");
-		this.setSize(800,600);
-		this.setVisible(true);
-		
-		
-	}
-
-}
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.JPanel;
+ 
+public class vCadUsuario extends JInternalFrame {  
+ 
+    public vCadUsuario() {
+        super("Cadastro Usuário",
+              false, //resizable
+               true, //closable
+              false, //maximizable
+               false);//iconifiable  
+        
+        
+        setSize(800,500);  
+ 
+     }
+ }
