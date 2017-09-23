@@ -28,13 +28,13 @@ public class vTelaPadrao extends JInternalFrame {
             this.setIconifiable(false);  
             
             //this.setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/pedido.png")));
-          
+ 
             
+            
+            this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            this.setVisible(true);
             
             componentes();
-            this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        	
- 
      }
     
 		    private void componentes() {
@@ -42,9 +42,11 @@ public class vTelaPadrao extends JInternalFrame {
 			
 			jpTop = new paineis(150, 150);
 			jpCentro = new paineis(50,50);
-			jpCentro.setLocation(10,10);
-			//jpCentro.setBackground(Color.black);
+			jpCentro.setBackground(Color.BLUE);
+			//jpCentro.setLocation(200,10);
 			jpCentro.setLayout(null);
+			//jpCentro.setBackground(Color.black);
+			
 		
 			jbNovo = new botoes("Novo");
 			jbSalvar = new botoes("Salvar");

@@ -32,6 +32,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private vCadUsuario vCadUsuario;
 	private vCadCliente vCadCliente;
 	private vCadProduto vCadProduto;
+	private vCadTeste vCadTeste;
 	private vMovPedido vMovPedido;
 	private vMovCaixa vMovCaixa;
 	
@@ -101,7 +102,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private void painelLateral(){
 		GridLayout gl = new GridLayout(3, 1);
 		
-		jpAtalhosLateral = new paineis(110, 310);
+		jpAtalhosLateral = new paineis(130, 400);
 		
 		FlowLayout fl = new FlowLayout();
 		
@@ -175,7 +176,8 @@ public class vPrincipal extends JFrame implements ActionListener{
 	        }
 	    }
 
-	private void apareceCliente() {
+	/*private void apareceCliente() {
+		
 		if(vCadCliente == null){
         	vCadCliente = new vCadCliente();
         	vCadCliente.setLocation(((desktopPane.getWidth()/2) - (vCadCliente.getWidth()/2)), 
@@ -187,7 +189,21 @@ public class vPrincipal extends JFrame implements ActionListener{
         	vCadCliente.setVisible(true);
             desktopPane.add(vCadCliente);
         }
-	}
+	}*/
+		private void apareceCliente() {
+				
+				if(vCadTeste== null){
+					vCadTeste = new vCadTeste();
+					vCadTeste.setLocation(((desktopPane.getWidth()/2) - (vCadTeste.getWidth()/2)), 
+		            					((desktopPane.getHeight()/2) - (vCadTeste.getHeight()/2)) - 20);
+					vCadTeste.setVisible(true);
+		            desktopPane.add(vCadTeste);
+		        }
+		        else if(!vCadCliente.isVisible()){
+		        	vCadCliente.setVisible(true);
+		            desktopPane.add(vCadCliente);
+		        }
+			}
 	
 	private void apareceProduto() {
 		
