@@ -23,7 +23,7 @@ public class vCadTeste extends vTelaPadrao {
 	 */
 		public vCadTeste() {
 			super("Teste");
-		setBounds(100, 100, 533, 481);
+		setBounds(100, 100, 790, 489);
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.SOUTH);
