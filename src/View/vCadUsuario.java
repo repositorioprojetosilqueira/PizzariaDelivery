@@ -16,7 +16,7 @@ public class vCadUsuario extends vTelaPadrao {
  private paineis jpCentro = new paineis(10, 10);
  
     public vCadUsuario() {
-        super("Cadastro Usuário");  
+        super("Cadastro Usuário","/imagens/cliente16x16.png");  
         inilayout();
  
      }
