@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Event;
 import java.awt.FlowLayout;
 import java.awt.GraphicsEnvironment;
@@ -32,7 +33,6 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private vCadUsuario vCadUsuario;
 	private vCadCliente vCadCliente;
 	private vCadProduto vCadProduto;
-	private vCadTeste vCadTeste;
 	private vMovPedido vMovPedido;
 	private vMovCaixa vMovCaixa;
 	
@@ -178,7 +178,8 @@ public class vPrincipal extends JFrame implements ActionListener{
 	        }
 	    }
 
-	/*private void apareceCliente() {
+
+	private void apareceCliente() {
 		
 		if(vCadCliente == null){
         	vCadCliente = new vCadCliente();
@@ -191,21 +192,7 @@ public class vPrincipal extends JFrame implements ActionListener{
         	vCadCliente.setVisible(true);
             desktopPane.add(vCadCliente);
         }
-	}*/
-		private void apareceCliente() {
-				
-				if(vCadTeste== null){
-					vCadTeste = new vCadTeste();
-					vCadTeste.setLocation(((desktopPane.getWidth()/2) - (vCadTeste.getWidth()/2)), 
-		            					((desktopPane.getHeight()/2) - (vCadTeste.getHeight()/2)) - 20);
-					vCadTeste.setVisible(true);
-		            desktopPane.add(vCadTeste);
-		        }
-		        else if(!vCadTeste.isVisible()){
-		        	vCadTeste.setVisible(true);
-		            desktopPane.add(vCadTeste);
-		        }
-			}
+	}
 	
 	private void apareceProduto() {
 		
@@ -222,9 +209,11 @@ public class vPrincipal extends JFrame implements ActionListener{
         }
 	}
 	
+	
 	private void apareceCaixa() {
         if(vMovCaixa == null){
         	vMovCaixa = new vMovCaixa();
+        	
         	vMovCaixa.setLocation(((desktopPane.getWidth()/2) - (vMovCaixa.getWidth()/2)), 
             					((desktopPane.getHeight()/2) - (vMovCaixa.getHeight()/2)) - 20);
         	vMovCaixa.setVisible(true);
