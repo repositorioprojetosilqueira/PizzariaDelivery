@@ -22,7 +22,8 @@ public class main {
 		} catch (Exception e) {
 		    // If Nimbus is not available, you can set the GUI to another look and feel.
 		}
-		/*try {   
+		/*
+		try {   
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());  
        } catch (UnsupportedLookAndFeelException ex) {  
             ex.printStackTrace();  
@@ -32,7 +33,7 @@ public class main {
             ex.printStackTrace();  
        } catch (ClassNotFoundException ex) {  
             ex.printStackTrace();  
-       }  */
+       } */
 		       new vPrincipal();
 		 
 		
