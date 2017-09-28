@@ -21,8 +21,8 @@ import javax.swing.JMenuItem;
 public class vPrincipal extends JFrame implements ActionListener{
 	private JMenuBar jMbar;
 	
-	private JMenu jMnCadastro, jMnMovimento;
-	private JMenuItem jMiUsuario, jMiCliente, jMiProdutos, jMiPedidos, jMiCaixa;
+	private JMenu jMnCadastro, jMnMovimento, jMnProduto;
+	private JMenuItem jMiUsuario, jMiCliente, jMiProdutos, jMiAdicionais, jMiPedidos, jMiCaixa;
 	
 	private paineis jpAtalhosLateral; 
 	
@@ -35,6 +35,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private vCadProduto vCadProduto;
 	private vMovPedido vMovPedido;
 	private vMovCaixa vMovCaixa;
+	private grafica.gAdicionais gAdicionais;
 	
 	public vPrincipal() {
 		super("Pizzaria Delivery 1.0");
@@ -69,15 +70,26 @@ public class vPrincipal extends JFrame implements ActionListener{
 		
 		jMiUsuario = new JMenuItem("Usuário");
 		jMiCliente = new JMenuItem("Cliente");
+		
+		jMnProduto = new JMenu("Produto");
+		
 		jMiProdutos = new JMenuItem("Produtos");
+		jMiAdicionais = new JMenuItem("Adicionais");
+		
 		
 		jMiUsuario.addActionListener(this);
  		jMiCliente.addActionListener(this);
 		jMiProdutos.addActionListener(this);
+		jMiAdicionais.addActionListener(this);
 		
 		jMnCadastro.add(jMiUsuario);
 		jMnCadastro.add(jMiCliente);
-		jMnCadastro.add(jMiProdutos);
+		
+		jMnProduto.add(jMiProdutos);
+		jMnProduto.add(jMiAdicionais);
+		
+		jMnCadastro.add(jMnProduto);
+		
 
 		jMnMovimento = new JMenu("Movimento");
 		
@@ -155,6 +167,9 @@ public class vPrincipal extends JFrame implements ActionListener{
 		if(evento.getSource() == jMiProdutos)
 			apareceProduto();
 		
+		if(evento.getSource() == jMiAdicionais)
+			apareceAdicionais();
+		
 		if(evento.getSource() == jMiCaixa || evento.getSource() == jbAtalhoCaixa)
 			apareceCaixa();
 		
@@ -162,7 +177,19 @@ public class vPrincipal extends JFrame implements ActionListener{
 			aparecePedido();
 	}	
 		
-	
+	private void apareceAdicionais() {
+		if(gAdicionais == null){
+			gAdicionais = new grafica.gAdicionais();
+			gAdicionais.setLocation(((desktopPane.getWidth()/2) - (gAdicionais.getWidth()/2)), 
+            					((desktopPane.getHeight()/2) - (gAdicionais.getHeight()/2)) - 20);
+			gAdicionais.setVisible(true);
+            desktopPane.add(gAdicionais);
+        }
+        else if(!gAdicionais.isVisible()){
+        	gAdicionais.setVisible(true);
+            desktopPane.add(gAdicionais);
+        }
+	}
 	
 	private void apareceUsuario() {
 			if(vCadUsuario == null){

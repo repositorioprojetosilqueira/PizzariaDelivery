@@ -52,7 +52,7 @@ public class gUsuario extends vTelaPadrao {
 		panel.add(lblLogin);
 		
 		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setBounds(464, 81, 46, 14);
+		lblTelefone.setBounds(464, 71, 46, 14);
 		panel.add(lblTelefone);
 		
 		textField = new JTextField();
@@ -70,7 +70,7 @@ public class gUsuario extends vTelaPadrao {
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(520, 78, 100, 20);
+		textField_2.setBounds(520, 68, 100, 20);
 		panel.add(textField_2);
 		textField_2.setColumns(10);
 		
