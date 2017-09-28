@@ -110,6 +110,8 @@ public class vPrincipal extends JFrame implements ActionListener{
 		
 		jbAtalhoCliente = new botoes( 100, 100);
 		jbAtalhoCliente.setIcon(new ImageIcon(getClass().getResource("/imagens/cliente.png")));
+		jbAtalhoCliente.setContentAreaFilled(false);
+		jbAtalhoCliente.setBorderPainted(false);
 		
 		jbAtalhoCliente.addActionListener(this);
 		
