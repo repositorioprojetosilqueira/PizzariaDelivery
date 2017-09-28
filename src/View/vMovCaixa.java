@@ -6,9 +6,8 @@ import javax.swing.JInternalFrame;
 public class vMovCaixa extends vTelaPadrao{
 
 	  public vMovCaixa(){
-	        super("Caixa - Recebimento");
+	        super("Caixa - Recebimento","/imagens/caixa16x16.png");
 	        
-	        this.setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/caixa16x16.png")));
-	 
+	   
 	     }
 	 }

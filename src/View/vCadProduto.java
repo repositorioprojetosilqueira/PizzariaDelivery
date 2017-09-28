@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 public class vCadProduto extends vTelaPadrao{
 	
 	public vCadProduto() {
-		super("Cadastro Produto");
+		super("Cadastro Produto","/imagens/cliente16x16.png");
 		
 	}
 

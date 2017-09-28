@@ -13,8 +13,8 @@ public class vCadCliente extends vTelaPadrao {
 	 private paineis jpCentro= new paineis(150, 150);
 	 
 	    public vCadCliente() {
-	        super("Cadastro Cliente");  
-	        this.setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/cliente16x16.png")));
+	        super("Cadastro Cliente","/imagens/cliente16x16.png");  
+	        
 	        this.setVisible(true);
 	       
 	        componentes();

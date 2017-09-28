@@ -6,9 +6,10 @@ import javax.swing.JInternalFrame;
 public class vMovPedido extends vTelaPadrao{
 
 	  public vMovPedido(){
-	        super("Pedidos");  
+	        super("Pedidos","/imagens/pedido16x16.png");  
 	        
-	        this.setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/pedido16x16.png")));
+	        
+	        
 	     } 
 	 }
 
