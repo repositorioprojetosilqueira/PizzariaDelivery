@@ -12,7 +12,7 @@ import View.vPrincipal;
 public class main {
 
 	public static void main(String[] args) { 
-		try {
+		/*try {
 		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
 		        if ("Nimbus".equals(info.getName())) {
 		            UIManager.setLookAndFeel(info.getClassName());
@@ -21,8 +21,8 @@ public class main {
 		    }
 		} catch (Exception e) {
 		    // If Nimbus is not available, you can set the GUI to another look and feel.
-		}
-		/*
+		}*/
+		
 		try {   
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());  
        } catch (UnsupportedLookAndFeelException ex) {  
@@ -33,7 +33,7 @@ public class main {
             ex.printStackTrace();  
        } catch (ClassNotFoundException ex) {  
             ex.printStackTrace();  
-       } */
+       } 
 		       new vPrincipal();
 		 
 		
