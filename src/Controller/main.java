@@ -21,7 +21,7 @@ public class main {
 		    }
 		} catch (Exception e) {
 		    // If Nimbus is not available, you can set the GUI to another look and feel.
-		}*/
+		}*///
 		
 		try {   
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());  
