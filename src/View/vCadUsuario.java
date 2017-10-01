@@ -1,6 +1,10 @@
 package View;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 
@@ -8,9 +12,14 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JToggleButton;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+
+import org.eclipse.wb.swing.FocusTraversalOnArray;
  
 public class vCadUsuario extends vTelaPadrao {  
  private paineis jpCentro = new paineis(10, 10);
@@ -22,8 +31,9 @@ public class vCadUsuario extends vTelaPadrao {
      }
     private void inilayout() {
     	
-    jpCentro.setLayout(null);
-	
+    jpCentro.setLayout(null);  
+   
+    
 	JTextField textField = new JTextField();
 	textField.setBounds(118, 86, 86, 20);
 	jpCentro.add(textField);
