@@ -15,14 +15,16 @@ import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
 import View.vPrincipal;
+import View.vTelaPadrao;
 
-public class gProduto extends vPrincipal{
+public class gProduto extends vTelaPadrao{
 
 	private JFrame frame;
 	private JTable table;
 
 	
 	public gProduto() {
+		super("Produto","");
 		initialize();
 	}
 

@@ -240,7 +240,22 @@ public class vPrincipal extends JFrame implements ActionListener{
         }
 	}
 	*/
-	private void apareceProduto() {
+		
+		private void apareceProduto() {
+			
+			if(gProduto == null){
+				gProduto = new grafica.gProduto();
+				gProduto.setLocation(((desktopPane.getWidth()/2) - (gProduto.getWidth()/2)), 
+	            					((desktopPane.getHeight()/2) - (gProduto.getHeight()/2)) - 20);
+				gProduto.setVisible(true);
+	            desktopPane.add(gProduto);
+	        }
+	        else if(!gProduto.isVisible()){
+	        	gProduto.setVisible(true);
+	            desktopPane.add(gProduto);
+	        }
+		}
+	/*private void apareceProduto() {
 		
 		if(vCadProduto == null){
 			vCadProduto = new vCadProduto();
@@ -253,7 +268,7 @@ public class vPrincipal extends JFrame implements ActionListener{
         	vCadCliente.setVisible(true);
             desktopPane.add(vCadCliente);
         }
-	}
+	}*/
 	
 	
 	private void apareceCaixa() {
