@@ -24,9 +24,9 @@ import javax.swing.JScrollPane;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
+
 import java.awt.Component;
-import net.miginfocom.swing.MigLayout;
+
 import javax.swing.JSeparator;
 
 public class gCliente   {
@@ -61,7 +61,7 @@ public class gCliente   {
 		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		panel_1.add(lblPesquisar);
 		panel_1.add(textField);
-		panel_1.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblPesquisar, textField}));
+		//panel_1.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblPesquisar, textField}));
 		
 		JPanel panel_2 = new JPanel();
 		frame.getContentPane().add(panel_2, BorderLayout.CENTER);

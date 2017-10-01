@@ -19,7 +19,7 @@ import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import org.eclipse.wb.swing.FocusTraversalOnArray;
+
  
 public class vCadUsuario extends vTelaPadrao {  
  private paineis jpCentro = new paineis(10, 10);
