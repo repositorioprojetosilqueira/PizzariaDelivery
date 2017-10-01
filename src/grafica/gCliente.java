@@ -45,17 +45,10 @@ public class gCliente extends vTelaPadrao{
 
 	public gCliente() {
 		super("Cadastro Cliente", "");
-		initialize();
-	}
-
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 616, 375);
 		
-				
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(null);
-		frame.getContentPane().add(panel_1, BorderLayout.WEST);
+		getContentPane().add(panel_1, BorderLayout.CENTER);
 		
 		JLabel lblPesquisar = new JLabel("Pesquisar :");
 		lblPesquisar.setHorizontalAlignment(SwingConstants.LEFT);
@@ -68,7 +61,7 @@ public class gCliente extends vTelaPadrao{
 		//panel_1.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblPesquisar, textField}));
 		
 		JPanel panel_2 = new JPanel();
-		frame.getContentPane().add(panel_2, BorderLayout.CENTER);
+		getContentPane().add(panel_2, BorderLayout.CENTER);
 		
 		JLabel lblNome = new JLabel("Nome: ");
 		lblNome.setBounds(42, 8, 34, 14);
@@ -151,5 +144,13 @@ public class gCliente extends vTelaPadrao{
 		textArea_1.setWrapStyleWord(true);
 		textArea_1.setBounds(42, 236, 256, 39);
 		panel_2.add(textArea_1);
+	}
+
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 616, 375);
+		
+				
+
 	}
 }
