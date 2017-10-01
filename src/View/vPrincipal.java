@@ -17,6 +17,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import grafica.gCliente;
+
 
 public class vPrincipal extends JFrame implements ActionListener{
 	private JMenuBar jMbar;
@@ -36,6 +38,8 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private vMovPedido vMovPedido;
 	private vMovCaixa vMovCaixa;
 	private grafica.gAdicionais gAdicionais;
+	private grafica.gCliente gCliente;
+	private grafica.gProduto gProduto;
 	
 	public vPrincipal() {
 		super("Pizzaria Delivery 1.0");
@@ -208,7 +212,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 
 	private void apareceCliente() {
 		
-		if(vCadCliente == null){
+		if(gCliente == null){
         	vCadCliente = new vCadCliente();
         	vCadCliente.setLocation(((desktopPane.getWidth()/2) - (vCadCliente.getWidth()/2)), 
             					((desktopPane.getHeight()/2) - (vCadCliente.getHeight()/2)) - 20);
