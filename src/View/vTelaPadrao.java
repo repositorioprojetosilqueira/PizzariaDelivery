@@ -44,10 +44,10 @@ public class vTelaPadrao extends JInternalFrame {
 		
 			
 			jpTop = new paineis(150, 150);
-			jpCentro = new paineis(50,50);
+			//jpCentro = new paineis(50,50);
 			//jpCentro.setBackground(Color.BLUE);
 			//jpCentro.setLocation(200,10);
-			jpCentro.setLayout(null);
+			//jpCentro.setLayout(null);
 			//jpCentro.setBackground(Color.black);
 			
 		
@@ -72,6 +72,6 @@ public class vTelaPadrao extends JInternalFrame {
 			jpTop.add(jbCancelar);
 			
 			this.add(jpTop, BorderLayout.NORTH);
-			this.add(jpCentro, BorderLayout.CENTER);
+			//this.add(jpCentro, BorderLayout.CENTER);
 		}
 }

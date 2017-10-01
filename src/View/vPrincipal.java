@@ -31,6 +31,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private JDesktopPane desktopPane;
 	
 	private vCadUsuario vCadUsuario;
+	private grafica.gCliente gCliente;
 	private vCadCliente vCadCliente;
 	private vCadProduto vCadProduto;
 	private vMovPedido vMovPedido;
@@ -122,8 +123,6 @@ public class vPrincipal extends JFrame implements ActionListener{
 		
 		jbAtalhoCliente = new botoes( 100, 100);
 		jbAtalhoCliente.setIcon(new ImageIcon(getClass().getResource("/imagens/cliente.png")));
-		jbAtalhoCliente.setContentAreaFilled(false);
-		jbAtalhoCliente.setBorderPainted(false);
 		
 		jbAtalhoCliente.addActionListener(this);
 		
@@ -204,9 +203,25 @@ public class vPrincipal extends JFrame implements ActionListener{
 	            desktopPane.add(vCadUsuario);
 	        }
 	    }
+	
+		private void apareceCliente() {
+				
+				if(gCliente == null){
+					gCliente = new grafica.gCliente();
+					gCliente.setLocation(((desktopPane.getWidth()/2) - (gCliente.getWidth()/2)), 
+		            					((desktopPane.getHeight()/2) - (gCliente.getHeight()/2)) - 20);
+					gCliente.setVisible(true);
+		            desktopPane.add(gCliente);
+		        }
+		        else if(!gCliente.isVisible()){
+		        	gCliente.setVisible(true);
+		            desktopPane.add(gCliente);
+		        }
+			}
+	
+	
 
-
-	private void apareceCliente() {
+	/*private void apareceCliente() {
 		
 		if(vCadCliente == null){
         	vCadCliente = new vCadCliente();
@@ -220,7 +235,7 @@ public class vPrincipal extends JFrame implements ActionListener{
             desktopPane.add(vCadCliente);
         }
 	}
-	
+	*/
 	private void apareceProduto() {
 		
 		if(vCadProduto == null){

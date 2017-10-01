@@ -23,13 +23,16 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
+
+import View.vTelaPadrao;
+
 import java.awt.Color;
 
 import java.awt.Component;
 
 import javax.swing.JSeparator;
 
-public class gCliente   {
+public class gCliente extends vTelaPadrao{
 
 	private JFrame frame;
 	private JTextField textField;
@@ -41,6 +44,7 @@ public class gCliente   {
 
 
 	public gCliente() {
+		super("Cadastro Cliente", "");
 		initialize();
 	}
 
