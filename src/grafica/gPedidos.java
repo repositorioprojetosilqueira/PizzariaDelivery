@@ -1,6 +1,7 @@
 package grafica;
 
 import java.awt.EventQueue;
+import java.beans.PropertyVetoException;
 
 import javax.swing.JInternalFrame;
 
@@ -18,5 +19,7 @@ public class gPedidos extends vTelaPadrao {
 
 	public gPedidos() {
 			super("Pedidos", " ");
+		
 	}
+	
 }

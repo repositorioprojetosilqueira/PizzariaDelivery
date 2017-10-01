@@ -20,7 +20,7 @@ public class gAdicionais extends vTelaPadrao {
 
 	public gAdicionais() {
 		super("Adicionais", "");
-		setBounds(100, 100, 584, 328);
+		//setBounds(100, 100, 584, 328);
 		
 		JLabel label = new JLabel("Descri\u00E7\u00E3o:");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
