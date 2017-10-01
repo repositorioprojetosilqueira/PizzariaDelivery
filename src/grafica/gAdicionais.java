@@ -22,42 +22,38 @@ public class gAdicionais extends vTelaPadrao {
 		super("Adicionais", "");
 		setBounds(100, 100, 584, 328);
 		
-		JPanel panel = new JPanel();
-		getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
-		
-		JLabel lblDescrio = new JLabel("Descri\u00E7\u00E3o:");
-		lblDescrio.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblDescrio.setBounds(223, 36, 71, 14);
-		panel.add(lblDescrio);
+		JLabel label = new JLabel("Descri\u00E7\u00E3o:");
+		label.setHorizontalAlignment(SwingConstants.RIGHT);
+		label.setBounds(154, 39, 71, 14);
+		jpCentro.add(label);
 		
 		textField = new JTextField();
-		textField.setBounds(304, 28, 222, 30);
-		panel.add(textField);
 		textField.setColumns(10);
+		textField.setBounds(235, 31, 222, 30);
+		jpCentro.add(textField);
 		
-		JLabel lblTipo = new JLabel("Tipo:");
-		lblTipo.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblTipo.setBounds(223, 94, 71, 14);
-		panel.add(lblTipo);
+		JLabel label_1 = new JLabel("Tipo:");
+		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		label_1.setBounds(154, 97, 71, 14);
+		jpCentro.add(label_1);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(304, 86, 157, 30);
-		panel.add(comboBox);
+		comboBox.setBounds(235, 89, 157, 30);
+		jpCentro.add(comboBox);
 		
-		JLabel lblPreo = new JLabel("Pre\u00E7o:");
-		lblPreo.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPreo.setBounds(223, 152, 72, 14);
-		panel.add(lblPreo);
+		JLabel label_2 = new JLabel("Pre\u00E7o:");
+		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
+		label_2.setBounds(154, 155, 72, 14);
+		jpCentro.add(label_2);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(304, 144, 86, 30);
-		panel.add(textField_1);
 		textField_1.setColumns(10);
+		textField_1.setBounds(235, 147, 86, 30);
+		jpCentro.add(textField_1);
 		
-		JCheckBox chckbxDesativar = new JCheckBox("Desativar");
-		chckbxDesativar.setBounds(293, 202, 97, 23);
-		panel.add(chckbxDesativar);
+		JCheckBox checkBox = new JCheckBox("Desativar");
+		checkBox.setBounds(224, 205, 97, 23);
+		jpCentro.add(checkBox);
 
 	}
 }

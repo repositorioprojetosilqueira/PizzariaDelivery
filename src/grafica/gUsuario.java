@@ -31,74 +31,70 @@ public class gUsuario extends vTelaPadrao {
 		super("Cadastro Usuário","/imagens/cliente16x16.png");
 		setBounds(100, 100, 653, 322);
 		
-		JPanel panel = new JPanel();
-		getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		JLabel label = new JLabel("Nome:");
+		label.setBounds(151, 31, 34, 14);
+		jpCentro.add(label);
 		
-		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(209, 27, 34, 14);
-		panel.add(lblNome);
+		JLabel label_1 = new JLabel("E-mail:");
+		label_1.setBounds(151, 75, 34, 14);
+		jpCentro.add(label_1);
 		
-		JLabel lblEmail = new JLabel("E-mail:");
-		lblEmail.setBounds(209, 71, 34, 14);
-		panel.add(lblEmail);
+		JLabel label_2 = new JLabel("Fun\u00E7\u00E3o: ");
+		label_2.setBounds(151, 123, 46, 14);
+		jpCentro.add(label_2);
 		
-		JLabel lblFuno = new JLabel("Fun\u00E7\u00E3o: ");
-		lblFuno.setBounds(209, 119, 46, 14);
-		panel.add(lblFuno);
+		JLabel label_3 = new JLabel("Login:");
+		label_3.setBounds(151, 167, 34, 14);
+		jpCentro.add(label_3);
 		
-		JLabel lblLogin = new JLabel("Login:");
-		lblLogin.setBounds(209, 163, 34, 14);
-		panel.add(lblLogin);
-		
-		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setBounds(464, 71, 46, 14);
-		panel.add(lblTelefone);
+		JLabel label_4 = new JLabel("Telefone:");
+		label_4.setBounds(406, 75, 46, 14);
+		jpCentro.add(label_4);
 		
 		textField = new JTextField();
-		textField.setBounds(250, 24, 370, 20);
-		panel.add(textField);
 		textField.setColumns(10);
+		textField.setBounds(192, 28, 370, 20);
+		jpCentro.add(textField);
 		
-		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setBounds(372, 163, 34, 14);
-		panel.add(lblSenha);
+		JLabel label_5 = new JLabel("Senha:");
+		label_5.setBounds(314, 167, 34, 14);
+		jpCentro.add(label_5);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(250, 68, 192, 20);
-		panel.add(textField_1);
 		textField_1.setColumns(10);
+		textField_1.setBounds(192, 72, 192, 20);
+		jpCentro.add(textField_1);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(520, 68, 100, 20);
-		panel.add(textField_2);
 		textField_2.setColumns(10);
+		textField_2.setBounds(462, 72, 100, 20);
+		jpCentro.add(textField_2);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Administrador");
-		rdbtnNewRadioButton.setBounds(261, 116, 109, 20);
-		panel.add(rdbtnNewRadioButton);
+		JRadioButton radioButton = new JRadioButton("Administrador");
+		radioButton.setBounds(203, 120, 109, 20);
+		jpCentro.add(radioButton);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Atendente");
-		rdbtnNewRadioButton_1.setSelected(true);
-		rdbtnNewRadioButton_1.setBounds(372, 115, 86, 23);
-		panel.add(rdbtnNewRadioButton_1);
+		JRadioButton radioButton_1 = new JRadioButton("Atendente");
+		radioButton_1.setSelected(true);
+		radioButton_1.setBounds(314, 119, 86, 23);
+		jpCentro.add(radioButton_1);
 		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Entregador");
-		rdbtnNewRadioButton_2.setBounds(464, 115, 109, 23);
-		panel.add(rdbtnNewRadioButton_2);
+		JRadioButton radioButton_2 = new JRadioButton("Entregador");
+		radioButton_2.setBounds(406, 119, 109, 23);
+		jpCentro.add(radioButton_2);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(250, 156, 105, 20);
-		panel.add(textField_3);
 		textField_3.setColumns(10);
+		textField_3.setBounds(192, 160, 105, 20);
+		jpCentro.add(textField_3);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(416, 160, 123, 20);
-		panel.add(passwordField);
+		passwordField.setBounds(358, 164, 123, 20);
+		jpCentro.add(passwordField);
 		
-		JCheckBox chckbxDesativarUsurio = new JCheckBox("Desativar");
-		chckbxDesativarUsurio.setBounds(209, 200, 71, 23);
-		panel.add(chckbxDesativarUsurio);
+		JCheckBox checkBox = new JCheckBox("Desativar");
+		checkBox.setBounds(151, 204, 71, 23);
+		jpCentro.add(checkBox);
 
 	}
 }

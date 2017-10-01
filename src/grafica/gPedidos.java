@@ -6,15 +6,17 @@ import javax.swing.JInternalFrame;
 
 import View.vTelaPadrao;
 import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JRadioButton;
+import javax.swing.JPasswordField;
+import javax.swing.SwingConstants;
+import javax.swing.JComboBox;
 
 public class gPedidos extends vTelaPadrao {
 
 
 	public gPedidos() {
 			super("Pedidos", " ");
-			
-			JCheckBox chckbxNewCheckBox = new JCheckBox("New check box");
-			chckbxNewCheckBox.setBounds(133, 107, 97, 23);
-			jpCentro.add(chckbxNewCheckBox);
 	}
 }
