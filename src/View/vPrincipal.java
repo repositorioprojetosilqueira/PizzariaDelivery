@@ -33,7 +33,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private JDesktopPane desktopPane;
 	
 	private vCadUsuario vCadUsuario;
-	private grafica.gCliente gCliente;
+	
 	private vCadCliente vCadCliente;
 	private vCadProduto vCadProduto;
 	private vMovPedido vMovPedido;
