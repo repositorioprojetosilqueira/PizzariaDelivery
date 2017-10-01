@@ -39,6 +39,7 @@ public class vTelaPadrao extends JInternalFrame {
             
             componentes();
             this.setVisible(true);
+           
             
      }
     

@@ -34,7 +34,7 @@ import javax.swing.JSeparator;
 
 public class gCliente extends vTelaPadrao{
 
-	private JFrame frame;
+	
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -146,11 +146,5 @@ public class gCliente extends vTelaPadrao{
 		panel_2.add(textArea_1);
 	}
 
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 616, 375);
-		
-				
 
-	}
 }

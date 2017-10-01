@@ -189,7 +189,9 @@ public class vPrincipal extends JFrame implements ActionListener{
 			gAdicionais.setLocation(((desktopPane.getWidth()/2) - (gAdicionais.getWidth()/2)), 
             					((desktopPane.getHeight()/2) - (gAdicionais.getHeight()/2)) - 20);
 			gAdicionais.setVisible(true);
+			
             desktopPane.add(gAdicionais);
+            
         }
         else if(!gAdicionais.isVisible()){
         	gAdicionais.setVisible(true);

@@ -53,8 +53,11 @@ public class gUsuario extends vTelaPadrao {
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(192, 28, 370, 20);
-		textField.setFocusable(true);
+		textField.setText("Boi de Pinga Jogojogadoçasdf");
+		textField.setBounds(192, 28, 370, 30);
+		
+		
+		
 		jpCentro.add(textField);
 		
 		JLabel label_5 = new JLabel("Senha:");
@@ -63,39 +66,40 @@ public class gUsuario extends vTelaPadrao {
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(192, 72, 192, 20);
+		textField_1.setBounds(192, 72, 192, 30);
 		jpCentro.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(462, 72, 100, 20);
+		textField_2.setBounds(462, 72, 100, 30);
 		jpCentro.add(textField_2);
 		
 		JRadioButton radioButton = new JRadioButton("Administrador");
-		radioButton.setBounds(203, 120, 109, 20);
+		radioButton.setBounds(203, 120, 109, 30);
 		jpCentro.add(radioButton);
 		
 		JRadioButton radioButton_1 = new JRadioButton("Atendente");
 		radioButton_1.setSelected(true);
-		radioButton_1.setBounds(314, 119, 86, 23);
+		radioButton_1.setBounds(314, 119, 86, 33);
 		jpCentro.add(radioButton_1);
 		
 		JRadioButton radioButton_2 = new JRadioButton("Entregador");
-		radioButton_2.setBounds(406, 119, 109, 23);
+		radioButton_2.setBounds(406, 119, 109, 33);
 		jpCentro.add(radioButton_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(192, 160, 105, 20);
+		textField_3.setBounds(192, 160, 105, 30);
 		jpCentro.add(textField_3);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(358, 164, 123, 20);
+		passwordField.setBounds(358, 164, 123, 30);
 		jpCentro.add(passwordField);
 		
 		JCheckBox checkBox = new JCheckBox("Desativar");
-		checkBox.setBounds(151, 204, 71, 23);
+		checkBox.setBounds(151, 204, 71, 33);
 		jpCentro.add(checkBox);
-
+		
+		
 	}
 }
