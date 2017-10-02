@@ -41,7 +41,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private vMovPedido vMovPedido;
 	private vMovCaixa vMovCaixa;
 	private grafica.gAdicionais gAdicionais;
-	private grafica.gCliente gCliente;
+	private grafica.gCadCliente gCadCliente;
 	private grafica.gProduto gProduto;
 	private grafica.gUsuario gUsuario;
 	
@@ -229,16 +229,16 @@ public class vPrincipal extends JFrame implements ActionListener{
 	*/
 		private void apareceCliente() {
 				
-				if(gCliente == null){
-					gCliente = new grafica.gCliente();
-					gCliente.setLocation(((desktopPane.getWidth()/2) - (gCliente.getWidth()/2)), 
-		            					((desktopPane.getHeight()/2) - (gCliente.getHeight()/2)) - 20);
-					gCliente.setVisible(true);
-		            desktopPane.add(gCliente);
+				if(gCadCliente == null){
+					gCadCliente = new grafica.gCadCliente();
+					gCadCliente.setLocation(((desktopPane.getWidth()/2) - (gCadCliente.getWidth()/2)), 
+		            					((desktopPane.getHeight()/2) - (gCadCliente.getHeight()/2)) - 20);
+					gCadCliente.setVisible(true);
+		            desktopPane.add(gCadCliente);
 		        }
-		        else if(!gCliente.isVisible()){
-		        	gCliente.setVisible(true);
-		            desktopPane.add(gCliente);
+		        else if(!gCadCliente.isVisible()){
+		        	gCadCliente.setVisible(true);
+		            desktopPane.add(gCadCliente);
 		        }
 			}
 	

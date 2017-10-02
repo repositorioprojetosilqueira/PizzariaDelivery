@@ -22,87 +22,94 @@ public class gCadCliente extends vTelaPadrao {
 	private JTextField textField_4;
 
 	public gCadCliente() {
-	super("Cadastro Cliente","");
+	super("Cadastro Cliente","/imagens/cliente16x16.png");
 	
 	JLabel label = new JLabel("Nome: ");
-	label.setBounds(275, 31, 34, 14);
+	label.setHorizontalAlignment(SwingConstants.RIGHT);
+	label.setBounds(275, 28, 67, 14);
 	jpCentro.add(label);
+	
+	JLabel label_1 = new JLabel("Telefone 1: ");
+	label_1.setHorizontalAlignment(SwingConstants.RIGHT);
+	label_1.setBounds(275, 75, 67, 14);
+	jpCentro.add(label_1);
+	
+	JLabel label_2 = new JLabel("Telefone 2:");
+	label_2.setHorizontalAlignment(SwingConstants.RIGHT);
+	label_2.setBounds(479, 75, 73, 14);
+	jpCentro.add(label_2);
+	
+	JLabel label_3 = new JLabel("Logradouro:");
+	label_3.setHorizontalAlignment(SwingConstants.RIGHT);
+	label_3.setBounds(260, 128, 82, 14);
+	jpCentro.add(label_3);
+	
+	JLabel label_4 = new JLabel("N\u00BA:");
+	label_4.setHorizontalAlignment(SwingConstants.RIGHT);
+	label_4.setBounds(637, 128, 44, 14);
+	jpCentro.add(label_4);
+	
+	JLabel label_5 = new JLabel("Complemento:");
+	label_5.setHorizontalAlignment(SwingConstants.RIGHT);
+	label_5.setBounds(269, 228, 86, 14);
+	jpCentro.add(label_5);
+	
+	JLabel label_6 = new JLabel("Bairro:");
+	label_6.setHorizontalAlignment(SwingConstants.RIGHT);
+	label_6.setBounds(275, 176, 67, 14);
+	jpCentro.add(label_6);
+	
+	JLabel label_7 = new JLabel("Refer\u00EAncia de Entrega:");
+	label_7.setBounds(277, 261, 173, 14);
+	jpCentro.add(label_7);
+	
+	JLabel label_8 = new JLabel("Historico de Compras: ");
+	label_8.setBounds(275, 361, 175, 14);
+	jpCentro.add(label_8);
 	
 	textField = new JTextField();
 	textField.setColumns(10);
-	textField.setBounds(308, 26, 476, 20);
+	textField.setBounds(343, 20, 427, 30);
 	jpCentro.add(textField);
 	
-	JLabel label_1 = new JLabel("Telefone 1: ");
-	label_1.setBounds(275, 75, 58, 14);
-	jpCentro.add(label_1);
-	
 	JFormattedTextField formattedTextField = new JFormattedTextField();
-	formattedTextField.setBounds(343, 72, 92, 20);
+	formattedTextField.setBounds(343, 67, 126, 30);
 	jpCentro.add(formattedTextField);
 	
-	JLabel label_2 = new JLabel("Telefone 2:");
-	label_2.setBounds(522, 75, 55, 14);
-	jpCentro.add(label_2);
-	
 	JFormattedTextField formattedTextField_1 = new JFormattedTextField();
-	formattedTextField_1.setBounds(587, 72, 92, 20);
+	formattedTextField_1.setBounds(555, 67, 126, 30);
 	jpCentro.add(formattedTextField_1);
-	
-	JLabel label_3 = new JLabel("Logradouro:");
-	label_3.setBounds(275, 121, 68, 14);
-	jpCentro.add(label_3);
 	
 	textField_1 = new JTextField();
 	textField_1.setColumns(10);
-	textField_1.setBounds(343, 118, 304, 20);
+	textField_1.setBounds(343, 120, 304, 30);
 	jpCentro.add(textField_1);
-	
-	JLabel label_4 = new JLabel("N\u00BA:");
-	label_4.setBounds(657, 121, 22, 14);
-	jpCentro.add(label_4);
 	
 	textField_2 = new JTextField();
 	textField_2.setColumns(10);
-	textField_2.setBounds(678, 118, 42, 20);
+	textField_2.setBounds(688, 121, 82, 30);
 	jpCentro.add(textField_2);
-	
-	JLabel label_5 = new JLabel("Complemento:");
-	label_5.setBounds(275, 166, 80, 14);
-	jpCentro.add(label_5);
 	
 	textField_3 = new JTextField();
 	textField_3.setColumns(10);
-	textField_3.setBounds(353, 164, 127, 20);
+	textField_3.setBounds(367, 220, 152, 30);
 	jpCentro.add(textField_3);
-	
-	JLabel label_6 = new JLabel("Bairro:");
-	label_6.setBounds(275, 213, 34, 14);
-	jpCentro.add(label_6);
 	
 	textField_4 = new JTextField();
 	textField_4.setColumns(10);
-	textField_4.setBounds(319, 210, 328, 20);
+	textField_4.setBounds(343, 168, 304, 30);
 	jpCentro.add(textField_4);
-	
-	JLabel label_7 = new JLabel("Refer\u00EAncia de Entrega:");
-	label_7.setBounds(275, 247, 146, 14);
-	jpCentro.add(label_7);
 	
 	JTextArea textArea = new JTextArea();
 	textArea.setWrapStyleWord(true);
 	textArea.setLineWrap(true);
-	textArea.setBounds(277, 267, 507, 73);
+	textArea.setBounds(276, 281, 494, 73);
 	jpCentro.add(textArea);
-	
-	JLabel label_8 = new JLabel("Historico de Compras: ");
-	label_8.setBounds(277, 351, 120, 14);
-	jpCentro.add(label_8);
 	
 	JTextArea textArea_1 = new JTextArea();
 	textArea_1.setWrapStyleWord(true);
 	textArea_1.setLineWrap(true);
-	textArea_1.setBounds(275, 376, 507, 40);
+	textArea_1.setBounds(275, 376, 494, 40);
 	jpCentro.add(textArea_1);
 	}
 
