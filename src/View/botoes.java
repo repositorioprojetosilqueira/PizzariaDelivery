@@ -8,7 +8,7 @@ public class botoes extends JButton {
 	
 	public botoes(String Titulo,int lar,int alt){		
 		super(Titulo);
-		setSize(50, 50);
+		setSize(lar, alt);
 		setLocation(lar, alt);		
 	}
 	public botoes(int lar,int alt){		

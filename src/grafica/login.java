@@ -34,6 +34,7 @@ public class login extends JFrame {
 		
 		setBounds(100, 100, 452, 243);
 		
+		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
@@ -57,14 +58,14 @@ public class login extends JFrame {
 		passwordField.setBounds(227, 112, 181, 30);
 		panel.add(passwordField);
 		
-		jbCancelar = new botoes("Sair");
+		jbCancelar = new botoes("Sair", 110, 40);
 		jbCancelar.setIcon(new ImageIcon(getClass().getResource("/imagens/exit.png")));
-		jbCancelar.setLocation(50,50);
+		jbCancelar.setLocation(170,160);
 		
 		
-		jbAcessar = new botoes("Acessar");
+		jbAcessar = new botoes("Acessar", 110, 40);
 		jbAcessar.setIcon(new ImageIcon(getClass().getResource("/imagens/acessar.png")));
-		jbAcessar.setLocation(150,150);
+		jbAcessar.setLocation(300,160);
 		
 		panel.add(jbAcessar);
 		panel.add(jbCancelar);
