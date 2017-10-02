@@ -33,24 +33,25 @@ public class gCadCliente extends vTelaPadrao {
 	}
 	
 	private void initLayout() {
+		
 		JLabel label = new JLabel("Nome: ");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
-		label.setBounds(290, 28, 67, 14);
+		label.setBounds(300, 28, 67, 14);
 		jpCentro.add(label);
 		
-		JLabel label_1 = new JLabel("Telefone 1: ");
+		JLabel label_1 = new JLabel("Telefone: ");
 		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_1.setBounds(290, 75, 67, 14);
+		label_1.setBounds(300, 75, 67, 14);
 		jpCentro.add(label_1);
 		
-		JLabel label_2 = new JLabel("Telefone 2:");
+		JLabel label_2 = new JLabel("Telefone:");
 		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_2.setBounds(560, 75, 73, 14);
+		label_2.setBounds(547, 75, 73, 14);
 		jpCentro.add(label_2);
 		
-		JLabel label_3 = new JLabel("Logradouro:");
+		JLabel label_3 = new JLabel("Rua:");
 		label_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_3.setBounds(275, 128, 82, 14);
+		label_3.setBounds(285, 128, 82, 14);
 		jpCentro.add(label_3);
 		
 		JLabel label_4 = new JLabel("N\u00BA:");
@@ -65,7 +66,7 @@ public class gCadCliente extends vTelaPadrao {
 		
 		JLabel label_6 = new JLabel("Bairro:");
 		label_6.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_6.setBounds(299, 177, 58, 14);
+		label_6.setBounds(309, 177, 58, 14);
 		jpCentro.add(label_6);
 		
 		JLabel label_7 = new JLabel("Refer\u00EAncia de Entrega:");
@@ -78,48 +79,60 @@ public class gCadCliente extends vTelaPadrao {
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(367, 20, 405, 30);
-		jpCentro.add(textField);
+		textField.setBounds(377, 20, 395, 30);
+		
 		
 		JFormattedTextField formattedTextField = new JFormattedTextField();
-		formattedTextField.setBounds(367, 67, 126, 30);
-		jpCentro.add(formattedTextField);
+		formattedTextField.setBounds(377, 67, 142, 30);
+		
 		
 		JFormattedTextField formattedTextField_1 = new JFormattedTextField();
-		formattedTextField_1.setBounds(646, 67, 126, 30);
-		jpCentro.add(formattedTextField_1);
+		formattedTextField_1.setBounds(630, 67, 142, 30);
+		
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(367, 120, 279, 30);
-		jpCentro.add(textField_1);
+		textField_1.setBounds(377, 120, 256, 30);
+		
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
 		textField_2.setBounds(690, 120, 82, 30);
-		jpCentro.add(textField_2);
+		
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
 		textField_3.setBounds(635, 169, 137, 30);
-		jpCentro.add(textField_3);
+		
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(367, 169, 173, 30);
-		jpCentro.add(textField_4);
+		textField_4.setBounds(377, 169, 173, 30);
+		
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setWrapStyleWord(true);
 		textArea.setLineWrap(true);
 		textArea.setBounds(332, 248, 440, 73);
-		jpCentro.add(textArea);
+		
 		
 		JTextArea textArea_1 = new JTextArea();
 		textArea_1.setWrapStyleWord(true);
 		textArea_1.setLineWrap(true);
 		textArea_1.setBounds(332, 357, 440, 48);
+		
+		
+		jpCentro.add(textField);
+		jpCentro.add(formattedTextField);
+		jpCentro.add(formattedTextField_1);
+		jpCentro.add(textField_1);
+		jpCentro.add(textField_2);
+		jpCentro.add(textField_3);
+		jpCentro.add(textField_4);
+		jpCentro.add(textArea);
 		jpCentro.add(textArea_1);
+		
+		textField.setNextFocusableComponent(formattedTextField);
 	}
 	
 private void listagem() {
