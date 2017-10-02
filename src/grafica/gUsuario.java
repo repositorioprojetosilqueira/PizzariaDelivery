@@ -36,7 +36,15 @@ public class gUsuario extends vTelaPadrao {
 
 	public gUsuario() {
 		super("Cadastro Usuário","/imagens/cliente16x16.png");
-		setBounds(100, 100, 674, 317);
+		
+		initLayout();
+		
+		listagem();
+		
+	}
+	
+	private void initLayout() {
+		setBounds(100, 100, 674, 320);
 		
 		JLabel label = new JLabel("Nome:");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -116,9 +124,6 @@ public class gUsuario extends vTelaPadrao {
 		checkBox.setHorizontalAlignment(SwingConstants.LEFT);
 		checkBox.setBounds(549, 204, 100, 33);
 		jpCentro.add(checkBox);
-		
-		listagem();
-		
 	}
 	
 	private void listagem() {
@@ -134,7 +139,7 @@ public class gUsuario extends vTelaPadrao {
 		{" ", " "}			
 		};
 		
-		lista(colunas, FonteDeDados,220, 244);
+		lista(colunas, FonteDeDados,220, this.getHeight()-124);
 	}
 	
 	
