@@ -38,7 +38,7 @@ public class main {
        } */
 				
 				
-				new vPrincipal();
+				//new vPrincipal();
 				new login();
 		 
 		

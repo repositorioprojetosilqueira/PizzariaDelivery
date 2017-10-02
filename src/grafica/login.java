@@ -1,21 +1,29 @@
 package grafica;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
+import java.awt.Event;
+
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import org.omg.CORBA.Principal;
+
 import View.botoes;
+import View.vPrincipal;
 
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 
-public class login extends JFrame {
+public class login extends JDialog implements ActionListener {
 	private JTextField textField;
 	private JPasswordField passwordField;
 
@@ -23,11 +31,17 @@ public class login extends JFrame {
 	
 	public login() {
 			
-		super("Pizzaria Delivery"); 
+		super(); 
 
 		//this.setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/pedido.png")));
 			initLayout();
+			this.setTitle("Pizzaria Delivery");
+			
+			this.setLocationRelativeTo(null);
 			this.setVisible(true);
+			this.setResizable(false);
+			this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+						
 	}
 	
 	private void initLayout() {
@@ -69,5 +83,20 @@ public class login extends JFrame {
 		
 		panel.add(jbAcessar);
 		panel.add(jbCancelar);
+		jbAcessar.addActionListener(this);
+		jbCancelar.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+		if(e.getSource()==jbAcessar) {
+			new vPrincipal();
+			this.dispose();
+		}
+		if(e.getSource()==(jbCancelar))
+			System.exit(0);
+		
 	}
 }
