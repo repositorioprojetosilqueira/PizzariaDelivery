@@ -54,6 +54,7 @@ public class gUsuario extends vTelaPadrao {
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.setBounds(192, 28, 370, 20);
+		textField.setFocusable(true);
 		jpCentro.add(textField);
 		
 		JLabel label_5 = new JLabel("Senha:");

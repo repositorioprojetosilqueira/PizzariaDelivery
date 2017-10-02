@@ -12,7 +12,7 @@ public class vTelaPadrao extends JInternalFrame {
 		private paineis jpTop;
 		public paineis jpCentro;
 		
-		private botoes jbNovo, jbSalvar, jbEditar, jbExcluir, jbCancelar;
+		public botoes jbNovo, jbSalvar, jbEditar, jbExcluir, jbCancelar;
 	 
     public vTelaPadrao(String titulo, String IconeTela) {
         super(titulo);
@@ -35,9 +35,11 @@ public class vTelaPadrao extends JInternalFrame {
             
             
             this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            this.setVisible(true);
+            
             
             componentes();
+            this.setVisible(true);
+            
      }
     
 		    private void componentes() {

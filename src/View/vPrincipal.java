@@ -34,6 +34,8 @@ public class vPrincipal extends JFrame implements ActionListener{
 	
 	private vCadUsuario vCadUsuario;
 	
+	
+	
 	private vCadCliente vCadCliente;
 	private vCadProduto vCadProduto;
 	private vMovPedido vMovPedido;
@@ -41,6 +43,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private grafica.gAdicionais gAdicionais;
 	private grafica.gCliente gCliente;
 	private grafica.gProduto gProduto;
+	private grafica.gUsuario gUsuario;
 	
 	public vPrincipal() {
 		super("Pizzaria Delivery 1.0");
@@ -193,8 +196,22 @@ public class vPrincipal extends JFrame implements ActionListener{
             desktopPane.add(gAdicionais);
         }
 	}
-	
 	private void apareceUsuario() {
+		if(gUsuario == null){
+            gUsuario = new grafica.gUsuario();
+            gUsuario.setLocation(((desktopPane.getWidth()/2) - (gUsuario.getWidth()/2)), 
+            					((desktopPane.getHeight()/2) - (gUsuario.getHeight()/2)) - 20);
+            gUsuario.setVisible(true);
+            desktopPane.add(gUsuario);
+        }
+        else if(!gUsuario.isVisible()){
+            gUsuario.setVisible(true);
+            desktopPane.add(gUsuario);
+        }
+    }
+
+	
+	/*private void apareceUsuario() {
 			if(vCadUsuario == null){
 	            vCadUsuario = new vCadUsuario();
 	            vCadUsuario.setLocation(((desktopPane.getWidth()/2) - (vCadUsuario.getWidth()/2)), 
@@ -207,7 +224,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 	            desktopPane.add(vCadUsuario);
 	        }
 	    }
-	
+	*/
 		private void apareceCliente() {
 				
 				if(gCliente == null){
