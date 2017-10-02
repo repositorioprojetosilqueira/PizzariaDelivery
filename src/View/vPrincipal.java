@@ -123,7 +123,6 @@ public class vPrincipal extends JFrame implements ActionListener{
 		
 		jpAtalhosLateral = new paineis(130, 400);
 		
-		FlowLayout fl = new FlowLayout();
 		
 		jpAtalhosLateral.setLayout(gl);
 		
