@@ -7,6 +7,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import View.vPrincipal;
+import grafica.login;
 
 
 public class main {
@@ -35,7 +36,10 @@ public class main {
        } catch (ClassNotFoundException ex) {  
             ex.printStackTrace();  
        } */
-		       new vPrincipal();
+				
+				
+				new vPrincipal();
+				new login();
 		 
 		
 	}
