@@ -32,7 +32,7 @@ public class gAdicionais extends vTelaPadrao {
 		private void initLayout() {
 				setBounds(100, 100, 674, 320);
 				
-				JLabel label = new JLabel("Descri\u00E7\u00E3o:");
+				JLabel label = new JLabel("Descrição:");
 				label.setHorizontalAlignment(SwingConstants.RIGHT);
 				label.setBounds(312, 34, 71, 14);
 				jpCentro.add(label);
@@ -51,7 +51,7 @@ public class gAdicionais extends vTelaPadrao {
 				comboBox.setBounds(393, 82, 241, 30);
 				jpCentro.add(comboBox);
 				
-				JLabel label_2 = new JLabel("Pre\u00E7o:");
+				JLabel label_2 = new JLabel("Preço:");
 				label_2.setHorizontalAlignment(SwingConstants.RIGHT);
 				label_2.setBounds(311, 146, 72, 14);
 				jpCentro.add(label_2);
@@ -64,6 +64,8 @@ public class gAdicionais extends vTelaPadrao {
 				JCheckBox checkBox = new JCheckBox("Desativar");
 				checkBox.setBounds(393, 204, 97, 23);
 				jpCentro.add(checkBox);
+				
+				
 			}
 		
 		private void listagem() {
