@@ -7,9 +7,13 @@ import javax.swing.JInternalFrame;
 import View.vTelaPadrao;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Color;
+
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
+import javax.swing.BorderFactory;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
@@ -19,6 +23,8 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
+import javax.swing.SwingConstants;
+import javax.swing.ButtonGroup;
 
 public class gUsuario extends vTelaPadrao {
 	private JTextField textField;
@@ -26,76 +32,110 @@ public class gUsuario extends vTelaPadrao {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JPasswordField passwordField;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	public gUsuario() {
 		super("Cadastro Usuário","/imagens/cliente16x16.png");
-		setBounds(100, 100, 653, 322);
+		setBounds(100, 100, 674, 317);
 		
 		JLabel label = new JLabel("Nome:");
-		label.setBounds(151, 31, 34, 14);
+		label.setHorizontalAlignment(SwingConstants.RIGHT);
+		label.setBounds(218, 25, 54, 14);
 		jpCentro.add(label);
 		
 		JLabel label_1 = new JLabel("E-mail:");
-		label_1.setBounds(151, 75, 34, 14);
+		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		label_1.setBounds(218, 120, 54, 14);
 		jpCentro.add(label_1);
 		
 		JLabel label_2 = new JLabel("Fun\u00E7\u00E3o: ");
-		label_2.setBounds(151, 123, 46, 14);
+		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
+		label_2.setBounds(218, 72, 66, 14);
 		jpCentro.add(label_2);
 		
 		JLabel label_3 = new JLabel("Login:");
-		label_3.setBounds(151, 167, 34, 14);
+		label_3.setHorizontalAlignment(SwingConstants.RIGHT);
+		label_3.setBounds(218, 168, 54, 14);
 		jpCentro.add(label_3);
 		
 		JLabel label_4 = new JLabel("Telefone:");
-		label_4.setBounds(406, 75, 46, 14);
+		label_4.setHorizontalAlignment(SwingConstants.RIGHT);
+		label_4.setBounds(472, 120, 66, 14);
 		jpCentro.add(label_4);
+		
+		JLabel label_5 = new JLabel("Senha:");
+		label_5.setHorizontalAlignment(SwingConstants.RIGHT);
+		label_5.setBounds(443, 168, 54, 14);
+		jpCentro.add(label_5);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(192, 28, 370, 20);
-		textField.setFocusable(true);
-		jpCentro.add(textField);
+		textField.setText("Boi de Pinga Jogojogadoçasdf");
+		textField.setBounds(279, 17, 370, 30);
 		
-		JLabel label_5 = new JLabel("Senha:");
-		label_5.setBounds(314, 167, 34, 14);
-		jpCentro.add(label_5);
+		
+		
+		jpCentro.add(textField);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(192, 72, 192, 20);
+		textField_1.setBounds(282, 112, 191, 30);
 		jpCentro.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(462, 72, 100, 20);
+		textField_2.setBounds(540, 112, 109, 30);
 		jpCentro.add(textField_2);
 		
 		JRadioButton radioButton = new JRadioButton("Administrador");
-		radioButton.setBounds(203, 120, 109, 20);
+		buttonGroup.add(radioButton);
+		radioButton.setBounds(290, 63, 109, 33);
 		jpCentro.add(radioButton);
 		
 		JRadioButton radioButton_1 = new JRadioButton("Atendente");
+		buttonGroup.add(radioButton_1);
 		radioButton_1.setSelected(true);
-		radioButton_1.setBounds(314, 119, 86, 23);
+		radioButton_1.setBounds(431, 63, 100, 33);
 		jpCentro.add(radioButton_1);
 		
 		JRadioButton radioButton_2 = new JRadioButton("Entregador");
-		radioButton_2.setBounds(406, 119, 109, 23);
+		buttonGroup.add(radioButton_2);
+		radioButton_2.setBounds(540, 63, 109, 33);
 		jpCentro.add(radioButton_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(192, 160, 105, 20);
+		textField_3.setBounds(282, 160, 158, 30);
 		jpCentro.add(textField_3);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(358, 164, 123, 20);
+		passwordField.setBounds(507, 158, 142, 30);
 		jpCentro.add(passwordField);
 		
 		JCheckBox checkBox = new JCheckBox("Desativar");
-		checkBox.setBounds(151, 204, 71, 23);
+		checkBox.setHorizontalAlignment(SwingConstants.LEFT);
+		checkBox.setBounds(549, 204, 100, 33);
 		jpCentro.add(checkBox);
-
+		
+		listagem();
+		
 	}
+	
+	private void listagem() {
+		
+		String[] colunas = {"Nome","Login"};
+		Object[][] FonteDeDados= {
+		{"Antonio Silva", "aSilva"},
+		{"Bruno Gomes", "bGomes"},
+		{"Douglas Bernard", "dBernard"},
+		{"Everaldo Junior", "eJunior"},
+		{"Fernanda Pacheco", "fPacheco "},
+		{"Geovanna Antunes", "gAntunes"},
+		{" ", " "}			
+		};
+		
+		lista(colunas, FonteDeDados,220, 244);
+	}
+	
+	
 }

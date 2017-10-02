@@ -6,14 +6,22 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
 
 public class vTelaPadrao extends JInternalFrame {  
 		private paineis jpTop;
 		public paineis jpCentro;
 		
 		public botoes jbNovo, jbSalvar, jbEditar, jbExcluir, jbCancelar;
-	 
+		private JLabel jlPesquisa;
+		
+		private JTextField jtPesquisar;
+		
     public vTelaPadrao(String titulo, String IconeTela) {
         super(titulo);
 	        
@@ -39,6 +47,7 @@ public class vTelaPadrao extends JInternalFrame {
             
             componentes();
             this.setVisible(true);
+           
             
      }
     
@@ -74,7 +83,51 @@ public class vTelaPadrao extends JInternalFrame {
 			jpTop.add(jbExcluir);
 			jpTop.add(jbCancelar);
 			
+			
+			
+			//lista();
+			
 			this.add(jpTop, BorderLayout.NORTH);
 			this.add(jpCentro, BorderLayout.CENTER);
 		}
+		    
+		    
+		    public void lista(String[] col, Object[][] fonte, int width, int height) {
+		    	
+		    	jlPesquisa = new JLabel("Pesquisa:");
+				jlPesquisa.setBounds(10,5, 75,30);
+				
+				jtPesquisar = new JTextField();
+				jtPesquisar.setBounds(70, 8, 155, 30);
+				
+				jpCentro.add(jtPesquisar);
+				jpCentro.add(jlPesquisa);
+		    	
+		    	String[] colunas = col;
+				Object[][] FonteDeDados= fonte;
+				
+				
+			    JTable tabela  = new  JTable(new DefaultTableModel(FonteDeDados, colunas){  
+		            public boolean isCellEditable(int rowIndex, int mColIndex) {  
+		                return false;  
+		            }  
+		        });  
+			    
+				
+				tabela.getColumnModel().getColumn(0).setPreferredWidth(60);
+				
+				tabela.getColumnModel().getColumn(1).setPreferredWidth(20);
+				
+				JScrollPane scrollPane= new JScrollPane(tabela);
+				
+				tabela.setFillsViewportHeight(true);
+				tabela.setRowSelectionInterval(0,0);
+				
+				scrollPane.setBounds(5,40, width, height);
+				 
+				jpCentro.add(scrollPane);
+				//((DefaultTableModel)tabela.getModel()).addRow(new Vector()); //linha vazia
+				//((DefaultTableModel)tabela.getModel()).addRow( new Object[]{"005", "Raulivan","Matriculado"});
+				//Mais
+		    }
 }
