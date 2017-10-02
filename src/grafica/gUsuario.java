@@ -36,42 +36,42 @@ public class gUsuario extends vTelaPadrao {
 
 	public gUsuario() {
 		super("Cadastro Usuário","/imagens/cliente16x16.png");
-		setBounds(100, 100, 655, 329);
+		setBounds(100, 100, 674, 317);
 		
 		JLabel label = new JLabel("Nome:");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
-		label.setBounds(187, 28, 54, 14);
+		label.setBounds(218, 25, 54, 14);
 		jpCentro.add(label);
 		
 		JLabel label_1 = new JLabel("E-mail:");
 		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_1.setBounds(187, 119, 54, 14);
+		label_1.setBounds(218, 120, 54, 14);
 		jpCentro.add(label_1);
 		
 		JLabel label_2 = new JLabel("Fun\u00E7\u00E3o: ");
 		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_2.setBounds(187, 71, 66, 14);
+		label_2.setBounds(218, 72, 66, 14);
 		jpCentro.add(label_2);
 		
 		JLabel label_3 = new JLabel("Login:");
 		label_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_3.setBounds(187, 167, 54, 14);
+		label_3.setBounds(218, 168, 54, 14);
 		jpCentro.add(label_3);
 		
 		JLabel label_4 = new JLabel("Telefone:");
 		label_4.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_4.setBounds(441, 119, 66, 14);
+		label_4.setBounds(472, 120, 66, 14);
 		jpCentro.add(label_4);
 		
 		JLabel label_5 = new JLabel("Senha:");
 		label_5.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_5.setBounds(412, 167, 54, 14);
+		label_5.setBounds(443, 168, 54, 14);
 		jpCentro.add(label_5);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.setText("Boi de Pinga Jogojogadoçasdf");
-		textField.setBounds(248, 16, 370, 30);
+		textField.setBounds(279, 17, 370, 30);
 		
 		
 		
@@ -79,47 +79,49 @@ public class gUsuario extends vTelaPadrao {
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(251, 111, 191, 30);
+		textField_1.setBounds(282, 112, 191, 30);
 		jpCentro.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(509, 111, 109, 30);
+		textField_2.setBounds(540, 112, 109, 30);
 		jpCentro.add(textField_2);
 		
 		JRadioButton radioButton = new JRadioButton("Administrador");
 		buttonGroup.add(radioButton);
-		radioButton.setBounds(259, 62, 109, 33);
+		radioButton.setBounds(290, 63, 109, 33);
 		jpCentro.add(radioButton);
 		
 		JRadioButton radioButton_1 = new JRadioButton("Atendente");
 		buttonGroup.add(radioButton_1);
 		radioButton_1.setSelected(true);
-		radioButton_1.setBounds(400, 62, 100, 33);
+		radioButton_1.setBounds(431, 63, 100, 33);
 		jpCentro.add(radioButton_1);
 		
 		JRadioButton radioButton_2 = new JRadioButton("Entregador");
 		buttonGroup.add(radioButton_2);
-		radioButton_2.setBounds(509, 62, 109, 33);
+		radioButton_2.setBounds(540, 63, 109, 33);
 		jpCentro.add(radioButton_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(251, 159, 158, 30);
+		textField_3.setBounds(282, 160, 158, 30);
 		jpCentro.add(textField_3);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(476, 157, 142, 30);
+		passwordField.setBounds(507, 158, 142, 30);
 		jpCentro.add(passwordField);
 		
 		JCheckBox checkBox = new JCheckBox("Desativar");
 		checkBox.setHorizontalAlignment(SwingConstants.LEFT);
-		checkBox.setBounds(518, 203, 100, 33);
+		checkBox.setBounds(549, 204, 100, 33);
 		jpCentro.add(checkBox);
 		
-		lista();
+		listagem();
+		
 	}
-	private void lista() {
+	
+	private void listagem() {
 		
 		String[] colunas = {"Nome","Login"};
 		Object[][] FonteDeDados= {
@@ -132,27 +134,8 @@ public class gUsuario extends vTelaPadrao {
 		{" ", " "}			
 		};
 		
-		//JTable tabela = new JTable(new DefaultTableModel(FonteDeDados,colunas));
-	    JTable tabela  = new  JTable(new DefaultTableModel(FonteDeDados, colunas){  
-            public boolean isCellEditable(int rowIndex, int mColIndex) {  
-                return false;  
-            }  
-        });  
-
-
-		
-		tabela.getColumnModel().getColumn(0).setPreferredWidth(60);
-		
-		tabela.getColumnModel().getColumn(1).setPreferredWidth(20);
-		
-		JScrollPane scrollPane= new JScrollPane(tabela);
-		tabela.setFillsViewportHeight(true);
-		
-		scrollPane.setBounds(0,0,200, 350);
-		 
-		jpCentro.add(scrollPane);
-		//((DefaultTableModel)tabela.getModel()).addRow(new Vector()); //linha vazia
-		//((DefaultTableModel)tabela.getModel()).addRow( new Object[]{"005", "Raulivan","Matriculado"});
-		//Mais
-	}  
+		lista(colunas, FonteDeDados,220, 244);
+	}
+	
+	
 }

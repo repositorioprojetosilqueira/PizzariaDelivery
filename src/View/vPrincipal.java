@@ -187,7 +187,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 		if(gAdicionais == null){
 			gAdicionais = new grafica.gAdicionais();
 			gAdicionais.setLocation(((desktopPane.getWidth()/2) - (gAdicionais.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (gAdicionais.getHeight()/2)) - 20);
+            					((desktopPane.getHeight()/2) - (gAdicionais.getHeight()/2)) - 30);
 			gAdicionais.setVisible(true);
 			
             desktopPane.add(gAdicionais);
@@ -202,7 +202,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 		if(gUsuario == null){
             gUsuario = new grafica.gUsuario();
             gUsuario.setLocation(((desktopPane.getWidth()/2) - (gUsuario.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (gUsuario.getHeight()/2)) - 20);
+            					((desktopPane.getHeight()/2) - (gUsuario.getHeight()/2)) - 30);
             gUsuario.setVisible(true);
             desktopPane.add(gUsuario);
         }
@@ -232,7 +232,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 				if(gCadCliente == null){
 					gCadCliente = new grafica.gCadCliente();
 					gCadCliente.setLocation(((desktopPane.getWidth()/2) - (gCadCliente.getWidth()/2)), 
-		            					((desktopPane.getHeight()/2) - (gCadCliente.getHeight()/2)) - 20);
+		            					((desktopPane.getHeight()/2) - (gCadCliente.getHeight()/2)) - 30);
 					gCadCliente.setVisible(true);
 		            desktopPane.add(gCadCliente);
 		        }
@@ -264,7 +264,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 		if(vCadProduto == null){
 			vCadProduto = new vCadProduto();
 			vCadProduto.setLocation(((desktopPane.getWidth()/2) - (vCadProduto.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (vCadProduto.getHeight()/2)) - 20);
+            					((desktopPane.getHeight()/2) - (vCadProduto.getHeight()/2)) - 30);
 			vCadProduto.setVisible(true);
             desktopPane.add(vCadProduto);
         }
@@ -280,7 +280,7 @@ public class vPrincipal extends JFrame implements ActionListener{
         	vMovCaixa = new vMovCaixa();
         	
         	vMovCaixa.setLocation(((desktopPane.getWidth()/2) - (vMovCaixa.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (vMovCaixa.getHeight()/2)) - 20);
+            					((desktopPane.getHeight()/2) - (vMovCaixa.getHeight()/2)) - 30);
         	vMovCaixa.setVisible(true);
             desktopPane.add(vMovCaixa);
         }
@@ -294,7 +294,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 		if(vMovPedido == null){
         	vMovPedido = new vMovPedido();
         	vMovPedido.setLocation(((desktopPane.getWidth()/2) - (vMovPedido.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (vMovPedido.getHeight()/2)) - 20);
+            					((desktopPane.getHeight()/2) - (vMovPedido.getHeight()/2)) - 30);
         	vMovPedido.setVisible(true);
             desktopPane.add(vMovPedido);
         }
