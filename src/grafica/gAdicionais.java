@@ -21,7 +21,7 @@ public class gAdicionais extends vTelaPadrao {
 
 
 	public gAdicionais() {
-		super("Adicionais", "");
+		super("Adicionais", "/imagens/cliente16x16.png");
 		
 		initLayout();
 		
@@ -34,7 +34,7 @@ public class gAdicionais extends vTelaPadrao {
 				
 				JLabel label = new JLabel("Descrição:");
 				label.setHorizontalAlignment(SwingConstants.RIGHT);
-				label.setBounds(312, 34, 71, 14);
+				label.setBounds(312, 34, 71, 20);
 				jpCentro.add(label);
 				
 				textField = new JTextField();
@@ -44,7 +44,7 @@ public class gAdicionais extends vTelaPadrao {
 				
 				JLabel label_1 = new JLabel("Tipo:");
 				label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-				label_1.setBounds(312, 90, 71, 14);
+				label_1.setBounds(312, 90, 71, 20);
 				jpCentro.add(label_1);
 				
 				JComboBox comboBox = new JComboBox();
@@ -53,7 +53,7 @@ public class gAdicionais extends vTelaPadrao {
 				
 				JLabel label_2 = new JLabel("Preço:");
 				label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-				label_2.setBounds(311, 146, 72, 14);
+				label_2.setBounds(311, 146, 72, 20);
 				jpCentro.add(label_2);
 				
 				textField_1 = new JTextField();
@@ -62,7 +62,7 @@ public class gAdicionais extends vTelaPadrao {
 				jpCentro.add(textField_1);
 				
 				JCheckBox checkBox = new JCheckBox("Desativar");
-				checkBox.setBounds(393, 204, 97, 23);
+				checkBox.setBounds(393, 204, 97, 30);
 				jpCentro.add(checkBox);
 				
 				
