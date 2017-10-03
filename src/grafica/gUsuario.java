@@ -81,8 +81,6 @@ public class gUsuario extends vTelaPadrao {
 		textField.setText("Boi de Pinga Jogojogadoçasdf");
 		textField.setBounds(279, 17, 370, 30);
 		
-		
-		
 		jpCentro.add(textField);
 		
 		textField_1 = new JTextField();

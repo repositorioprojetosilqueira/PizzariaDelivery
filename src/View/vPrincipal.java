@@ -172,7 +172,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 		
 		if(evento.getSource() == jMiProdutos)
 			apareceProduto();
-		
+			
 		if(evento.getSource() == jMiAdicionais)
 			apareceAdicionais();
 		
@@ -189,15 +189,14 @@ public class vPrincipal extends JFrame implements ActionListener{
 			gAdicionais.setLocation(((desktopPane.getWidth()/2) - (gAdicionais.getWidth()/2)), 
             					((desktopPane.getHeight()/2) - (gAdicionais.getHeight()/2)) - 30);
 			gAdicionais.setVisible(true);
-			
             desktopPane.add(gAdicionais);
-            
         }
         else if(!gAdicionais.isVisible()){
         	gAdicionais.setVisible(true);
             desktopPane.add(gAdicionais);
         }
 	}
+	
 	private void apareceUsuario() {
 		if(gUsuario == null){
             gUsuario = new grafica.gUsuario();
@@ -212,21 +211,7 @@ public class vPrincipal extends JFrame implements ActionListener{
         }
     }
 
-	
-	/*private void apareceUsuario() {
-			if(vCadUsuario == null){
-	            vCadUsuario = new vCadUsuario();
-	            vCadUsuario.setLocation(((desktopPane.getWidth()/2) - (vCadUsuario.getWidth()/2)), 
-	            					((desktopPane.getHeight()/2) - (vCadUsuario.getHeight()/2)) - 20);
-	            vCadUsuario.setVisible(true);
-	            desktopPane.add(vCadUsuario);
-	        }
-	        else if(!vCadUsuario.isVisible()){
-	            vCadUsuario.setVisible(true);
-	            desktopPane.add(vCadUsuario);
-	        }
-	    }
-	*/
+
 		private void apareceCliente() {
 				
 				if(gCadCliente == null){
@@ -242,23 +227,6 @@ public class vPrincipal extends JFrame implements ActionListener{
 		        }
 			}
 	
-	
-
-	/*private void apareceCliente() {
-		
-		if(gCliente == null){
-        	vCadCliente = new vCadCliente();
-        	vCadCliente.setLocation(((desktopPane.getWidth()/2) - (vCadCliente.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (vCadCliente.getHeight()/2)) - 20);
-        	vCadCliente.setVisible(true);
-            desktopPane.add(vCadCliente);
-        }
-        else if(!vCadCliente.isVisible()){
-        	vCadCliente.setVisible(true);
-            desktopPane.add(vCadCliente);
-        }
-	}
-	*/
 		
 		private void apareceProduto() {
 			
@@ -274,20 +242,6 @@ public class vPrincipal extends JFrame implements ActionListener{
 	            desktopPane.add(gCadProduto);
 	        }
 		}
-	/*private void apareceProduto() {
-		
-		if(vCadProduto == null){
-			vCadProduto = new vCadProduto();
-			vCadProduto.setLocation(((desktopPane.getWidth()/2) - (vCadProduto.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (vCadProduto.getHeight()/2)) - 30);
-			vCadProduto.setVisible(true);
-            desktopPane.add(vCadProduto);
-        }
-        else if(!vCadCliente.isVisible()){
-        	vCadCliente.setVisible(true);
-            desktopPane.add(vCadCliente);
-        }
-	}*/
 	
 	
 	private void apareceCaixa() {

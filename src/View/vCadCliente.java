@@ -14,29 +14,7 @@ public class vCadCliente extends vTelaPadrao {
 	 
 	    public vCadCliente() {
 	        super("Cadastro Cliente","/imagens/cliente16x16.png");  
-	        
-	        this.setVisible(true);
-	       
-	        componentes();
-	        
-	    }
-	    private void componentes() {
-	    	FlowLayout fl = new FlowLayout();
-	    	jpCentro.setLayout(fl);
-	    	fl.setAlignment(fl.LEFT);
-	    	
-	    	
-	    	teste.setBounds(150, 150, 150, 50);
-	    	jpCentro.add(teste2);
-	    	jpCentro.add(teste);
-	    	
-	    	jpCentro.setLocation(50,50);
-	    	this.add(jpCentro);
-	    	
-	    	
-	    	
-	    	
-	    	
+
 	    }
 	 }
  

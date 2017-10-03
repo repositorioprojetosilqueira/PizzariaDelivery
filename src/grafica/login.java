@@ -26,6 +26,7 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 
 public class login extends JDialog implements ActionListener {
 	private JTextField textField;
@@ -39,17 +40,15 @@ public class login extends JDialog implements ActionListener {
 			
 		super(); 
 
-		//this.setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/pedido.png")));
+			
 			initLayout();
-			this.setTitle("Pizzaria Delivery");
 			
 			this.setLocationRelativeTo(null);
 			this.setUndecorated(true);
+			
+			//this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+			
 			this.setVisible(true);
-			this.setResizable(false);
-			this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-			
-			
 	}
 	
 	private void initLayout() {
@@ -63,33 +62,33 @@ public class login extends JDialog implements ActionListener {
 		
 		JLabel lblUsurio = new JLabel("Usu\u00E1rio:");
 		lblUsurio.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblUsurio.setBounds(151, 23, 66, 30);
+		lblUsurio.setBounds(143, 25, 66, 30);
 		panel.add(lblUsurio);
 		
 		textField = new JTextField();
-		textField.setBounds(227, 23, 181, 30);
+		textField.setBounds(219, 25, 181, 30);
 		panel.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblSenha = new JLabel("Senha: ");
 		lblSenha.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblSenha.setBounds(151, 86, 66, 30);
+		lblSenha.setBounds(143, 77, 66, 30);
 		panel.add(lblSenha);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(227, 86, 181, 30);
+		passwordField.setBounds(219, 77, 181, 30);
 		panel.add(passwordField);
 		
 		jbCancelar = new botoes("Sair", 110, 40);
 		jbCancelar.setSize(101, 35);
 		jbCancelar.setIcon(new ImageIcon(getClass().getResource("/imagens/exit.png")));
-		jbCancelar.setLocation(182,134);
+		jbCancelar.setLocation(174,137);
 		
 		
 		jbAcessar = new botoes("Acessar", 110, 40);
 		jbAcessar.setSize(101, 35);
 		jbAcessar.setIcon(new ImageIcon(getClass().getResource("/imagens/acessar.png")));
-		jbAcessar.setLocation(307,134);
+		jbAcessar.setLocation(299,137);
 		
 		passwordField.setNextFocusableComponent(jbAcessar);
 		
@@ -101,18 +100,19 @@ public class login extends JDialog implements ActionListener {
 		getContentPane().add(panel_1, BorderLayout.NORTH);
 		
 		lblAcessoPizzariaDelivery = new JLabel("Pizzaria Delivery 1.0");
+		lblAcessoPizzariaDelivery.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblAcessoPizzariaDelivery.setForeground(new Color(255, 255, 255));
 		panel_1.add(lblAcessoPizzariaDelivery);
 		
 
-		jbPedido= new botoes("");
-		jbPedido.setSize(120,120);
-		//ImageIcon im = new ImageIcon(getClass().getResource("/imagens/pedido.png"));
+
+		ImageIcon im = new ImageIcon(getClass().getResource("/imagens/pedido.png"));
 		
-		jbPedido.setIcon(new ImageIcon(getClass().getResource("/imagens/pedido.png")));
-		jbPedido.setLocation(10,10);
+		JLabel iLogin = new JLabel(im);
+		iLogin.setBounds(35,25, 110, 110);
+		iLogin.setVisible(true);
 		
-		panel.add(jbPedido);
+		panel.add(iLogin);
 		
 		
 		jbAcessar.addActionListener(this);
