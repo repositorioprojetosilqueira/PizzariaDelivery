@@ -93,12 +93,12 @@ public class gPedido extends vTelaPadrao {
 		textField_6.setColumns(10);
 		
 		textField_7 = new JTextField();
-		textField_7.setBounds(420, 8, 201, 20);
+		textField_7.setBounds(351, 8, 201, 20);
 		jpCentro.add(textField_7);
 		textField_7.setColumns(10);
 		
 		JLabel lblDescrio = new JLabel("Descri\u00E7\u00E3o:");
-		lblDescrio.setBounds(349, 11, 61, 14);
+		lblDescrio.setBounds(296, 11, 61, 14);
 		jpCentro.add(lblDescrio);
 		
 		JButton btnBusca_1 = new JButton("Busca");
