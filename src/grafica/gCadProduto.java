@@ -77,6 +77,7 @@ public class gCadProduto extends vTelaPadrao {
 				{"Vegetariana", "R$ 20,00"},
 				{"Suco Lata", "R$ 2,50"},
 				{"Portuguesa", "R$ 22,00"},
+				{"Palmito", "R$22,00"},
 				{" ", " "}			
 				};
 				
