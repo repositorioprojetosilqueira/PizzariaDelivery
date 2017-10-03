@@ -21,21 +21,21 @@ public class gPedido extends vTelaPadrao {
 
 
 	public gPedido() {
-		super("Pedido", "/imagens/pedido16x16.png");
+		super("Pedido", "");
 		setBounds(100, 100, 809, 415);
 		jpCentro.setLayout(null);
 		
 		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setBounds(10, 11, 46, 14);
+		lblTelefone.setBounds(10, 11, 61, 14);
 		jpCentro.add(lblTelefone);
 		
 		textField = new JTextField();
-		textField.setBounds(66, 8, 86, 20);
+		textField.setBounds(81, 8, 86, 20);
 		jpCentro.add(textField);
 		textField.setColumns(10);
 		
 		JButton btnBusca = new JButton("Busca");
-		btnBusca.setBounds(167, 7, 61, 23);
+		btnBusca.setBounds(177, 7, 61, 23);
 		jpCentro.add(btnBusca);
 		
 		JLabel lblCliente = new JLabel("Cliente:");
@@ -58,11 +58,11 @@ public class gPedido extends vTelaPadrao {
 		textField_3.setColumns(10);
 		
 		JLabel lblTelefone_1 = new JLabel("Telefone");
-		lblTelefone_1.setBounds(10, 67, 46, 14);
+		lblTelefone_1.setBounds(10, 67, 61, 14);
 		jpCentro.add(lblTelefone_1);
 		
 		JLabel label = new JLabel("Telefone");
-		label.setBounds(120, 67, 46, 14);
+		label.setBounds(120, 67, 61, 14);
 		jpCentro.add(label);
 		
 		textField_4 = new JTextField();
@@ -84,7 +84,7 @@ public class gPedido extends vTelaPadrao {
 		jpCentro.add(lblBairro);
 		
 		JLabel lblReferncia = new JLabel("Refer\u00EAncia:");
-		lblReferncia.setBounds(10, 189, 61, 14);
+		lblReferncia.setBounds(10, 189, 76, 14);
 		jpCentro.add(lblReferncia);
 		
 		textField_6 = new JTextField();
@@ -102,7 +102,7 @@ public class gPedido extends vTelaPadrao {
 		jpCentro.add(lblDescrio);
 		
 		JButton btnBusca_1 = new JButton("Busca");
-		btnBusca_1.setBounds(650, 7, 76, 23);
+		btnBusca_1.setBounds(597, 7, 76, 23);
 		jpCentro.add(btnBusca_1);
 
 	}
