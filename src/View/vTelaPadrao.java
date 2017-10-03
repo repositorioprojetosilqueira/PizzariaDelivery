@@ -13,9 +13,12 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
+import grafica.painelCliente;
+
 public class vTelaPadrao extends JInternalFrame {  
 		private paineis jpTop;
 		public paineis jpCentro;
+		public painelCliente pCliente;
 		
 		public botoes jbNovo, jbSalvar, jbEditar, jbExcluir, jbCancelar;
 		private JLabel jlPesquisa;
@@ -133,4 +136,6 @@ public class vTelaPadrao extends JInternalFrame {
 				//((DefaultTableModel)tabela.getModel()).addRow( new Object[]{"005", "Raulivan","Matriculado"});
 				//Mais
 		    }
+		    
+		    
 }

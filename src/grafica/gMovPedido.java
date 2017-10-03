@@ -19,10 +19,11 @@ public class gMovPedido extends vTelaPadrao {
 	private JTextField textField_7;
 	private JTextField textField_8;
 	
+	
 	public gMovPedido() {
 		
 		super("Pedido", "/imagens/pedido16x16.png");
-		setBounds(100, 100, 809, 415);
+		
 		jpCentro.setLayout(null);
 		
 		JLabel lblTelefone = new JLabel("Telefone:");
@@ -114,7 +115,6 @@ public class gMovPedido extends vTelaPadrao {
 		jpCentro.add(textField_8);
 		textField_8.setColumns(10);	
 		
-
 	}
 
 }
