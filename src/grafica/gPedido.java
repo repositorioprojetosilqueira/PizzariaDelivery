@@ -21,7 +21,7 @@ public class gPedido extends vTelaPadrao {
 
 
 	public gPedido() {
-		super("Pedido", "");
+		super("Pedido", "/imagens/pedido16x16.png");
 		setBounds(100, 100, 809, 415);
 		jpCentro.setLayout(null);
 		
