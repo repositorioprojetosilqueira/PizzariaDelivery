@@ -17,6 +17,7 @@ public class gPedido extends vTelaPadrao {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private JTextField textField_7;
 
 
 	public gPedido() {
@@ -90,6 +91,19 @@ public class gPedido extends vTelaPadrao {
 		textField_6.setBounds(10, 204, 218, 20);
 		jpCentro.add(textField_6);
 		textField_6.setColumns(10);
+		
+		textField_7 = new JTextField();
+		textField_7.setBounds(420, 8, 201, 20);
+		jpCentro.add(textField_7);
+		textField_7.setColumns(10);
+		
+		JLabel lblDescrio = new JLabel("Descri\u00E7\u00E3o:");
+		lblDescrio.setBounds(349, 11, 61, 14);
+		jpCentro.add(lblDescrio);
+		
+		JButton btnBusca_1 = new JButton("Busca");
+		btnBusca_1.setBounds(650, 7, 76, 23);
+		jpCentro.add(btnBusca_1);
 
 	}
 }
