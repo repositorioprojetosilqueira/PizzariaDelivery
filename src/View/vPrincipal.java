@@ -18,20 +18,18 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import grafica.gCadProduto;
+import grafica.gMovPedido;
 import grafica.gPedido;
-
-
 
 public class vPrincipal extends JFrame implements ActionListener{
 	private JMenuBar jMbar;
-	
 	private JMenu jMnCadastro, jMnMovimento, jMnProduto;
+
 	private JMenuItem jMiUsuario, jMiCliente, jMiProdutos, jMiAdicionais, jMiPedidos, jMiCaixa;
 	
 	private paineis jpAtalhosLateral; 
 	
 	private botoes jbAtalhoCliente, jbAtalhoPedido, jbAtalhoCaixa;
-	
 	private JDesktopPane desktopPane;
 	
 	private vMovPedido vMovPedido;
@@ -41,11 +39,12 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private grafica.gCadProduto gCadProduto;
 	private grafica.gUsuario gUsuario;
 	private grafica.gPedido gPedido;
+	private grafica.gMovPedido gMovPedido;
+	
+	
 	
 	public vPrincipal() {
 		super("Pizzaria Delivery 1.0");
-
-		
 		
 		desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.gray);
@@ -256,16 +255,16 @@ public class vPrincipal extends JFrame implements ActionListener{
 	}
 	
 	private void aparecePedido() {
-		if(gPedido == null){
-			gPedido = new gPedido();
-			gPedido.setLocation(((desktopPane.getWidth()/2) - (gPedido.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (gPedido.getHeight()/2)) - 30);
-			gPedido.setVisible(true);
-            desktopPane.add(gPedido);
+		if(gMovPedido == null){
+			gMovPedido = new gMovPedido();
+			gMovPedido.setLocation(((desktopPane.getWidth()/2) - (gMovPedido.getWidth()/2)), 
+            					((desktopPane.getHeight()/2) - (gMovPedido.getHeight()/2)) - 30);
+			gMovPedido.setVisible(true);
+            desktopPane.add(gMovPedido);
         }
-        else if(!gPedido.isVisible()){
-        	gPedido.setVisible(true);
-            desktopPane.add(gPedido);
+        else if(!gMovPedido.isVisible()){
+        	gMovPedido.setVisible(true);
+            desktopPane.add(gMovPedido);
         }
 	}
 }
