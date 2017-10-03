@@ -73,11 +73,11 @@ public class gCadProduto extends vTelaPadrao {
 				String[] colunas = {"Descrição", "Preço"};
 				Object[][] FonteDeDados= {
 				{"Coca Lata", "R$ 3,00"},
-				{"Mussarela", "R$ 22,99"},
-				{"Vegetariana", "R$ 20,00"},
+				{"Pizza Mussarela", "R$ 22,99"},
+				{"Pizza Vegetariana", "R$ 20,00"},
 				{"Suco Lata", "R$ 2,50"},
-				{"Portuguesa", "R$ 22,00"},
-				{"Palmito", "R$22,00"},
+				{"Pizza Portuguesa", "R$ 22,00"},
+				{"Pizza Palmito", "R$22,00"},
 				{" ", " "}			
 				};
 				
