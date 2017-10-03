@@ -29,8 +29,6 @@ public class gCadCliente extends vTelaPadrao {
 	
 	public void initLayoutCliente(int x, int y) {
 		
-		
-		
 		JPanel jpCliente = new JPanel();
 		
 		jpCliente.setSize(483,406);
