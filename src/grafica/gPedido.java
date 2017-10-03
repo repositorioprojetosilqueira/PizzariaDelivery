@@ -35,7 +35,7 @@ public class gPedido extends vTelaPadrao {
 		textField.setColumns(10);
 		
 		JButton btnBusca = new JButton("Busca");
-		btnBusca.setBounds(177, 7, 61, 23);
+		btnBusca.setBounds(177, 7, 76, 23);
 		jpCentro.add(btnBusca);
 		
 		JLabel lblCliente = new JLabel("Cliente:");
