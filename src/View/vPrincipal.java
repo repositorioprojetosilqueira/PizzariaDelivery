@@ -53,58 +53,49 @@ public class vPrincipal extends JFrame implements ActionListener{
 		super("Pizzaria Delivery 1.0");
 		
 		desktopPane = new JDesktopPane();
-		desktopPane.setBackground(Color.gray);
+		//desktopPane.setBackground(Color.gray);
 		
 		
         setContentPane(desktopPane);
-		
-		this.setVisible(true);
-		
-		
-		JMenus();
-		configuraFrame();
+        
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); //Janela Maximizada
+        
+        configuraFrame();
+        JMenus();
 		painelLateral();
-		imagemFundo();
 		
 		
-		this.setSize(800, 600);
-		this.setLocationRelativeTo(null);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH); //Janela Maximizada
+		this.setSize(900, 650);
 		this.setIconImage(new ImageIcon(getClass().getResource("/imagens/pedido.png")).getImage());
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		this.setLocationRelativeTo(null);
 		
+		
+		this.setVisible(true);
 		
 		//this.addWindowListener((WindowListener) this);				
 		
 	}
-	private void imagemFundo() {
+	/*private void imagemFundo() {
 		
 		jpFundo = new paineis(0, 0);
 		jpFundo.setLayout(new BorderLayout());
 		jpFundo.setSize(this.getWidth(),this.getHeight());
 		jpFundo.setVisible(true);
 		
-		jpRodape = new paineis(0,0);
-		jpRodape.setVisible(true);
-		jpRodape.setSize(800,800);
-		jpRodape.setBackground(Color.black);
-		
 		
 		ImageIcon im = new ImageIcon(getClass().getResource("/imagens/pizzaria1.jpg"));
-		
 		JLabel jlImagemFundo = new JLabel(im);
 		jlImagemFundo.setVisible(true);
 		
+		
 		jpFundo.add(jlImagemFundo, BorderLayout.CENTER);
-		jpFundo.add(jpRodape, BorderLayout.NORTH);
-		
-		
-		
 		desktopPane.add(jpFundo);
 		
 		
+		
 	}
-	
+*/	
 	private void JMenus() {
 
 		jMbar = new JMenuBar();
