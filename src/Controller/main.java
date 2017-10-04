@@ -40,8 +40,8 @@ public class main {
        } */
 				
 				
-				//new vPrincipal();
-				new login();
+				new vPrincipal();
+				//new login();
 		 
 		
 	}

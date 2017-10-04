@@ -30,7 +30,7 @@ public class gAdicionais extends vTelaPadrao {
 	}
 	
 		private void initLayout() {
-				setBounds(100, 100, 674, 320);
+				setSize(674, 320);
 				
 				JLabel label = new JLabel("Descrição:");
 				label.setHorizontalAlignment(SwingConstants.RIGHT);

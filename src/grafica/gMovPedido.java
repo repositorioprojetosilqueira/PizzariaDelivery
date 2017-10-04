@@ -1,6 +1,8 @@
 package grafica;
 
 import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+
 import View.vTelaPadrao;
 import javax.swing.JLabel;
 
@@ -19,10 +21,28 @@ public class gMovPedido extends vTelaPadrao {
 	private JTextField textField_7;
 	private JTextField textField_8;
 	
+	private painelCliente pClientePronto;
+	
 	
 	public gMovPedido() {
 		
 		super("Pedido", "/imagens/pedido16x16.png");
+				
+				initiLayout();
+				Cliente();
+	}
+	
+	private void Cliente() {
+		pClientePronto = new painelCliente(440, 13);
+		pClientePronto.setSize(486, 431);
+		
+		pClientePronto.setBorder(new TitledBorder("Cliente: "));
+		
+		jpCentro.add(pClientePronto);
+	}
+	
+	private void initiLayout() {
+		setSize(950, 540);
 		
 		jpCentro.setLayout(null);
 		
@@ -94,27 +114,28 @@ public class gMovPedido extends vTelaPadrao {
 		textField_6.setColumns(10);
 		
 		textField_7 = new JTextField();
-		textField_7.setBounds(352, 22, 218, 20);
+		textField_7.setBounds(94, 269, 218, 20);
 		jpCentro.add(textField_7);
 		textField_7.setColumns(10);
 		
 		JLabel lblDescrio = new JLabel("Descri\u00E7\u00E3o:");
-		lblDescrio.setBounds(352, 8, 61, 14);
+		lblDescrio.setBounds(94, 255, 61, 14);
 		jpCentro.add(lblDescrio);
 		
 		JButton btnBusca_1 = new JButton("Busca");
-		btnBusca_1.setBounds(580, 21, 76, 23);
+		btnBusca_1.setBounds(20, 300, 76, 23);
 		jpCentro.add(btnBusca_1);
 		
 		JLabel lblQtde = new JLabel("Qtde");
-		lblQtde.setBounds(278, 8, 46, 14);
+		lblQtde.setBounds(20, 255, 46, 14);
 		jpCentro.add(lblQtde);
 		
 		textField_8 = new JTextField();
-		textField_8.setBounds(278, 22, 54, 20);
+		textField_8.setBounds(20, 269, 54, 20);
 		jpCentro.add(textField_8);
 		textField_8.setColumns(10);	
-		
+
 	}
+	
 
 }

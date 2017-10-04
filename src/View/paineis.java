@@ -13,7 +13,7 @@ public class paineis extends JPanel{
 	public paineis(int x, int y){
 		super();
 		setSize(x,y);
-		Border borda = BorderFactory.createLineBorder(Color.LIGHT_GRAY,2);
+		Border borda = BorderFactory.createLineBorder(Color.LIGHT_GRAY,1);
 		setBorder(borda);
 		setVisible(true);
 		
