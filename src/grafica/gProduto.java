@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -25,60 +26,33 @@ public class gProduto extends vTelaPadrao{
 	
 	public gProduto() {
 		super("Produto","");
-		initialize();
+		listagem();
 	}
 
 	
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 582, 365);
+	private void listagem() {
 		
-	
-		JPanel panel_2 = new JPanel();
-		frame.getContentPane().add(panel_2, BorderLayout.CENTER);
+		String[] colunas = {"Código","Iniciado", "Telefone", "Total","Status", "Pago"};
+		Object[][] FonteDeDados= {
+		{"1", "13h00","32156789", "R$ 22,00", "Entregue", "Sim"},
+		{"2", "20h15","32156789", "R$ 20,00", "Aberto", "Não"},
+		{" ", " "}			
+		};
 		
-		table = new JTable();
-		table.setBounds(10, 26, 544, 160);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"", null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-			},
-			new String[] {
-				"Pedido", "Produto", "Valores", "Tamanho"
-			}
-		));
-		table.getColumnModel().getColumn(0).setPreferredWidth(60);
-		table.getColumnModel().getColumn(1).setPreferredWidth(302);
-		table.getColumnModel().getColumn(2).setPreferredWidth(90);
-		table.getColumnModel().getColumn(3).setPreferredWidth(92);
-		panel_2.setLayout(null);
-		panel_2.add(table);
+		JTable tabela = new JTable(new DefaultTableModel(FonteDeDados, colunas)); 
 		
-		JLabel lblPedido = new JLabel("Pedido");
-		lblPedido.setBackground(Color.WHITE);
-		lblPedido.setBounds(10, 11, 46, 14);
-		panel_2.add(lblPedido);
+		tabela.getColumnModel().getColumn(0).setPreferredWidth(10);
+		tabela.getColumnModel().getColumn(1).setPreferredWidth(220);
+		tabela.getColumnModel().getColumn(2).setPreferredWidth(20);
 		
-		JLabel lblProduto = new JLabel("Produto");
-		lblProduto.setBounds(78, 11, 46, 14);
-		panel_2.add(lblProduto);
+		JScrollPane scrollpane = new JScrollPane(tabela);
+		tabela.setFillsViewportHeight(true);
+		scrollpane.setBounds(10, 10, 500, 400);
+		this.add(scrollpane);
 		
-		JLabel lblPreo = new JLabel("Pre\u00E7o");
-		lblPreo.setBounds(375, 11, 46, 14);
-		panel_2.add(lblPreo);
 		
-		JLabel lblTamanho = new JLabel("Tamanho");
-		lblTamanho.setBounds(469, 11, 46, 14);
-		panel_2.add(lblTamanho);
 	}
+	
+	
 
 }

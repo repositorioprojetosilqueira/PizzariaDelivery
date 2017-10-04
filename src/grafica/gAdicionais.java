@@ -81,6 +81,6 @@ public class gAdicionais extends vTelaPadrao {
 				{" ", " "}			
 				};
 				
-				lista(colunas, FonteDeDados,300, this.getHeight()-124);
+				lista(colunas, FonteDeDados,300, this.getHeight()-24);
 			}
 }
