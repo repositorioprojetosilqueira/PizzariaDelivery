@@ -18,6 +18,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import grafica.gCadProduto;
+import grafica.gCaixa;
 import grafica.gMovPedido;
 import grafica.gPedido;
 
@@ -40,6 +41,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private grafica.gUsuario gUsuario;
 	private grafica.gPedido gPedido;
 	private grafica.gMovPedido gMovPedido;
+	private grafica.gCaixa gCaixa;
 	
 	
 	
@@ -240,17 +242,17 @@ public class vPrincipal extends JFrame implements ActionListener{
 	
 	
 	private void apareceCaixa() {
-        if(vMovCaixa == null){
-        	vMovCaixa = new vMovCaixa();
+        if(gCaixa == null){
+        	gCaixa = new gCaixa();
         	
-        	vMovCaixa.setLocation(((desktopPane.getWidth()/2) - (vMovCaixa.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (vMovCaixa.getHeight()/2)) - 30);
-        	vMovCaixa.setVisible(true);
-            desktopPane.add(vMovCaixa);
+        	gCaixa.setLocation(((desktopPane.getWidth()/2) - (gCaixa.getWidth()/2)), 
+            					((desktopPane.getHeight()/2) - (gCaixa.getHeight()/2)) - 30);
+        	gCaixa.setVisible(true);
+            desktopPane.add(gCaixa);
         }
-        else if(!vMovCaixa.isVisible()){
-        	vMovCaixa.setVisible(true);
-            desktopPane.add(vMovCaixa);
+        else if(!gCaixa.isVisible()){
+        	gCaixa.setVisible(true);
+            desktopPane.add(gCaixa);
         }
 	}
 	
