@@ -1,32 +1,21 @@
 package View;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Event;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.border.Border;
 
 import grafica.gCadProduto;
-import grafica.gCaixa;
 import grafica.gMovPedido;
-import grafica.gPedido;
+import View.*;
 
 public class vPrincipal extends JFrame implements ActionListener{
 	private JMenuBar jMbar;
@@ -47,6 +36,13 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private grafica.gMovPedido gMovPedido;
 	private grafica.gMovCaixa gMovCaixa;
 	
+	
+	private vCadAdicionais vCadAdicionais;
+	private vCadCliente vCadCliente;
+	private vCadProduto vCadProduto;
+	private vCadUsuario vCadUsuario;
+	private vMovPedido vMovPedido;
+	private vMovCaixa vMovCaixa;
 	
 	
 	public vPrincipal() {
@@ -212,92 +208,92 @@ public class vPrincipal extends JFrame implements ActionListener{
 	}	
 		
 	private void apareceAdicionais() {
-		if(gAdicionais == null){
-			gAdicionais = new grafica.gAdicionais();
-			gAdicionais.setLocation(((desktopPane.getWidth()/2) - (gAdicionais.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (gAdicionais.getHeight()/2)) - 30);
-			gAdicionais.setVisible(true);
-            desktopPane.add(gAdicionais);
+		if(vCadAdicionais == null){
+			vCadAdicionais = new vCadAdicionais();
+			vCadAdicionais.setLocation(((desktopPane.getWidth()/2) - (vCadAdicionais.getWidth()/2)), 
+            					((desktopPane.getHeight()/2) - (vCadAdicionais.getHeight()/2)) - 30);
+			vCadAdicionais.setVisible(true);
+            desktopPane.add(vCadAdicionais);
         }
-        else if(!gAdicionais.isVisible()){
-        	gAdicionais.setVisible(true);
-            desktopPane.add(gAdicionais);
+        else if(!vCadAdicionais.isVisible()){
+        	vCadAdicionais.setVisible(true);
+            desktopPane.add(vCadAdicionais);
         }
 	}
 	
 	private void apareceUsuario() {
-		if(gUsuario == null){
-            gUsuario = new grafica.gUsuario();
-            gUsuario.setLocation(((desktopPane.getWidth()/2) - (gUsuario.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (gUsuario.getHeight()/2)) - 30);
-            gUsuario.setVisible(true);
-            desktopPane.add(gUsuario);
+		if(vCadUsuario == null){
+			vCadUsuario = new vCadUsuario();
+			vCadUsuario.setLocation(((desktopPane.getWidth()/2) - (vCadUsuario.getWidth()/2)), 
+            					((desktopPane.getHeight()/2) - (vCadUsuario.getHeight()/2)) - 30);
+			vCadUsuario.setVisible(true);
+            desktopPane.add(vCadUsuario);
         }
-        else if(!gUsuario.isVisible()){
-            gUsuario.setVisible(true);
-            desktopPane.add(gUsuario);
+        else if(!vCadUsuario.isVisible()){
+        	vCadUsuario.setVisible(true);
+            desktopPane.add(vCadUsuario);
         }
     }
 
 
 		private void apareceCliente() {
 				
-				if(gCadCliente == null){
-					gCadCliente = new grafica.gCadCliente();
-					gCadCliente.setLocation(((desktopPane.getWidth()/2) - (gCadCliente.getWidth()/2)), 
-		            					((desktopPane.getHeight()/2) - (gCadCliente.getHeight()/2)) - 30);
-					gCadCliente.setVisible(true);
-		            desktopPane.add(gCadCliente);
+				if(vCadCliente == null){
+					vCadCliente = new vCadCliente();
+					vCadCliente.setLocation(((desktopPane.getWidth()/2) - (vCadCliente.getWidth()/2)), 
+		            					((desktopPane.getHeight()/2) - (vCadCliente.getHeight()/2)) - 30);
+					vCadCliente.setVisible(true);
+		            desktopPane.add(vCadCliente);
 		        }
-		        else if(!gCadCliente.isVisible()){
-		        	gCadCliente.setVisible(true);
-		            desktopPane.add(gCadCliente);
+		        else if(!vCadCliente.isVisible()){
+		        	vCadCliente.setVisible(true);
+		            desktopPane.add(vCadCliente);
 		        }
 			}
 	
 		
 		private void apareceProduto() {
 			
-			if(gCadProduto == null){
-				gCadProduto = new grafica.gCadProduto();
-				gCadProduto.setLocation(((desktopPane.getWidth()/2) - (gCadProduto.getWidth()/2)), 
-	            					((desktopPane.getHeight()/2) - (gCadProduto.getHeight()/2)) - 20);
-				gCadProduto.setVisible(true);
-	            desktopPane.add(gCadProduto);
+			if(vCadProduto == null){
+				vCadProduto = new vCadProduto();
+				vCadProduto.setLocation(((desktopPane.getWidth()/2) - (vCadProduto.getWidth()/2)), 
+	            					((desktopPane.getHeight()/2) - (vCadProduto.getHeight()/2)) - 20);
+				vCadProduto.setVisible(true);
+	            desktopPane.add(vCadProduto);
 	        }
-	        else if(!gCadProduto.isVisible()){
-	        	gCadProduto.setVisible(true);
-	            desktopPane.add(gCadProduto);
+	        else if(!vCadProduto.isVisible()){
+	        	vCadProduto.setVisible(true);
+	            desktopPane.add(vCadProduto);
 	        }
 		}
 	
 	
 	private void apareceCaixa() {
-        if(gMovCaixa == null){
-        	gMovCaixa = new grafica.gMovCaixa();
+        if(vMovCaixa == null){
+        	vMovCaixa = new vMovCaixa();
         	
-        	gMovCaixa.setLocation(((desktopPane.getWidth()/2) - (gMovCaixa.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (gMovCaixa.getHeight()/2)) - 30);
-        	gMovCaixa.setVisible(true);
-            desktopPane.add(gMovCaixa);
+        	vMovCaixa.setLocation(((desktopPane.getWidth()/2) - (vMovCaixa.getWidth()/2)), 
+            					((desktopPane.getHeight()/2) - (vMovCaixa.getHeight()/2)) - 30);
+        	vMovCaixa.setVisible(true);
+            desktopPane.add(vMovCaixa);
         }
-        else if(!gMovCaixa.isVisible()){
-        	gMovCaixa.setVisible(true);
-            desktopPane.add(gMovCaixa);
+        else if(!vMovCaixa.isVisible()){
+        	vMovCaixa.setVisible(true);
+            desktopPane.add(vMovCaixa);
         }
 	}
 	
 	private void aparecePedido() {
-		if(gMovPedido == null){
-			gMovPedido = new gMovPedido();
-			gMovPedido.setLocation(((desktopPane.getWidth()/2) - (gMovPedido.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (gMovPedido.getHeight()/2)) - 30);
-			gMovPedido.setVisible(true);
-            desktopPane.add(gMovPedido);
+		if(vMovPedido == null){
+			vMovPedido = new vMovPedido();
+			vMovPedido.setLocation(((desktopPane.getWidth()/2) - (vMovPedido.getWidth()/2)), 
+            					((desktopPane.getHeight()/2) - (vMovPedido.getHeight()/2)) - 30);
+			vMovPedido.setVisible(true);
+            desktopPane.add(vMovPedido);
         }
-        else if(!gMovPedido.isVisible()){
-        	gMovPedido.setVisible(true);
-            desktopPane.add(gMovPedido);
+        else if(!vMovPedido.isVisible()){
+        	vMovPedido.setVisible(true);
+            desktopPane.add(vMovPedido);
         }
 	}
 }

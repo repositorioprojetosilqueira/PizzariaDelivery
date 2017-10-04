@@ -113,12 +113,26 @@ public class vMovCaixa extends vTelaPadrao{
 			String[] colunas = {"Pedido","Produto", "Cliente","Forma de Pagamento","Valor"};
 			Object[][] FonteDeDados= {
 				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
+				{"02", "Pizza Tropeiro", "Jessica", "Dinheiro", "17,90"},
+				{"03", "Pizza Calabresa", "Jessica", "Cartão Débito", "17,90"},
+				{"04", "Pizza Queijo", "Jessica", "Dinheiro", "17,90"},
+				{"05", "Pizza Provolone", "Fernanda", "Cartão Débito", "17,90"},
+				{"06", "Pizza Chocolate", "Jessica", "Cartão de Crédito", "17,90"},
+				{"07", "Pizza Banana", "Jessica", "Dinheiro", "17,90"},
+				{"08", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
+				{"09", "Pizza Frango", "Mateus", "Cartão de Crédito", "17,90"},
+				{"10", "Pizza Calabresa", "Jessica", "Cartão Débito", "17,90"},
+				{"11", "Pizza Portugues", "Jessica", "Dinheiro", "17,90"},
+				{"12", "Pizza Da Casa", "Jessica", "Cartão Débito", "17,90"},
+				{"13", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
+				{"14", "Pizza Frango", "Jessica", "Dinheiro", "17,90"},
+				{"15", "Pizza Calabresa", "Jessica", "Cartão Débito", "17,90"},
+				{"16", "Pizza Catupi", "Jessica", "Dinheiro", "17,90"},
+				{"17", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
+				{"18", "Pizza Cheddar", "Jessica", "Dinheiro", "17,90"},
+				{"19", "Pizza Calabresa", "Jessica", "Cartão Débito", "17,90"},
+				{"20", "Pizza Bacon", "Jessica", "Dinheiro", "17,90"},
+				{"21", "Pizza Calabresa", "Jessica", "Cartão de Crédito", "17,90"},
 			};
 			//243, 11, 488, 241
 			lista(colunas, FonteDeDados,270,40,500, 230,30);
