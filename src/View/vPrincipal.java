@@ -1,21 +1,27 @@
 package View;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Event;
 import java.awt.FlowLayout;
+import java.awt.Graphics;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.border.Border;
 
 import grafica.gCadProduto;
 import grafica.gCaixa;
@@ -28,7 +34,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 
 	private JMenuItem jMiUsuario, jMiCliente, jMiProdutos, jMiAdicionais, jMiPedidos, jMiCaixa;
 	
-	private paineis jpAtalhosLateral; 
+	private paineis jpAtalhosLateral, jpFundo, jpRodape; 
 	
 	private botoes jbAtalhoCliente, jbAtalhoPedido, jbAtalhoCaixa;
 	private JDesktopPane desktopPane;
@@ -48,21 +54,54 @@ public class vPrincipal extends JFrame implements ActionListener{
 		
 		desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.gray);
-    
+		
+		
         setContentPane(desktopPane);
 		
 		this.setVisible(true);
 		
+		
 		JMenus();
 		configuraFrame();
 		painelLateral();
+		imagemFundo();
+		
 		
 		this.setSize(800, 600);
 		this.setLocationRelativeTo(null);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH); //Janela Maximizada
 		this.setIconImage(new ImageIcon(getClass().getResource("/imagens/pedido.png")).getImage());
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
+		
 		//this.addWindowListener((WindowListener) this);				
+		
+	}
+	private void imagemFundo() {
+		
+		jpFundo = new paineis(0, 0);
+		jpFundo.setLayout(new BorderLayout());
+		jpFundo.setSize(this.getWidth(),this.getHeight());
+		jpFundo.setVisible(true);
+		
+		jpRodape = new paineis(0,0);
+		jpRodape.setVisible(true);
+		jpRodape.setSize(800,800);
+		jpRodape.setBackground(Color.black);
+		
+		
+		ImageIcon im = new ImageIcon(getClass().getResource("/imagens/pizzaria1.jpg"));
+		
+		JLabel jlImagemFundo = new JLabel(im);
+		jlImagemFundo.setVisible(true);
+		
+		jpFundo.add(jlImagemFundo, BorderLayout.CENTER);
+		jpFundo.add(jpRodape, BorderLayout.NORTH);
+		
+		
+		
+		desktopPane.add(jpFundo);
+		
 		
 	}
 	
