@@ -16,7 +16,7 @@ public class gCaixa extends vTelaPadrao {
 	private JLabel lblQuantidadeDePedidos;
 	private JTextField textField_4;
 	private JLabel label;
-	private JTable table;
+
 
 	
 	public gCaixa() {

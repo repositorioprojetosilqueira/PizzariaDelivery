@@ -33,15 +33,13 @@ public class vPrincipal extends JFrame implements ActionListener{
 	private botoes jbAtalhoCliente, jbAtalhoPedido, jbAtalhoCaixa;
 	private JDesktopPane desktopPane;
 	
-	private vMovPedido vMovPedido;
-	private vMovCaixa vMovCaixa;
+
 	private grafica.gAdicionais gAdicionais;
 	private grafica.gCadCliente gCadCliente;
 	private grafica.gCadProduto gCadProduto;
 	private grafica.gUsuario gUsuario;
-	private grafica.gPedido gPedido;
 	private grafica.gMovPedido gMovPedido;
-	private grafica.gCaixa gCaixa;
+	private grafica.gMovCaixa gMovCaixa;
 	
 	
 	
@@ -127,16 +125,19 @@ public class vPrincipal extends JFrame implements ActionListener{
 		
 		jbAtalhoCliente = new botoes( 100, 100);
 		jbAtalhoCliente.setIcon(new ImageIcon(getClass().getResource("/imagens/cliente.png")));
+		jbAtalhoCliente.setToolTipText("Cadastro Cliente");
 		
 		jbAtalhoCliente.addActionListener(this);
 		
 		jbAtalhoPedido= new botoes(100, 100);
 		jbAtalhoPedido.setIcon(new ImageIcon(getClass().getResource("/imagens/pedido.png")));
-
+		jbAtalhoPedido.setToolTipText("Pedido");
+		
 		jbAtalhoPedido.addActionListener(this);
         
 		jbAtalhoCaixa= new botoes(100, 100);
 		jbAtalhoCaixa.setIcon(new ImageIcon(getClass().getResource("/imagens/caixa.png")));
+		jbAtalhoCaixa.setToolTipText("Caixa");
 		
 		jbAtalhoCaixa.addActionListener(this);
  
@@ -242,17 +243,17 @@ public class vPrincipal extends JFrame implements ActionListener{
 	
 	
 	private void apareceCaixa() {
-        if(gCaixa == null){
-        	gCaixa = new gCaixa();
+        if(gMovCaixa == null){
+        	gMovCaixa = new grafica.gMovCaixa();
         	
-        	gCaixa.setLocation(((desktopPane.getWidth()/2) - (gCaixa.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (gCaixa.getHeight()/2)) - 30);
-        	gCaixa.setVisible(true);
-            desktopPane.add(gCaixa);
+        	gMovCaixa.setLocation(((desktopPane.getWidth()/2) - (gMovCaixa.getWidth()/2)), 
+            					((desktopPane.getHeight()/2) - (gMovCaixa.getHeight()/2)) - 30);
+        	gMovCaixa.setVisible(true);
+            desktopPane.add(gMovCaixa);
         }
-        else if(!gCaixa.isVisible()){
-        	gCaixa.setVisible(true);
-            desktopPane.add(gCaixa);
+        else if(!gMovCaixa.isVisible()){
+        	gMovCaixa.setVisible(true);
+            desktopPane.add(gMovCaixa);
         }
 	}
 	
