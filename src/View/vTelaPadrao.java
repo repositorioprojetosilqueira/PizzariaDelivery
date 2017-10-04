@@ -95,7 +95,7 @@ public class vTelaPadrao extends JInternalFrame {
 		}
 		    
 		    
-		    public void lista(String[] col, Object[][] fonte, int width, int height) {
+		    public void lista(String[] col, Object[][] fonte, int x, int y, int width, int height,int tamL1) {
 		    	
 		    	
 		    	String[] colunas = col;
@@ -109,8 +109,8 @@ public class vTelaPadrao extends JInternalFrame {
 		        });  
 			    
 				
-				tabela.getColumnModel().getColumn(0).setPreferredWidth(105);
-				
+				tabela.getColumnModel().getColumn(0).setPreferredWidth(tamL1);
+				//tabela.getColumnModel().getColumn(0).setPreferredWidth(105);
 				//tabela.getColumnModel().getColumn(1).setPreferredWidth(20);
 				
 				//tabela.getColumnModel().getColumn(2).setPreferredWidth(20);
@@ -120,21 +120,29 @@ public class vTelaPadrao extends JInternalFrame {
 				tabela.setFillsViewportHeight(true);
 				tabela.setRowSelectionInterval(0,0);
 				
-				scrollPane.setBounds(5,40, width, height);
+				//scrollPane.setBounds(5,40, width, height);
+				scrollPane.setBounds(x,y, width, height);
 				 
 				jpCentro.add(scrollPane);
 				
-				jlPesquisa = new JLabel("Pesquisa:");
-				jlPesquisa.setBounds(10,5, 75,30);
 				
-				jtPesquisar = new JTextField();
-				jtPesquisar.setBounds(70, 8, width - 65, 30);
-				
-				jpCentro.add(jtPesquisar);
-				jpCentro.add(jlPesquisa);
 				//((DefaultTableModel)tabela.getModel()).addRow(new Vector()); //linha vazia
 				//((DefaultTableModel)tabela.getModel()).addRow( new Object[]{"005", "Raulivan","Matriculado"});
 				//Mais
+				
+		    }
+		    public void campoPesquisa(String nomeCampo, int x, int y, int w, int wP) {
+		    	jlPesquisa = new JLabel(nomeCampo);
+				jlPesquisa.setBounds(x,y, w, 30);
+				
+				jtPesquisar = new JTextField();
+				
+				jtPesquisar.setBounds(x + w, y+3, wP, 30);
+				//jtPesquisar.setBounds(70, 8, width - 65, 30);
+				
+				jpCentro.add(jtPesquisar);
+				jpCentro.add(jlPesquisa);
+		    	
 		    }
 		    
 		    

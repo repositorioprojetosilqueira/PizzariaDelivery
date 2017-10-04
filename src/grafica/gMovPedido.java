@@ -46,12 +46,11 @@ public class gMovPedido extends vTelaPadrao {
 		super("Pedido", "/imagens/pedido16x16.png");
 
 		initiLayout();
-		Cliente();
-		//listagem();
+		
+		listagem();
+		
 	}
 
-	private void Cliente() {
-	}
 
 	private void initiLayout() {
 		setSize(950, 540);
@@ -196,24 +195,15 @@ public class gMovPedido extends vTelaPadrao {
 		btnLanar.setBounds(312, 103, 76, 29);
 		jpCentro.add(btnLanar);
 
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 143, 447, 92);
-		jpCentro.add(panel_1);
 
 
 
-
-		String[] colunas = {"Quantidade","Produto", "Preço"};
-		Object[][] dados= {
-				{"2", "Mussarela","R$ 3,20"},
-				{"1", "Cebola Picada","R$ 1,10"},
-				{" ", " "},	
-				{" ", " "},	
-		};		
-
-		table = new JTable();
+		
+		
+		/*table = new JTable();
 		table.setBorder(null);
 		DefaultTableModel model = new DefaultTableModel (dados, colunas);
+		
 		table.setModel(new DefaultTableModel(
 				new Object[][] {
 					{"2", "Mussarela","R$ 3,20"},
@@ -238,12 +228,12 @@ public class gMovPedido extends vTelaPadrao {
 		panel_1.add(table);
 		
 		JScrollBar scrollBar = new JScrollBar();
-		panel_1.add(scrollBar);
+		panel_1.add(scrollBar);*/
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(13, 304, 132, 23);
 		jpCentro.add(comboBox);
-		
+	
 		JLabel lblEntregador = new JLabel("Entregador:");
 		lblEntregador.setBounds(13, 279, 76, 14);
 		jpCentro.add(lblEntregador);
@@ -277,5 +267,20 @@ public class gMovPedido extends vTelaPadrao {
 		JCheckBox chckbxEntregue = new JCheckBox("Entregue");
 		chckbxEntregue.setBounds(6, 407, 97, 23);
 		jpCentro.add(chckbxEntregue);
+		
+	}
+	private void listagem() {
+		String[] colunas = {"Quantidade","Produto", "Preço"};
+		Object[][] FonteDeDados= {
+				{"2", "Mussarela","R$ 3,20"},
+				{"1", "Cebola Picada","R$ 1,10"},
+				{" ", " "},	
+				{" ", " "},	
+
+				};
+		lista(colunas, FonteDeDados, 10,135,380,140,30);
+		
+		}
 	}	
-}
+		
+

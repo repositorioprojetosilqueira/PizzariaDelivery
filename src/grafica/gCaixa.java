@@ -1,28 +1,12 @@
 package grafica;
 
-import java.awt.EventQueue;
-import javax.swing.table.DefaultTableModel;
-
-import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-
-import java.awt.BorderLayout;
 import javax.swing.JButton;
-import javax.swing.JList;
 import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableModel;
-
 import View.vTelaPadrao;
-
-import java.awt.FlowLayout;
 import javax.swing.JTextField;
 import java.awt.Font;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
+
 
 public class gCaixa extends vTelaPadrao {
 	private JTextField textField;
@@ -39,7 +23,14 @@ public class gCaixa extends vTelaPadrao {
 		
 		super("Caixa - Recebimento","/imagens/caixa16x16.png");	
 		
+		inilayout();
 		
+		listagem();
+		listagemCaixa();
+		
+	}
+	
+	private void inilayout() {
 		JLabel lblNewLabel = new JLabel("Dinheiro:");
 		lblNewLabel.setBounds(542, 291, 93, 14);
 		jpCentro.add(lblNewLabel);
@@ -97,71 +88,41 @@ public class gCaixa extends vTelaPadrao {
 		JButton btnFecharCaixaf = new JButton("Fechar Caixa(F12)");
 		btnFecharCaixaf.setBounds(243, 328, 149, 39);
 		jpCentro.add(btnFecharCaixaf);
+
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(243, 11, 488, 241);
-		jpCentro.add(panel);
-		
-		String[] colunas = {"Nº Pedido","Produto", "Cliente","Forma de Pagamento","Valor"};
-		Object[][] dados= {
-		{"01", "Pizza Calabresa","Jessica","Dinheiro","17,90"},
-		{"01", "Pizza Calabresa","Jessica","Dinheiro","17,90"},
-		{"01", "Pizza Calabresa","Jessica","Dinheiro","17,90"},
-		{"01", "Pizza Calabresa","Jessica","Dinheiro","17,90"},
-		{"01", "Pizza Calabresa","Jessica","Dinheiro","17,90"},
-		{"01", "Pizza Calabresa","Jessica","Dinheiro","17,90"},
-		{"01", "Pizza Calabresa","Jessica","Dinheiro","17,90"},			
-		};		
-				
-		table = new JTable();
-		table.setBorder(null);
-		DefaultTableModel model = new DefaultTableModel (dados, colunas);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-			},
-			new String[] {
-				"N\u00BA Pedido", "Produto", "Cliente", "Forma de Pagamento", "Valor"
-			}
-		) {
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false
-			};
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
-		table.getColumnModel().getColumn(1).setPreferredWidth(181);
-		table.getColumnModel().getColumn(1).setMinWidth(17);
-		panel.add(table);
-		
-		
-		listagem();
-		
+	}
+	
+	private void listagemCaixa() {
+		String[] colunas = {"Pedido","Produto", "Cliente","Forma de Pagamento","Valor"};
+		Object[][] FonteDeDados= {
+			{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
+			{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
+			{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
+			{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
+			{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
+			{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
+			{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
+		};
+		//243, 11, 488, 241
+		lista(colunas, FonteDeDados,270,40,500, 230,30);
 	}
 	
 	
 	private void listagem() {
 		
-		String[] colunas = {"Dia", "Total"};
+		String[] colunas = {"Data", "Total"};
 		Object[][] FonteDeDados= {
 		{"01/09/2017", "R$ 800,00"},
-		{"01/09/2017", "R$ 800,00"},
-		{"01/09/2017", "R$ 800,00"},
-		{"01/09/2017", "R$ 800,00"},
-		{"01/09/2017", "R$ 800,00"},
-		{"01/09/2017", "R$ 800,00"},
-		{"01/09/2017", "R$ 800,00"}			
+		{"02/09/2017", "R$ 980,00"},
+		{"03/09/2017", "R$ 923,80"},
+		{"04/09/2017", "R$ 1550,10"},
+		{"05/09/2017", "R$ 1454,00"},
+		{"06/09/2017", "R$ 768,00"},
+		{"07/09/2017", "R$ 923,00"}			
 		};
 		
-		lista(colunas, FonteDeDados,200, this.getHeight()-124);
+		lista(colunas, FonteDeDados,3,45,230, this.getHeight()-124,105);
+		campoPesquisa("Data : ", 10, 8, 50,158);
 		
 	}
 	

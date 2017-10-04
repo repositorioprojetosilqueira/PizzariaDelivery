@@ -81,6 +81,7 @@ public class gCadProduto extends vTelaPadrao {
 				{" ", " "}			
 				};
 				
-				lista(colunas, FonteDeDados,300, this.getHeight()-124);
+				lista(colunas, FonteDeDados,3,45,290, this.getHeight()-124,105);
+				campoPesquisa("Pesquisar : ", 5, 8, 70,218);
 			}
 }

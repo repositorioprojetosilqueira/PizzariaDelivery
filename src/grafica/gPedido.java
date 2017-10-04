@@ -20,8 +20,6 @@ import View.vTelaPadrao;
 
 public class gPedido extends vTelaPadrao{
 
-	private JFrame frame;
-	private JTable table;
 
 	
 	public gPedido() {

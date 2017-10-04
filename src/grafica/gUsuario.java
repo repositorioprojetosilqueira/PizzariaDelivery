@@ -137,7 +137,8 @@ public class gUsuario extends vTelaPadrao {
 		{" ", " "}			
 		};
 		
-		lista(colunas, FonteDeDados,220, this.getHeight()-124);
+		lista(colunas, FonteDeDados,3,45,220, this.getHeight()-124,105);
+		campoPesquisa("Pesquisar : ", 5, 8, 70,150);
 	}
 	
 	
