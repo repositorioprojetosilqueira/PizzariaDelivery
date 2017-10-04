@@ -43,7 +43,7 @@ public class gMovPedido extends vTelaPadrao {
 
 	public gMovPedido() {
 
-		super("Pedido", "/imagens/pedido16x16.png");
+		super("Pedido", "/imagens/pedido32x32.png");
 
 		initiLayout();
 		

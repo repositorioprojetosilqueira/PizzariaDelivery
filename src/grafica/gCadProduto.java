@@ -21,7 +21,7 @@ public class gCadProduto extends vTelaPadrao {
 
 
 	public gCadProduto() {
-		super("Produto", "");
+		super("Produto", "/imagens/pizza.png");
 		
 		initLayout();
 		

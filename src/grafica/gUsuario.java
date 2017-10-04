@@ -35,7 +35,7 @@ public class gUsuario extends vTelaPadrao {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	public gUsuario() {
-		super("Cadastro Usuário","/imagens/cliente16x16.png");
+		super("Cadastro Usuário","/imagens/usuario32x32.png");
 		
 		initLayout();
 		

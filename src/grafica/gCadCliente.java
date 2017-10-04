@@ -18,7 +18,7 @@ import View.vTelaPadrao;
 public class gCadCliente extends vTelaPadrao {
 
 	public gCadCliente() {
-	super("Cadastro Cliente","/imagens/cliente16x16.png");
+	super("Cadastro Cliente","/imagens/cliente.png");
 	
 	initLayoutCliente(303, 11);
 	
