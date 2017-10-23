@@ -148,7 +148,7 @@ public class vCadCliente extends vTelaPadrao {
 	    	
 	    private void listagem() {
 	    		
-	    		String[] colunas = {"Nome","Telefone1","Telefone2"};
+	    		String[] colunas = {"Nome","Telefone1","Telefone2"," "};
 	    		Object[][] FonteDeDados= {
 	    		{"Bruna Gomes", "3222-9908","9 9988-0001"},
 	    		{"Denise Pacheco", "3232-9901","9 9988-0001"},

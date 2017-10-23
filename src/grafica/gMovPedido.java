@@ -21,11 +21,10 @@ import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.JScrollBar;
 import javax.swing.JCheckBox;
+import javax.swing.SwingConstants;
 
 
 public class gMovPedido extends vTelaPadrao {
-	private JTextField textField_7;
-	private JTextField textField_8;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -35,11 +34,10 @@ public class gMovPedido extends vTelaPadrao {
 	private JTextField textField_11;
 	private JTextField textField_12;
 	private JTextField textField_13;
-	private JTextField textField_14;
-	private JTextField textField_15;
 	private JTable table;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private JTextField textField_6;
 
 	public gMovPedido() {
 
@@ -57,30 +55,13 @@ public class gMovPedido extends vTelaPadrao {
 
 		jpCentro.setLayout(null);
 
-		textField_7 = new JTextField();
-		textField_7.setBounds(84, 25, 218, 29);
-		jpCentro.add(textField_7);
-		textField_7.setColumns(10);
-
-		JLabel lblDescrio = new JLabel("Descrição:");
-		lblDescrio.setBounds(84, 11, 61, 14);
+		JLabel lblDescrio = new JLabel("Produto:");
+		lblDescrio.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDescrio.setBounds(13, 31, 76, 25);
 		jpCentro.add(lblDescrio);
 
-		JButton btnBusca_1 = new JButton("Busca");
-		btnBusca_1.setBounds(312, 24, 76, 30);
-		jpCentro.add(btnBusca_1);
-
-		JLabel lblQtde = new JLabel("Qtde");
-		lblQtde.setBounds(10, 11, 46, 14);
-		jpCentro.add(lblQtde);
-
-		textField_8 = new JTextField();
-		textField_8.setBounds(10, 25, 54, 29);
-		jpCentro.add(textField_8);
-		textField_8.setColumns(10);
-
 		JPanel panel = new JPanel();
-		panel.setBounds(467, 11, 457, 419);
+		panel.setBounds(467, 11, 467, 447);
 		jpCentro.add(panel);
 		panel.setLayout(null);
 
@@ -94,7 +75,7 @@ public class gMovPedido extends vTelaPadrao {
 		textField.setColumns(10);
 
 		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setBounds(357, 8, 89, 23);
+		btnBuscar.setBounds(368, 6, 89, 37);
 		panel.add(btnBuscar);
 
 		JLabel lblTelefone = new JLabel("Telefone:");
@@ -112,7 +93,7 @@ public class gMovPedido extends vTelaPadrao {
 
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(322, 51, 124, 32);
+		textField_2.setBounds(308, 51, 114, 32);
 		panel.add(textField_2);
 
 		JLabel lblRua = new JLabel("Rua:");
@@ -129,7 +110,7 @@ public class gMovPedido extends vTelaPadrao {
 		panel.add(lblNmero);
 
 		textField_9 = new JTextField();
-		textField_9.setBounds(332, 101, 114, 32);
+		textField_9.setBounds(308, 101, 114, 32);
 		panel.add(textField_9);
 		textField_9.setColumns(10);
 
@@ -151,7 +132,7 @@ public class gMovPedido extends vTelaPadrao {
 		panel.add(textField_11);
 		textField_11.setColumns(10);
 
-		JLabel lblReferncia_1 = new JLabel("ReferêAncia de Entrega:");
+		JLabel lblReferncia_1 = new JLabel("Referência de Entrega:");
 		lblReferncia_1.setBounds(10, 202, 124, 14);
 		panel.add(lblReferncia_1);
 
@@ -169,31 +150,10 @@ public class gMovPedido extends vTelaPadrao {
 		panel.add(textField_13);
 		textField_13.setColumns(10);
 
-		JLabel label_1 = new JLabel("Qtde");
-		label_1.setBounds(10, 56, 46, 14);
-		jpCentro.add(label_1);
-
-		textField_14 = new JTextField();
-		textField_14.setColumns(10);
-		textField_14.setBounds(10, 70, 54, 29);
-		jpCentro.add(textField_14);
-
-		JLabel lblAdicionais = new JLabel("Adicionais:");
-		lblAdicionais.setBounds(84, 56, 61, 14);
-		jpCentro.add(lblAdicionais);
-
-		textField_15 = new JTextField();
-		textField_15.setColumns(10);
-		textField_15.setBounds(84, 70, 218, 29);
-		jpCentro.add(textField_15);
-
-		JButton button = new JButton("Busca");
-		button.setBounds(312, 69, 76, 29);
-		jpCentro.add(button);
-
-		JButton btnLanar = new JButton("Lançar");
-		btnLanar.setBounds(312, 103, 76, 29);
-		jpCentro.add(btnLanar);
+		JButton btnAdd = new JButton("Add");
+	
+		btnAdd.setBounds(348, 80, 76, 29);
+		jpCentro.add(btnAdd);
 
 
 
@@ -231,7 +191,7 @@ public class gMovPedido extends vTelaPadrao {
 		panel_1.add(scrollBar);*/
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(13, 304, 132, 23);
+		comboBox.setBounds(13, 297, 132, 30);
 		jpCentro.add(comboBox);
 	
 		JLabel lblEntregador = new JLabel("Entregador:");
@@ -248,7 +208,7 @@ public class gMovPedido extends vTelaPadrao {
 		textField_4.setColumns(10);
 		
 		JLabel lblFormaDePagamento = new JLabel("Forma de Pagamento:");
-		lblFormaDePagamento.setBounds(10, 338, 135, 14);
+		lblFormaDePagamento.setBounds(10, 346, 135, 14);
 		jpCentro.add(lblFormaDePagamento);
 		
 		JComboBox comboBox_1 = new JComboBox();
@@ -267,6 +227,24 @@ public class gMovPedido extends vTelaPadrao {
 		JCheckBox chckbxEntregue = new JCheckBox("Entregue");
 		chckbxEntregue.setBounds(6, 407, 97, 23);
 		jpCentro.add(chckbxEntregue);
+		
+		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setBounds(90, 28, 212, 30);
+		jpCentro.add(comboBox_2);
+		
+		JComboBox comboBox_3 = new JComboBox();
+		comboBox_3.setBounds(90, 79, 212, 30);
+		jpCentro.add(comboBox_3);
+		
+		JLabel lblAdicional = new JLabel("Adicional:");
+		lblAdicional.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblAdicional.setBounds(13, 82, 76, 25);
+		jpCentro.add(lblAdicional);
+		
+		textField_6 = new JTextField();
+		textField_6.setBounds(312, 29, 34, 29);
+		jpCentro.add(textField_6);
+		textField_6.setColumns(10);
 		
 	}
 	private void listagem() {

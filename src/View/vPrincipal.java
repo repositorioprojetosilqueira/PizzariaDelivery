@@ -208,16 +208,16 @@ public class vPrincipal extends JFrame implements ActionListener{
 	}	
 		
 	private void apareceAdicionais() {
-		if(vCadAdicionais == null){
-			vCadAdicionais = new vCadAdicionais();
-			vCadAdicionais.setLocation(((desktopPane.getWidth()/2) - (vCadAdicionais.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (vCadAdicionais.getHeight()/2)) - 30);
-			vCadAdicionais.setVisible(true);
-            desktopPane.add(vCadAdicionais);
+		if(gAdicionais == null){
+			gAdicionais = new grafica.gAdicionais();
+			gAdicionais.setLocation(((desktopPane.getWidth()/2) - (gAdicionais.getWidth()/2)), 
+            					((desktopPane.getHeight()/2) - (gAdicionais.getHeight()/2)) - 30);
+			gAdicionais.setVisible(true);
+            desktopPane.add(gAdicionais);
         }
-        else if(!vCadAdicionais.isVisible()){
-        	vCadAdicionais.setVisible(true);
-            desktopPane.add(vCadAdicionais);
+        else if(!gAdicionais.isVisible()){
+        	gAdicionais.setVisible(true);
+            desktopPane.add(gAdicionais);
         }
 	}
 	

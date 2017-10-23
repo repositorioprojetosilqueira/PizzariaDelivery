@@ -12,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import grafica.painelCliente;
 
@@ -96,6 +97,8 @@ public class vTelaPadrao extends JInternalFrame {
 		            }  
 		        });  
 			    
+			    
+			    
 				
 				tabela.getColumnModel().getColumn(0).setPreferredWidth(tamL1);
 				//tabela.getColumnModel().getColumn(0).setPreferredWidth(105);
@@ -107,6 +110,7 @@ public class vTelaPadrao extends JInternalFrame {
 				
 				tabela.setFillsViewportHeight(true);
 				tabela.setRowSelectionInterval(0,0);
+				
 				
 				//scrollPane.setBounds(5,40, width, height);
 				scrollPane.setBounds(x,y, width, height);

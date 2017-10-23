@@ -26,6 +26,7 @@ public class gAdicionais extends vTelaPadrao {
 		initLayout();
 		
 		listagem();
+		listagemTipo();
 
 	}
 	
@@ -34,35 +35,27 @@ public class gAdicionais extends vTelaPadrao {
 				
 				JLabel label = new JLabel("Descrição:");
 				label.setHorizontalAlignment(SwingConstants.RIGHT);
-				label.setBounds(312, 34, 71, 20);
+				label.setBounds(312, 16, 71, 20);
 				jpCentro.add(label);
 				
 				textField = new JTextField();
 				textField.setColumns(10);
-				textField.setBounds(393, 26, 239, 30);
+				textField.setBounds(393, 11, 239, 30);
 				jpCentro.add(textField);
-				
-				JLabel label_1 = new JLabel("Tipo:");
-				label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-				label_1.setBounds(312, 90, 71, 20);
-				jpCentro.add(label_1);
-				
-				JComboBox comboBox = new JComboBox();
-				comboBox.setBounds(393, 82, 241, 30);
-				jpCentro.add(comboBox);
 				
 				JLabel label_2 = new JLabel("Preço:");
 				label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-				label_2.setBounds(311, 146, 72, 20);
+				label_2.setBounds(357, 205, 72, 20);
 				jpCentro.add(label_2);
 				
 				textField_1 = new JTextField();
 				textField_1.setColumns(10);
-				textField_1.setBounds(393, 138, 86, 30);
+				textField_1.setBounds(439, 200, 91, 30);
 				jpCentro.add(textField_1);
 				
 				JCheckBox checkBox = new JCheckBox("Desativar");
-				checkBox.setBounds(393, 204, 97, 30);
+				checkBox.setHorizontalAlignment(SwingConstants.RIGHT);
+				checkBox.setBounds(536, 200, 88, 30);
 				jpCentro.add(checkBox);
 				
 				
@@ -82,6 +75,29 @@ public class gAdicionais extends vTelaPadrao {
 				};
 				
 				lista(colunas, FonteDeDados,3,45,290, this.getHeight()-124,105);
-				campoPesquisa("Pesquisar : ", 5, 8, 70,218);
+				campoPesquisa("Pesquisar : ", 5, 12, 70,218);
 			}
+		
+		
+		
+		private void listagemTipo() {
+			
+				JCheckBox jc = new JCheckBox();
+			
+				String[] colunas = {"Tipo", "Ativo"};
+				Object[][] FonteDeDados= {
+				{"Pizza"," "},
+				{"Sanduiche"," "},
+				{"Refrigerante", " "},
+				{"Estrogonof", " "},
+				{" ", " "}			
+				};
+				
+				lista(colunas, FonteDeDados,393,45,240, this.getHeight()-180,200);
+				
+				
+		}
+		
+		
+		
 }
