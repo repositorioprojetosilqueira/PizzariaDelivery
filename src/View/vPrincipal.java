@@ -174,7 +174,7 @@ public class vPrincipal extends JFrame implements ActionListener{
 		jpAtalhosLateral.add(jbAtalhoPedido);
 		jpAtalhosLateral.add(jbAtalhoCaixa);
 		
-		this.add(jpAtalhosLateral);
+		desktopPane.add(jpAtalhosLateral);
 		
 	}
 
