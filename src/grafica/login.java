@@ -119,7 +119,7 @@ public class login extends JDialog implements ActionListener {
 		jbCancelar.addActionListener(this);
 	}
 	
-	//Teste
+	//Testeddd
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
