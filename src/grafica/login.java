@@ -118,6 +118,8 @@ public class login extends JDialog implements ActionListener {
 		jbAcessar.addActionListener(this);
 		jbCancelar.addActionListener(this);
 	}
+	
+	//Teste
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
