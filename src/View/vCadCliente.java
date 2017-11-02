@@ -8,14 +8,17 @@ import javax.swing.JLabel;
 
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.table.AbstractTableModel;
 
 public class vCadCliente extends vTelaPadrao {  
 	
 	    public vCadCliente() {
-	          
+	           
 	    	super("Cadastro Cliente","/imagens/cliente.png");
 	    	
 	    	initLayoutCliente(303, 11);
@@ -147,15 +150,17 @@ public class vCadCliente extends vTelaPadrao {
 	    	}
 	    	
 	    private void listagem() {
-	    		
+	    	
+	    
+	    	
 	    		String[] colunas = {"Nome","Telefone1","Telefone2"," "};
 	    		Object[][] FonteDeDados= {
-	    		{"Bruna Gomes", "3222-9908","9 9988-0001"},
-	    		{"Denise Pacheco", "3232-9901","9 9988-0001"},
-	    		{"Everaldo Junior", "3222-9908","9 9988-0001"},
-	    		{"Fernanda Pacheco", "3222-9908","9 9988-0001"},
-	    		{"Gabriela Xavier", "3222-9908","9 9988-0001"},
-	    		{"Geovanna Antunes", "3222-9908","9 9988-0001"},
+	    		{"Bruna Gomes", "3222-9908","9 9988-0001",Boolean.TRUE},
+	    		{"Denise Pacheco", "3232-9901","9 9988-0001",Boolean.TRUE},
+	    		{"Everaldo Junior", "3222-9908","9 9988-0001",Boolean.TRUE},
+	    		{"Fernanda Pacheco", "3222-9908","9 9988-0001",Boolean.TRUE},
+	    		{"Gabriela Xavier", "3222-9908","9 9988-0001",Boolean.TRUE},
+	    		{"Geovanna Antunes", "3222-9908","9 9988-0001",Boolean.TRUE},
 	    		{" ", " "}			
 	    		};
 	    		
@@ -163,4 +168,81 @@ public class vCadCliente extends vTelaPadrao {
 	    		campoPesquisa("Pesquisar : ", 5, 8, 70,218);
 	    	}
 
-	    } 
+	    	
+	    	 /*
+	    private void tabelac() {
+	    	JTable tabela  = new  JTable(new AbstractTableModel() { 
+	    		 public boolean isCellEditable(int rowIndex, int mColIndex) {  
+		                return true;  
+		            }  
+		        
+	    		
+	    	String[] columns = {"STUDENT ID", "NAME", "SCORE", "PASSED"};
+	        Object[][] data = {
+	                {"S001", "ALICE", 90.00, Boolean.TRUE},
+	                {"S002", "BOB", 45.50, Boolean.FALSE},
+	                {"S003", "CAROL", 60.00, Boolean.FALSE},
+	                {"S004", "MALLORY", 75.80, Boolean.TRUE}
+	        };
+	        
+	      
+	        
+	        public int getRowCount() {
+	            return data.length;
+	        }
+
+	        public int getColumnCount() {
+	            return columns.length;
+	        }
+
+	        public Object getValueAt(int rowIndex, int columnIndex) {
+	            return data[rowIndex][columnIndex];
+	        }
+
+	        @Override
+	        public String getColumnName(int column) {
+	            return columns[column];
+	        }
+
+	        //
+	        // This method is used by the JTable to define the default
+	        // renderer or editor for each cell. For example if you have
+	        // a boolean data it will be rendered as a check box. A
+	        // number value is right aligned.
+	        //
+	        @Override
+	        public Class<?> getColumnClass(int columnIndex) {
+	            return data[0][columnIndex].getClass();
+	        
+	        }	    	
+	        
+	        
+	    	  });
+	    	
+	    	
+	    	JScrollPane scrollPane= new JScrollPane(tabela);
+			
+			
+			//scrollPane.setBounds(5,40, width, height);
+			scrollPane.setBounds(10,10, 250, 200);
+			 
+			jpCentro.add(scrollPane);
+			
+	   
+	    	}
+	    	
+	    */
+	    
+	   
+	    	
+}
+	    
+	    	
+	    
+
+
+			
+	    	
+	    	
+	    
+
