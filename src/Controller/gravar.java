@@ -19,7 +19,7 @@ public class gravar {
 	boolean faz = stm.execute();
 	
 	if(faz == false) 
-		System.out.println("Salvo com Sucesso");
+		System.out.println("Salvo com Sucessos");
 	else
 		System.out.println("Deu Erro");
 	
