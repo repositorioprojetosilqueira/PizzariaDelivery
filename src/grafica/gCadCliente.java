@@ -13,6 +13,10 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import View.vTelaPadrao;
+import javax.swing.JTable;
+import javax.swing.border.BevelBorder;
+import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
 
 
 public class gCadCliente extends vTelaPadrao {
@@ -163,5 +167,4 @@ private void listagem() {
 		lista(colunas, FonteDeDados,3,45,290, this.getHeight()-124,105);
 		campoPesquisa("Pesquisar : ", 5, 8, 70,218);
 	}
-
 }

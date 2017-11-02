@@ -11,6 +11,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -91,13 +92,16 @@ public class vTelaPadrao extends JInternalFrame {
 				Object[][] FonteDeDados= fonte;
 				
 				
-			    JTable tabela  = new  JTable(new DefaultTableModel(FonteDeDados, colunas){  
+			    
+			    	
+			    
+				JTable tabela  = new  JTable(new DefaultTableModel(FonteDeDados, colunas){
 		            public boolean isCellEditable(int rowIndex, int mColIndex) {  
 		                return false;  
 		            }  
 		        });  
-			    
-			    
+				
+				
 			    
 				
 				tabela.getColumnModel().getColumn(0).setPreferredWidth(tamL1);

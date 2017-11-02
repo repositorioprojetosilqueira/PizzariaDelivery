@@ -26,11 +26,11 @@ import javax.swing.border.LineBorder;
  
 public class vCadUsuario extends vTelaPadrao {  
  
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JPasswordField passwordField;
+	public JTextField jtfNome;
+	private JTextField jtfEmail;
+	private JTextField jtfTelefone;
+	private JTextField jtfLogin;
+	private JPasswordField jpwfSenha;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
  
@@ -45,7 +45,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 	
 	private void initLayout() {
 		setBounds(100, 100, 674, 320);
-		
+				
 		JLabel label = new JLabel("Nome:");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		label.setBounds(218, 25, 54, 14);
@@ -76,52 +76,52 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		label_5.setBounds(443, 168, 54, 14);
 		jpCentro.add(label_5);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setText("Boi de Pinga Jogojogadoçasdf");
-		textField.setBounds(279, 17, 370, 30);
+		jtfNome = new JTextField();
+		jtfNome.setColumns(10);
+		jtfNome.setText("Boi de Pinga Jogojogadoçasdf");
+		jtfNome.setBounds(279, 17, 370, 30);
 		
-		jpCentro.add(textField);
+		jpCentro.add(jtfNome);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(282, 112, 191, 30);
-		jpCentro.add(textField_1);
+		jtfEmail = new JTextField();
+		jtfEmail.setColumns(10);
+		jtfEmail.setBounds(282, 112, 191, 30);
+		jpCentro.add(jtfEmail);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(540, 112, 109, 30);
-		jpCentro.add(textField_2);
+		jtfTelefone = new JTextField();
+		jtfTelefone.setColumns(10);
+		jtfTelefone.setBounds(540, 112, 109, 30);
+		jpCentro.add(jtfTelefone);
 		
-		JRadioButton radioButton = new JRadioButton("Administrador");
-		buttonGroup.add(radioButton);
-		radioButton.setBounds(290, 63, 109, 33);
-		jpCentro.add(radioButton);
+		JRadioButton rbAdmin = new JRadioButton("Administrador");
+		buttonGroup.add(rbAdmin);
+		rbAdmin.setBounds(290, 63, 109, 33);
+		jpCentro.add(rbAdmin);
 		
-		JRadioButton radioButton_1 = new JRadioButton("Atendente");
-		buttonGroup.add(radioButton_1);
-		radioButton_1.setSelected(true);
-		radioButton_1.setBounds(431, 63, 100, 33);
-		jpCentro.add(radioButton_1);
+		JRadioButton rbAten = new JRadioButton("Atendente");
+		buttonGroup.add(rbAten);
+		rbAten.setSelected(true);
+		rbAten.setBounds(431, 63, 100, 33);
+		jpCentro.add(rbAten);
 		
-		JRadioButton radioButton_2 = new JRadioButton("Entregador");
-		buttonGroup.add(radioButton_2);
-		radioButton_2.setBounds(540, 63, 109, 33);
-		jpCentro.add(radioButton_2);
+		JRadioButton rbEntre = new JRadioButton("Entregador");
+		buttonGroup.add(rbEntre);
+		rbEntre.setBounds(540, 63, 109, 33);
+		jpCentro.add(rbEntre);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(282, 160, 158, 30);
-		jpCentro.add(textField_3);
+		jtfLogin = new JTextField();
+		jtfLogin.setColumns(10);
+		jtfLogin.setBounds(282, 160, 158, 30);
+		jpCentro.add(jtfLogin);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(507, 158, 142, 30);
-		jpCentro.add(passwordField);
+		jpwfSenha = new JPasswordField();
+		jpwfSenha.setBounds(507, 158, 142, 30);
+		jpCentro.add(jpwfSenha);
 		
-		JCheckBox checkBox = new JCheckBox("Desativar");
-		checkBox.setHorizontalAlignment(SwingConstants.LEFT);
-		checkBox.setBounds(549, 204, 100, 33);
-		jpCentro.add(checkBox);
+		JCheckBox jcbStatus = new JCheckBox("Desativar");
+		jcbStatus.setHorizontalAlignment(SwingConstants.LEFT);
+		jcbStatus.setBounds(549, 204, 100, 33);
+		jpCentro.add(jcbStatus);
 	}
 	
 	private void listagem() {
@@ -140,6 +140,8 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		lista(colunas, FonteDeDados,3,45,220, this.getHeight()-124,105);
 		campoPesquisa("Pesquisar : ", 5, 8, 70,150);
 	}
+
+	
 	
 	
 }

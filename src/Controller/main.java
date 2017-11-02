@@ -1,12 +1,7 @@
 package Controller;
-
-
-
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
-
-import View.vPrincipal;
 import grafica.login;
 
 
@@ -43,6 +38,8 @@ public class main {
             ex.printStackTrace();
             }
 		
+		
+			
 		new login();
 				//new vPrincipal();
 		}
