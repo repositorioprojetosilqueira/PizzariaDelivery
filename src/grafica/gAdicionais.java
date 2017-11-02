@@ -16,8 +16,8 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JTextArea;
 
 public class gAdicionais extends vTelaPadrao {
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtDesc;
+	private JTextField txtPreco;
 
 
 	public gAdicionais() {
@@ -33,30 +33,30 @@ public class gAdicionais extends vTelaPadrao {
 		private void initLayout() {
 				setSize(674, 320);
 				
-				JLabel label = new JLabel("Descrição:");
-				label.setHorizontalAlignment(SwingConstants.RIGHT);
-				label.setBounds(312, 16, 71, 20);
-				jpCentro.add(label);
+				JLabel lbDesc = new JLabel("Descrição:");
+				lbDesc.setHorizontalAlignment(SwingConstants.RIGHT);
+				lbDesc.setBounds(312, 16, 71, 20);
+				jpCentro.add(lbDesc);
 				
-				textField = new JTextField();
-				textField.setColumns(10);
-				textField.setBounds(393, 11, 239, 30);
-				jpCentro.add(textField);
+				txtDesc = new JTextField();
+				txtDesc.setColumns(10);
+				txtDesc.setBounds(393, 11, 239, 30);
+				jpCentro.add(txtDesc);
 				
-				JLabel label_2 = new JLabel("Preço:");
-				label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-				label_2.setBounds(357, 205, 72, 20);
-				jpCentro.add(label_2);
+				JLabel lbPreco = new JLabel("Preço:");
+				lbPreco.setHorizontalAlignment(SwingConstants.RIGHT);
+				lbPreco.setBounds(357, 205, 72, 20);
+				jpCentro.add(lbPreco);
 				
-				textField_1 = new JTextField();
-				textField_1.setColumns(10);
-				textField_1.setBounds(439, 200, 91, 30);
-				jpCentro.add(textField_1);
+				txtPreco = new JTextField();
+				txtPreco.setColumns(10);
+				txtPreco.setBounds(439, 200, 91, 30);
+				jpCentro.add(txtPreco);
 				
-				JCheckBox checkBox = new JCheckBox("Desativar");
-				checkBox.setHorizontalAlignment(SwingConstants.RIGHT);
-				checkBox.setBounds(536, 200, 88, 30);
-				jpCentro.add(checkBox);
+				JCheckBox cbDesativar = new JCheckBox("Desativar");
+				cbDesativar.setHorizontalAlignment(SwingConstants.RIGHT);
+				cbDesativar.setBounds(536, 200, 88, 30);
+				jpCentro.add(cbDesativar);
 				
 				
 			}

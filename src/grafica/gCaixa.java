@@ -9,12 +9,12 @@ import java.awt.Font;
 
 
 public class gCaixa extends vTelaPadrao {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JLabel lblQuantidadeDePedidos;
-	private JTextField textField_4;
+	private JTextField txtDinheiro;
+	private JTextField txtCartaoD;
+	private JTextField txtCartaoC;
+	private JTextField txtValorT;
+	private JLabel lbQntP;
+	private JTextField txtQntP;
 	private JLabel label;
 
 
@@ -31,55 +31,55 @@ public class gCaixa extends vTelaPadrao {
 	}
 	
 	private void inilayout() {
-		JLabel lblNewLabel = new JLabel("Dinheiro:");
-		lblNewLabel.setBounds(542, 291, 93, 14);
-		jpCentro.add(lblNewLabel);
+		JLabel lbDinheiro = new JLabel("Dinheiro:");
+		lbDinheiro.setBounds(542, 291, 93, 14);
+		jpCentro.add(lbDinheiro);
 		
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(645, 276, 86, 32);
-		jpCentro.add(textField);
-		textField.setColumns(10);
+		txtDinheiro = new JTextField();
+		txtDinheiro.setEditable(false);
+		txtDinheiro.setBounds(645, 276, 86, 32);
+		jpCentro.add(txtDinheiro);
+		txtDinheiro.setColumns(10);
 		
-		JLabel lblCartoDeDbito = new JLabel("Cart\u00E3o de D\u00E9bito:");
-		lblCartoDeDbito.setBounds(513, 322, 121, 14);
-		jpCentro.add(lblCartoDeDbito);
+		JLabel lbCartaoD = new JLabel("Cart\u00E3o de D\u00E9bito:");
+		lbCartaoD.setBounds(513, 322, 121, 14);
+		jpCentro.add(lbCartaoD);
 		
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.setBounds(645, 307, 86, 32);
-		jpCentro.add(textField_1);
-		textField_1.setColumns(10);
+		txtCartaoD = new JTextField();
+		txtCartaoD.setEditable(false);
+		txtCartaoD.setBounds(645, 307, 86, 32);
+		jpCentro.add(txtCartaoD);
+		txtCartaoD.setColumns(10);
 		
-		JLabel lblCartoDeCrdito = new JLabel("Cart\u00E3o de Cr\u00E9dito:");
-		lblCartoDeCrdito.setBounds(513, 353, 122, 14);
-		jpCentro.add(lblCartoDeCrdito);
+		JLabel lbCartaoC = new JLabel("Cart\u00E3o de Cr\u00E9dito:");
+		lbCartaoC.setBounds(513, 353, 122, 14);
+		jpCentro.add(lbCartaoC);
 		
-		textField_2 = new JTextField();
-		textField_2.setEditable(false);
-		textField_2.setBounds(645, 338, 86, 32);
-		jpCentro.add(textField_2);
-		textField_2.setColumns(10);
+		txtCartaoC = new JTextField();
+		txtCartaoC.setEditable(false);
+		txtCartaoC.setBounds(645, 338, 86, 32);
+		jpCentro.add(txtCartaoC);
+		txtCartaoC.setColumns(10);
 		
-		JLabel lblValorTotal = new JLabel("Valor Total:");
-		lblValorTotal.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblValorTotal.setBounds(542, 382, 93, 32);
-		jpCentro.add(lblValorTotal);
+		JLabel lbValorT = new JLabel("Valor Total:");
+		lbValorT.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lbValorT.setBounds(542, 382, 93, 32);
+		jpCentro.add(lbValorT);
 		
-		textField_3 = new JTextField();
-		textField_3.setEditable(false);
-		textField_3.setBounds(645, 378, 111, 36);
-		jpCentro.add(textField_3);
-		textField_3.setColumns(10);
+		txtValorT = new JTextField();
+		txtValorT.setEditable(false);
+		txtValorT.setBounds(645, 378, 111, 36);
+		jpCentro.add(txtValorT);
+		txtValorT.setColumns(10);
 		
-		lblQuantidadeDePedidos = new JLabel("Quantidade de Pedidos:");
-		lblQuantidadeDePedidos.setBounds(243, 291, 136, 14);
-		jpCentro.add(lblQuantidadeDePedidos);
+		lbQntP = new JLabel("Quantidade de Pedidos:");
+		lbQntP.setBounds(243, 291, 136, 14);
+		jpCentro.add(lbQntP);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(385, 288, 30, 20);
-		jpCentro.add(textField_4);
-		textField_4.setColumns(10);
+		txtQntP = new JTextField();
+		txtQntP.setBounds(385, 288, 30, 20);
+		jpCentro.add(txtQntP);
+		txtQntP.setColumns(10);
 		
 		label = new JLabel("");
 		label.setBounds(243, 347, 46, 14);

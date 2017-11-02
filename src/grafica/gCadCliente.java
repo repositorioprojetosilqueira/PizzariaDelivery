@@ -36,113 +36,113 @@ public class gCadCliente extends vTelaPadrao {
 		jpCliente.setLayout(null);
 		//800x500
 		
-		JLabel label = new JLabel("Nome: ");
-		label.setHorizontalAlignment(SwingConstants.RIGHT);
-		label.setBounds(0, 19, 67, 14);
-		jpCliente.add(label);
+		JLabel lbNome = new JLabel("Nome: ");
+		lbNome.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbNome.setBounds(0, 19, 67, 14);
+		jpCliente.add(lbNome);
 		
-		JLabel label_1 = new JLabel("Telefone: ");
-		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_1.setBounds(0, 66, 67, 14);
-		jpCliente.add(label_1);
+		JLabel lbTelefone1 = new JLabel("Telefone: ");
+		lbTelefone1.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbTelefone1.setBounds(0, 66, 67, 14);
+		jpCliente.add(lbTelefone1);
 		
-		JLabel label_2 = new JLabel("Telefone:");
-		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_2.setBounds(247, 66, 73, 14);
-		jpCliente.add(label_2);
+		JLabel lbTelefone2 = new JLabel("Telefone:");
+		lbTelefone2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbTelefone2.setBounds(247, 66, 73, 14);
+		jpCliente.add(lbTelefone2);
 		
-		JLabel label_3 = new JLabel("Rua:");
-		label_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_3.setBounds(8, 119, 59, 14);
-		jpCliente.add(label_3);
+		JLabel lbRua = new JLabel("Rua:");
+		lbRua.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbRua.setBounds(8, 119, 59, 14);
+		jpCliente.add(lbRua);
 		
-		JLabel label_4 = new JLabel("N\u00BA:");
-		label_4.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_4.setBounds(342, 119, 38, 14);
-		jpCliente.add(label_4);
+		JLabel lbNumero = new JLabel("N\u00BA:");
+		lbNumero.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbNumero.setBounds(342, 119, 38, 14);
+		jpCliente.add(lbNumero);
 		
-		JLabel label_5 = new JLabel("Complemento:");
-		label_5.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_5.setBounds(247, 168, 86, 14);
-		jpCliente.add(label_5);
+		JLabel lbComplemento = new JLabel("Complemento:");
+		lbComplemento.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbComplemento.setBounds(247, 168, 86, 14);
+		jpCliente.add(lbComplemento);
 		
-		JLabel label_6 = new JLabel("Bairro:");
-		label_6.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_6.setBounds(9, 168, 58, 14);
-		jpCliente.add(label_6);
+		JLabel lbBairro = new JLabel("Bairro:");
+		lbBairro.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbBairro.setBounds(9, 168, 58, 14);
+		jpCliente.add(lbBairro);
 		
-		JLabel label_7 = new JLabel("Refer\u00EAncia de Entrega:");
-		label_7.setBounds(34, 214, 173, 14);
-		jpCliente.add(label_7);
+		JLabel lbReferencia = new JLabel("Refer\u00EAncia de Entrega:");
+		lbReferencia.setBounds(34, 214, 173, 14);
+		jpCliente.add(lbReferencia);
 		
-		JLabel label_8 = new JLabel("Historico de Compras: ");
-		label_8.setBounds(34, 323, 175, 14);
-		jpCliente.add(label_8);
+		JLabel lbHistorico = new JLabel("Historico de Compras: ");
+		lbHistorico.setBounds(34, 323, 175, 14);
+		jpCliente.add(lbHistorico);
 		
-		JTextField textField;
-		JTextField textField_1;
+		JTextField txtNome;
+		JTextField txtRua;
 
-		JTextField textField_2;
-		JTextField textField_3;
-		JTextField textField_4;
+		JTextField txtNumero;
+		JTextField txtComplemento;
+		JTextField txtBairro;
 
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(77, 11, 395, 30);
+		txtNome = new JTextField();
+		txtNome.setColumns(10);
+		txtNome.setBounds(77, 11, 395, 30);
 		
 		
-		JFormattedTextField formattedTextField = new JFormattedTextField();
-		formattedTextField.setBounds(77, 58, 142, 30);
+		JFormattedTextField txtTelefone1 = new JFormattedTextField();
+		txtTelefone1.setBounds(77, 58, 142, 30);
 		
 		
-		JFormattedTextField formattedTextField_1 = new JFormattedTextField();
-		formattedTextField_1.setBounds(330, 58, 142, 30);
+		JFormattedTextField txtTelefone2 = new JFormattedTextField();
+		txtTelefone2.setBounds(330, 58, 142, 30);
 		
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(77, 111, 256, 30);
+		txtRua = new JTextField();
+		txtRua.setColumns(10);
+		txtRua.setBounds(77, 111, 256, 30);
 		
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(390, 111, 82, 30);
+		txtNumero = new JTextField();
+		txtNumero.setColumns(10);
+		txtNumero.setBounds(390, 111, 82, 30);
 		
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(335, 160, 137, 30);
+		txtComplemento = new JTextField();
+		txtComplemento.setColumns(10);
+		txtComplemento.setBounds(335, 160, 137, 30);
 		
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(77, 160, 173, 30);
+		txtBairro = new JTextField();
+		txtBairro.setColumns(10);
+		txtBairro.setBounds(77, 160, 173, 30);
 		
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setWrapStyleWord(true);
-		textArea.setLineWrap(true);
-		textArea.setBounds(32, 239, 440, 73);
+		JTextArea txtReferencia = new JTextArea();
+		txtReferencia.setWrapStyleWord(true);
+		txtReferencia.setLineWrap(true);
+		txtReferencia.setBounds(32, 239, 440, 73);
 		
 		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setWrapStyleWord(true);
-		textArea_1.setLineWrap(true);
-		textArea_1.setBounds(32, 348, 440, 48);
+		JTextArea textHistorico = new JTextArea();
+		textHistorico.setWrapStyleWord(true);
+		textHistorico.setLineWrap(true);
+		textHistorico.setBounds(32, 348, 440, 48);
 		
 		
-		jpCliente.add(textField);
-		jpCliente.add(formattedTextField);
-		jpCliente.add(formattedTextField_1);
-		jpCliente.add(textField_1);
-		jpCliente.add(textField_2);
-		jpCliente.add(textField_3);
-		jpCliente.add(textField_4);
-		jpCliente.add(textArea);
-		jpCliente.add(textArea_1);
+		jpCliente.add(txtNome);
+		jpCliente.add(txtTelefone1);
+		jpCliente.add(txtTelefone2);
+		jpCliente.add(txtRua);
+		jpCliente.add(txtNumero);
+		jpCliente.add(txtComplemento);
+		jpCliente.add(txtBairro);
+		jpCliente.add(txtReferencia);
+		jpCliente.add(textHistorico);
 		
-		textField.setNextFocusableComponent(formattedTextField);
+		txtNome.setNextFocusableComponent(txtTelefone1);
 		
 		jpCentro.add(jpCliente);
 	}
