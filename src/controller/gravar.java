@@ -3,7 +3,7 @@ package controller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import model.ConectionFactory;
+import dao.ConectionFactory;
 
 public class gravar {
 

@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,7 +18,7 @@ import javax.swing.table.TableModel;
 
 import grafica.painelCliente;
 
-public class vTelaPadrao extends JInternalFrame {  
+public abstract class vTelaPadrao extends JInternalFrame {  
 		private paineis jpTop;
 		public paineis jpCentro;
 		public painelCliente pCliente;
@@ -71,12 +72,16 @@ public class vTelaPadrao extends JInternalFrame {
 			jbExcluir.setIcon(new ImageIcon(getClass().getResource("/imagens/delete.png")));
 			jbCancelar.setIcon(new ImageIcon(getClass().getResource("/imagens/cancel.png")));
 					
+			jbSalvar.setEnabled(false);
+			jbEditar.setEnabled(false);
+			jbCancelar.setEnabled(false);
+			jbExcluir.setEnabled(false);
 			
 			jpTop.add(jbNovo);
 			jpTop.add(jbSalvar);
 			jpTop.add(jbEditar);
-			jpTop.add(jbExcluir);
 			jpTop.add(jbCancelar);
+			jpTop.add(jbExcluir);
 			
 			
 			this.add(jpTop, BorderLayout.NORTH);
@@ -84,7 +89,7 @@ public class vTelaPadrao extends JInternalFrame {
 		}
 		    
 		    
-	
+	    
 		    public void lista(String[] col, Object[][] fonte, int x, int y, int width, int height,int tamL1) {
 		    	
 		    	
@@ -137,5 +142,17 @@ public class vTelaPadrao extends JInternalFrame {
 		    	
 		    }
 		    
+		    public abstract void acoes();
+		    
+		    public abstract void StatusTelaComponentes(boolean status);
+		    
+		    public abstract void StatusBotoes(boolean status, boolean sEdit_Exc);
+		   
+		    public abstract void limpaTela();
+		    
+		    
+		    
+		    
+
 		    
 }
