@@ -4,7 +4,8 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import View.vTelaPadrao;
+import view.vTelaPadrao;
+
 import javax.swing.JLabel;
 
 import javax.swing.JButton;

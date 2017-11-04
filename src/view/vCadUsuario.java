@@ -1,4 +1,4 @@
-package View;
+package view;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;

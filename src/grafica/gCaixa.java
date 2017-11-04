@@ -3,8 +3,10 @@ package grafica;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTable;
-import View.vTelaPadrao;
 import javax.swing.JTextField;
+
+import view.vTelaPadrao;
+
 import java.awt.Font;
 
 

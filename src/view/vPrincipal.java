@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
@@ -15,7 +15,7 @@ import javax.swing.JMenuItem;
 
 import grafica.gCadProduto;
 import grafica.gMovPedido;
-import View.*;
+import view.*;
 
 public class vPrincipal extends JFrame implements ActionListener{
 	private JMenuBar jMbar;

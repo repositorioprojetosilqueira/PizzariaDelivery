@@ -19,8 +19,8 @@ import javax.swing.SwingConstants;
 
 import org.omg.CORBA.Principal;
 
-import View.botoes;
-import View.vPrincipal;
+import view.botoes;
+import view.vPrincipal;
 
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;

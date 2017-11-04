@@ -1,19 +1,19 @@
-package View;
+package view;
 
-import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class vCadProduto extends vTelaPadrao{
-	private JTextField textField;
-	private JTextField textField_1;
+public class vCadAdicionais extends vTelaPadrao {
 
-	public vCadProduto() {
+	private JTextField jtfDesc;
+	private JTextField jtfPreco;
+	
+	public vCadAdicionais() {
 		
-		super("Produto", "/imagens/pizza.png");
+		super("Adicionais", "/imagens/cliente16x16.png");
 		
 		initLayout();
 		
@@ -22,21 +22,21 @@ public class vCadProduto extends vTelaPadrao{
 	}
 	
 		private void initLayout() {
-				setBounds(100, 100, 674, 320);
+				setSize(674, 320);
 				
 				JLabel label = new JLabel("Descrição:");
 				label.setHorizontalAlignment(SwingConstants.RIGHT);
-				label.setBounds(312, 34, 71, 14);
+				label.setBounds(312, 34, 71, 20);
 				jpCentro.add(label);
 				
-				textField = new JTextField();
-				textField.setColumns(10);
-				textField.setBounds(393, 26, 239, 30);
-				jpCentro.add(textField);
+				jtfDesc = new JTextField();
+				jtfDesc.setColumns(10);
+				jtfDesc.setBounds(393, 26, 239, 30);
+				jpCentro.add(jtfDesc);
 				
 				JLabel label_1 = new JLabel("Tipo:");
 				label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-				label_1.setBounds(312, 90, 71, 14);
+				label_1.setBounds(312, 90, 71, 20);
 				jpCentro.add(label_1);
 				
 				JComboBox comboBox = new JComboBox();
@@ -45,16 +45,16 @@ public class vCadProduto extends vTelaPadrao{
 				
 				JLabel label_2 = new JLabel("Preço:");
 				label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-				label_2.setBounds(311, 146, 72, 14);
+				label_2.setBounds(311, 146, 72, 20);
 				jpCentro.add(label_2);
 				
-				textField_1 = new JTextField();
-				textField_1.setColumns(10);
-				textField_1.setBounds(393, 138, 86, 30);
-				jpCentro.add(textField_1);
+				jtfPreco = new JTextField();
+				jtfPreco.setColumns(10);
+				jtfPreco.setBounds(393, 138, 86, 30);
+				jpCentro.add(jtfPreco);
 				
 				JCheckBox checkBox = new JCheckBox("Desativar");
-				checkBox.setBounds(393, 204, 97, 23);
+				checkBox.setBounds(393, 204, 97, 30);
 				jpCentro.add(checkBox);
 				
 				
@@ -62,14 +62,14 @@ public class vCadProduto extends vTelaPadrao{
 		
 		private void listagem() {
 				
-				String[] colunas = {"Descrição", "Preço"};
+				String[] colunas = {"Descrição","Tipo", "Preço"};
 				Object[][] FonteDeDados= {
-				{"Coca Lata", "R$ 3,00"},
-				{"Pizza Mussarela", "R$ 22,99"},
-				{"Pizza Vegetariana", "R$ 20,00"},
-				{"Suco Lata", "R$ 2,50"},
-				{"Pizza Portuguesa", "R$ 22,00"},
-				{"Pizza Palmito", "R$22,00"},
+				{"Alho Frito", "Pizza","R$ 0,00"},
+				{"Berinjela Milanesa", "Pizza","R$ 3,20"},
+				{"Cebola Picada", "Pizza","R$ 1,10"},
+				{"Cebolinha Picadinha", "Pizza","R$ 0,70"},
+				{"Parmesão", "Estrogonofe","R$ 3,20"},
+				{"Milho Verde", "Estrogonofe","R$ 0,00"},
 				{" ", " "}			
 				};
 				
@@ -77,3 +77,4 @@ public class vCadProduto extends vTelaPadrao{
 				campoPesquisa("Pesquisar : ", 5, 8, 70,218);
 			}
 }
+

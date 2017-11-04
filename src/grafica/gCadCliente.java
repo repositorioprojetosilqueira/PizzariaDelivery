@@ -11,12 +11,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
-import View.vTelaPadrao;
 import javax.swing.JTable;
 import javax.swing.border.BevelBorder;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
+
+import view.vTelaPadrao;
 
 
 public class gCadCliente extends vTelaPadrao {

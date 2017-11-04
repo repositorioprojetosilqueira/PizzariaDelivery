@@ -4,9 +4,9 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
-import View.vTelaPadrao;
 import javax.swing.SwingConstants;
+
+import view.vTelaPadrao;
 
 	public class gMovCaixa extends vTelaPadrao {
 		

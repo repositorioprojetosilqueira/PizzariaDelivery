@@ -15,8 +15,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
-import View.vPrincipal;
-import View.vTelaPadrao;
+import view.vPrincipal;
+import view.vTelaPadrao;
 
 public class gProduto extends vTelaPadrao{
 

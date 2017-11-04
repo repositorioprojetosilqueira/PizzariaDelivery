@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
 
-import View.vTelaPadrao;
+import view.vTelaPadrao;
 
 public class gFecharCaixa extends vTelaPadrao {
 

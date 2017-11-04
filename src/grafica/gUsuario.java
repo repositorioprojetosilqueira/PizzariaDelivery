@@ -3,8 +3,6 @@ package grafica;
 import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
-
-import View.vTelaPadrao;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -17,6 +15,9 @@ import javax.swing.border.Border;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+
+import view.vTelaPadrao;
+
 import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;

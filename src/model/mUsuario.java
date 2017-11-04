@@ -1,11 +1,11 @@
-package Model;
+package model;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import View.vCadUsuario;
+import view.vCadUsuario;
 
 public class mUsuario extends vCadUsuario implements ActionListener{
 	

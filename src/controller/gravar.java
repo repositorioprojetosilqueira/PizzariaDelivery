@@ -1,9 +1,9 @@
-package Controller;
+package controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import Model.ConectionFactory;
+import model.ConectionFactory;
 
 public class gravar {
 

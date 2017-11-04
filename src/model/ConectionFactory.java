@@ -1,8 +1,9 @@
-package Model;
+package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -21,7 +22,7 @@ public class ConectionFactory {
 		
 			public static Connection getConnection(String sgbd) throws Exception {
 				
-				if(conexao != null) 
+				if((conexao != null) && (!conexao.isClosed())) 
 					return conexao;
 				
 				if(sgbd.equalsIgnoreCase("MSSQL"))
@@ -38,42 +39,62 @@ public class ConectionFactory {
 				
 			}
 			
-			private static Connection sqlServer() throws SQLException, Exception{
+			private static void sqlServer() throws SQLException {
 				String banco = "agenda";
 				String usuario = "sa";
 				String senha = "321crazy";
-				String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+
 				String servidor = "SILQUEIRAPC\\SQLEXPRESS";
-				
-				Class.forName(driver);
 				
 				conexao = DriverManager.getConnection("jdbc:sqlserver://"
 				+ servidor + ";databaseName="+ banco, usuario, senha);
 				
-				return conexao;
+				
 			} 
 			
 			
-			private static Connection MySql() throws SQLException, Exception {
-				String banco = "agenda";
+			private static void MySql() throws SQLException {
+				String banco = "delivery";
 				String usuario = "root";
 				String senha = "321crazy";
-				String driver = "com.mysql.jdbc.Driver";
+				
 				String servidor = "localhost";
 				
-				Class.forName(driver);
-				conexao = DriverManager.getConnection("jdbc:mysql://"
-				+servidor+":3306/"+banco, usuario, senha);
+				String stringConexao = "jdbc:mysql://"+servidor+":3306/"+banco+"?&useSSL=false";
 				
-				return conexao;
-			} 
-			
-			public static void Dispose(Statement stm) {
-				
+				conexao = DriverManager.getConnection(stringConexao, usuario, senha);
 				
 			}
 			
-	
+		
+		public static void Close() throws SQLException {
+				conexao = null;
+		}
+		
+		public static void Dispose(Statement stm) throws SQLException {
+			stm.close();
+			stm = null;
+		}
+		
+		public static void Dispose(PreparedStatement stm) throws SQLException {
+			stm.close();
+			stm = null;
+		}
+		
+		public static void Dispose(PreparedStatement stm, ResultSet rs) throws SQLException {
+			rs.close();
+			rs = null;
+			Dispose(stm);
+		}
+		
+		public static void Dispose(Statement stm, ResultSet rs) throws SQLException {
+			rs.close();
+			rs = null;
+			Dispose(stm);
+		}
+		
+			
+			
 }
 
 
