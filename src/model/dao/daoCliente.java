@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.conexaobd.model.Contato;
+
 import model.mCliente;
 
 public class daoCliente extends DAOSuperClass<mCliente>{

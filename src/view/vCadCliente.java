@@ -162,7 +162,7 @@ public class vCadCliente extends vTelaPadrao {
 			jpCentro.add(jpCliente);
 		}
 		
-	private void listagem() throws Exception {
+	private void listagem(){
 			String[] colunas = {"Nome","Telefone1","Telefone2"};
 			Object[][] FonteDeDados= {
 			{"Bruna Gomes", "3222-9908","9 9988-0001"},
@@ -173,16 +173,6 @@ public class vCadCliente extends vTelaPadrao {
 			{"Geovanna Antunes", "3222-9908","9 9988-0001"},
 			{" ", " "}			
 			};
-			
-			
-			daoCliente tempCliente = new daoCliente();
-		
-			tempCliente.selectAll();
-			Object[][] temp;
-
-			for (mCliente i: tempCliente.selectAll()) {
-				
-			}
 			
 			
 			lista(colunas, FonteDeDados,3,45,290, this.getHeight()-124,105);
