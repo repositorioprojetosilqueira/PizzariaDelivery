@@ -2,6 +2,8 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
@@ -17,6 +19,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import grafica.painelCliente;
+import model.mCliente;
+import model.dao.daoCliente;
 
 public abstract class vTelaPadrao extends JInternalFrame {  
 		private paineis jpTop;
@@ -48,6 +52,8 @@ public abstract class vTelaPadrao extends JInternalFrame {
             
             componentes();
             this.setVisible(true);
+            this.requestFocus();
+            
                        
      }
     
@@ -141,6 +147,7 @@ public abstract class vTelaPadrao extends JInternalFrame {
 				
 		    	
 		    }
+		
 		    
 		    public abstract void acoes();
 		    

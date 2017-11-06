@@ -1,39 +1,35 @@
 package grafica;
 
-import java.awt.EventQueue;
-import java.awt.Graphics;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
+
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
-import java.awt.Event;
 
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import org.omg.CORBA.Principal;
-
+import model.mUsuario;
+import model.dao.daoUsuario;
 import view.botoes;
 import view.vPrincipal;
 
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import java.awt.Color;
-import java.awt.Component;
+
 import java.awt.Font;
 
 public class login extends JDialog implements ActionListener {
-	private JTextField textField;
-	private JPasswordField passwordField;
+	private JTextField jtfUsuario;
+	private JPasswordField jpfSenha;
 
 	private botoes jbCancelar, jbAcessar, jbPedido ;	
-	private JLabel lblAcessoPizzariaDelivery;
+	private JLabel lblAcessoPizzariaDelivery, lblMensagemAcesso;
 	private JPanel panel_1;
 	
 	public login() {
@@ -53,7 +49,7 @@ public class login extends JDialog implements ActionListener {
 	
 	private void initLayout() {
 		
-		setBounds(100, 100, 430, 207);
+		setBounds(100, 100, 415, 208);
 		
 		
 		JPanel panel = new JPanel();
@@ -65,32 +61,32 @@ public class login extends JDialog implements ActionListener {
 		lblUsurio.setBounds(143, 25, 66, 30);
 		panel.add(lblUsurio);
 		
-		textField = new JTextField();
-		textField.setBounds(219, 25, 181, 30);
-		panel.add(textField);
-		textField.setColumns(10);
+		jtfUsuario = new JTextField();
+		jtfUsuario.setBounds(219, 25, 181, 30);
+		panel.add(jtfUsuario);
+		jtfUsuario.setColumns(10);
 		
 		JLabel lblSenha = new JLabel("Senha: ");
 		lblSenha.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSenha.setBounds(143, 77, 66, 30);
 		panel.add(lblSenha);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(219, 77, 181, 30);
-		panel.add(passwordField);
+		jpfSenha = new JPasswordField();
+		jpfSenha.setBounds(219, 77, 181, 30);
+		panel.add(jpfSenha);
 		
 		jbCancelar = new botoes("Sair", 110, 40);
 		jbCancelar.setSize(101, 35);
 		jbCancelar.setIcon(new ImageIcon(getClass().getResource("/imagens/exit.png")));
-		jbCancelar.setLocation(174,137);
+		jbCancelar.setLocation(155,128);
 		
 		
 		jbAcessar = new botoes("Acessar", 110, 40);
 		jbAcessar.setSize(101, 35);
 		jbAcessar.setIcon(new ImageIcon(getClass().getResource("/imagens/acessar.png")));
-		jbAcessar.setLocation(299,137);
+		jbAcessar.setLocation(299,128);
 		
-		passwordField.setNextFocusableComponent(jbAcessar);
+		jpfSenha.setNextFocusableComponent(jbAcessar);
 		
 		panel.add(jbAcessar);
 		panel.add(jbCancelar);
@@ -114,6 +110,13 @@ public class login extends JDialog implements ActionListener {
 		
 		panel.add(iLogin);
 		
+		lblMensagemAcesso = new JLabel("");
+		lblMensagemAcesso.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblMensagemAcesso.setForeground(Color.RED);
+		lblMensagemAcesso.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMensagemAcesso.setBounds(10, 0, 391, 21);
+		panel.add(lblMensagemAcesso);
+		
 		
 		jbAcessar.addActionListener(this);
 		jbCancelar.addActionListener(this);
@@ -126,11 +129,40 @@ public class login extends JDialog implements ActionListener {
 		
 		
 		if(e.getSource()==jbAcessar) {
-			new vPrincipal();
-			this.dispose();
+			validaUsuario();
+			
 		}
 		if(e.getSource()==(jbCancelar))
 			System.exit(0);
+		
+	}
+	
+	public void validaUsuario() {
+
+		try {
+
+			daoUsuario dUsuario = new daoUsuario();
+			mUsuario ia = dUsuario.selectDesc(jtfUsuario.getText());
+
+			if(ia.getuSenha().equals(jpfSenha.getText())) { 
+				
+				lblMensagemAcesso.setText("Acesso Liberado!");
+				
+				new vPrincipal();
+				dispose();
+				
+				}
+			
+		}catch (Exception e) {
+			
+				lblMensagemAcesso.setText("Acesso Negado. Tente Novamente!");
+				jtfUsuario.setText(null);
+				jpfSenha.setText(null);
+				jtfUsuario.requestFocus();
+				
+				System.out.println(e);
+			}
+	
 		
 	}
 }

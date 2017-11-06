@@ -49,5 +49,7 @@ public abstract class DAOSuperClass<T> {
 	
 	public abstract List<T> selectAll() throws SQLException;
 	
+	public abstract T selectDesc(String descricao)throws SQLException;
+	
 	
 }

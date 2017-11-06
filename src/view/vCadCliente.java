@@ -45,6 +45,7 @@ public class vCadCliente extends vTelaPadrao {
 	    	
 	    	acoes();
 	    	
+	    	
 	}
 	    	
 	public void initLayoutCliente(int x, int y) {
@@ -100,11 +101,12 @@ public class vCadCliente extends vTelaPadrao {
 			jpCliente.add(lbHistorico);
 			
 
-
+			
 			
 			jtfNome = new JTextField();
 			jtfNome.setColumns(10);
 			jtfNome.setBounds(77, 11, 395, 30);
+			
 			
 			
 			jftTelefone1 = new JFormattedTextField();
@@ -158,6 +160,7 @@ public class vCadCliente extends vTelaPadrao {
 			jpCliente.add(jtaHistorico);
 			
 			jtfNome.setNextFocusableComponent(jftTelefone1);
+			
 			
 			jpCentro.add(jpCliente);
 		}

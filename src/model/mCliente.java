@@ -14,13 +14,7 @@ public class mCliente {
 	private String cHistCompras;
 	
 	
-	public String getcComplemento() {
-		return cComplemento;
-	}
-
-	public void setcComplemento(String cComplemento) {
-		this.cComplemento = cComplemento;
-	}
+	
 
 	public mCliente() {
 		
@@ -42,6 +36,7 @@ public class mCliente {
 		this.cHistCompras = cHistCompras;
 	}
 
+	
 	public int getCodCliente() {
 		return codCliente;
 	}
@@ -83,6 +78,13 @@ public class mCliente {
 	}
 	public void setcBairro(String cBairro) {
 		this.cBairro = cBairro;
+	}
+	public String getcComplemento() {
+		return cComplemento;
+	}
+
+	public void setcComplemento(String cComplemento) {
+		this.cComplemento = cComplemento;
 	}
 	public String getcRefEntrega() {
 		return cRefEntrega;
