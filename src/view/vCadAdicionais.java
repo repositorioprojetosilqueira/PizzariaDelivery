@@ -76,5 +76,29 @@ public class vCadAdicionais extends vTelaPadrao {
 				lista(colunas, FonteDeDados,3,45,290, this.getHeight()-124,105);
 				campoPesquisa("Pesquisar : ", 5, 8, 70,218);
 			}
+
+		@Override
+		public void acoes() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void StatusTelaComponentes(boolean status) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void StatusBotoes(boolean status, boolean sEdit_Exc) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void limpaTela() {
+			// TODO Auto-generated method stub
+			
+		}
 }
 

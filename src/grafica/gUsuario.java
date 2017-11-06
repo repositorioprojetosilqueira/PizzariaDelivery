@@ -141,6 +141,30 @@ public class gUsuario extends vTelaPadrao {
 		lista(colunas, FonteDeDados,3,45,220, this.getHeight()-124,105);
 		campoPesquisa("Pesquisar : ", 5, 8, 70,150);
 	}
+
+	@Override
+	public void acoes() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void StatusTelaComponentes(boolean status) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void StatusBotoes(boolean status, boolean sEdit_Exc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void limpaTela() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

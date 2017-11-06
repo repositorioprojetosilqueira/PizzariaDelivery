@@ -91,4 +91,10 @@ public class daoCliente extends DAOSuperClass<mCliente>{
 		return retorno;
 	}
 
+	@Override
+	public mCliente selectDesc(String descricao) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

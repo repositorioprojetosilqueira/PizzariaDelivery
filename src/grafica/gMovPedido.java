@@ -260,6 +260,34 @@ public class gMovPedido extends vTelaPadrao {
 		lista(colunas, FonteDeDados, 10,135,380,140,30);
 		
 		}
+
+
+	@Override
+	public void acoes() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void StatusTelaComponentes(boolean status) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void StatusBotoes(boolean status, boolean sEdit_Exc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void limpaTela() {
+		// TODO Auto-generated method stub
+		
+	}
 	}	
 		
 
