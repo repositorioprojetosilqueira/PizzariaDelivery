@@ -1,8 +1,10 @@
 package view;
 
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JFormattedTextField;
 
@@ -16,6 +18,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 
 import model.mCliente;
 import model.dao.daoCliente;
@@ -35,15 +38,27 @@ public class vCadCliente extends vTelaPadrao {
 	private JTextArea jtaReferencia;
 	private JTextArea jtaHistorico;
 	
+	private DefaultTableModel modelo;
+	private JTable tabela;
+	
 	public vCadCliente() {
 	           
 	    	super("Cadastro Cliente","/imagens/cliente.png");
 	    	
 	    	initLayoutCliente(303, 11);
 	    	
-	    	listagem();
+	    	
 	    	
 	    	acoes();
+	    	criaJTable();
+	    	try {
+	    		//listagem();
+	    		
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	    	
 	    	
 	}
@@ -164,24 +179,44 @@ public class vCadCliente extends vTelaPadrao {
 			
 			jpCentro.add(jpCliente);
 		}
-		
-	private void listagem(){
-			String[] colunas = {"Nome","Telefone1","Telefone2"};
-			Object[][] FonteDeDados= {
-			{"Bruna Gomes", "3222-9908","9 9988-0001"},
-			{"Denise Pacheco", "3232-9901","9 9988-0001"},
-			{"Everaldo Junior", "3222-9908","9 9988-0001"},
-			{"Fernanda Pacheco", "3222-9908","9 9988-0001"},
-			{"Gabriela Xavier", "3222-9908","9 9988-0001"},
-			{"Geovanna Antunes", "3222-9908","9 9988-0001"},
-			{" ", " "}			
-			};
+
+			private void criaJTable() {
+				modelo = new DefaultTableModel();
+
+				tabela  = new  JTable(modelo){
+		            public boolean isCellEditable(int rowIndex, int mColIndex) {  
+		                return false;  
+		            }  
+		        };  
+				  
+		        modelo.addColumn("Nome");
+				modelo.addColumn("Telefone 1");
+				modelo.addColumn("Telefone 2");
+				tabela.getColumnModel().getColumn(0).setPreferredWidth(100);
+				tabela.getColumnModel().getColumn(1).setPreferredWidth(60);
+				tabela.getColumnModel().getColumn(2).setPreferredWidth(60);
+				try {
+					pesquisar(modelo);
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				lista(tabela,3,45,290, this.getHeight()-124);
+				campoPesquisa("Pesquisar : ", 5, 8, 70,218);
+			}
 			
+			public static void pesquisar(DefaultTableModel modelo) throws Exception {
+				modelo.setNumRows(0);
+				 
 			
-			lista(colunas, FonteDeDados,3,45,290, this.getHeight()-124,105);
-			campoPesquisa("Pesquisar : ", 5, 8, 70,218);
-		}
-	
+				daoCliente dao = new daoCliente();
+
+				for (mCliente m : dao.selectAll()) {
+					modelo.addRow(new Object[]{m.getcNome(), m.getcTelefone1(), m.getcTelefone2()});
+				}
+			}
+
 	
 	public void acoes(){
 	

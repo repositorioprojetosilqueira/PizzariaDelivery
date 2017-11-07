@@ -131,6 +131,7 @@ public class login extends JDialog implements ActionListener {
 		if(e.getSource()==jbAcessar) {
 			validaUsuario();
 			
+			
 		}
 		if(e.getSource()==(jbCancelar))
 			System.exit(0);
@@ -147,11 +148,11 @@ public class login extends JDialog implements ActionListener {
 			if(ia.getuSenha().equals(jpfSenha.getText())) { 
 				
 				lblMensagemAcesso.setText("Acesso Liberado!");
-				
+
 				new vPrincipal();
 				dispose();
-				
-				}
+
+			}
 			
 		}catch (Exception e) {
 			
@@ -162,7 +163,7 @@ public class login extends JDialog implements ActionListener {
 				
 				System.out.println(e);
 			}
-	
 		
 	}
+	
 }

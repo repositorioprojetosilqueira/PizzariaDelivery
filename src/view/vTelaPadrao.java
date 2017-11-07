@@ -30,6 +30,9 @@ public abstract class vTelaPadrao extends JInternalFrame {
 		public botoes jbNovo, jbSalvar, jbEditar, jbExcluir, jbCancelar;
 		private JLabel jlPesquisa;
 		
+		public JTable jTabela;
+		
+
 		private JTextField jtPesquisar;
 		
     public vTelaPadrao(String titulo, String IconeTela) {
@@ -94,47 +97,23 @@ public abstract class vTelaPadrao extends JInternalFrame {
 			this.add(jpCentro, BorderLayout.CENTER);
 		}
 		    
-		    
-	    
-		    public void lista(String[] col, Object[][] fonte, int x, int y, int width, int height,int tamL1) {
+		    public void lista(JTable tab, int x, int y, int width, int height) {
 		    	
-		    	
-		    	String[] colunas = col;
-				Object[][] FonteDeDados= fonte;
+		    	jTabela = tab;
 				
+				JScrollPane scrollPane= new JScrollPane(jTabela);
 				
-			    
-			    	
-			    
-				JTable tabela  = new  JTable(new DefaultTableModel(FonteDeDados, colunas){
-		            public boolean isCellEditable(int rowIndex, int mColIndex) {  
-		                return false;  
-		            }  
-		        });  
+				jTabela.setFillsViewportHeight(true);
+				jTabela.setRowSelectionInterval(0,0);
 				
-				
-			    
-				
-				tabela.getColumnModel().getColumn(0).setPreferredWidth(tamL1);
-				//tabela.getColumnModel().getColumn(0).setPreferredWidth(105);
-				//tabela.getColumnModel().getColumn(1).setPreferredWidth(20);
-				
-				//tabela.getColumnModel().getColumn(2).setPreferredWidth(20);
-				
-				JScrollPane scrollPane= new JScrollPane(tabela);
-				
-				tabela.setFillsViewportHeight(true);
-				tabela.setRowSelectionInterval(0,0);
-				
-				
-				//scrollPane.setBounds(5,40, width, height);
 				scrollPane.setBounds(x,y, width, height);
 				 
 				jpCentro.add(scrollPane);
 				
 				
 		    }
-		    public void campoPesquisa(String nomeCampo, int x, int y, int w, int wP) {
+		   
+			public void campoPesquisa(String nomeCampo, int x, int y, int w, int wP) {
 		    
 		    	jlPesquisa = new JLabel(nomeCampo);
 				jlPesquisa.setBounds(x,y, w, 30);
@@ -147,6 +126,13 @@ public abstract class vTelaPadrao extends JInternalFrame {
 				
 		    	
 		    }
+			public JTable getjTabela() {
+				return jTabela;
+			}
+
+			public void setjTabela(JTable jTabela) {
+				this.jTabela = jTabela;
+			}
 		
 		    
 		    public abstract void acoes();

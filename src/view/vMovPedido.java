@@ -34,8 +34,6 @@ public class vMovPedido extends vTelaPadrao{
 
 			initiLayout();
 			
-			listagem();
-			
 		}
 
 
@@ -182,41 +180,6 @@ public class vMovPedido extends vTelaPadrao{
 			btnLanar.setBounds(312, 103, 76, 29);
 			jpCentro.add(btnLanar);
 
-
-
-
-			
-			
-			/*table = new JTable();
-			table.setBorder(null);
-			DefaultTableModel model = new DefaultTableModel (dados, colunas);
-			
-			table.setModel(new DefaultTableModel(
-					new Object[][] {
-						{"2", "Mussarela","R$ 3,20"},
-						{"1", "Cebola Picada","R$ 1,10"},
-						{" ", " "},	
-						{" ", " "},	
-
-					},
-					new String[] {
-							"Quantidade","Produto", "Preço"
-					}
-					) {
-				boolean[] columnEditables = new boolean[] {
-						false, false, false, false, false
-				};
-				public boolean isCellEditable(int row, int column) {
-					return columnEditables[column];
-				}
-			});
-			table.getColumnModel().getColumn(1).setPreferredWidth(181);
-			table.getColumnModel().getColumn(1).setMinWidth(17);
-			panel_1.add(table);
-			
-			JScrollBar scrollBar = new JScrollBar();
-			panel_1.add(scrollBar);*/
-			
 			JComboBox comboBox = new JComboBox();
 			comboBox.setBounds(13, 304, 132, 23);
 			jpCentro.add(comboBox);
@@ -256,18 +219,7 @@ public class vMovPedido extends vTelaPadrao{
 			jpCentro.add(chckbxEntregue);
 			
 		}
-		private void listagem() {
-			String[] colunas = {"Quantidade","Produto", "Preço"};
-			Object[][] FonteDeDados= {
-					{"2", "Mussarela","R$ 3,20"},
-					{"1", "Cebola Picada","R$ 1,10"},
-					{" ", " "},	
-					{" ", " "},	
-
-					};
-			lista(colunas, FonteDeDados, 10,135,380,140,30);
-			
-			}
+		
 
 
 		@Override
