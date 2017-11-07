@@ -137,7 +137,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		{" ", " "}			
 		};
 		
-		lista(colunas, FonteDeDados,3,45,220, this.getHeight()-124,105);
+		//lista(colunas, FonteDeDados,3,45,220, this.getHeight()-124,105);
 		campoPesquisa("Pesquisar : ", 5, 8, 70,150);
 	}
 

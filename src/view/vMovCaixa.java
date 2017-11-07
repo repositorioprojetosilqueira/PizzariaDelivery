@@ -135,7 +135,7 @@ public class vMovCaixa extends vTelaPadrao{
 				{"21", "Pizza Calabresa", "Jessica", "Cartão de Crédito", "17,90"},
 			};
 			//243, 11, 488, 241
-			lista(colunas, FonteDeDados,270,40,500, 230,30);
+			//lista(colunas, FonteDeDados,270,40,500, 230,30);
 		}
 		
 		
@@ -152,7 +152,7 @@ public class vMovCaixa extends vTelaPadrao{
 			{"07/09/2017", "R$ 923,00"}			
 			};
 			
-			lista(colunas, FonteDeDados,3,45,230, this.getHeight()-124,105);
+			//lista(colunas, FonteDeDados,3,45,230, this.getHeight()-124,105);
 			campoPesquisa("Data : ", 10, 8, 50,158);
 			
 		}

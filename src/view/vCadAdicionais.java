@@ -73,7 +73,7 @@ public class vCadAdicionais extends vTelaPadrao {
 				{" ", " "}			
 				};
 				
-				lista(FonteDeDados,3,45,290, this.getHeight()-124,105);
+				//lista(FonteDeDados,3,45,290, this.getHeight()-124,105);
 				campoPesquisa("Pesquisar : ", 5, 8, 70,218);
 			}
 
