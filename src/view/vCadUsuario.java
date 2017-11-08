@@ -16,12 +16,14 @@ import java.awt.*;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
 import model.mCliente;
 import model.mUsuario;
@@ -40,6 +42,10 @@ public class vCadUsuario extends vTelaPadrao {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JRadioButton jrbAdmin, jrbAten, jrbEntre;
 	private JCheckBox jcbStatus;
+	
+	private DefaultTableModel modelo;
+	private JTable tabela;
+	
  	private int codUsuario;
 	
 	
@@ -47,8 +53,10 @@ public class vCadUsuario extends vTelaPadrao {
 super("Cadastro Usuário","/imagens/usuario32x32.png");
 		
 		initLayout();
-		
-		listagem();
+	
+		criaJTable();
+		StatusTelaComponentes(false);
+    	StatusBotoes(true, false, false, false, false);
 		
 	}
 	
@@ -87,7 +95,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		
 		jtfNome = new JTextField();
 		jtfNome.setColumns(10);
-		jtfNome.setText("Boi de Pinga Jogojogadoçasdf");
+		jtfNome.setText(null);
 		jtfNome.setBounds(279, 17, 370, 30);
 		
 		jpCentro.add(jtfNome);
@@ -139,23 +147,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		jpCentro.add(jcbStatus);
 	}
 	
-	private void listagem() {
-		
-		String[] colunas = {"Nome","Login"};
-		Object[][] FonteDeDados= {
-		{"Antonio Silva", "aSilva"},
-		{"Bruno Gomes", "bGomes"},
-		{"Douglas Bernard", "dBernard"},
-		{"Everaldo Junior", "eJunior"},
-		{"Fernanda Pacheco", "fPacheco "},
-		{"Geovanna Antunes", "gAntunes"},
-		{" ", " "}			
-		};
-		
-		//lista(colunas, FonteDeDados,3,45,220, this.getHeight()-124,105);
-		campoPesquisa("Pesquisar : ", 5, 8, 70,150);
-	}
-
+	
 	@Override
 	public void acoes() {
 		// TODO Auto-generated method stub
@@ -177,8 +169,84 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		
 		jcbStatus.setEnabled(status);
 		
+	
+	}
+	
+	
+	
+	private void criaJTable() {
+		modelo = new DefaultTableModel();
+
+		tabela  = new  JTable(modelo){
+            public boolean isCellEditable(int rowIndex, int mColIndex) {  
+                return false;  
+            }  
+        };  
+		
+        modelo.addColumn("Cd");
+        modelo.addColumn("Nome");
+		modelo.addColumn("Função");
+		
+		tabela.getColumnModel().getColumn(0).setPreferredWidth(5);
+		tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
+		tabela.getColumnModel().getColumn(2).setPreferredWidth(10);
+		
+		try {
+			pesquisar(modelo);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		lista(tabela,3,45,220, this.getHeight()-124);
+		campoPesquisa("Pesquisar : ", 5, 8, 70,218);
+		tabela.addMouseListener(this); 
+		
+	}
+	
+	public static void pesquisar(DefaultTableModel modelo) throws Exception {
+		modelo.setNumRows(0);
+
+		daoCliente dao = new daoCliente();
+
+		for (mCliente m : dao.selectAll()) {
+			modelo.addRow(new Object[]{m.getCodCliente(),m.getcNome(), m.getcTelefone1(),m.getcTelefone2()});
+		}
+		
 	}
 
+
+	
+
+	public void preenchetela() throws Exception {
+		
+		int row = tabela.getSelectedRow();
+		
+		daoUsuario dao = new daoUsuario();
+		 
+		 codUsuario =Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
+		 
+		 mUsuario m = dao.select(codUsuario);
+		 
+		 	String fun = m.getuFuncao();
+		 
+		 	jtfNome.setText(m.getuNome());
+		 	
+		 	if(fun.equals("adm"))
+		 		jrbAdmin.setSelected(true);
+		 	else if(fun.equals("ate"))
+		 		jrbAten.setSelected(true);
+		 	else
+		 		jrbEntre.setSelected(true);
+		 	
+			jtfEmail.setText(m.getuEmail());
+			jtfTelefone.setText(m.getuTelefone());
+			jtfLogin.setText(m.getuLogin());
+			jpwfSenha.setText(null);
+			
+			jcbStatus.setSelected(m.getuStatus());
+		 
+	}
 
 	@Override
 	public void limpaTela() {
@@ -204,7 +272,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		if(ev.getSource().equals(jbNovo)) {
 			
 			jtfNome.requestFocus();
-			//limpaTela();
+			limpaTela();
 			StatusTelaComponentes(true);
 			StatusBotoes(false, true, false, true, false);
 			codUsuario = -1;
@@ -262,13 +330,13 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		
 		else if(ev.getSource().equals(jbExcluir)) {
 			
-			daoCliente dExcCliente;
+			daoUsuario dExcUsuario;
 			
-			int i =JOptionPane.showConfirmDialog(null,"Desejar Excluir o Cliente?","Atenção!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+			int i =JOptionPane.showConfirmDialog(null,"Desejar Excluir o Usuário?","Atenção!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 			if(i==0) {
 			try {
-				dExcCliente = new daoCliente();
-				//dExcCliente.delete(codCliente);
+				dExcUsuario = new daoUsuario();
+				dExcUsuario.delete(codUsuario);
 				//pesquisar(modelo);
 			} catch (Exception e1) {
 			
@@ -289,8 +357,19 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
+		if (e.getSource().equals(tabela)) {
+			if (e.getClickCount() == 2) {
+                try {
+					preenchetela();
+					
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+            StatusBotoes(true, false, true, false, false);
+            
+			}
+        }
 	}
 
 	@Override

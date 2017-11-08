@@ -55,7 +55,7 @@ public class vCadCliente extends vTelaPadrao {
 	    	StatusTelaComponentes(false);
 	    	StatusBotoes(true, false, false, false, false);
 	    	
-	}
+	} 
 	    	
 	public void initLayoutCliente(int x, int y) {
 			
