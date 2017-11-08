@@ -122,7 +122,7 @@ public class vLogin extends JDialog implements ActionListener {
 		jbCancelar.addActionListener(this);
 	}
 	
-	//Testeddd
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -130,8 +130,6 @@ public class vLogin extends JDialog implements ActionListener {
 		
 		if(e.getSource()==jbAcessar) {
 			validaUsuario();
-			
-			
 		}
 		if(e.getSource()==(jbCancelar))
 			System.exit(0);
@@ -145,7 +143,7 @@ public class vLogin extends JDialog implements ActionListener {
 			daoUsuario dUsuario = new daoUsuario();
 			mUsuario ia = dUsuario.selectDesc(jtfUsuario.getText());
 
-			if(ia.getuSenha().equals(jpfSenha.getText())) { 
+			if((ia.getuLogin().equals(jtfUsuario.getText()))&&(ia.getuSenha().equals(jpfSenha.getText()))) { 
 				
 				lblMensagemAcesso.setText("Acesso Liberado!");
 
@@ -153,17 +151,23 @@ public class vLogin extends JDialog implements ActionListener {
 				dispose();
 
 			}
+			else 
+				erroValidacao();
+				
 			
 		}catch (Exception e) {
-			
-				lblMensagemAcesso.setText("Acesso Negado. Tente Novamente!");
-				jtfUsuario.setText(null);
-				jpfSenha.setText(null);
-				jtfUsuario.requestFocus();
-				
+				erroValidacao();
 				System.out.println(e);
 			}
 		
+		
+	}
+	public void erroValidacao() {
+		
+		lblMensagemAcesso.setText("Acesso Negado. Tente Novamente!");
+		jtfUsuario.setText(null);
+		jpfSenha.setText(null);
+		jtfUsuario.requestFocus();
 	}
 	
 }

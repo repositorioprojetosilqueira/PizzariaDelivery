@@ -40,14 +40,41 @@ public class daoUsuario extends DAOSuperClass<mUsuario>{
 
 	@Override
 	public boolean update(mUsuario arg0) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		
+		String sql = "UPDATE usuario SET  uNome= ?,uFuncao= ?,uEmail= ?,uTelefone= ?,uLogin= ?,uSenha= ?,uStatus= ? WHERE codUsuario =?; ";
+
+		PreparedStatement stm = this.createPreparedStatement(sql);
+		
+		stm.setString(1, arg0.getuNome());
+		stm.setString(2, arg0.getuFuncao());
+		stm.setString(3, arg0.getuEmail());
+		stm.setString(4, arg0.getuTelefone());
+		stm.setString(5, arg0.getuLogin());
+		stm.setString(6, arg0.getuSenha());
+		stm.setBoolean(7, arg0.getuStatus());
+		stm.setInt(8, arg0.getCodUsuario());
+		
+		boolean retorno = stm.executeUpdate() > 0;
+		
+		close(stm);
+		fecha();
+		
+		return retorno;
 	}
 
 	@Override
 	public boolean delete(int codigo) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "DELETE FROM usuario WHERE codUsuario =?;";
+		
+		PreparedStatement stm = this.createPreparedStatement(sql);
+
+		stm.setInt(1, codigo);
+		
+		boolean retorno = stm.executeUpdate() > 0;
+		
+		close(stm);
+		
+		return retorno;
 	}
 
 	@Override

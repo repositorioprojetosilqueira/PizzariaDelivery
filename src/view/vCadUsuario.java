@@ -168,12 +168,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		jpwfSenha.setEnabled(status);
 		
 		jcbStatus.setEnabled(status);
-		
-	
 	}
-	
-	
-	
 	private void criaJTable() {
 		modelo = new DefaultTableModel();
 
@@ -185,11 +180,13 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		
         modelo.addColumn("Cd");
         modelo.addColumn("Nome");
+        modelo.addColumn("Login");
 		modelo.addColumn("Função");
 		
 		tabela.getColumnModel().getColumn(0).setPreferredWidth(5);
-		tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
-		tabela.getColumnModel().getColumn(2).setPreferredWidth(10);
+		tabela.getColumnModel().getColumn(1).setPreferredWidth(80);
+		tabela.getColumnModel().getColumn(2).setPreferredWidth(20);
+		tabela.getColumnModel().getColumn(3).setPreferredWidth(20);
 		
 		try {
 			pesquisar(modelo);
@@ -199,7 +196,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		}
 		
 		lista(tabela,3,45,220, this.getHeight()-124);
-		campoPesquisa("Pesquisar : ", 5, 8, 70,100);
+		campoPesquisa("Pesquisar : ", 5, 8, 70,150);
 		tabela.addMouseListener(this); 
 		
 	}
@@ -207,16 +204,13 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 	public static void pesquisar(DefaultTableModel modelo) throws Exception {
 		modelo.setNumRows(0);
 
-		daoCliente dao = new daoCliente();
+		daoUsuario dao = new daoUsuario();
 
-		for (mCliente m : dao.selectAll()) {
-			modelo.addRow(new Object[]{m.getCodCliente(),m.getcNome(), m.getcTelefone1(),m.getcTelefone2()});
+		for (mUsuario m : dao.selectAll()) {
+			modelo.addRow(new Object[]{m.getCodUsuario(),m.getuNome(),m.getuLogin(), m.getuFuncao()});
 		}
 		
 	}
-
-
-	
 
 	public void preenchetela() throws Exception {
 		
@@ -224,11 +218,11 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		
 		daoUsuario dao = new daoUsuario();
 		 
-		 codUsuario =Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
+		codUsuario =Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
 		 
-		 mUsuario m = dao.select(codUsuario);
+		mUsuario m = dao.select(codUsuario);
 		 
-		 	String fun = m.getuFuncao();
+		String fun = m.getuFuncao();
 		 
 		 	jtfNome.setText(m.getuNome());
 		 	
@@ -236,15 +230,17 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		 		jrbAdmin.setSelected(true);
 		 	else if(fun.equals("ate"))
 		 		jrbAten.setSelected(true);
-		 	else
+		 	else if(fun.equals("ent"))
 		 		jrbEntre.setSelected(true);
 		 	
 			jtfEmail.setText(m.getuEmail());
 			jtfTelefone.setText(m.getuTelefone());
 			jtfLogin.setText(m.getuLogin());
-			jpwfSenha.setText(null);
+			jpwfSenha.setText(m.getuSenha());
 			
 			jcbStatus.setSelected(m.getuStatus());
+			
+			fun = null;
 		 
 	}
 
@@ -304,7 +300,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 				limpaTela();
 				StatusTelaComponentes(false);
 				StatusBotoes(true, false, false, false, false);
-				//pesquisar(modelo);
+				pesquisar(modelo);
 				
 				
 				
@@ -337,7 +333,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 			try {
 				dExcUsuario = new daoUsuario();
 				dExcUsuario.delete(codUsuario);
-				//pesquisar(modelo);
+				pesquisar(modelo);
 			} catch (Exception e1) {
 			
 				e1.printStackTrace();
