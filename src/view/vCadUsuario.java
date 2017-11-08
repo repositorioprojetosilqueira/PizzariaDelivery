@@ -199,7 +199,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		}
 		
 		lista(tabela,3,45,220, this.getHeight()-124);
-		campoPesquisa("Pesquisar : ", 5, 8, 70,218);
+		campoPesquisa("Pesquisar : ", 5, 8, 70,100);
 		tabela.addMouseListener(this); 
 		
 	}
