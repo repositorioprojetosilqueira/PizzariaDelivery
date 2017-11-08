@@ -9,6 +9,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import java.awt.event.*;
 import java.awt.*;
@@ -22,6 +23,11 @@ import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import model.mCliente;
+import model.mUsuario;
+import model.dao.daoCliente;
+import model.dao.daoUsuario;
+
 
  
 public class vCadUsuario extends vTelaPadrao {  
@@ -32,8 +38,11 @@ public class vCadUsuario extends vTelaPadrao {
 	private JTextField jtfLogin;
 	private JPasswordField jpwfSenha;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-
- 
+	private JRadioButton jrbAdmin, jrbAten, jrbEntre;
+	private JCheckBox jcbStatus;
+ 	private int codUsuario;
+	
+	
     public vCadUsuario() {
 super("Cadastro Usuário","/imagens/usuario32x32.png");
 		
@@ -93,21 +102,26 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		jtfTelefone.setBounds(540, 112, 109, 30);
 		jpCentro.add(jtfTelefone);
 		
-		JRadioButton rbAdmin = new JRadioButton("Administrador");
-		buttonGroup.add(rbAdmin);
-		rbAdmin.setBounds(290, 63, 109, 33);
-		jpCentro.add(rbAdmin);
+		jrbAdmin = new JRadioButton("Administrador");
+		jrbAdmin.setSelected(false);
+		jrbAdmin.setActionCommand("adm");
+		buttonGroup.add(jrbAdmin);
+		jrbAdmin.setBounds(290, 63, 109, 33);
+		jpCentro.add(jrbAdmin);
 		
-		JRadioButton rbAten = new JRadioButton("Atendente");
-		buttonGroup.add(rbAten);
-		rbAten.setSelected(true);
-		rbAten.setBounds(431, 63, 100, 33);
-		jpCentro.add(rbAten);
+		jrbAten = new JRadioButton("Atendente");
+		jrbAten.setSelected(true);
+		jrbAten.setActionCommand("ate");
+		buttonGroup.add(jrbAten);
+		jrbAten.setBounds(431, 63, 100, 33);
+		jpCentro.add(jrbAten);
 		
-		JRadioButton rbEntre = new JRadioButton("Entregador");
-		buttonGroup.add(rbEntre);
-		rbEntre.setBounds(540, 63, 109, 33);
-		jpCentro.add(rbEntre);
+		jrbEntre = new JRadioButton("Entregador");
+		jrbEntre.setSelected(false);
+		jrbEntre.setActionCommand("ent");
+		buttonGroup.add(jrbEntre);
+		jrbEntre.setBounds(540, 63, 109, 33);
+		jpCentro.add(jrbEntre);
 		
 		jtfLogin = new JTextField();
 		jtfLogin.setColumns(10);
@@ -118,7 +132,8 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		jpwfSenha.setBounds(507, 158, 142, 30);
 		jpCentro.add(jpwfSenha);
 		
-		JCheckBox jcbStatus = new JCheckBox("Desativar");
+		jcbStatus = new JCheckBox("Ativo");
+		jcbStatus.setSelected(true);
 		jcbStatus.setHorizontalAlignment(SwingConstants.LEFT);
 		jcbStatus.setBounds(549, 204, 100, 33);
 		jpCentro.add(jcbStatus);
@@ -149,22 +164,128 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 
 	@Override
 	public void StatusTelaComponentes(boolean status) {
-		// TODO Auto-generated method stub
+		
+		jtfNome.setEnabled(status);
+		jrbAdmin.setEnabled(status);
+		jrbAten.setEnabled(status);
+		jrbEntre.setEnabled(status);
+		
+		jtfEmail.setEnabled(status);
+		jtfTelefone.setEnabled(status);
+		jtfLogin.setEnabled(status);
+		jpwfSenha.setEnabled(status);
+		
+		jcbStatus.setEnabled(status);
 		
 	}
 
 
 	@Override
 	public void limpaTela() {
-		// TODO Auto-generated method stub
+		
+		jtfNome.setText(null);
+		jrbAdmin.setSelected(false);
+		jrbAten.setSelected(false);
+		jrbEntre.setSelected(false);
+		
+		jtfEmail.setText(null);
+		jtfTelefone.setText(null);
+		jtfLogin.setText(null);
+		jpwfSenha.setText(null);
+		
+		jcbStatus.setSelected(false);
 		
 	}
-
+	
+	
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent ev) {
+		
+		if(ev.getSource().equals(jbNovo)) {
+			
+			jtfNome.requestFocus();
+			//limpaTela();
+			StatusTelaComponentes(true);
+			StatusBotoes(false, true, false, true, false);
+			codUsuario = -1;
+			
+		}
+		
+		else if(ev.getSource().equals(jbSalvar)) {
+			mUsuario novoUsuario = new mUsuario();
+
+			novoUsuario.setCodUsuario(codUsuario);
+			novoUsuario.setuNome(jtfNome.getText());
+			novoUsuario.setuFuncao(buttonGroup.getSelection().getActionCommand());
+			novoUsuario.setuEmail(jtfEmail.getText());
+			novoUsuario.setuTelefone(jtfTelefone.getText());
+			novoUsuario.setuLogin(jtfLogin.getText());
+			novoUsuario.setuSenha(jpwfSenha.getText());
+			novoUsuario.setuStatus(jcbStatus.isSelected());
+			
+			daoUsuario dUsuario;
+			
+			try {
+				dUsuario = new daoUsuario();
+				if(codUsuario!=-1) 
+				dUsuario.update(novoUsuario);
+				
+				else
+					dUsuario.insert(novoUsuario);
+				
+				limpaTela();
+				StatusTelaComponentes(false);
+				StatusBotoes(true, false, false, false, false);
+				//pesquisar(modelo);
+				
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		else if(ev.getSource().equals(jbEditar)) {
+			jtfNome.requestFocus();
+			StatusBotoes(false, true, false, true, true);
+			StatusTelaComponentes(true);
+			
+		}
+		
+		else if(ev.getSource().equals(jbCancelar)) {
+			
+			limpaTela();
+			StatusTelaComponentes(false);
+			StatusBotoes(true, false, false, false, false);
+		}
+		
+		else if(ev.getSource().equals(jbExcluir)) {
+			
+			daoCliente dExcCliente;
+			
+			int i =JOptionPane.showConfirmDialog(null,"Desejar Excluir o Cliente?","Atenção!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+			if(i==0) {
+			try {
+				dExcCliente = new daoCliente();
+				//dExcCliente.delete(codCliente);
+				//pesquisar(modelo);
+			} catch (Exception e1) {
+			
+				e1.printStackTrace();
+			}
+			
+			limpaTela();
+			StatusTelaComponentes(false);
+			StatusBotoes(true, false, false, false, false);
+						
+			}
+			
+		}
 		
 	}
+		
+	
 
 	@Override
 	public void mouseClicked(MouseEvent e) {

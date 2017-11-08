@@ -18,18 +18,17 @@ public class daoUsuario extends DAOSuperClass<mUsuario>{
 	@Override
 	public boolean insert(mUsuario arg0) throws SQLException {
 		
-		String sql = "INSERT INTO usuario(codUsuario,uNome,uFuncao,uEmail,uTelefone,uLogin,uSenha,uStatus) VALUES (?,?,?,?,?,?,?,?);";
+		String sql = "INSERT INTO usuario(uNome,uFuncao,uEmail,uTelefone,uLogin,uSenha,uStatus) VALUES (?,?,?,?,?,?,?);";
 	
 		PreparedStatement stm = this.createPreparedStatement(sql);
 		
-		stm.setInt(1, arg0.getCodUsuario());
-		stm.setString(2, arg0.getuNome());
-		stm.setString(3, arg0.getuFuncao());
-		stm.setString(4, arg0.getuEmail());
-		stm.setString(5, arg0.getuTelefone());
-		stm.setString(6, arg0.getuLogin());
-		stm.setString(7, arg0.getuSenha());
-		stm.setString(8, arg0.getuStatus());
+		stm.setString(1, arg0.getuNome());
+		stm.setString(2, arg0.getuFuncao());
+		stm.setString(3, arg0.getuEmail());
+		stm.setString(4, arg0.getuTelefone());
+		stm.setString(5, arg0.getuLogin());
+		stm.setString(6, arg0.getuSenha());
+		stm.setBoolean(7, arg0.getuStatus());
 
 		boolean retorno = stm.executeUpdate() > 0;
 		
@@ -70,7 +69,7 @@ public class daoUsuario extends DAOSuperClass<mUsuario>{
 			retorno.setuTelefone(rs.getString(5));
 			retorno.setuLogin(rs.getString(6));
 			retorno.setuSenha(rs.getString(7));
-			retorno.setuStatus(rs.getString(8));
+			retorno.setuStatus(rs.getBoolean(8));
 			
 		}
 		
@@ -101,7 +100,7 @@ public class daoUsuario extends DAOSuperClass<mUsuario>{
 			temp.setuTelefone(rs.getString(5));
 			temp.setuLogin(rs.getString(6));
 			temp.setuSenha(rs.getString(7));
-			temp.setuStatus(rs.getString(8));
+			temp.setuStatus(rs.getBoolean(8));
 			retorno.add(temp);
 		}
 		
@@ -131,7 +130,7 @@ public class daoUsuario extends DAOSuperClass<mUsuario>{
 			retorno.setuTelefone(rs.getString(5));
 			retorno.setuLogin(rs.getString(6));
 			retorno.setuSenha(rs.getString(7));
-			retorno.setuStatus(rs.getString(8));
+			retorno.setuStatus(rs.getBoolean(8));
 			
 		}
 		close(rs, stm);

@@ -8,7 +8,7 @@ public class mUsuario {
 	private String uTelefone;
 	private String uLogin; 
 	private String uSenha; 
-	private String uStatus;
+	private Boolean uStatus;
 	
 	
 	public mUsuario() {
@@ -17,7 +17,7 @@ public class mUsuario {
 	
 	
 	public mUsuario(int codUsuario, String uNome, String uFuncao, String uEmail, String uTelefone, String uLogin,
-			String uSenha, String uStatus) {
+			String uSenha, Boolean uStatus) {
 		super();
 		this.codUsuario = codUsuario;
 		this.uNome = uNome;
@@ -70,10 +70,10 @@ public class mUsuario {
 	public void setuSenha(String uSenha) {
 		this.uSenha = uSenha;
 	}
-	public String getuStatus() {
+	public boolean getuStatus() {
 		return uStatus;
 	}
-	public void setuStatus(String uStatus) {
+	public void setuStatus(Boolean uStatus) {
 		this.uStatus = uStatus;
 	}
 	
