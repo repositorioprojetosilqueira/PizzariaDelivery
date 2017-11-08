@@ -45,8 +45,28 @@ public class daoCliente extends DAOSuperClass<mCliente>{
 
 	@Override
 	public boolean update(mCliente arg0) throws SQLException {
-			
-		return false;
+		String sql = "UPDATE cliente SET  cNome = ?, cTelefone1 =?, cTelefone2 =?, cRua =?, cNumero =?, cBairro =?, cComplemento =?,"
+				+ "cRefEntrega =?, cHistCompras =? WHERE codCliente =?; ";
+
+		PreparedStatement stm = this.createPreparedStatement(sql);
+		
+		stm.setString(1, arg0.getcNome());
+		stm.setString(2, arg0.getcTelefone1());
+		stm.setString(3, arg0.getcTelefone2());
+		stm.setString(4, arg0.getcRua());
+		stm.setString(5, arg0.getcNumero());
+		stm.setString(6, arg0.getcBairro());
+		stm.setString(7, arg0.getcComplemento());
+		stm.setString(8, arg0.getcRefEntrega());
+		stm.setString(9, arg0.getcHistCompras());
+		stm.setInt(10, arg0.getCodCliente());
+		
+		boolean retorno = stm.executeUpdate() > 0;
+		
+		close(stm);
+		fecha();
+		
+		return retorno;
 	}
 
 	@Override

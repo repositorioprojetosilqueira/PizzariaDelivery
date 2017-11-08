@@ -59,7 +59,7 @@ public abstract class vTelaPadrao extends JInternalFrame implements ActionListen
             
             componentes();
             this.setVisible(true);
-            this.requestFocus();
+
             
                        
      }
@@ -150,7 +150,7 @@ public abstract class vTelaPadrao extends JInternalFrame implements ActionListen
 		    
 		    public abstract void StatusTelaComponentes(boolean status);
 		    
-		    public abstract void StatusBotoes(boolean novo, boolean salCan, boolean  sEdit_Exc);
+		    public abstract void StatusBotoes(boolean novo, boolean salvar, boolean editar, boolean cancelar,boolean excluir);
 
 		    public abstract void limpaTela();
 		    

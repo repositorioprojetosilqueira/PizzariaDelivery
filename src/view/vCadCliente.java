@@ -42,6 +42,7 @@ public class vCadCliente extends vTelaPadrao {
 	
 	private DefaultTableModel modelo;
 	private JTable tabela;
+	private int codCliente;
 	
 	public vCadCliente() {
 	           
@@ -52,6 +53,7 @@ public class vCadCliente extends vTelaPadrao {
 	    	acoes();
 	    	criaJTable();
 	    	StatusTelaComponentes(false);
+	    	StatusBotoes(true, false, false, false, false);
 	    	
 	}
 	    	
@@ -181,19 +183,17 @@ public class vCadCliente extends vTelaPadrao {
 		            }  
 		        };  
 				
-		        modelo.addColumn("Código");
+		        modelo.addColumn("Cd");
 		        modelo.addColumn("Nome");
-				modelo.addColumn("Telefone 1");
-				modelo.addColumn("Telefone 2");
-				tabela.getColumnModel().getColumn(0).setPreferredWidth(15);
+				modelo.addColumn("Telefone");
+				tabela.getColumnModel().getColumn(0).setPreferredWidth(5);
 				tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
-				tabela.getColumnModel().getColumn(2).setPreferredWidth(60);
-				tabela.getColumnModel().getColumn(3).setPreferredWidth(60);
+				tabela.getColumnModel().getColumn(2).setPreferredWidth(90);
+				
 				try {
 					pesquisar(modelo);
 					
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				lista(tabela,3,45,290, this.getHeight()-124);
@@ -207,7 +207,7 @@ public class vCadCliente extends vTelaPadrao {
 				daoCliente dao = new daoCliente();
 
 				for (mCliente m : dao.selectAll()) {
-					modelo.addRow(new Object[]{m.getCodCliente(),m.getcNome(), m.getcTelefone1(), m.getcTelefone2()});
+					modelo.addRow(new Object[]{m.getCodCliente(),m.getcNome(), m.getcTelefone1(),m.getcTelefone2()});
 				}
 			}
 
@@ -222,21 +222,18 @@ public class vCadCliente extends vTelaPadrao {
 	public void actionPerformed(ActionEvent ev) {
 		
 		if(ev.getSource().equals(jbNovo)) {
+			jtfNome.requestFocus();
 			limpaTela();
-			try {
-				preenchetela();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			StatusTelaComponentes(true);
-			StatusBotoes(false, true, false);
-		
+			StatusBotoes(false, true, false, true, false);
+			codCliente = -1;
 			
 		}
 		
 		else if(ev.getSource().equals(jbSalvar)) {
 			mCliente novoCliente = new mCliente();
+			
+			novoCliente.setCodCliente(codCliente);
 			novoCliente.setcNome(jtfNome.getText());
 			novoCliente.setcTelefone1(jftTelefone1.getText());
 			novoCliente.setcTelefone2(jftTelefone2.getText());
@@ -251,18 +248,29 @@ public class vCadCliente extends vTelaPadrao {
 			
 			try {
 				dCliente = new daoCliente();
-				dCliente.insert(novoCliente);
+				if(codCliente!=-1) 
+				dCliente.update(novoCliente);
+				
+				else
+					dCliente.insert(novoCliente);
+				
+				
+				
+				limpaTela();
+				StatusTelaComponentes(false);
+				StatusBotoes(true, false, false, false, false);
+				pesquisar(modelo);
 				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			limpaTela();
-			StatusBotoes(true, false, false);
-		
+			
 		}
 		
-		
 		else if(ev.getSource().equals(jbEditar)) {
+			jtfNome.requestFocus();
+			StatusBotoes(false, true, false, true, true);
+			StatusTelaComponentes(true);
 			
 		}
 		
@@ -270,7 +278,7 @@ public class vCadCliente extends vTelaPadrao {
 			
 			limpaTela();
 			StatusTelaComponentes(false);
-			StatusBotoes(true, false, false);
+			StatusBotoes(true, false, false, false, false);
 		}
 		
 		else if(ev.getSource().equals(jbExcluir)) {
@@ -308,13 +316,13 @@ public class vCadCliente extends vTelaPadrao {
 	}
 
 	@Override
-	public void StatusBotoes(boolean novo, boolean salCan, boolean  sEdit_Exc) {
+	public void StatusBotoes(boolean novo, boolean salvar, boolean editar, boolean cancelar,boolean excluir) {
 		
 		jbNovo.setEnabled(novo);
-		jbSalvar.setEnabled(salCan);
-		jbEditar.setEnabled(sEdit_Exc);
-		jbCancelar.setEnabled(salCan);
-		jbExcluir.setEnabled(sEdit_Exc);
+		jbSalvar.setEnabled(salvar);
+		jbEditar.setEnabled(editar);
+		jbCancelar.setEnabled(cancelar);
+		jbExcluir.setEnabled(excluir);
 				
 	}
 
@@ -324,11 +332,9 @@ public class vCadCliente extends vTelaPadrao {
 		
 		daoCliente dao = new daoCliente();
 		 
-		 int cod =Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
+		 codCliente =Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
 		 
-		 mCliente m = dao.select(cod);
-		 
-		 System.out.println(row +"-"+cod);
+		 mCliente m = dao.select(codCliente);
 		 
 		 jtfNome.setText(m.getcNome());
 		 jftTelefone1.setText(m.getcTelefone1());
@@ -339,7 +345,6 @@ public class vCadCliente extends vTelaPadrao {
 		 jtfComplemento.setText(m.getcComplemento());
 		 jtaReferencia.setText(m.getcRefEntrega());
 		 jtaHistorico.setText(m.getcHistCompras());
-		 System.out.println(m.getcNome());
 		 
 	}
 	
@@ -347,15 +352,16 @@ public class vCadCliente extends vTelaPadrao {
 	public void mouseClicked(MouseEvent e) {
 		
 		if (e.getSource().equals(tabela)) {
-			System.out.println("chegueiaquui");
-            if (e.getClickCount() == 2) {
+			if (e.getClickCount() == 2) {
                 try {
 					preenchetela();
+					
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-            }
+            StatusBotoes(true, false, true, false, false);
+            
+			}
         }
 	}
 

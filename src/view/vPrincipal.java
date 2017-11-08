@@ -5,6 +5,8 @@ import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
@@ -12,12 +14,13 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import grafica.gCadProduto;
 import grafica.gMovPedido;
 import view.*;
 
-public class vPrincipal extends JFrame implements ActionListener{
+public class vPrincipal extends JFrame implements ActionListener, WindowListener{
 	private JMenuBar jMbar;
 	private JMenu jMnCadastro, jMnMovimento, jMnProduto;
 
@@ -63,11 +66,12 @@ public class vPrincipal extends JFrame implements ActionListener{
 		
 		this.setSize(900, 650);
 		this.setIconImage(new ImageIcon(getClass().getResource("/imagens/pedido.png")).getImage());
-		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		this.setLocationRelativeTo(null);
-		
-		
+		this.addWindowListener(this);
 		this.setVisible(true);
+		
+		
 		
 		//this.addWindowListener((WindowListener) this);				
 		
@@ -179,6 +183,8 @@ public class vPrincipal extends JFrame implements ActionListener{
 	}
 
 	private void configuraFrame() {
+		
+		
 	    //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    //setLocation(0, 0);
 	    Rectangle rect = GraphicsEnvironment.getLocalGraphicsEnvironment()
@@ -205,6 +211,8 @@ public class vPrincipal extends JFrame implements ActionListener{
 		
 		if(evento.getSource() == jMiPedidos || evento.getSource() == jbAtalhoPedido)
 			aparecePedido();
+			
+			
 	}	
 		
 	private void apareceAdicionais() {
@@ -248,8 +256,8 @@ public class vPrincipal extends JFrame implements ActionListener{
 		        else if(!vCadCliente.isVisible()){
 		        	vCadCliente = null;
 		        	apareceCliente();
-		        	vCadCliente.setVisible(true);
-		            desktopPane.add(vCadCliente);
+		        	
+		        	
 		        }
 			}
 	
@@ -298,6 +306,46 @@ public class vPrincipal extends JFrame implements ActionListener{
             desktopPane.add(vMovPedido);
         }
 	}
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowClosing(WindowEvent e) {
+		int i =JOptionPane.showConfirmDialog(null,"Deseja Sair do Sistema?","Atenção",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+		if(i==0) {
+			this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		}
+		
+	}
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 }
 	
 	
