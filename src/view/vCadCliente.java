@@ -186,6 +186,7 @@ public class vCadCliente extends vTelaPadrao {
 		        modelo.addColumn("Cd");
 		        modelo.addColumn("Nome");
 				modelo.addColumn("Telefone");
+				
 				tabela.getColumnModel().getColumn(0).setPreferredWidth(5);
 				tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
 				tabela.getColumnModel().getColumn(2).setPreferredWidth(90);
@@ -198,7 +199,8 @@ public class vCadCliente extends vTelaPadrao {
 				}
 				lista(tabela,3,45,290, this.getHeight()-124);
 				campoPesquisa("Pesquisar : ", 5, 8, 70,218);
-				tabela.addMouseListener(this);
+				tabela.addMouseListener(this); 
+				
 			}
 			
 		public static void pesquisar(DefaultTableModel modelo) throws Exception {
@@ -283,6 +285,25 @@ public class vCadCliente extends vTelaPadrao {
 		
 		else if(ev.getSource().equals(jbExcluir)) {
 			
+			daoCliente dExcCliente;
+			
+			int i =JOptionPane.showConfirmDialog(null,"Desejar Excluir o Cliente?","Atenção!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+			if(i==0) {
+			try {
+				dExcCliente = new daoCliente();
+				dExcCliente.delete(codCliente);
+				pesquisar(modelo);
+			} catch (Exception e1) {
+			
+				e1.printStackTrace();
+			}
+			
+			limpaTela();
+			StatusTelaComponentes(false);
+			StatusBotoes(true, false, false, false, false);
+						
+			}
+			
 		}
 		
 	}
@@ -315,16 +336,7 @@ public class vCadCliente extends vTelaPadrao {
 		jtaHistorico.setText(null);
 	}
 
-	@Override
-	public void StatusBotoes(boolean novo, boolean salvar, boolean editar, boolean cancelar,boolean excluir) {
-		
-		jbNovo.setEnabled(novo);
-		jbSalvar.setEnabled(salvar);
-		jbEditar.setEnabled(editar);
-		jbCancelar.setEnabled(cancelar);
-		jbExcluir.setEnabled(excluir);
-				
-	}
+	
 
 	public void preenchetela() throws Exception {
 		

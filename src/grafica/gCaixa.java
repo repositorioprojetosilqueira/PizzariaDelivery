@@ -8,6 +8,8 @@ import javax.swing.JTextField;
 import view.vTelaPadrao;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 
 
 public class gCaixa extends vTelaPadrao {
@@ -27,8 +29,8 @@ public class gCaixa extends vTelaPadrao {
 		
 		inilayout();
 		
-		listagem();
-		listagemCaixa();
+		//listagem();
+		//listagemCaixa();
 		
 	}
 	
@@ -94,7 +96,7 @@ public class gCaixa extends vTelaPadrao {
 		
 	}
 	
-	private void listagemCaixa() {
+/*	private void listagemCaixa() {
 		String[] colunas = {"Pedido","Produto", "Cliente","Forma de Pagamento","Valor"};
 		Object[][] FonteDeDados= {
 			{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
@@ -126,7 +128,7 @@ public class gCaixa extends vTelaPadrao {
 		lista(colunas, FonteDeDados,3,45,230, this.getHeight()-124,105);
 		campoPesquisa("Data : ", 10, 8, 50,158);
 		
-	}
+	}*/
 
 	@Override
 	public void acoes() {
@@ -141,13 +143,43 @@ public class gCaixa extends vTelaPadrao {
 	}
 
 	@Override
-	public void StatusBotoes(boolean status, boolean sEdit_Exc) {
+	public void limpaTela() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void limpaTela() {
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -33,9 +33,6 @@ public abstract class vTelaPadrao extends JInternalFrame implements ActionListen
 		
 		public botoes jbNovo, jbSalvar, jbEditar, jbExcluir, jbCancelar;
 		private JLabel jlPesquisa;
-		
-		public JTable jTabela;
-		
 
 		private JTextField jtPesquisar;
 		
@@ -108,14 +105,15 @@ public abstract class vTelaPadrao extends JInternalFrame implements ActionListen
 			this.add(jpCentro, BorderLayout.CENTER);
 		}
 		    
+		    
+		    
 		    public void lista(JTable tab, int x, int y, int width, int height) {
 		    	
-		    	jTabela = tab;
+		    	
+				JScrollPane scrollPane= new JScrollPane(tab);
 				
-				JScrollPane scrollPane= new JScrollPane(jTabela);
-				
-				jTabela.setFillsViewportHeight(true);
-				jTabela.setRowSelectionInterval(0,0);
+				tab.setFillsViewportHeight(true);
+				tab.setRowSelectionInterval(0,0);
 				
 				scrollPane.setBounds(x,y, width, height);
 				 
@@ -137,27 +135,23 @@ public abstract class vTelaPadrao extends JInternalFrame implements ActionListen
 				
 		    	
 		    }
-			public JTable getjTabela() {
-				return jTabela;
-			}
-
-			public void setjTabela(JTable jTabela) {
-				this.jTabela = jTabela;
+			
+			
+			public void StatusBotoes(boolean novo, boolean salvar, boolean editar, boolean cancelar,boolean excluir) {
+				
+				jbNovo.setEnabled(novo);
+				jbSalvar.setEnabled(salvar);
+				jbEditar.setEnabled(editar);
+				jbCancelar.setEnabled(cancelar);
+				jbExcluir.setEnabled(excluir);
+						
 			}
 		
 		    
 		    public abstract void acoes();
 		    
 		    public abstract void StatusTelaComponentes(boolean status);
-		    
-		    public abstract void StatusBotoes(boolean novo, boolean salvar, boolean editar, boolean cancelar,boolean excluir);
-
 		    public abstract void limpaTela();
 		    
-		    
-		    
-		    
-		    
-
 		    
 }

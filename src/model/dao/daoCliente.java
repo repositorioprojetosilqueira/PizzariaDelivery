@@ -71,8 +71,16 @@ public class daoCliente extends DAOSuperClass<mCliente>{
 
 	@Override
 	public boolean delete(int codigo) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "DELETE FROM cliente WHERE codCliente =?;";
+		
+		PreparedStatement stm = this.createPreparedStatement(sql);
+
+		stm.setInt(1, codigo);
+		
+		boolean retorno = stm.executeUpdate() > 0;
+		close(stm);
+		
+		return retorno;
 	}
 
 	@Override

@@ -1,6 +1,9 @@
 package grafica;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -25,8 +28,8 @@ import view.vTelaPadrao;
 			
 			inilayout();
 			
-			listagem();
-			listagemCaixa();
+			//listagem();
+			//listagemCaixa();
 			
 		}
 		
@@ -109,64 +112,61 @@ import view.vTelaPadrao;
 	
 			
 		}
-		
-		private void listagemCaixa() {
-			String[] colunas = {"Pedido","Produto", "Cliente","Forma de Pagamento","Valor"};
-			Object[][] FonteDeDados= {
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-				{"01", "Pizza Calabresa", "Jessica", "Dinheiro", "17,90"},
-			};
-			//243, 11, 488, 241
-			lista(colunas, FonteDeDados,270,40,500, 230,30);
-		}
-		
-		
-		private void listagem() {
-			
-			String[] colunas = {"Data", "Total"};
-			Object[][] FonteDeDados= {
-			{"01/09/2017", "R$ 800,00"},
-			{"02/09/2017", "R$ 980,00"},
-			{"03/09/2017", "R$ 923,80"},
-			{"04/09/2017", "R$ 1550,10"},
-			{"05/09/2017", "R$ 1454,00"},
-			{"06/09/2017", "R$ 768,00"},
-			{"07/09/2017", "R$ 923,00"}			
-			};
-			
-			lista(colunas, FonteDeDados,3,45,230, this.getHeight()-124,105);
-			campoPesquisa("Data : ", 10, 8, 50,158);
-			
-		}
 
-		@Override
-		public void acoes() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void StatusTelaComponentes(boolean status) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void StatusBotoes(boolean status, boolean sEdit_Exc) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void limpaTela() {
-			// TODO Auto-generated method stub
-			
-		}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void acoes() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void StatusTelaComponentes(boolean status) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void limpaTela() {
+		// TODO Auto-generated method stub
+		
+	}
+		
+	
 
 }

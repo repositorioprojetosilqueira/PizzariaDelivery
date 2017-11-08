@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.JComboBox;
@@ -45,9 +46,7 @@ public class gMovPedido extends vTelaPadrao {
 		super("Pedido", "/imagens/pedido32x32.png");
 
 		initiLayout();
-		
-		listagem();
-		
+
 	}
 
 
@@ -156,41 +155,6 @@ public class gMovPedido extends vTelaPadrao {
 		btnAdd.setBounds(348, 80, 76, 29);
 		jpCentro.add(btnAdd);
 
-
-
-
-		
-		
-		/*table = new JTable();
-		table.setBorder(null);
-		DefaultTableModel model = new DefaultTableModel (dados, colunas);
-		
-		table.setModel(new DefaultTableModel(
-				new Object[][] {
-					{"2", "Mussarela","R$ 3,20"},
-					{"1", "Cebola Picada","R$ 1,10"},
-					{" ", " "},	
-					{" ", " "},	
-
-				},
-				new String[] {
-						"Quantidade","Produto", "Preço"
-				}
-				) {
-			boolean[] columnEditables = new boolean[] {
-					false, false, false, false, false
-			};
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
-		table.getColumnModel().getColumn(1).setPreferredWidth(181);
-		table.getColumnModel().getColumn(1).setMinWidth(17);
-		panel_1.add(table);
-		
-		JScrollBar scrollBar = new JScrollBar();
-		panel_1.add(scrollBar);*/
-		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(13, 297, 132, 30);
 		jpCentro.add(comboBox);
@@ -248,7 +212,7 @@ public class gMovPedido extends vTelaPadrao {
 		textField_6.setColumns(10);
 		
 	}
-	private void listagem() {
+/*	private void listagem() {
 		String[] colunas = {"Quantidade","Produto", "Preço"};
 		Object[][] FonteDeDados= {
 				{"2", "Mussarela","R$ 3,20"},
@@ -261,6 +225,50 @@ public class gMovPedido extends vTelaPadrao {
 		
 		}
 
+*/
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	@Override
 	public void acoes() {
@@ -271,13 +279,6 @@ public class gMovPedido extends vTelaPadrao {
 
 	@Override
 	public void StatusTelaComponentes(boolean status) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void StatusBotoes(boolean status, boolean sEdit_Exc) {
 		// TODO Auto-generated method stub
 		
 	}

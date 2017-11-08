@@ -1,6 +1,8 @@
 package grafica;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
@@ -26,7 +28,7 @@ public class gCadProduto extends vTelaPadrao {
 		
 		initLayout();
 		
-		listagem();
+	//	listagem();
 
 	}
 	
@@ -69,7 +71,7 @@ public class gCadProduto extends vTelaPadrao {
 				
 			}
 		
-		private void listagem() {
+	/*	private void listagem() {
 				
 				String[] colunas = {"Descrição", "Preço"};
 				Object[][] FonteDeDados= {
@@ -85,7 +87,7 @@ public class gCadProduto extends vTelaPadrao {
 				lista(colunas, FonteDeDados,3,45,290, this.getHeight()-124,105);
 				campoPesquisa("Pesquisar : ", 5, 8, 70,218);
 			}
-
+*/
 		@Override
 		public void acoes() {
 			// TODO Auto-generated method stub
@@ -98,14 +100,45 @@ public class gCadProduto extends vTelaPadrao {
 			
 		}
 
+
 		@Override
-		public void StatusBotoes(boolean status, boolean sEdit_Exc) {
+		public void limpaTela() {
 			// TODO Auto-generated method stub
 			
 		}
 
 		@Override
-		public void limpaTela() {
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
 			
 		}

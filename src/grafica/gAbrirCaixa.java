@@ -16,6 +16,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 
 public class gAbrirCaixa extends vTelaPadrao {
@@ -97,14 +98,49 @@ public class gAbrirCaixa extends vTelaPadrao {
 
 
 	@Override
-	public void StatusBotoes(boolean status, boolean sEdit_Exc) {
+	public void limpaTela() {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void limpaTela() {
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}

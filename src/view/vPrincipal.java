@@ -33,7 +33,6 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
 	
 
 	private grafica.gAdicionais gAdicionais;
-	private grafica.gCadCliente gCadCliente;
 	private grafica.gCadProduto gCadProduto;
 	private grafica.gUsuario gUsuario;
 	private grafica.gMovPedido gMovPedido;

@@ -2,7 +2,8 @@ package controller;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
-import grafica.login;
+
+import view.vLogin;
 
 
 public class main {
@@ -40,7 +41,7 @@ public class main {
 		
 		
 			
-		new login();
+		new vLogin();
 				//new vPrincipal();
 		}
 }

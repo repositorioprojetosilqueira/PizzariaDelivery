@@ -1,6 +1,8 @@
 package grafica;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
@@ -40,7 +42,7 @@ public class gUsuario extends vTelaPadrao {
 		
 		initLayout();
 		
-		listagem();
+		//listagem();
 		
 	}
 	
@@ -125,7 +127,7 @@ public class gUsuario extends vTelaPadrao {
 		jpCentro.add(checkBox);
 	}
 	
-	private void listagem() {
+	/*private void listagem() {
 		
 		String[] colunas = {"Nome","Login"};
 		Object[][] FonteDeDados= {
@@ -140,6 +142,43 @@ public class gUsuario extends vTelaPadrao {
 		
 		lista(colunas, FonteDeDados,3,45,220, this.getHeight()-124,105);
 		campoPesquisa("Pesquisar : ", 5, 8, 70,150);
+		
+	}
+*/
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -155,16 +194,10 @@ public class gUsuario extends vTelaPadrao {
 	}
 
 	@Override
-	public void StatusBotoes(boolean status, boolean sEdit_Exc) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void limpaTela() {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 	
 }
