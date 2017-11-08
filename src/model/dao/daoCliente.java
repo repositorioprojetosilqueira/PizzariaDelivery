@@ -8,6 +8,7 @@ import java.util.List;
 
 
 import model.mCliente;
+import model.mUsuario;
 
 public class daoCliente extends DAOSuperClass<mCliente>{
 	
@@ -56,8 +57,33 @@ public class daoCliente extends DAOSuperClass<mCliente>{
 
 	@Override
 	public mCliente select(int codigo) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "Select * from cliente where codCliente= ?";
+		PreparedStatement stm = this.createPreparedStatement(sql);
+		stm.setInt(1, codigo);
+		
+		ResultSet rs = stm.executeQuery();
+		mCliente retorno = null;
+		
+		if(rs.next()) {
+			
+			retorno = new mCliente();
+			retorno.setCodCliente(rs.getInt(1));
+			retorno.setcNome(rs.getString(2));
+			retorno.setcTelefone1(rs.getString(3));
+			retorno.setcTelefone2(rs.getString(4));
+			retorno.setcRua(rs.getString(5));
+			retorno.setcNumero(rs.getString(6));
+			retorno.setcBairro(rs.getString(7));
+			retorno.setcComplemento(rs.getString(8));
+			retorno.setcRefEntrega(rs.getString(9));
+			retorno.setcHistCompras(rs.getString(10));
+			
+		}
+		
+		close(rs,stm);
+		
+		return retorno;
+		
 	}
 
 	@Override

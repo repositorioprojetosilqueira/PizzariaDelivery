@@ -246,6 +246,8 @@ public class vPrincipal extends JFrame implements ActionListener{
 		            desktopPane.add(vCadCliente);
 		        }
 		        else if(!vCadCliente.isVisible()){
+		        	vCadCliente = null;
+		        	apareceCliente();
 		        	vCadCliente.setVisible(true);
 		            desktopPane.add(vCadCliente);
 		        }

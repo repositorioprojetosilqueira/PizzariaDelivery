@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
@@ -18,11 +19,14 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+import org.w3c.dom.events.MouseEvent;
+
 import grafica.painelCliente;
 import model.mCliente;
 import model.dao.daoCliente;
 
-public abstract class vTelaPadrao extends JInternalFrame {  
+public abstract class vTelaPadrao extends JInternalFrame implements ActionListener, MouseListener{  
+
 		private paineis jpTop;
 		public paineis jpCentro;
 		public painelCliente pCliente;
@@ -92,6 +96,13 @@ public abstract class vTelaPadrao extends JInternalFrame {
 			jpTop.add(jbCancelar);
 			jpTop.add(jbExcluir);
 			
+			jbNovo.addActionListener(this);
+			jbSalvar.addActionListener(this);
+			jbEditar.addActionListener(this);
+			jbCancelar.addActionListener(this);
+			jbExcluir.addActionListener(this);
+			
+	
 			
 			this.add(jpTop, BorderLayout.NORTH);
 			this.add(jpCentro, BorderLayout.CENTER);
@@ -139,9 +150,10 @@ public abstract class vTelaPadrao extends JInternalFrame {
 		    
 		    public abstract void StatusTelaComponentes(boolean status);
 		    
-		    public abstract void StatusBotoes(boolean status, boolean sEdit_Exc);
-		   
+		    public abstract void StatusBotoes(boolean novo, boolean salCan, boolean  sEdit_Exc);
+
 		    public abstract void limpaTela();
+		    
 		    
 		    
 		    

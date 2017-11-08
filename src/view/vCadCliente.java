@@ -4,6 +4,8 @@ package view;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.swing.JFormattedTextField;
@@ -47,19 +49,9 @@ public class vCadCliente extends vTelaPadrao {
 	    	
 	    	initLayoutCliente(303, 11);
 	    	
-	    	
-	    	
 	    	acoes();
 	    	criaJTable();
-	    	try {
-	    		//listagem();
-	    		
-				
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	    	
+	    	StatusTelaComponentes(false);
 	    	
 	}
 	    	
@@ -188,13 +180,15 @@ public class vCadCliente extends vTelaPadrao {
 		                return false;  
 		            }  
 		        };  
-				  
+				
+		        modelo.addColumn("Código");
 		        modelo.addColumn("Nome");
 				modelo.addColumn("Telefone 1");
 				modelo.addColumn("Telefone 2");
-				tabela.getColumnModel().getColumn(0).setPreferredWidth(100);
-				tabela.getColumnModel().getColumn(1).setPreferredWidth(60);
+				tabela.getColumnModel().getColumn(0).setPreferredWidth(15);
+				tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
 				tabela.getColumnModel().getColumn(2).setPreferredWidth(60);
+				tabela.getColumnModel().getColumn(3).setPreferredWidth(60);
 				try {
 					pesquisar(modelo);
 					
@@ -204,71 +198,84 @@ public class vCadCliente extends vTelaPadrao {
 				}
 				lista(tabela,3,45,290, this.getHeight()-124);
 				campoPesquisa("Pesquisar : ", 5, 8, 70,218);
+				tabela.addMouseListener(this);
 			}
 			
-			public static void pesquisar(DefaultTableModel modelo) throws Exception {
+		public static void pesquisar(DefaultTableModel modelo) throws Exception {
 				modelo.setNumRows(0);
-				 
-			
+		
 				daoCliente dao = new daoCliente();
 
 				for (mCliente m : dao.selectAll()) {
-					modelo.addRow(new Object[]{m.getcNome(), m.getcTelefone1(), m.getcTelefone2()});
+					modelo.addRow(new Object[]{m.getCodCliente(),m.getcNome(), m.getcTelefone1(), m.getcTelefone2()});
 				}
 			}
 
 	
 	public void acoes(){
 	
-		jbNovo.addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						limpaTela();
-						StatusTelaComponentes(true);
-						StatusBotoes(true, false);
-						
-					}
-				});
+	        
 		
-		jbSalvar.addActionListener(new ActionListener() {
-			//int codCliente, String cNome, String cTelefone1, String cTelefone2, String cRua, String cNumero,
-			//String cBairro, String cComplemento, String cRefEntrega, String cHistCompras
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				mCliente novoCliente = new mCliente();
-				novoCliente.setcNome(jtfNome.getText());
-				novoCliente.setcTelefone1(jftTelefone1.getText());
-				novoCliente.setcTelefone2(jftTelefone2.getText());
-				novoCliente.setcRua(jtfRua.getText());
-				novoCliente.setcNumero(jtfNumero.getText());
-				novoCliente.setcBairro(jtfBairro.getText());
-				novoCliente.setcComplemento(jtfComplemento.getText());
-				novoCliente.setcRefEntrega(jtaReferencia.getText());
-				novoCliente.setcHistCompras(jtaHistorico.getText());
-				
-				daoCliente dCliente;
-				
-				try {
-					dCliente = new daoCliente();
-					dCliente.insert(novoCliente);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent ev) {
+		
+		if(ev.getSource().equals(jbNovo)) {
+			limpaTela();
+			try {
+				preenchetela();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		});
+			StatusTelaComponentes(true);
+			StatusBotoes(false, true, false);
 		
-		jbCancelar.addActionListener(new ActionListener() {
 			
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		}
+		
+		else if(ev.getSource().equals(jbSalvar)) {
+			mCliente novoCliente = new mCliente();
+			novoCliente.setcNome(jtfNome.getText());
+			novoCliente.setcTelefone1(jftTelefone1.getText());
+			novoCliente.setcTelefone2(jftTelefone2.getText());
+			novoCliente.setcRua(jtfRua.getText());
+			novoCliente.setcNumero(jtfNumero.getText());
+			novoCliente.setcBairro(jtfBairro.getText());
+			novoCliente.setcComplemento(jtfComplemento.getText());
+			novoCliente.setcRefEntrega(jtaReferencia.getText());
+			novoCliente.setcHistCompras(jtaHistorico.getText());
+			
+			daoCliente dCliente;
+			
+			try {
+				dCliente = new daoCliente();
+				dCliente.insert(novoCliente);
 				
-				limpaTela();
-				StatusTelaComponentes(false);
-				StatusBotoes(false, false);
-				
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		});
+			limpaTela();
+			StatusBotoes(true, false, false);
+		
+		}
+		
+		
+		else if(ev.getSource().equals(jbEditar)) {
+			
+		}
+		
+		else if(ev.getSource().equals(jbCancelar)) {
+			
+			limpaTela();
+			StatusTelaComponentes(false);
+			StatusBotoes(true, false, false);
+		}
+		
+		else if(ev.getSource().equals(jbExcluir)) {
+			
+		}
 		
 	}
 	
@@ -301,14 +308,83 @@ public class vCadCliente extends vTelaPadrao {
 	}
 
 	@Override
-	public void StatusBotoes(boolean status, boolean  sEdit_Exc) {
+	public void StatusBotoes(boolean novo, boolean salCan, boolean  sEdit_Exc) {
 		
-		jbSalvar.setEnabled(status);
+		jbNovo.setEnabled(novo);
+		jbSalvar.setEnabled(salCan);
 		jbEditar.setEnabled(sEdit_Exc);
-		jbCancelar.setEnabled(status);
+		jbCancelar.setEnabled(salCan);
 		jbExcluir.setEnabled(sEdit_Exc);
 				
 	}
+
+	public void preenchetela() throws Exception {
+		
+		int row = tabela.getSelectedRow();
+		
+		daoCliente dao = new daoCliente();
+		 
+		 int cod =Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
+		 
+		 mCliente m = dao.select(cod);
+		 
+		 System.out.println(row +"-"+cod);
+		 
+		 jtfNome.setText(m.getcNome());
+		 jftTelefone1.setText(m.getcTelefone1());
+		 jftTelefone2.setText(m.getcTelefone2());
+		 jtfRua.setText(m.getcRua());
+		 jtfNumero.setText(m.getcNumero());
+		 jtfBairro.setText(m.getcBairro());
+		 jtfComplemento.setText(m.getcComplemento());
+		 jtaReferencia.setText(m.getcRefEntrega());
+		 jtaHistorico.setText(m.getcHistCompras());
+		 System.out.println(m.getcNome());
+		 
+	}
+	
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		
+		if (e.getSource().equals(tabela)) {
+			System.out.println("chegueiaquui");
+            if (e.getClickCount() == 2) {
+                try {
+					preenchetela();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+            }
+        }
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
 
 
 }
