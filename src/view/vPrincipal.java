@@ -26,7 +26,7 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
 
 	private JMenuItem jMiUsuario, jMiCliente, jMiProdutos, jMiAdicionais, jMiPedidos, jMiCaixa;
 	
-	private paineis jpAtalhosLateral, jpFundo, jpRodape; 
+	private paineis jpAtalhosLateral;
 	
 	private botoes jbAtalhoCliente, jbAtalhoPedido, jbAtalhoCaixa;
 	private JDesktopPane desktopPane;

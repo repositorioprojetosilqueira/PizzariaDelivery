@@ -56,7 +56,7 @@ public class ConectionFactory {
 			private static void MySql() throws SQLException {
 				String banco = "delivery";
 				String usuario = "root";
-				String senha = "321crazy";
+				String senha = "SUA SENHA";
 				
 				String servidor = "localhost";
 				
