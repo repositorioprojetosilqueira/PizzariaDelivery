@@ -169,7 +169,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		
 		jcbStatus.setEnabled(status);
 	}
-	private void criaJTable() {
+	public void criaJTable() {
 		modelo = new DefaultTableModel();
 
 		tabela  = new  JTable(modelo){

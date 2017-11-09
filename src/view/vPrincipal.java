@@ -16,9 +16,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-import grafica.gCadProduto;
-import grafica.gMovPedido;
-import view.*;
 
 public class vPrincipal extends JFrame implements ActionListener, WindowListener{
 	private JMenuBar jMbar;
@@ -32,9 +29,7 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
 	private JDesktopPane desktopPane;
 	
 
-	private grafica.gAdicionais gAdicionais;
-	private grafica.gCadProduto gCadProduto;
-	private grafica.gUsuario gUsuario;
+
 	private grafica.gMovPedido gMovPedido;
 	private grafica.gMovCaixa gMovCaixa;
 	
@@ -215,16 +210,16 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
 	}	
 		
 	private void apareceAdicionais() {
-		if(gAdicionais == null){
-			gAdicionais = new grafica.gAdicionais();
-			gAdicionais.setLocation(((desktopPane.getWidth()/2) - (gAdicionais.getWidth()/2)), 
-            					((desktopPane.getHeight()/2) - (gAdicionais.getHeight()/2)) - 30);
-			gAdicionais.setVisible(true);
-            desktopPane.add(gAdicionais);
+		if(vCadAdicionais == null){
+			vCadAdicionais = new vCadAdicionais();
+			vCadAdicionais.setLocation(((desktopPane.getWidth()/2) - (vCadAdicionais.getWidth()/2)), 
+            					((desktopPane.getHeight()/2) - (vCadAdicionais.getHeight()/2)) - 30);
+			vCadAdicionais.setVisible(true);
+            desktopPane.add(vCadAdicionais);
         }
-        else if(!gAdicionais.isVisible()){
-        	gAdicionais.setVisible(true);
-            desktopPane.add(gAdicionais);
+        else if(!vCadAdicionais.isVisible()){
+        	vCadAdicionais.setVisible(true);
+            desktopPane.add(vCadAdicionais);
         }
 	}
 	

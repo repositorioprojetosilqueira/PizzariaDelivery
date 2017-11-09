@@ -136,6 +136,12 @@ public class vCadAdicionais extends vTelaPadrao {
 			
 		}
 
+		@Override
+		public void criaJTable() {
+			// TODO Auto-generated method stub
+			
+		}
+
 	
 }
 

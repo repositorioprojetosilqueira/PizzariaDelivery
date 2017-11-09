@@ -285,6 +285,13 @@ public class vMovPedido extends vTelaPadrao{
 			// TODO Auto-generated method stub
 			
 		}
+
+
+		@Override
+		public void criaJTable() {
+			// TODO Auto-generated method stub
+			
+		}
 		
 		}	
 			

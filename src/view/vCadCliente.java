@@ -173,8 +173,9 @@ public class vCadCliente extends vTelaPadrao {
 			
 			jpCentro.add(jpCliente);
 		}
-
-			private void criaJTable() {
+			
+			@Override
+			public void criaJTable() {
 				modelo = new DefaultTableModel();
 
 				tabela  = new  JTable(modelo){
@@ -216,8 +217,6 @@ public class vCadCliente extends vTelaPadrao {
 	
 	public void acoes(){
 	
-	        
-		
 	}
 
 	@Override

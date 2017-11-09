@@ -214,6 +214,12 @@ public class vMovCaixa extends vTelaPadrao{
 			
 		}
 
+		@Override
+		public void criaJTable() {
+			// TODO Auto-generated method stub
+			
+		}
+
 		
 
 }

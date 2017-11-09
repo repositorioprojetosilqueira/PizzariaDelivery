@@ -146,8 +146,9 @@ public abstract class vTelaPadrao extends JInternalFrame implements ActionListen
 				jbExcluir.setEnabled(excluir);
 						
 			}
-		
-		    
+			
+			public abstract void criaJTable(); 
+			
 		    public abstract void acoes();
 		    
 		    public abstract void StatusTelaComponentes(boolean status);

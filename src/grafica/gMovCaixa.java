@@ -166,6 +166,12 @@ import view.vTelaPadrao;
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void criaJTable() {
+		// TODO Auto-generated method stub
+		
+	}
 		
 	
 
