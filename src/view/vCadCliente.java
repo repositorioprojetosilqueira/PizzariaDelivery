@@ -191,6 +191,7 @@ public class vCadCliente extends vTelaPadrao {
 				tabela.getColumnModel().getColumn(0).setPreferredWidth(5);
 				tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
 				tabela.getColumnModel().getColumn(2).setPreferredWidth(90);
+				tabela.getTableHeader().setReorderingAllowed(false);
 				
 				try {
 					pesquisar(modelo);
@@ -334,8 +335,6 @@ public class vCadCliente extends vTelaPadrao {
 		jtaReferencia.setText(null);
 		jtaHistorico.setText(null);
 	}
-
-	
 
 	public void preenchetela() throws Exception {
 		

@@ -2,6 +2,7 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
@@ -11,19 +12,22 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.JViewport;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 import model.mCliente;
 import model.mProduto;
+import model.mTipoProduto;
 import model.dao.daoCliente;
 import model.dao.daoProduto;
+import model.dao.daoTipoProduto;
 
 public class vCadProduto extends vTelaPadrao{
 	private JTextField jtfDescricao;
 	private JTextField jtfPreco; 
-	private JCheckBox checkBox;
-	private JComboBox comboBox;
+	private JCheckBox jcbStatus;
+	private JComboBox jcombbTipo;
 	
 	private DefaultTableModel modelo;
 	private JTable tabela;
@@ -52,6 +56,7 @@ public class vCadProduto extends vTelaPadrao{
 				jtfDescricao = new JTextField();
 				jtfDescricao.setColumns(10);
 				jtfDescricao.setBounds(393, 26, 239, 30);
+				jtfDescricao.setText(null);
 				jpCentro.add(jtfDescricao);
 				
 				JLabel label_1 = new JLabel("Tipo:");
@@ -59,10 +64,10 @@ public class vCadProduto extends vTelaPadrao{
 				label_1.setBounds(312, 90, 71, 14);
 				jpCentro.add(label_1);
 				
-				comboBox = new JComboBox();
-				comboBox.setBounds(393, 82, 241, 30);
+				jcombbTipo = new JComboBox();
+				jcombbTipo.setBounds(393, 82, 241, 30);
 				
-				jpCentro.add(comboBox);
+				jpCentro.add(jcombbTipo);
 				
 				JLabel label_2 = new JLabel("Preço:");
 				label_2.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -74,9 +79,9 @@ public class vCadProduto extends vTelaPadrao{
 				jtfPreco.setBounds(393, 138, 86, 30);
 				jpCentro.add(jtfPreco);
 				
-				checkBox = new JCheckBox("Desativar");
-				checkBox.setBounds(393, 204, 97, 23);
-				jpCentro.add(checkBox);
+				jcbStatus = new JCheckBox("Ativo");
+				jcbStatus.setBounds(393, 204, 97, 23);
+				jpCentro.add(jcbStatus);
 				
 				
 			}
@@ -93,13 +98,17 @@ public class vCadProduto extends vTelaPadrao{
 	        };  
 			
 	        modelo.addColumn("Cd");
+	        modelo.addColumn("Tp");
 	        modelo.addColumn("Descrição");
 			modelo.addColumn("Preço");
 			
-			tabela.getColumnModel().getColumn(0).setPreferredWidth(5);
-			tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
-			tabela.getColumnModel().getColumn(2).setPreferredWidth(90);
+			tabela.getColumnModel().getColumn(0).setPreferredWidth(7);
+			tabela.getColumnModel().getColumn(1).setPreferredWidth(7);
+			tabela.getColumnModel().getColumn(2).setPreferredWidth(130);
+			tabela.getColumnModel().getColumn(3).setPreferredWidth(60);
 			
+			tabela.getTableHeader().setReorderingAllowed(false); 
+		
 			try {
 				pesquisar(modelo);
 				
@@ -109,7 +118,7 @@ public class vCadProduto extends vTelaPadrao{
 			lista(tabela,3,45,290, this.getHeight()-124);
 			campoPesquisa("Pesquisar : ", 5, 8, 70,218);
 			tabela.addMouseListener(this); 
-			
+
 		}
 		
 		public static void pesquisar(DefaultTableModel modelo) throws Exception {
@@ -118,7 +127,7 @@ public class vCadProduto extends vTelaPadrao{
 			daoProduto dao = new daoProduto();
 
 			for (mProduto m : dao.selectAll()) {
-				modelo.addRow(new Object[]{m.getCodProduto(),m.getpDescicao(),m.getpPreco()});
+				modelo.addRow(new Object[]{m.getCodProduto(),m.getP_CodTipoProduto(),m.getpDescicao(),m.getpPreco()});
 			}
 		}
 		
@@ -127,15 +136,21 @@ public class vCadProduto extends vTelaPadrao{
 			int row = tabela.getSelectedRow();
 			
 			daoProduto dao = new daoProduto();
-			 
+			daoTipoProduto daoTproduto= new daoTipoProduto();
+			
 			 codProduto=Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
-			 
+			  
 			 mProduto m = dao.select(codProduto);
+			 jcombbTipo.removeAllItems();
+			 for (mTipoProduto mt1 : daoTproduto.selectAll()) {
+				 jcombbTipo.addItem(mt1.gettDescTipo());
+				 }
 			 
 			 jtfDescricao.setText(m.getpDescicao());
 			 jtfPreco.setText(m.getpPreco());
-			 
-			 
+			 jcombbTipo.setSelectedIndex(m.getP_CodTipoProduto()-1);
+			 jcbStatus.setSelected(m.getpStatus());
+
 		}
 		
 		@Override
@@ -143,24 +158,24 @@ public class vCadProduto extends vTelaPadrao{
 			// TODO Auto-generated method stub
 			
 		}
-		
-		
 
 		@Override
 		public void StatusTelaComponentes(boolean status) {
 
 			jtfDescricao.setEnabled(status);
 			jtfPreco.setEnabled(status);
+			jcombbTipo.setEnabled(status);
+			jcbStatus.setEnabled(status);
 			
 		}
-
 		
-
 		@Override
 		public void limpaTela() {
 			
 			jtfDescricao.setText(null);
 			jtfPreco.setText(null);
+			jcbStatus.setSelected(false);
+			jcombbTipo.setSelectedItem(null);
 			
 		}
 
@@ -170,6 +185,7 @@ public class vCadProduto extends vTelaPadrao{
 				
 				jtfDescricao.requestFocus();
 				limpaTela();
+				jcbStatus.setSelected(true);
 				StatusTelaComponentes(true);
 				StatusBotoes(false, true, false, true, false);
 				codProduto = -1;
@@ -177,12 +193,16 @@ public class vCadProduto extends vTelaPadrao{
 			}
 			
 			else if(ev.getSource().equals(jbSalvar)) {
+				
 				mProduto novoProduto = new mProduto();
+				
+				int codTipProduto =jcombbTipo.getSelectedIndex() + 1;
 				
 				novoProduto.setCodProduto(codProduto);
 				novoProduto.setpDescicao(jtfDescricao.getText());
 				novoProduto.setpPreco(jtfPreco.getText());
-				
+				novoProduto.setP_CodTipoProduto(codTipProduto);
+				novoProduto.setpStatus(jcbStatus.isSelected());
 				
 				daoProduto dProduto;
 				
@@ -209,6 +229,7 @@ public class vCadProduto extends vTelaPadrao{
 			
 			else if(ev.getSource().equals(jbEditar)) {
 				jtfDescricao.requestFocus();
+				
 				StatusBotoes(false, true, false, true, true);
 				StatusTelaComponentes(true);
 				
@@ -248,15 +269,16 @@ public class vCadProduto extends vTelaPadrao{
 
 		@Override
 		public void mouseClicked(MouseEvent ev) {
-			if (ev.getSource().equals(tabela)) {
+			
+			if (ev.getSource().equals(tabela)&&jtfDescricao.isEnabled()==false) {
 				if (ev.getClickCount() == 2) {
-	                try {
+					try {
 						preenchetela();
-						
+						StatusBotoes(true, false, true, false, false);
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
-	            StatusBotoes(true, false, true, false, false);
+	            
 	            
 				}
 	        }

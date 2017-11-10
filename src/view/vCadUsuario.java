@@ -141,7 +141,6 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		jpCentro.add(jpwfSenha);
 		
 		jcbStatus = new JCheckBox("Ativo");
-		jcbStatus.setSelected(true);
 		jcbStatus.setHorizontalAlignment(SwingConstants.LEFT);
 		jcbStatus.setBounds(549, 204, 100, 33);
 		jpCentro.add(jcbStatus);
@@ -269,6 +268,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 			
 			jtfNome.requestFocus();
 			limpaTela();
+			jcbStatus.setSelected(true);
 			StatusTelaComponentes(true);
 			StatusBotoes(false, true, false, true, false);
 			codUsuario = -1;

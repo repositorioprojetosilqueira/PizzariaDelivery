@@ -143,14 +143,13 @@ public class vLogin extends JDialog implements ActionListener {
 			daoUsuario dUsuario = new daoUsuario();
 			mUsuario ia = dUsuario.selectDesc(jtfUsuario.getText());
 
-			if((ia.getuLogin().equals(jtfUsuario.getText()))&&(ia.getuSenha().equals(jpfSenha.getText()))) { 
-				
+			if((ia.getuLogin().equals(jtfUsuario.getText()))&&(ia.getuSenha().equals(jpfSenha.getText())&&(ia.getuStatus()==true))) { 
 				lblMensagemAcesso.setText("Acesso Liberado!");
-
 				new vPrincipal();
 				dispose();
 
 			}
+			
 			else 
 				erroValidacao();
 				
@@ -163,6 +162,7 @@ public class vLogin extends JDialog implements ActionListener {
 		
 	}
 	public void erroValidacao() {
+		
 		
 		lblMensagemAcesso.setText("Acesso Negado. Tente Novamente!");
 		jtfUsuario.setText(null);

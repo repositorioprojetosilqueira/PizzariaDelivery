@@ -38,16 +38,17 @@ public class daoProduto extends DAOSuperClass<mProduto>{
 
 	@Override
 	public boolean update(mProduto arg0) throws SQLException {
-		String sql = "update produto set(pDescricao=? ,pPreco,pStatus=? ,p_CodTipoProduto=?)"
-				+ "WHERE codProduto = ? AND p_CodTipoProduto = ?;";
+		String sql = "update produto set pDescricao=? ,pPreco= ?,pStatus=? ,p_CodTipoProduto=? "
+				+ "WHERE codProduto = ?";
 		
 		PreparedStatement stm = this.createPreparedStatement(sql);
 		
 		stm.setString(1, arg0.getpDescicao());
 		stm.setString(2, arg0.getpPreco());
 		stm.setBoolean(3, arg0.getpStatus());
-		stm.setInt(4, arg0.getCodProduto());
-		stm.setInt(5, arg0.getP_CodTipoProduto());
+		stm.setInt(4, arg0.getP_CodTipoProduto());
+		stm.setInt(5, arg0.getCodProduto());
+		
 		
 		boolean retorno = stm.executeUpdate() > 0;
 		
@@ -97,7 +98,7 @@ public class daoProduto extends DAOSuperClass<mProduto>{
 
 	@Override
 	public List<mProduto> selectAll() throws SQLException {
-		String sql = "SELECT * FROM produto";
+		String sql = "SELECT * FROM produto order by p_CodTipoProduto;";
 		
 		PreparedStatement stm = this.createPreparedStatement(sql);
 		
@@ -109,6 +110,8 @@ public class daoProduto extends DAOSuperClass<mProduto>{
 			temp.setCodProduto(rs.getInt(1));
 			temp.setpDescicao(rs.getString(2));
 			temp.setpPreco(rs.getString(3));
+			temp.setpStatus(rs.getBoolean(4));
+			temp.setP_CodTipoProduto(rs.getInt(5));
 			
 			retorno.add(temp);
 			
