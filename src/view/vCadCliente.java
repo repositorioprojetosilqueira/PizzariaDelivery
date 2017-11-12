@@ -360,16 +360,15 @@ public class vCadCliente extends vTelaPadrao {
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
-		if (e.getSource().equals(tabela)) {
+		if (e.getSource().equals(tabela)&&jtfNome.isEnabled()==false) {
 			if (e.getClickCount() == 2) {
-                try {
+				try {
 					preenchetela();
-					
+					StatusBotoes(true, false, true, false, false);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-            StatusBotoes(true, false, true, false, false);
+            
             
 			}
         }
