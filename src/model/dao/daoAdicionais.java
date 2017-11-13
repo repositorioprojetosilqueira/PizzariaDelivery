@@ -22,14 +22,13 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 	@Override
 	public boolean insert(mAdicionais arg0) throws SQLException {
 
-		String sql = "INSERT INTO adicionais(codAdicionais, aDescricao, aPreco, aStatus) VALUES (?,?,?,?,?); ";
+		String sql = "INSERT INTO adicionais(aDescricao, aPreco, aStatus) VALUES (?,?,?,?,?); ";
 
 		PreparedStatement stm = this.createPreparedStatement(sql);
 
-		stm.setInt(1, arg0.getCodAdicionais());
-		stm.setString(2, arg0.getaDescricao());
-		stm.setDouble(3, arg0.getaPreco());
-		stm.setString(4, arg0.getaStatus());
+		stm.setString(1, arg0.getaDescricao());
+		stm.setDouble(2, arg0.getaPreco());
+		stm.setString(3, arg0.getaStatus());
 
 		boolean retorno = stm.executeUpdate() > 0;
 
@@ -42,20 +41,48 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 
 	@Override
 	public boolean update(mAdicionais arg0) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+
+		String sql = "UPDATE adicionais SET aDescricao= ?, aPreco= ?, aStatus= ? WHERE codAdicionais= ?; ";
+
+		PreparedStatement stm = this.createPreparedStatement(sql);
+
+		stm.setString(1, arg0.getaDescricao());
+		stm.setDouble(2, arg0.getaPreco());
+		stm.setString(3, arg0.getaStatus());
+		stm.setInt(4, arg0.getCodAdicionais());
+
+		boolean retorno = stm.executeUpdate() > 0;
+
+		close(stm);
+		fecha();
+
+		return retorno;
+
 	}
 
 	@Override
 	public boolean delete(int codigo) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+
+		String sql = "DELETE FROM adicionais WHERE codAdicionais =?;";
+
+		PreparedStatement stm = this.createPreparedStatement(sql);
+
+		stm.setInt(1, codigo);
+
+		boolean retorno = stm.executeUpdate() > 0;
+
+		close(stm);
+
+		return retorno;
+
 	}
 
 	@Override
 	public mAdicionais select(int codigo) throws SQLException {
-		String sql = "Select * from usuario where codAdicionais= ?";
+		String sql = "Select * from adicionais where codAdicionais= ?";
+		
 		PreparedStatement stm = this.createPreparedStatement(sql);
+		
 		stm.setInt(1, codigo);
 
 		ResultSet rs = stm.executeQuery();
@@ -105,22 +132,23 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 
 	@Override
 	public mAdicionais selectDesc(String descricao) throws SQLException {
-		
-	String sql = "SELECT * FROM usuario where aDescricao = ?";
-		
+
+		String sql = "SELECT * FROM adicionais where aDescricao = ?";
+
 		PreparedStatement stm = this.createPreparedStatement(sql);
-		stm.setString(1, descricao);
 		
+		stm.setString(1, descricao);
+
 		ResultSet rs = stm.executeQuery();
 		mAdicionais retorno = null;
-		
+
 		if(rs.next()) {
 			retorno = new mAdicionais();
 			retorno.setCodAdicionais(rs.getInt(1));
 			retorno.setaDescricao(rs.getString(2));
 			retorno.setaPreco(rs.getDouble(3));
 			retorno.setaStatus(rs.getString(4));
-			
+
 		}
 		close(rs, stm);
 
