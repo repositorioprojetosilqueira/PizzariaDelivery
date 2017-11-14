@@ -4,15 +4,15 @@ public class mAdicionais {
 
 	private int codAdicionais;
 	private String aDescricao;
-	private double aPreco;
-	private String aStatus;
+	private String aPreco;
+	private Boolean aStatus;
 	
 	
 	public mAdicionais(){
 		
 	}
 	
-	public mAdicionais(int codAdicionais, String aDescricao, double aPreco, String aStatus){
+	public mAdicionais(int codAdicionais, String aDescricao, String aPreco, Boolean aStatus){
 		super();
 		this.codAdicionais = codAdicionais;
 		this.aDescricao = aDescricao;
@@ -34,18 +34,23 @@ public class mAdicionais {
 	public void setaDescricao(String aDescricao) {
 		this.aDescricao = aDescricao;
 	}
-	public double getaPreco() {
+	public String getaPreco() {
 		return aPreco;
 	}
-	public void setaPreco(double aPreco) {
+	public void setaPreco(String aPreco) {
 		this.aPreco = aPreco;
 	}
-	public String getaStatus() {
+	public Boolean getaStatus() {
 		return aStatus;
 	}
-	public void setaStatus(String aStatus) {
+	public void setaStatus(Boolean aStatus) {
 		this.aStatus = aStatus;
 	}
-	
-	
+
+	public void setaBoolean(boolean boolean1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+		
 }

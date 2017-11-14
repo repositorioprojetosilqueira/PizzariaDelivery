@@ -27,8 +27,8 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 		PreparedStatement stm = this.createPreparedStatement(sql);
 
 		stm.setString(1, arg0.getaDescricao());
-		stm.setDouble(2, arg0.getaPreco());
-		stm.setString(3, arg0.getaStatus());
+		stm.setString(2, arg0.getaPreco());
+		stm.setBoolean(3, arg0.getaStatus());
 
 		boolean retorno = stm.executeUpdate() > 0;
 
@@ -47,8 +47,8 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 		PreparedStatement stm = this.createPreparedStatement(sql);
 
 		stm.setString(1, arg0.getaDescricao());
-		stm.setDouble(2, arg0.getaPreco());
-		stm.setString(3, arg0.getaStatus());
+		stm.setString(2, arg0.getaPreco());
+		stm.setBoolean(3, arg0.getaStatus());
 		stm.setInt(4, arg0.getCodAdicionais());
 
 		boolean retorno = stm.executeUpdate() > 0;
@@ -93,8 +93,8 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 			retorno = new mAdicionais();
 			retorno.setCodAdicionais(rs.getInt(1));
 			retorno.setaDescricao(rs.getString(2));
-			retorno.setaPreco(rs.getDouble(3));
-			retorno.setaStatus(rs.getString(4));			
+			retorno.setaPreco(rs.getString(3));
+			retorno.setaStatus(rs.getBoolean(4));			
 
 		}
 
@@ -120,8 +120,8 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 			mAdicionais temp = new mAdicionais();
 			temp.setCodAdicionais(rs.getInt(1));
 			temp.setaDescricao(rs.getString(2));
-			temp.setaPreco(rs.getDouble(3));
-			temp.setaStatus(rs.getString(4));
+			temp.setaPreco(rs.getString(3));
+			temp.setaStatus(rs.getBoolean(4));
 			retorno.add(temp);
 		}
 
@@ -146,8 +146,8 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 			retorno = new mAdicionais();
 			retorno.setCodAdicionais(rs.getInt(1));
 			retorno.setaDescricao(rs.getString(2));
-			retorno.setaPreco(rs.getDouble(3));
-			retorno.setaStatus(rs.getString(4));
+			retorno.setaPreco(rs.getString(3));
+			retorno.setaStatus(rs.getBoolean(4));
 
 		}
 		close(rs, stm);

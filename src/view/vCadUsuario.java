@@ -50,7 +50,7 @@ public class vCadUsuario extends vTelaPadrao {
 	
 	
     public vCadUsuario() {
-super("Cadastro Usuário","/imagens/usuario32x32.png");
+    super("Cadastro Usuário","/imagens/usuario32x32.png");
 		
 		initLayout();
 	
@@ -168,6 +168,7 @@ super("Cadastro Usuário","/imagens/usuario32x32.png");
 		
 		jcbStatus.setEnabled(status);
 	}
+	
 	public void criaJTable() {
 		modelo = new DefaultTableModel();
 

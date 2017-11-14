@@ -1,35 +1,60 @@
 package view;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
-
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
-import model.mUsuario;
-import model.dao.daoUsuario;
+import model.mAdicionais;
+import model.mAdicionais;
+import model.dao.daoAdicionais;
+import model.dao.daoAdicionais;
 
-public class vCadAdicionais extends vTelaPadrao {
 
+ 
+public class vCadAdicionais extends vTelaPadrao {  
+ 
 	private JTextField jtfDesc;
 	private JTextField jtfPreco;
-	private JCheckBox checkBox;
+	private JCheckBox jcbstatus;
+
+	private DefaultTableModel modelo;
+	private JTable tabela;
+
 	private int codAdicionais;
-
-	public vCadAdicionais() {
-
-		super("Adicionais", "/imagens/cliente16x16.png");
-
+	
+	
+    public vCadAdicionais() {
+    super("Cadastro Adicionais","/imagens/usuario32x32.png");
+		
 		initLayout();
-
-		listagem();
-
+	
+		criaJTable();
+		StatusTelaComponentes(false);
+    	StatusBotoes(true, false, false, false, false);
+		
 	}
-
+	
 	private void initLayout() {
 		setSize(674, 320);
 
@@ -62,183 +87,231 @@ public class vCadAdicionais extends vTelaPadrao {
 		jtfPreco.setBounds(393, 138, 86, 30);
 		jpCentro.add(jtfPreco);
 
-		JCheckBox checkBox = new JCheckBox("Desativar");
-		checkBox.setBounds(393, 204, 97, 30);
-		jpCentro.add(checkBox);
-
-
+		JCheckBox jcbstatus = new JCheckBox("Desativar");
+		jcbstatus.setBounds(393, 204, 97, 30);
+		jpCentro.add(jcbstatus);
 	}
-
-	private void listagem() {
-
-		String[] colunas = {"Descrição","Tipo", "Preço"};
-		Object[][] FonteDeDados= {
-				{"Alho Frito", "Pizza","R$ 0,00"},
-				{"Berinjela Milanesa", "Pizza","R$ 3,20"},
-				{"Cebola Picada", "Pizza","R$ 1,10"},
-				{"Cebolinha Picadinha", "Pizza","R$ 0,70"},
-				{"Parmesão", "Estrogonofe","R$ 3,20"},
-				{"Milho Verde", "Estrogonofe","R$ 0,00"},
-				{" ", " "}			
-		};
-
-		//lista(FonteDeDados,3,45,290, this.getHeight()-124,105);
-		campoPesquisa("Pesquisar : ", 5, 8, 70,218);
-	}
-
+	
+	
 	@Override
-	public void acoes() { 
+	public void acoes() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void StatusTelaComponentes(boolean status) {
-
+		
 		jtfDesc.setEnabled(status);
 		jtfPreco.setEnabled(status);
+		jcbstatus.setEnabled(status);
+		
+		
+	}
+	
+	public void criaJTable() {
+		modelo = new DefaultTableModel();
 
+		tabela  = new  JTable(modelo){
+            public boolean isCellEditable(int rowIndex, int mColIndex) {  
+                return false;  
+            }  
+        };  
+		
+        modelo.addColumn("Cd");
+        modelo.addColumn("Descrição");
+        modelo.addColumn("Preço");
+		
+		tabela.getColumnModel().getColumn(0).setPreferredWidth(5);
+		tabela.getColumnModel().getColumn(1).setPreferredWidth(80);
+		tabela.getColumnModel().getColumn(2).setPreferredWidth(20);
+		
+		try {
+			pesquisar(modelo);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		lista(tabela,3,45,220, this.getHeight()-124);
+		campoPesquisa("Pesquisar : ", 5, 8, 70,150);
+		tabela.addMouseListener(this); 
+		
+	}
+	
+	public static void pesquisar(DefaultTableModel modelo) throws Exception {
+		modelo.setNumRows(0);
 
+		daoAdicionais dao = new daoAdicionais();
+
+		for (mAdicionais m : dao.selectAll()) {
+			modelo.addRow(new Object[]{m.getCodAdicionais(),m.getaDescricao(),m.getaPreco()});
+		}
+		
 	}
 
-
+	public void preenchetela() throws Exception {
+		
+		int row = tabela.getSelectedRow();
+		
+		daoAdicionais dao = new daoAdicionais();
+		 
+		codAdicionais =Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
+		 
+		mAdicionais m = dao.select(codAdicionais);
+		 
+		
+		 
+		jtfDesc.setText(m.getaDescricao());
+		jtfPreco.setText(m.getaPreco());
+		jcbstatus.setSelected(m.getaStatus());
+			
+			
+		 
+	}
 
 	@Override
 	public void limpaTela() {
-
+		
 		jtfDesc.setText(null);
+		
 		jtfPreco.setText(null);
-
-		checkBox.setSelected(false);
-
+		
+		jcbstatus.setSelected(false);
+		
 	}
-
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent ev) {
-
-	/*	if(ev.getSource().equals(jbNovo)) {
-
+		
+		if(ev.getSource().equals(jbNovo)) {
+			
 			jtfDesc.requestFocus();
 			limpaTela();
-			jcbStatus.setSelected(true);
+			jcbstatus.setSelected(true);
 			StatusTelaComponentes(true);
 			StatusBotoes(false, true, false, true, false);
-			codUsuario = -1;
-
+			codAdicionais = -1;
+			
 		}
-
+		
 		else if(ev.getSource().equals(jbSalvar)) {
-			mUsuario novoUsuario = new mUsuario();
+			mAdicionais novoAdicionais = new mAdicionais();
 
-			novoUsuario.setCodUsuario(codUsuario);
-			novoUsuario.setuNome(jtfNome.getText());
-			novoUsuario.setuFuncao(buttonGroup.getSelection().getActionCommand());
-			novoUsuario.setuEmail(jtfEmail.getText());
-			novoUsuario.setuTelefone(jtfTelefone.getText());
-			novoUsuario.setuLogin(jtfLogin.getText());
-			novoUsuario.setuSenha(jpwfSenha.getText());
-			novoUsuario.setuStatus(jcbStatus.isSelected());
-
-			daoUsuario dUsuario;
-
+			novoAdicionais.setCodAdicionais(codAdicionais);
+			novoAdicionais.setaDescricao(jtfDesc.getText());
+			novoAdicionais.setaPreco(jtfPreco.getText());
+			novoAdicionais.setaStatus(jcbstatus.isSelected());
+			
+			daoAdicionais dAdicionais;
+			
 			try {
-				dUsuario = new daoUsuario();
-				if(codUsuario!=-1) 
-					dUsuario.update(novoUsuario);
-
+				dAdicionais = new daoAdicionais();
+				if(codAdicionais!=-1) 
+				dAdicionais.update(novoAdicionais);
+				
 				else
-					dUsuario.insert(novoUsuario);
-
+					dAdicionais.insert(novoAdicionais);
+				
 				limpaTela();
 				StatusTelaComponentes(false);
 				StatusBotoes(true, false, false, false, false);
 				pesquisar(modelo);
-
-
-
+				
+				
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
+			
 		}
-
+		
 		else if(ev.getSource().equals(jbEditar)) {
-			jtfNome.requestFocus();
+			jtfDesc.requestFocus();
 			StatusBotoes(false, true, false, true, true);
 			StatusTelaComponentes(true);
-
+			
 		}
-
+		
 		else if(ev.getSource().equals(jbCancelar)) {
-
+			
 			limpaTela();
 			StatusTelaComponentes(false);
 			StatusBotoes(true, false, false, false, false);
 		}
-
+		
 		else if(ev.getSource().equals(jbExcluir)) {
-
-			daoUsuario dExcUsuario;
-
+			
+			daoAdicionais dExcAdicionais;
+			
 			int i =JOptionPane.showConfirmDialog(null,"Desejar Excluir o Usuário?","Atenção!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 			if(i==0) {
-				try {
-					dExcUsuario = new daoUsuario();
-					dExcUsuario.delete(codUsuario);
-					pesquisar(modelo);
-				} catch (Exception e1) {
+			try {
+				dExcAdicionais = new daoAdicionais();
+				dExcAdicionais.delete(codAdicionais);
+				pesquisar(modelo);
+			} catch (Exception e1) {
+			
+				e1.printStackTrace();
+			}
+			
+			limpaTela();
+			StatusTelaComponentes(false);
+			StatusBotoes(true, false, false, false, false);
+						
+			}
+			
+		}
+		
+	}
+		
+	
 
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		
+		if (e.getSource().equals(tabela)&&jtfDesc.isEnabled()==false) {
+			if (e.getClickCount() == 2) {
+				try {
+					preenchetela();
+					StatusBotoes(true, false, true, false, false);
+				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-
-				limpaTela();
-				StatusTelaComponentes(false);
-				StatusBotoes(true, false, false, false, false);
-
+            
+            
 			}
+        }
+	}
 
-		}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
-	}*/
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	
+	
+	
 }
-
-@Override
-public void mouseClicked(MouseEvent e) {
-	// TODO Auto-generated method stub
-
-}
-
-@Override
-public void mouseEntered(MouseEvent e) {
-	// TODO Auto-generated method stub
-
-}
-
-@Override
-public void mouseExited(MouseEvent e) {
-	// TODO Auto-generated method stub
-
-}
-
-@Override
-public void mousePressed(MouseEvent e) {
-	// TODO Auto-generated method stub
-
-}
-
-@Override
-public void mouseReleased(MouseEvent e) {
-	// TODO Auto-generated method stub
-
-}
-
-@Override
-public void criaJTable() {
-	// TODO Auto-generated method stub
-
-}
-
-
-}
-
