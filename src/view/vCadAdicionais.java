@@ -37,7 +37,8 @@ public class vCadAdicionais extends vTelaPadrao {
 	private JTextField jtfDesc;
 	private JTextField jtfPreco;
 	private JCheckBox jcbstatus;
-
+	private JComboBox comboBox;
+	
 	private DefaultTableModel modelo;
 	private JTable tabela;
 
@@ -73,7 +74,7 @@ public class vCadAdicionais extends vTelaPadrao {
 		label_1.setBounds(312, 90, 71, 20);
 		jpCentro.add(label_1);
 
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setBounds(393, 82, 241, 30);
 		jpCentro.add(comboBox);
 
@@ -87,7 +88,7 @@ public class vCadAdicionais extends vTelaPadrao {
 		jtfPreco.setBounds(393, 138, 86, 30);
 		jpCentro.add(jtfPreco);
 
-		JCheckBox jcbstatus = new JCheckBox("Desativar");
+		jcbstatus = new JCheckBox("Desativar");
 		jcbstatus.setBounds(393, 204, 97, 30);
 		jpCentro.add(jcbstatus);
 	}
