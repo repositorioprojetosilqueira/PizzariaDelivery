@@ -58,9 +58,10 @@ public class ConectionFactory {
 				String usuario = "root";
 				String senha = "321crazy";
 				
-				String servidor = "localhost";
+				String servidor = "silqueirapc";
 				
 				String stringConexao = "jdbc:mysql://"+servidor+":3306/"+banco+"?&useSSL=false";
+				//String stringConexao = "jdbc:mysql://"+servidor+":3306/"+banco+"?&useSSL=false";
 				
 				conexao = DriverManager.getConnection(stringConexao, usuario, senha);
 				
