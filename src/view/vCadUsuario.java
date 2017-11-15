@@ -345,9 +345,13 @@ public class vCadUsuario extends vTelaPadrao {
 			StatusBotoes(true, false, false, false, false);
 						
 			}
+			
 		}
+		
 	}
 		
+	
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
@@ -359,6 +363,8 @@ public class vCadUsuario extends vTelaPadrao {
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
+            
+            
 			}
         }
 	}
