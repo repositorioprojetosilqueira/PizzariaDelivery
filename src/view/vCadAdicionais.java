@@ -120,9 +120,11 @@ public class vCadAdicionais extends vTelaPadrao {
         };  
 		
         modelo.addColumn("Cd");
+        modelo.addColumn("tp");
         modelo.addColumn("Descrição");
         modelo.addColumn("Preço");
 		
+		tabela.getColumnModel().getColumn(0).setPreferredWidth(5);
 		tabela.getColumnModel().getColumn(0).setPreferredWidth(5);
 		tabela.getColumnModel().getColumn(1).setPreferredWidth(80);
 		tabela.getColumnModel().getColumn(2).setPreferredWidth(20);
@@ -198,6 +200,7 @@ public class vCadAdicionais extends vTelaPadrao {
 		}
 		
 		else if(ev.getSource().equals(jbSalvar)) {
+			
 			mAdicionais novoAdicionais = new mAdicionais();
 
 			novoAdicionais.setCodAdicionais(codAdicionais);
