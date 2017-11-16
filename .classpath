@@ -4,5 +4,13 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/JDBC/mysql-connector-java-5.1.44-bin.jar"/>
 	<classpathentry kind="lib" path="C:/JDBC/sqljdbc42.jar"/>
+	<classpathentry kind="lib" path="C:/JDBC/JasperStudio/jasperreports-6.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/JDBC/JasperStudio/jasperreports-6.4.3-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/JDBC/JasperStudio/jasperreports-chart-customizers-6.4.3-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/JDBC/JasperStudio/jasperreports-chart-themes-6.4.3-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/JDBC/JasperStudio/jasperreports-fonts-6.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/JDBC/JasperStudio/jasperreports-functions-6.4.3-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/JDBC/JasperStudio/jasperreports-javaflow-6.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/JDBC/JasperStudio/jasperreports-metadata-6.4.3-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

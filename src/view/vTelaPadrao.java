@@ -57,8 +57,6 @@ public abstract class vTelaPadrao extends JInternalFrame implements ActionListen
             componentes();
             this.setVisible(true);
 
-            
-                       
      }
     
 		    private void componentes() {

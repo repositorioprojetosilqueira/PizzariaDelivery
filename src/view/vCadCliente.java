@@ -5,8 +5,14 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.JFormattedTextField;
 
@@ -22,8 +28,13 @@ import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
+import dao.ConectionFactory;
 import model.mCliente;
 import model.dao.daoCliente;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class vCadCliente extends vTelaPadrao {  
 	private JTextField jtfNome;
@@ -307,7 +318,41 @@ public class vCadCliente extends vTelaPadrao {
 			}
 			
 		}
-		
+		else if(ev.getSource().equals(jbRelatorio)) {
+			
+			String jrxml = "/relatorios/Cliente.jrxml";
+			Map<String, Object> parametros = new HashMap<>();
+			Connection conexao;
+			try {
+				conexao = ConectionFactory.getConnection("MYSQL");
+				OutputStream saida = new FileOutputStream("Clientes.pdf");
+				geradorRelatorios gerador = new geradorRelatorios(conexao);
+				gerador.geraPdf(jrxml, parametros, saida);
+				
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+			
+			
+		/*
+			
+			
+			try {
+				daoCliente dao = new daoCliente();
+				
+				dao.selectAll();
+			
+			     
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+		*/
 	}
 	
 	@Override
@@ -401,18 +446,4 @@ public class vCadCliente extends vTelaPadrao {
 		
 	}
 
-	
-
-
-
 }
-
-	    	
-	    
-
-
-			
-	    	
-	    	
-	    
-
