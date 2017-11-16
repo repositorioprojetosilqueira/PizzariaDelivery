@@ -277,6 +277,7 @@ public class vCadProduto extends vTelaPadrao{
 						preenchetela();
 						StatusBotoes(true, false, true, false, false);
 						jbRelatorio.setEnabled(true);
+						
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
