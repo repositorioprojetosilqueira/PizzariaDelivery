@@ -27,7 +27,7 @@ public class vCadProduto extends vTelaPadrao{
 	private JTextField jtfDescricao;
 	private JTextField jtfPreco; 
 	private JCheckBox jcbStatus;
-	private JComboBox jcombbTipo;
+	private JComboBox jcbTipo;
 	
 	private DefaultTableModel modelo;
 	private JTable tabela;
@@ -49,10 +49,10 @@ public class vCadProduto extends vTelaPadrao{
 				jbRelatorio.setVisible(true);
 				setBounds(100, 100, 674, 320);
 				
-				JLabel label = new JLabel("Descrição:");
-				label.setHorizontalAlignment(SwingConstants.RIGHT);
-				label.setBounds(312, 34, 71, 14);
-				jpCentro.add(label);
+				JLabel lbDescricao = new JLabel("Descrição:");
+				lbDescricao.setHorizontalAlignment(SwingConstants.RIGHT);
+				lbDescricao.setBounds(312, 34, 71, 14);
+				jpCentro.add(lbDescricao);
 				
 				jtfDescricao = new JTextField();
 				jtfDescricao.setColumns(10);
@@ -60,20 +60,20 @@ public class vCadProduto extends vTelaPadrao{
 				jtfDescricao.setText(null);
 				jpCentro.add(jtfDescricao);
 				
-				JLabel label_1 = new JLabel("Tipo:");
-				label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-				label_1.setBounds(312, 90, 71, 14);
-				jpCentro.add(label_1);
+				JLabel lbTipo = new JLabel("Tipo:");
+				lbTipo.setHorizontalAlignment(SwingConstants.RIGHT);
+				lbTipo.setBounds(312, 90, 71, 14);
+				jpCentro.add(lbTipo);
 				
-				jcombbTipo = new JComboBox();
-				jcombbTipo.setBounds(393, 82, 241, 30);
+				jcbTipo = new JComboBox();
+				jcbTipo.setBounds(393, 82, 241, 30);
 				
-				jpCentro.add(jcombbTipo);
+				jpCentro.add(jcbTipo);
 				
-				JLabel label_2 = new JLabel("Preço:");
-				label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-				label_2.setBounds(311, 146, 72, 14);
-				jpCentro.add(label_2);
+				JLabel lbPreco = new JLabel("Preço:");
+				lbPreco.setHorizontalAlignment(SwingConstants.RIGHT);
+				lbPreco.setBounds(311, 146, 72, 14);
+				jpCentro.add(lbPreco);
 				
 				jtfPreco = new JTextField();
 				jtfPreco.setColumns(10);
@@ -142,14 +142,14 @@ public class vCadProduto extends vTelaPadrao{
 			 codProduto=Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
 			  
 			 mProduto m = dao.select(codProduto);
-			 jcombbTipo.removeAllItems();
+			 jcbTipo.removeAllItems();
 			 for (mTipoProduto mt1 : daoTproduto.selectAll()) {
-				 jcombbTipo.addItem(mt1.gettDescTipo());
+				 jcbTipo.addItem(mt1.gettDescTipo());
 				 }
 			 
 			 jtfDescricao.setText(m.getpDescicao());
 			 jtfPreco.setText(m.getpPreco());
-			 jcombbTipo.setSelectedIndex(m.getP_CodTipoProduto()-1);
+			 jcbTipo.setSelectedIndex(m.getP_CodTipoProduto()-1);
 			 jcbStatus.setSelected(m.getpStatus());
 
 		}
@@ -165,7 +165,7 @@ public class vCadProduto extends vTelaPadrao{
 
 			jtfDescricao.setEnabled(status);
 			jtfPreco.setEnabled(status);
-			jcombbTipo.setEnabled(status);
+			jcbTipo.setEnabled(status);
 			jcbStatus.setEnabled(status);
 			
 		}
@@ -176,7 +176,7 @@ public class vCadProduto extends vTelaPadrao{
 			jtfDescricao.setText(null);
 			jtfPreco.setText(null);
 			jcbStatus.setSelected(false);
-			jcombbTipo.setSelectedItem(null);
+			jcbTipo.setSelectedItem(null);
 			
 		}
 
@@ -197,7 +197,7 @@ public class vCadProduto extends vTelaPadrao{
 				
 				mProduto novoProduto = new mProduto();
 				
-				int codTipProduto =jcombbTipo.getSelectedIndex() + 1;
+				int codTipProduto =jcbTipo.getSelectedIndex() + 1;
 				
 				novoProduto.setCodProduto(codProduto);
 				novoProduto.setpDescicao(jtfDescricao.getText());
