@@ -59,6 +59,8 @@ public class vCadCliente extends vTelaPadrao {
 	    	
 	public void initLayoutCliente(int x, int y) {
 			
+			jbRelatorio.setVisible(true);
+		
 			JPanel jpCliente = new JPanel();
 			
 			jpCliente.setSize(483,406);
@@ -365,6 +367,7 @@ public class vCadCliente extends vTelaPadrao {
 				try {
 					preenchetela();
 					StatusBotoes(true, false, true, false, false);
+					jbRelatorio.setEnabled(true);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
