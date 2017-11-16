@@ -46,6 +46,7 @@ public class vCadProduto extends vTelaPadrao{
 	}
 	
 		private void initLayout() {
+				jbRelatorio.setVisible(true);
 				setBounds(100, 100, 674, 320);
 				
 				JLabel label = new JLabel("Descrição:");
@@ -275,6 +276,7 @@ public class vCadProduto extends vTelaPadrao{
 					try {
 						preenchetela();
 						StatusBotoes(true, false, true, false, false);
+						jbRelatorio.setEnabled(true);
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}

@@ -27,11 +27,11 @@ import model.dao.daoCliente;
 
 public abstract class vTelaPadrao extends JInternalFrame implements ActionListener, MouseListener{  
 
-		private paineis jpTop;
+		private paineis jpTop, jpEspacolivre;
 		public paineis jpCentro;
 		public painelCliente pCliente;
 		
-		public botoes jbNovo, jbSalvar, jbEditar, jbExcluir, jbCancelar;
+		public botoes jbNovo, jbSalvar, jbEditar, jbExcluir, jbCancelar, jbRelatorio;
 		private JLabel jlPesquisa;
 
 		private JTextField jtPesquisar;
@@ -64,28 +64,36 @@ public abstract class vTelaPadrao extends JInternalFrame implements ActionListen
 		    private void componentes() {
 				
 			jpTop = new paineis(150, 150);
-
+			
+			jpEspacolivre = new paineis(0, 0);
+			jpEspacolivre.setBorder(null);
+			
 			jpCentro = new paineis(50,50);
 			jpCentro.setLayout(null);
 			
-		
+			
 			jbNovo = new botoes("Novo");
 			jbSalvar = new botoes("Salvar");
 			jbEditar = new botoes("Editar");
 			jbExcluir = new botoes("Excluir");
 			jbCancelar = new botoes("Cancelar");
-			
+			jbRelatorio = new botoes("Imprimir");
 			
 			jbNovo.setIcon(new ImageIcon(getClass().getResource("/imagens/save_new.png")));
 			jbSalvar.setIcon(new ImageIcon(getClass().getResource("/imagens/save_data.png")));
 			jbEditar.setIcon(new ImageIcon(getClass().getResource("/imagens/edit_button.png")));
 			jbExcluir.setIcon(new ImageIcon(getClass().getResource("/imagens/delete.png")));
 			jbCancelar.setIcon(new ImageIcon(getClass().getResource("/imagens/cancel.png")));
-					
+			
+			jbRelatorio.setIcon(new ImageIcon(getClass().getResource("/imagens/impressora24x24.png")));
+			jbRelatorio.setVisible(false);
+			
+			
 			jbSalvar.setEnabled(false);
 			jbEditar.setEnabled(false);
 			jbCancelar.setEnabled(false);
 			jbExcluir.setEnabled(false);
+			jbRelatorio.setEnabled(false);
 			
 			jpTop.add(jbNovo);
 			jpTop.add(jbSalvar);
@@ -93,13 +101,16 @@ public abstract class vTelaPadrao extends JInternalFrame implements ActionListen
 			jpTop.add(jbCancelar);
 			jpTop.add(jbExcluir);
 			
+			jpTop.add(jpEspacolivre);
+			jpTop.add(jbRelatorio);
+			
+			
 			jbNovo.addActionListener(this);
 			jbSalvar.addActionListener(this);
 			jbEditar.addActionListener(this);
 			jbCancelar.addActionListener(this);
 			jbExcluir.addActionListener(this);
-			
-	
+			jbRelatorio.addActionListener(this);
 			
 			this.add(jpTop, BorderLayout.NORTH);
 			this.add(jpCentro, BorderLayout.CENTER);

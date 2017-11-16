@@ -22,7 +22,7 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 	@Override
 	public boolean insert(mAdicionais arg0) throws SQLException {
 
-		String sql = "INSERT INTO adicionais(aDescricao, aPreco, aStatus) VALUES (?,?,?,?,?); ";
+		String sql = "INSERT INTO adicionais(aDescricao, aPreco, aStatus) VALUES (?,?,?,?,?);";
 
 		PreparedStatement stm = this.createPreparedStatement(sql);
 
