@@ -1,6 +1,6 @@
 package model;
 
-public class mAdicionais {
+public class mAdicionais extends mTipoProduto{
 
 	private int codAdicionais;
 	private String aDescricao;

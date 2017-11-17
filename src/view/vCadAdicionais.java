@@ -26,36 +26,39 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import model.mAdicionais;
+import model.mTipoProduto;
 import model.mAdicionais;
 import model.dao.daoAdicionais;
+import model.dao.daoTipoProduto;
 import model.dao.daoAdicionais;
 
 
- 
+
 public class vCadAdicionais extends vTelaPadrao {  
- 
+
 	private JTextField jtfDesc;
 	private JTextField jtfPreco;
 	private JCheckBox jcbstatus;
 	private JComboBox comboBox;
-	
+
 	private DefaultTableModel modelo;
 	private JTable tabela;
 
 	private int codAdicionais;
-	
-	
-    public vCadAdicionais() {
-    super("Cadastro Adicionais","/imagens/usuario32x32.png");
-		
+	private int CodProduto;
+
+
+	public vCadAdicionais() {
+		super("Cadastro Adicionais","/imagens/usuario32x32.png");
+
 		initLayout();
-	
+
 		criaJTable();
 		StatusTelaComponentes(false);
-    	StatusBotoes(true, false, false, false, false);
-		
+		StatusBotoes(true, false, false, false, false);
+
 	}
-	
+
 	private void initLayout() {
 		setSize(674, 320);
 
@@ -92,189 +95,203 @@ public class vCadAdicionais extends vTelaPadrao {
 		jcbstatus.setBounds(393, 204, 97, 30);
 		jpCentro.add(jcbstatus);
 	}
-	
-	
-	@Override
-	public void acoes() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void StatusTelaComponentes(boolean status) {
-		
-		jtfDesc.setEnabled(status);
-		jtfPreco.setEnabled(status);
-		jcbstatus.setEnabled(status);
-		
-		
-	}
-	
 	public void criaJTable() {
 		modelo = new DefaultTableModel();
 
 		tabela  = new  JTable(modelo){
-            public boolean isCellEditable(int rowIndex, int mColIndex) {  
-                return false;  
-            }  
-        };  
-		
-        modelo.addColumn("Cd");
-        modelo.addColumn("tp");
-        modelo.addColumn("Descrição");
-        modelo.addColumn("Preço");
-		
-		tabela.getColumnModel().getColumn(0).setPreferredWidth(5);
+			public boolean isCellEditable(int rowIndex, int mColIndex) {  
+				return false;  
+			}  
+		};  
+
+		modelo.addColumn("Cd");
+		modelo.addColumn("Descrição");
+		modelo.addColumn("Preço");
+
 		tabela.getColumnModel().getColumn(0).setPreferredWidth(5);
 		tabela.getColumnModel().getColumn(1).setPreferredWidth(80);
 		tabela.getColumnModel().getColumn(2).setPreferredWidth(20);
 		
+		tabela.getTableHeader().setReorderingAllowed(false); 
+
 		try {
 			pesquisar(modelo);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		lista(tabela,3,45,220, this.getHeight()-124);
 		campoPesquisa("Pesquisar : ", 5, 8, 70,150);
 		tabela.addMouseListener(this); 
-		
+
 	}
-	
+
 	public static void pesquisar(DefaultTableModel modelo) throws Exception {
 		modelo.setNumRows(0);
 
 		daoAdicionais dao = new daoAdicionais();
 
 		for (mAdicionais m : dao.selectAll()) {
-			modelo.addRow(new Object[]{m.getCodAdicionais(),m.getaDescricao(),m.getaPreco()});
+			modelo.addRow(new Object[]{m.getCodAdicionais(), m.getCodTipoProduto(), m.getaDescricao(),m.getaPreco()});
 		}
-		
-	}
 
+	}
+	
 	public void preenchetela() throws Exception {
-		
+
 		int row = tabela.getSelectedRow();
-		
+
 		daoAdicionais dao = new daoAdicionais();
-		 
+		daoTipoProduto daoTproduto= new daoTipoProduto();
+
 		codAdicionais =Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
-		 
+
 		mAdicionais m = dao.select(codAdicionais);
-		 
-		
-		 
+
+		comboBox.removeAllItems();
+		 for (mTipoProduto mt1 : daoTproduto.selectAll()) {
+			 comboBox.addItem(mt1.gettDescTipo());
+			 }
+
 		jtfDesc.setText(m.getaDescricao());
 		jtfPreco.setText(m.getaPreco());
+		comboBox.setSelectedIndex(m.getCodTipoProduto()-1);
 		jcbstatus.setSelected(m.getaStatus());
-			
-			
-		 
+
+
+
 	}
+
+	@Override
+	public void acoes() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void StatusTelaComponentes(boolean status) {
+
+		jtfDesc.setEnabled(status);
+		jtfPreco.setEnabled(status);
+		comboBox.setEnabled(status);
+		jcbstatus.setEnabled(status);
+
+
+	}
+
+
+
+	
 
 	@Override
 	public void limpaTela() {
-		
+
 		jtfDesc.setText(null);
-		
+
 		jtfPreco.setText(null);
-		
+
 		jcbstatus.setSelected(false);
 		
+		comboBox.setSelectedItem(null);
+
 	}
-	
-	
+
+
 	@Override
 	public void actionPerformed(ActionEvent ev) {
-		
+
 		if(ev.getSource().equals(jbNovo)) {
-			
+
 			jtfDesc.requestFocus();
 			limpaTela();
 			jcbstatus.setSelected(true);
 			StatusTelaComponentes(true);
 			StatusBotoes(false, true, false, true, false);
 			codAdicionais = -1;
-			
+
 		}
-		
+
 		else if(ev.getSource().equals(jbSalvar)) {
-			
+
 			mAdicionais novoAdicionais = new mAdicionais();
+			
+			int codTipProduto =comboBox.getSelectedIndex() + 1;
 
 			novoAdicionais.setCodAdicionais(codAdicionais);
 			novoAdicionais.setaDescricao(jtfDesc.getText());
 			novoAdicionais.setaPreco(jtfPreco.getText());
+			novoAdicionais.setCodTipoProduto(codTipProduto);
 			novoAdicionais.setaStatus(jcbstatus.isSelected());
-			
+
 			daoAdicionais dAdicionais;
-			
+
 			try {
 				dAdicionais = new daoAdicionais();
 				if(codAdicionais!=-1) 
-				dAdicionais.update(novoAdicionais);
-				
+					dAdicionais.update(novoAdicionais);
+
 				else
 					dAdicionais.insert(novoAdicionais);
-				
+
 				limpaTela();
 				StatusTelaComponentes(false);
 				StatusBotoes(true, false, false, false, false);
 				pesquisar(modelo);
-				
-				
-				
+
+
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 		}
-		
+
 		else if(ev.getSource().equals(jbEditar)) {
 			jtfDesc.requestFocus();
 			StatusBotoes(false, true, false, true, true);
 			StatusTelaComponentes(true);
-			
+
 		}
-		
+
 		else if(ev.getSource().equals(jbCancelar)) {
-			
+
 			limpaTela();
 			StatusTelaComponentes(false);
 			StatusBotoes(true, false, false, false, false);
 		}
-		
+
 		else if(ev.getSource().equals(jbExcluir)) {
-			
+
 			daoAdicionais dExcAdicionais;
-			
+
 			int i =JOptionPane.showConfirmDialog(null,"Desejar Excluir o Usuário?","Atenção!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 			if(i==0) {
-			try {
-				dExcAdicionais = new daoAdicionais();
-				dExcAdicionais.delete(codAdicionais);
-				pesquisar(modelo);
-			} catch (Exception e1) {
-			
-				e1.printStackTrace();
+				try {
+					dExcAdicionais = new daoAdicionais();
+					dExcAdicionais.delete(codAdicionais);
+					pesquisar(modelo);
+				} catch (Exception e1) {
+
+					e1.printStackTrace();
+				}
+
+				limpaTela();
+				StatusTelaComponentes(false);
+				StatusBotoes(true, false, false, false, false);
+
 			}
-			
-			limpaTela();
-			StatusTelaComponentes(false);
-			StatusBotoes(true, false, false, false, false);
-						
-			}
-			
+
 		}
-		
+
 	}
-		
-	
+
+
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
+
 		if (e.getSource().equals(tabela)&&jtfDesc.isEnabled()==false) {
 			if (e.getClickCount() == 2) {
 				try {
@@ -283,39 +300,39 @@ public class vCadAdicionais extends vTelaPadrao {
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-            
-            
+
+
 			}
-        }
+		}
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 
 
-	
-	
-	
+
+
+
 }

@@ -142,6 +142,7 @@ public class vCadProduto extends vTelaPadrao{
 			 codProduto=Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
 			  
 			 mProduto m = dao.select(codProduto);
+			 
 			 jcbTipo.removeAllItems();
 			 for (mTipoProduto mt1 : daoTproduto.selectAll()) {
 				 jcbTipo.addItem(mt1.gettDescTipo());
