@@ -3,6 +3,7 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import view.vCadCliente;
 import view.vLogin;
 
 
@@ -40,7 +41,7 @@ public class main {
             }
 		
 		
-			
+ 
 		new vLogin();
 				//new vPrincipal();
 		}

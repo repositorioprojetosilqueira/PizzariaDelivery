@@ -1,17 +1,18 @@
 package view;
 
 
-import java.awt.Font;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.awt.event.MouseEvent;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.sql.Connection;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.util.HashMap;
-import java.util.List;
+
 import java.util.Map;
 
 import javax.swing.JFormattedTextField;
@@ -20,21 +21,24 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.table.AbstractTableModel;
+
 import javax.swing.table.DefaultTableModel;
 
-import dao.ConectionFactory;
 import model.mCliente;
+
 import model.dao.daoCliente;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
+
+
 
 public class vCadCliente extends vTelaPadrao {  
 	private JTextField jtfNome;
@@ -319,36 +323,11 @@ public class vCadCliente extends vTelaPadrao {
 			
 		}
 		else if(ev.getSource().equals(jbRelatorio)) {
-			
-			try {
-				new testeRelatorio().abrirRelatorioClientes();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+
 			
 		}
-			
-			
-		/*
-			
-			
-			try {
-				daoCliente dao = new daoCliente();
-				
-				dao.selectAll();
-			
-			     
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
-		}
-		*/
 	}
-	
+ 
 	@Override
 	public void StatusTelaComponentes(boolean status) {
 		

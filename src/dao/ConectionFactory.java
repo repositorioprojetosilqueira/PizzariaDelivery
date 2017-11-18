@@ -54,15 +54,22 @@ public class ConectionFactory {
 			
 			
 			private static void MySql() throws SQLException {
+				try {
+					Class.forName( "com.mysql.jdbc.Driver" );
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				String banco = "delivery";
 				String usuario = "root";
 				String senha = "321crazy";
 				
 				String servidor = "silqueirapc";
+				String driver = "com.mysql.jdbc.Driver";
 				
 				String stringConexao = "jdbc:mysql://"+servidor+":3306/"+banco+"?&useSSL=false";
 				//String stringConexao = "jdbc:mysql://"+servidor+":3306/"+banco+"?&useSSL=false";
-				
+				 
 				conexao = DriverManager.getConnection(stringConexao, usuario, senha);
 				
 			}
