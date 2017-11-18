@@ -1,44 +1,85 @@
 package view;
 
-import java.io.OutputStream;
-import java.sql.Connection;
-import java.util.Map;
 
-import net.sf.jasperreports.engine.JRExporter;
-import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JasperCompileManager;
+ 
+import java.awt.BorderLayout;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JFrame;
+
+import dao.ConectionFactory;
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-
+import net.sf.jasperreports.swing.JRViewer;
+ 
+/**
+ * Classe com métodos utilitários para executar e abrir relatórios.
+ *
+ * @author David Buzatto
+ */
 public class geradorRelatorios {
-	
-	private Connection conexao;
-
-    public geradorRelatorios(Connection conexao) {
-        this.conexao = conexao;
+ 
+    /**
+     * Abre um relatório usando uma conexão como datasource.
+     *
+     * @param titulo Título usado na janela do relatório.
+     * @param inputStream InputStream que contém o relatório.
+     * @param parametros Parâmetros utilizados pelo relatório.
+     * @param conexao Conexão utilizada para a execução da query.
+     * @throws JRException Caso ocorra algum problema na execução do relatório
+     */
+    public static void openReport(String titulo,InputStream inputStream,Map parametros,Connection conexao ) throws JRException {
+    	 	
+    	
+        /*
+         * Cria um JasperPrint, que é a versão preenchida do relatório,
+         * usando uma conexão.
+         */
+    	 parametros.put( "primeiroNome", "F%" );
+    	 
+        JasperPrint print = JasperFillManager.fillReport(inputStream, parametros, conexao );
+ 
+        // abre o JasperPrint em um JFrame
+        viewReportFrame( titulo, print );
+ 
     }
-    
-    public void geraPdf(String jrxml, Map<String, Object> parametros, OutputStream saida) {
-
-            try {
-
-                // compila jrxml em memoria
-                JasperReport jasper = JasperCompileManager.compileReport(jrxml);
-
-                // preenche relatorio
-                JasperPrint print = JasperFillManager.fillReport(jasper, parametros, this.conexao);
-
-                // exporta para pdf
-                JRExporter exporter = new JRPdfExporter();
-                exporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, saida);
-
-                exporter.exportReport();
-
-            } catch (Exception e) {
-                throw new RuntimeException("Erro ao gerar relatório", e);
-            }
-        }   
+ 	
+    /**
+     * Cria um JFrame para exibir o relatório representado pelo JasperPrint.
+     *
+     * @param titulo Título do JFrame.
+     * @param print JasperPrint do relatório.
+     */
+    private static void viewReportFrame( String titulo, JasperPrint print ) {
+ 
+        /*
+         * Cria um JRViewer para exibir o relatório.
+         * Um JRViewer é uma JPanel.
+         */
+        JRViewer viewer = new JRViewer( print );
+ 
+        // cria o JFrame
+        JFrame frameRelatorio = new JFrame( titulo );
+ 
+        // adiciona o JRViewer no JFrame
+        frameRelatorio.add( viewer, BorderLayout.CENTER );
+ 
+        // configura o tamanho padrão do JFrame
+        frameRelatorio.setSize( 500, 500 );
+ 
+        // maximiza o JFrame para ocupar a tela toda.
+        frameRelatorio.setExtendedState( JFrame.MAXIMIZED_BOTH );
+ 
+        // configura a operação padrão quando o JFrame for fechado.
+        frameRelatorio.setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
+ 
+        // exibe o JFrame
+        frameRelatorio.setVisible( true );
+ 
+    }
+ 
 }

@@ -320,19 +320,13 @@ public class vCadCliente extends vTelaPadrao {
 		}
 		else if(ev.getSource().equals(jbRelatorio)) {
 			
-			String jrxml = "/relatorios/Cliente.jrxml";
-			Map<String, Object> parametros = new HashMap<>();
-			Connection conexao;
 			try {
-				conexao = ConectionFactory.getConnection("MYSQL");
-				OutputStream saida = new FileOutputStream("Clientes.pdf");
-				geradorRelatorios gerador = new geradorRelatorios(conexao);
-				gerador.geraPdf(jrxml, parametros, saida);
-				
-			} catch (Exception e1) {
+				new testeRelatorio().abrirRelatorioClientes();
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				e.printStackTrace();
 			}
+			
 		}
 			
 			
