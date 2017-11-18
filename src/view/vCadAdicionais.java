@@ -134,7 +134,7 @@ public class vCadAdicionais extends vTelaPadrao {
 		daoAdicionais dao = new daoAdicionais();
 
 		for (mAdicionais m : dao.selectAll()) {
-			modelo.addRow(new Object[]{m.getCodAdicionais(), m.getCodTipoProduto(), m.getaDescricao(),m.getaPreco()});
+			modelo.addRow(new Object[]{m.getCodAdicionais(),m.getaDescricao(),m.getaPreco()});
 		}
 
 	}
@@ -154,7 +154,7 @@ public class vCadAdicionais extends vTelaPadrao {
 		 for (mTipoProduto mt1 : daoTproduto.selectAll()) {
 			 comboBox.addItem(mt1.gettDescTipo());
 			 }
-
+		 
 		jtfDesc.setText(m.getaDescricao());
 		jtfPreco.setText(m.getaPreco());
 		comboBox.setSelectedIndex(m.getCodTipoProduto()-1);

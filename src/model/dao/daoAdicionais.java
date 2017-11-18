@@ -43,7 +43,7 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 	@Override
 	public boolean update(mAdicionais arg0) throws SQLException {
 
-		String sql = "UPDATE adicionais SET aDescricao= ?, aPreco= ?, aStatus= ?" + "WHERE codAdicionais= ?; ";
+		String sql = "UPDATE adicionais SET aDescricao= ?, aPreco= ?, aStatus= ? WHERE codAdicionais= ?; ";
 
 		PreparedStatement stm = this.createPreparedStatement(sql);
 
@@ -110,7 +110,7 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 	@Override
 	public List<mAdicionais> selectAll() throws SQLException {
 
-		String sql = "SELECT * FROM order by p_CodTipoProduto;";
+		String sql = "SELECT * FROM adicionais";
 
 		PreparedStatement stm = this.createPreparedStatement(sql);
 
@@ -123,7 +123,7 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 			temp.setCodAdicionais(rs.getInt(1));
 			temp.setaDescricao(rs.getString(2));
 			temp.setaPreco(rs.getString(3));
-			temp.setaStatus(rs.getBoolean(4));temp.setCodTipoProduto(rs.getInt(5));
+			temp.setaStatus(rs.getBoolean(4));
 			retorno.add(temp);
 		}
 
