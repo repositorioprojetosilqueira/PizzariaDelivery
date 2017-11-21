@@ -23,6 +23,8 @@ public class main {
             ex.printStackTrace();   Teste 
        } */
 		
+		//teste
+		
 		try {   
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
 		        if ("Nimbus".equals(info.getName())) {
