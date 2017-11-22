@@ -23,7 +23,7 @@ public class main {
             ex.printStackTrace();   Teste 
        } */
 		
-		//teste
+		
 		
 		try {   
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
