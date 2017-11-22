@@ -218,8 +218,8 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
             desktopPane.add(vCadAdicionais);
         }
         else if(!vCadAdicionais.isVisible()){
-        	vCadAdicionais.setVisible(true);
-            desktopPane.add(vCadAdicionais);
+         	vCadAdicionais = null;
+            apareceAdicionais();
         }
 	}
 	
@@ -232,8 +232,8 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
             desktopPane.add(vCadUsuario);
         }
         else if(!vCadUsuario.isVisible()){
-        	vCadUsuario.setVisible(true);
-            desktopPane.add(vCadUsuario);
+        	vCadUsuario = null;
+            apareceUsuario();
         }
     }
 
@@ -266,8 +266,8 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
 	            desktopPane.add(vCadProduto);
 	        }
 	        else if(!vCadProduto.isVisible()){
-	        	vCadProduto.setVisible(true);
-	            desktopPane.add(vCadProduto);
+	        	vCadProduto=null;
+	            apareceProduto();
 	        }
 		}
 	
@@ -282,8 +282,8 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
             desktopPane.add(vMovCaixa);
         }
         else if(!vMovCaixa.isVisible()){
-        	vMovCaixa.setVisible(true);
-            desktopPane.add(vMovCaixa);
+        	vMovCaixa= null;
+            apareceCaixa();
         }
 	}
 	
@@ -296,8 +296,8 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
             desktopPane.add(vMovPedido);
         }
         else if(!vMovPedido.isVisible()){
-        	vMovPedido.setVisible(true);
-            desktopPane.add(vMovPedido);
+        	vMovPedido=null;
+            aparecePedido();
         }
 	}
 	@Override
