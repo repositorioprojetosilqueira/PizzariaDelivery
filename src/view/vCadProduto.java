@@ -84,6 +84,7 @@ public class vCadProduto extends vTelaPadrao{
 				
 			}
 		
+		
 		@Override
 		public void criaJTable() {
 			
@@ -127,6 +128,16 @@ public class vCadProduto extends vTelaPadrao{
 			for (mProduto m : dao.selectAll()) {
 				modelo.addRow(new Object[]{m.getCodProduto(),m.getP_CodTipoProduto(),m.getpDescicao(),m.getpPreco()});
 			}
+		}
+		public void preencheCombox() throws Exception {
+			
+			daoTipoProduto daoTproduto= new daoTipoProduto();
+
+			 jcbTipo.removeAllItems();
+			 for (mTipoProduto mt1 : daoTproduto.selectAll()) {
+				 jcbTipo.addItem(mt1.gettDescTipo());
+				 }
+			 jcbTipo.setSelectedItem(null);
 		}
 		
 		public void preenchetela() throws Exception {
@@ -181,14 +192,20 @@ public class vCadProduto extends vTelaPadrao{
 		@Override
 		public void actionPerformed(ActionEvent ev) {
 			if(ev.getSource().equals(jbNovo)) {
-				
-				jtfDescricao.requestFocus();
 				limpaTela();
-				jcbStatus.setSelected(true);
 				StatusTelaComponentes(true);
 				StatusBotoes(false, true, false, true, false);
+				
+				jtfDescricao.requestFocus();
+				jcbStatus.setSelected(true);
 				codProduto = -1;
 				
+				try {
+					preencheCombox();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			
 			else if(ev.getSource().equals(jbSalvar)) {

@@ -8,22 +8,25 @@ public class mAdicionais extends mTipoProduto{
 	private Boolean aStatus;
 	private int adictipoprod;
 	
+	private String tDescTipProduto;
+	
+	
 	
 	public mAdicionais(){
 		
 	}
-	
-	public mAdicionais(int codAdicionais, String aDescricao, String aPreco, Boolean aStatus, int adictipoprod){
+
+	public mAdicionais(int codAdicionais, String aDescricao, String aPreco, Boolean aStatus, int adictipoprod,
+			String tDescTipProduto) {
 		super();
 		this.codAdicionais = codAdicionais;
 		this.aDescricao = aDescricao;
 		this.aPreco = aPreco;
 		this.aStatus = aStatus;
 		this.adictipoprod = adictipoprod;
-		
+		this.tDescTipProduto = tDescTipProduto;
 	}
-	
-	
+
 	public int getCodAdicionais() {
 		return codAdicionais;
 	}
@@ -55,10 +58,22 @@ public class mAdicionais extends mTipoProduto{
 		this.adictipoprod = adictipoprod;
 	}
 
-	public void setaBoolean(boolean boolean1) {
-		// TODO Auto-generated method stub
-		
+	public int getAdictipoprod() {
+		return adictipoprod;
 	}
+
+	public void setAdictipoprod(int adictipoprod) {
+		this.adictipoprod = adictipoprod;
+	}
+
+	public String gettDescTipProduto() {
+		return tDescTipProduto;
+	}
+
+	public void settDescTipProduto(String tDescTipProduto) {
+		this.tDescTipProduto = tDescTipProduto;
+	}
+
 
 		
 }

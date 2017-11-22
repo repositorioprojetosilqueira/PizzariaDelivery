@@ -1,37 +1,29 @@
 package view;
-import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.event.*;
 import java.awt.*;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
+
 import javax.swing.JTable;
-import javax.swing.JTextArea;
+
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.JToggleButton;
+
 import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
+
 import javax.swing.table.DefaultTableModel;
 
 import model.mAdicionais;
 import model.mTipoProduto;
-import model.mAdicionais;
+
 import model.dao.daoAdicionais;
-import model.dao.daoTipoAdicionais;
+
 import model.dao.daoTipoProduto;
-import model.dao.daoAdicionais;
+
 
 
 
@@ -92,7 +84,7 @@ public class vCadAdicionais extends vTelaPadrao {
 		jtfPreco.setBounds(393, 138, 86, 30);
 		jpCentro.add(jtfPreco);
 
-		jcbstatus = new JCheckBox("Desativar");
+		jcbstatus = new JCheckBox("Ativo");
 		jcbstatus.setBounds(393, 204, 97, 30);
 		jpCentro.add(jcbstatus);
 	}
@@ -135,9 +127,19 @@ public class vCadAdicionais extends vTelaPadrao {
 		daoAdicionais dao = new daoAdicionais();
 
 		for (mAdicionais m : dao.selectAll()) {
-			modelo.addRow(new Object[]{m.getCodAdicionais(),m.getaDescricao(),m.getaPreco(),m.getadictipoprod()});
+			modelo.addRow(new Object[]{m.getCodAdicionais(),m.getaDescricao(),m.getaPreco()});
 		}
 
+	}
+	public void preencheCombox() throws Exception {
+		
+		daoTipoProduto daoTproduto= new daoTipoProduto();
+
+		 comboBox.removeAllItems();
+		 for (mTipoProduto mt1 : daoTproduto.selectAll()) {
+			 comboBox.addItem(mt1.gettDescTipo());
+			 }
+		 comboBox.setSelectedItem(null);
 	}
 	
 	public void preenchetela() throws Exception { 
@@ -145,20 +147,25 @@ public class vCadAdicionais extends vTelaPadrao {
 		int row = tabela.getSelectedRow();
 
 		daoAdicionais dao = new daoAdicionais();
-		daoTipoAdicionais daoTproduto= new daoTipoAdicionais();
-
+		
+		daoTipoProduto daoTProduto = new daoTipoProduto();
+		
+		
+		
 		codAdicionais =Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
 
 		mAdicionais m = dao.select(codAdicionais);
-
+		mAdicionais mtProduto = dao.selectCodAdTipoProd(codAdicionais);
+		
 		comboBox.removeAllItems();
-		 for (mTipoProduto mt1 : daoTproduto.selectAll()) {
+		 for (mTipoProduto mt1 : daoTProduto.selectAll()) {
 			 comboBox.addItem(mt1.gettDescTipo());
 			 }
 		 
 		jtfDesc.setText(m.getaDescricao());
 		jtfPreco.setText(m.getaPreco());
-		comboBox.setSelectedIndex(m.getadictipoprod()-1);
+		jcbstatus.setSelected(m.getaStatus());
+		comboBox.setSelectedIndex(mtProduto.getadictipoprod()-1);
 
 
 
@@ -181,49 +188,48 @@ public class vCadAdicionais extends vTelaPadrao {
 
 	}
 
-
-
-	
-
 	@Override
 	public void limpaTela() {
 
 		jtfDesc.setText(null);
-
 		jtfPreco.setText(null);
-
 		jcbstatus.setSelected(false);
-		
 		comboBox.setSelectedItem(null);
-
 	}
-
 
 	@Override
 	public void actionPerformed(ActionEvent ev) {
 
 		if(ev.getSource().equals(jbNovo)) {
-
-			jtfDesc.requestFocus();
-			limpaTela();
-			jcbstatus.setSelected(true);
-			StatusTelaComponentes(true);
 			StatusBotoes(false, true, false, true, false);
+			limpaTela();
+			StatusTelaComponentes(true);
+			
+			jtfDesc.requestFocus();
+			jcbstatus.setSelected(true);
 			codAdicionais = -1;
+			try {
+				preencheCombox();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		}
 
 		else if(ev.getSource().equals(jbSalvar)) {
 
 			mAdicionais novoAdicionais = new mAdicionais();
+			mAdicionais novoAdicTipo = new mAdicionais();
 			
 			int codTipProduto =comboBox.getSelectedIndex() + 1;
 
 			novoAdicionais.setCodAdicionais(codAdicionais);
 			novoAdicionais.setaDescricao(jtfDesc.getText());
 			novoAdicionais.setaPreco(jtfPreco.getText());
-			novoAdicionais.setCodTipoProduto(codTipProduto);
-			novoAdicionais.setadictipoprod(adictipoprod);
+			novoAdicionais.setaStatus(jcbstatus.isSelected());
+			novoAdicTipo.setCodTipoProduto(codTipProduto);
+			novoAdicTipo.setadictipoprod(codAdicionais);
 
 			daoAdicionais dAdicionais;
 
@@ -234,6 +240,7 @@ public class vCadAdicionais extends vTelaPadrao {
 
 				else
 					dAdicionais.insert(novoAdicionais);
+					dAdicionais.insertAdicTipo(novoAdicTipo);
 
 				limpaTela();
 				StatusTelaComponentes(false);

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.mAdicionais;
+import model.mTipoProduto;
 import model.mUsuario;
 
 public class daoAdicionais extends DAOSuperClass<mAdicionais>{
@@ -22,14 +23,14 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 	@Override
 	public boolean insert(mAdicionais arg0) throws SQLException {
 
-		String sql = "INSERT INTO adicionais(aDescricao, aPreco, aStatus) values(?,?,?,?,?);";
-
+		String sql = "INSERT INTO adicionais(aDescricao, aPreco, aStatus) values(?,?,?);";
+		
+		
 		PreparedStatement stm = this.createPreparedStatement(sql);
 
 		stm.setString(1, arg0.getaDescricao());
 		stm.setString(2, arg0.getaPreco());
 		stm.setBoolean(3, arg0.getaStatus());
-		stm.setInt(4, arg0.getCodTipoProduto());
 
 		boolean retorno = stm.executeUpdate() > 0;
 
@@ -40,6 +41,38 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 
 	}
 
+	public boolean insertAdicTipo(mAdicionais arg0) throws SQLException {
+		
+		String sql = "select max(codAdicionais) from adicionais;";
+		
+		String sql2 = "insert into adictipoprod values(?,?);";
+		
+		PreparedStatement stm = this.createPreparedStatement(sql);
+		
+		ResultSet rs = stm.executeQuery();
+		int ultimoAdicional=0;
+		
+		if(rs.next()) {
+			ultimoAdicional = rs.getInt(1);	
+		}
+		
+		
+		PreparedStatement stm2 = this.createPreparedStatement(sql2);
+		
+		stm2.setInt(1, arg0.getCodTipoProduto());
+		stm2.setInt(2, ultimoAdicional);
+
+		boolean retorno= stm2.executeUpdate() > 0;
+
+		close(stm2);
+		
+		fecha();
+
+		return retorno;
+
+
+	}
+	
 	@Override
 	public boolean update(mAdicionais arg0) throws SQLException {
 
@@ -77,6 +110,30 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 		return retorno;
 
 	}
+	public mAdicionais selectCodAdTipoProd(int codigo) throws SQLException {
+		String sql = "select adictipoprod.codTipoProduto, tipoproduto.tDescTipo\r\n" + 
+				" from adicionais, adictipoprod, tipoproduto \r\n" + 
+				"where adicionais.codAdicionais = adictipoprod.codAdicionais and adicionais.codAdicionais =? \r\n" + 
+				"and tipoproduto.codTipoProduto = adictipoprod.codTipoProduto;";
+		
+		PreparedStatement stm = this.createPreparedStatement(sql);
+		
+		stm.setInt(1, codigo);
+
+		ResultSet rs = stm.executeQuery();
+		mAdicionais retorno = null;
+		
+		if(rs.next()) {
+
+			retorno = new mAdicionais();
+			retorno.setadictipoprod(rs.getInt(1));
+			retorno.settDescTipProduto(rs.getString(2));
+		}
+
+		close(rs,stm);
+		return retorno;
+
+	}
 
 	@Override
 	public mAdicionais select(int codigo) throws SQLException {
@@ -96,7 +153,7 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 			retorno.setaDescricao(rs.getString(2));
 			retorno.setaPreco(rs.getString(3));
 			retorno.setaStatus(rs.getBoolean(4));
-			retorno.setCodTipoProduto(rs.getInt(5));
+
 
 		}
 
@@ -108,7 +165,7 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 	@Override
 	public List<mAdicionais> selectAll() throws SQLException {
 
-		String sql = "select * from adicionais, adictipoprod;";
+		String sql = "select * from adicionais";
 		
 		PreparedStatement stm = this.createPreparedStatement(sql);
 		
@@ -123,8 +180,6 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 			temp.setaDescricao(rs.getString(2));
 			temp.setaPreco(rs.getString(3));
 			temp.setaStatus(rs.getBoolean(4));
-			temp.setCodTipoProduto(rs.getInt(5));
-			temp.setCodAdicionais(rs.getInt(6));
 			
 			retorno.add(temp);
 		}
@@ -159,8 +214,5 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 		return retorno;*/
 		return null;
 	}
-
-
-
 
 }
