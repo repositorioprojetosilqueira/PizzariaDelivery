@@ -139,7 +139,7 @@ public class vCadAdicionais extends vTelaPadrao {
 
 	}
 	
-	public void preenchetela() throws Exception {
+	public void preenchetela() throws Exception { 
 
 		int row = tabela.getSelectedRow();
 
