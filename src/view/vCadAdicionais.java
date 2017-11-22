@@ -273,7 +273,7 @@ public class vCadAdicionais extends vTelaPadrao {
 
 			daoAdicionais dExcAdicionais;
 
-			int i =JOptionPane.showConfirmDialog(null,"Desejar Excluir o Usuário?","Atenção!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+			int i =JOptionPane.showConfirmDialog(null,"Confirma Exclusão do Adicional?","Atenção!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 			if(i==0) {
 				try {
 					dExcAdicionais = new daoAdicionais();
