@@ -6,18 +6,20 @@ public class mAdicionais extends mTipoProduto{
 	private String aDescricao;
 	private String aPreco;
 	private Boolean aStatus;
+	private int adictipoprod;
 	
 	
 	public mAdicionais(){
 		
 	}
 	
-	public mAdicionais(int codAdicionais, String aDescricao, String aPreco, Boolean aStatus){
+	public mAdicionais(int codAdicionais, String aDescricao, String aPreco, Boolean aStatus, int adictipoprod){
 		super();
 		this.codAdicionais = codAdicionais;
 		this.aDescricao = aDescricao;
 		this.aPreco = aPreco;
 		this.aStatus = aStatus;
+		this.adictipoprod = adictipoprod;
 		
 	}
 	
@@ -45,6 +47,12 @@ public class mAdicionais extends mTipoProduto{
 	}
 	public void setaStatus(Boolean aStatus) {
 		this.aStatus = aStatus;
+	}
+	public int getadictipoprod() {
+		return adictipoprod;
+	}
+	public void setadictipoprod(int adictipoprod) {
+		this.adictipoprod = adictipoprod;
 	}
 
 	public void setaBoolean(boolean boolean1) {

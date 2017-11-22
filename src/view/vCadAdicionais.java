@@ -29,6 +29,7 @@ import model.mAdicionais;
 import model.mTipoProduto;
 import model.mAdicionais;
 import model.dao.daoAdicionais;
+import model.dao.daoTipoAdicionais;
 import model.dao.daoTipoProduto;
 import model.dao.daoAdicionais;
 
@@ -45,7 +46,7 @@ public class vCadAdicionais extends vTelaPadrao {
 	private JTable tabela;
 
 	private int codAdicionais;
-	private int CodProduto;
+	private int adictipoprod;
 
 
 	public vCadAdicionais() {
@@ -123,7 +124,7 @@ public class vCadAdicionais extends vTelaPadrao {
 		}
 
 		lista(tabela,3,45,220, this.getHeight()-124);
-		campoPesquisa("Pesquisar : ", 5, 8, 70,150);
+		campoPesquisa("Pesquisar : ", 5, 8, 70,218);
 		tabela.addMouseListener(this); 
 
 	}
@@ -134,7 +135,7 @@ public class vCadAdicionais extends vTelaPadrao {
 		daoAdicionais dao = new daoAdicionais();
 
 		for (mAdicionais m : dao.selectAll()) {
-			modelo.addRow(new Object[]{m.getCodAdicionais(),m.getaDescricao(),m.getaPreco()});
+			modelo.addRow(new Object[]{m.getCodAdicionais(),m.getaDescricao(),m.getaPreco(),m.getadictipoprod()});
 		}
 
 	}
@@ -144,7 +145,7 @@ public class vCadAdicionais extends vTelaPadrao {
 		int row = tabela.getSelectedRow();
 
 		daoAdicionais dao = new daoAdicionais();
-		daoTipoProduto daoTproduto= new daoTipoProduto();
+		daoTipoAdicionais daoTproduto= new daoTipoAdicionais();
 
 		codAdicionais =Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
 
@@ -157,8 +158,7 @@ public class vCadAdicionais extends vTelaPadrao {
 		 
 		jtfDesc.setText(m.getaDescricao());
 		jtfPreco.setText(m.getaPreco());
-		comboBox.setSelectedIndex(m.getCodTipoProduto()-1);
-		jcbstatus.setSelected(m.getaStatus());
+		comboBox.setSelectedIndex(m.getadictipoprod()-1);
 
 
 
@@ -223,7 +223,7 @@ public class vCadAdicionais extends vTelaPadrao {
 			novoAdicionais.setaDescricao(jtfDesc.getText());
 			novoAdicionais.setaPreco(jtfPreco.getText());
 			novoAdicionais.setCodTipoProduto(codTipProduto);
-			novoAdicionais.setaStatus(jcbstatus.isSelected());
+			novoAdicionais.setadictipoprod(adictipoprod);
 
 			daoAdicionais dAdicionais;
 

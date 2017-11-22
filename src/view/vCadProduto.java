@@ -108,7 +108,7 @@ public class vCadProduto extends vTelaPadrao{
 			tabela.getColumnModel().getColumn(2).setPreferredWidth(130);
 			tabela.getColumnModel().getColumn(3).setPreferredWidth(60);
 			
-			tabela.getTableHeader().setReorderingAllowed(false); 
+			//tabela.getTableHeader().setReorderingAllowed(false); 
 		
 			try {
 				pesquisar(modelo);
@@ -143,15 +143,17 @@ public class vCadProduto extends vTelaPadrao{
 			  
 			 mProduto m = dao.select(codProduto);
 			 
-			 jcbTipo.removeAllItems();
-			 for (mTipoProduto mt1 : daoTproduto.selectAll()) {
-				 jcbTipo.addItem(mt1.gettDescTipo());
-				 }
-			 
 			 jtfDescricao.setText(m.getpDescicao());
 			 jtfPreco.setText(m.getpPreco());
 			 jcbTipo.setSelectedIndex(m.getP_CodTipoProduto()-1);
 			 jcbStatus.setSelected(m.getpStatus());
+			 
+			 jcbTipo.removeAllItems();	
+			 for (mTipoProduto mt1 : daoTproduto.selectAll()) {
+				 jcbTipo.addItem(mt1.gettDescTipo());
+				 }
+			 
+			 
 
 		}
 		
@@ -183,6 +185,7 @@ public class vCadProduto extends vTelaPadrao{
 
 		@Override
 		public void actionPerformed(ActionEvent ev) {
+			
 			if(ev.getSource().equals(jbNovo)) {
 				
 				jtfDescricao.requestFocus();
@@ -198,12 +201,12 @@ public class vCadProduto extends vTelaPadrao{
 				
 				mProduto novoProduto = new mProduto();
 				
-				int codTipProduto =jcbTipo.getSelectedIndex() + 1;
+				int p_CodTipoProduto =jcbTipo.getSelectedIndex() + 1;
 				
 				novoProduto.setCodProduto(codProduto);
 				novoProduto.setpDescicao(jtfDescricao.getText());
 				novoProduto.setpPreco(jtfPreco.getText());
-				novoProduto.setP_CodTipoProduto(codTipProduto);
+				novoProduto.setP_CodTipoProduto(p_CodTipoProduto);
 				novoProduto.setpStatus(jcbStatus.isSelected());
 				
 				daoProduto dProduto;
