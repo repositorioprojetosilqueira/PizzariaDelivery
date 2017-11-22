@@ -61,11 +61,6 @@ public class mProduto {
 	public void setP_CodTipoProduto(int p_CodTipoProduto) {
 		this.p_CodTipoProduto = p_CodTipoProduto;
 	}
-
-	public Object getadictipoprod() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 
 
