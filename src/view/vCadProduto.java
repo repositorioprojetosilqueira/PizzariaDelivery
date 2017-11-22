@@ -2,24 +2,21 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
-import java.util.List;
 
-import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.JViewport;
+
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-import model.mCliente;
 import model.mProduto;
 import model.mTipoProduto;
-import model.dao.daoCliente;
+
 import model.dao.daoProduto;
 import model.dao.daoTipoProduto;
 
@@ -108,7 +105,7 @@ public class vCadProduto extends vTelaPadrao{
 			tabela.getColumnModel().getColumn(2).setPreferredWidth(130);
 			tabela.getColumnModel().getColumn(3).setPreferredWidth(60);
 			
-			//tabela.getTableHeader().setReorderingAllowed(false); 
+			tabela.getTableHeader().setReorderingAllowed(false); 
 		
 			try {
 				pesquisar(modelo);
@@ -143,17 +140,15 @@ public class vCadProduto extends vTelaPadrao{
 			  
 			 mProduto m = dao.select(codProduto);
 			 
-			 jtfDescricao.setText(m.getpDescicao());
-			 jtfPreco.setText(m.getpPreco());
-			 jcbTipo.setSelectedIndex(m.getP_CodTipoProduto()-1);
-			 jcbStatus.setSelected(m.getpStatus());
-			 
-			 jcbTipo.removeAllItems();	
+			 jcbTipo.removeAllItems();
 			 for (mTipoProduto mt1 : daoTproduto.selectAll()) {
 				 jcbTipo.addItem(mt1.gettDescTipo());
 				 }
 			 
-			 
+			 jtfDescricao.setText(m.getpDescicao());
+			 jtfPreco.setText(m.getpPreco());
+			 jcbTipo.setSelectedIndex(m.getP_CodTipoProduto()-1);
+			 jcbStatus.setSelected(m.getpStatus());
 
 		}
 		
@@ -185,7 +180,6 @@ public class vCadProduto extends vTelaPadrao{
 
 		@Override
 		public void actionPerformed(ActionEvent ev) {
-			
 			if(ev.getSource().equals(jbNovo)) {
 				
 				jtfDescricao.requestFocus();
@@ -201,12 +195,12 @@ public class vCadProduto extends vTelaPadrao{
 				
 				mProduto novoProduto = new mProduto();
 				
-				int p_CodTipoProduto =jcbTipo.getSelectedIndex() + 1;
+				int codTipProduto =jcbTipo.getSelectedIndex() + 1;
 				
 				novoProduto.setCodProduto(codProduto);
 				novoProduto.setpDescicao(jtfDescricao.getText());
 				novoProduto.setpPreco(jtfPreco.getText());
-				novoProduto.setP_CodTipoProduto(p_CodTipoProduto);
+				novoProduto.setP_CodTipoProduto(codTipProduto);
 				novoProduto.setpStatus(jcbStatus.isSelected());
 				
 				daoProduto dProduto;
@@ -251,7 +245,7 @@ public class vCadProduto extends vTelaPadrao{
 				
 				daoProduto dExcProduto;
 				
-				int i =JOptionPane.showConfirmDialog(null,"Desejar Excluir o Cliente?","Atenção!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+				int i =JOptionPane.showConfirmDialog(null,"Confirma Exclusão do Produto?","Atenção!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 				if(i==0) {
 				try {
 					dExcProduto = new daoProduto();

@@ -101,8 +101,6 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 		}
 
 		close(rs,stm);
-
-
 		return retorno;
 
 	}
@@ -110,9 +108,10 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 	@Override
 	public List<mAdicionais> selectAll() throws SQLException {
 
-		String sql = "SELECT * FROM adicionais";
-
+		String sql = "select * from adicionais, adictipoprod;";
+		
 		PreparedStatement stm = this.createPreparedStatement(sql);
+		
 
 		ResultSet rs = stm.executeQuery();
 		List<mAdicionais> retorno = new ArrayList();
@@ -124,6 +123,9 @@ public class daoAdicionais extends DAOSuperClass<mAdicionais>{
 			temp.setaDescricao(rs.getString(2));
 			temp.setaPreco(rs.getString(3));
 			temp.setaStatus(rs.getBoolean(4));
+			temp.setCodTipoProduto(rs.getInt(5));
+			temp.setCodAdicionais(rs.getInt(6));
+			
 			retorno.add(temp);
 		}
 
