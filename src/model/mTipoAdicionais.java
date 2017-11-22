@@ -1,10 +1,9 @@
 package model;
 
-public class mTipoAdicionais extends mTipoProduto{
+public class mTipoAdicionais {
 	
 	private int codTipoProduto;
 	private int codAdicionais;
-	private int adictipoprod;
 	
 	public mTipoAdicionais(){
 		
@@ -14,7 +13,6 @@ public class mTipoAdicionais extends mTipoProduto{
 		super();
 		this.codTipoProduto = codTipoProduto;
 		this.codAdicionais = codAdicionais;
-		this.adictipoprod = adictipoprod;
 		
 	}
 
@@ -34,13 +32,7 @@ public class mTipoAdicionais extends mTipoProduto{
 		this.codAdicionais = codAdicionais;
 	}
 
-	public int getadictipoprod() {
-		return adictipoprod;
-	}
 	
-	public void setadictipoprod(int adictipoprod) {
-		this.adictipoprod = adictipoprod;
-	}
 	
 	
 	
