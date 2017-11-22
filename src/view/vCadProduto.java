@@ -2,24 +2,21 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
-import java.util.List;
 
-import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.JViewport;
+
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-import model.mCliente;
 import model.mProduto;
 import model.mTipoProduto;
-import model.dao.daoCliente;
+
 import model.dao.daoProduto;
 import model.dao.daoTipoProduto;
 
@@ -248,7 +245,7 @@ public class vCadProduto extends vTelaPadrao{
 				
 				daoProduto dExcProduto;
 				
-				int i =JOptionPane.showConfirmDialog(null,"Desejar Excluir o Cliente?","Atenção!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+				int i =JOptionPane.showConfirmDialog(null,"Confirma Exclusão do Produto?","Atenção!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 				if(i==0) {
 				try {
 					dExcProduto = new daoProduto();
