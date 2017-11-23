@@ -1,24 +1,23 @@
 package view;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
+import javax.print.PrintException;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
-
 import model.mProduto;
 import model.mTipoProduto;
-
 import model.dao.daoProduto;
 import model.dao.daoTipoProduto;
+import relatorios.PrintTextFile;
+
 
 public class vCadProduto extends vTelaPadrao{
 	private JTextField jtfDescricao;
@@ -229,9 +228,6 @@ public class vCadProduto extends vTelaPadrao{
 					
 					else
 						dProduto.insert(novoProduto);
-					
-					
-					
 					limpaTela();
 					StatusTelaComponentes(false);
 					StatusBotoes(true, false, false, false, false);
@@ -242,13 +238,11 @@ public class vCadProduto extends vTelaPadrao{
 				}
 				
 			}
-			
 			else if(ev.getSource().equals(jbEditar)) {
 				jtfDescricao.requestFocus();
 				
 				StatusBotoes(false, true, false, true, true);
 				StatusTelaComponentes(true);
-				
 			}
 			
 			else if(ev.getSource().equals(jbCancelar)) {
@@ -280,6 +274,26 @@ public class vCadProduto extends vTelaPadrao{
 				}
 				
 			}
+			else if(ev.getSource().equals(jbRelatorio)) {
+				
+				String texto;
+				texto ="SISTEMA PIZZARIA DELIVERY \n\n CADASTRO PRODUTO\n\n\n"+
+				"PRODUTO:"+ jtfDescricao.getText()+"\n"
+				+"PREÇO: "+ jtfPreco.getText()+ "--\n"
+				+"STATUS: "+jcbStatus.isSelected()+"\n"
+				+"TIPO: "+ jcbTipo.getSelectedItem().toString();
+				
+				PrintTextFile f = new PrintTextFile();
+				try {
+					f.imprimindo(texto);
+				} catch (PrintException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 			
 		}
 
@@ -296,8 +310,6 @@ public class vCadProduto extends vTelaPadrao{
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
-	            
-	            
 				}
 	        }
 		}
@@ -305,27 +317,21 @@ public class vCadProduto extends vTelaPadrao{
 		@Override
 		public void mouseEntered(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
 		}
 
 		@Override
 		public void mouseExited(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
 		}
 
 		@Override
 		public void mousePressed(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
 		}
-
-		
 		
 }

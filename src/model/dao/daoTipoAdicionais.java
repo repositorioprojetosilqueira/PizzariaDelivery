@@ -15,8 +15,6 @@ public class daoTipoAdicionais extends DAOSuperClass<mTipoAdicionais> {
 		super();
 		
 	}
-
-
 	@Override
 	public boolean delete(int codigo) throws SQLException {
 		return false;

@@ -1,5 +1,6 @@
 package view;
 
+import javax.print.PrintException;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 
@@ -7,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.event.*;
+import java.io.IOException;
 import java.awt.*;
 
 import javax.swing.JTable;
@@ -23,6 +25,7 @@ import model.mTipoProduto;
 import model.dao.daoAdicionais;
 
 import model.dao.daoTipoProduto;
+import relatorios.PrintTextFile;
 
 
 
@@ -53,6 +56,7 @@ public class vCadAdicionais extends vTelaPadrao {
 	}
 
 	private void initLayout() {
+		jbRelatorio.setVisible(true);
 		setSize(674, 320);
 
 		JLabel label = new JLabel("Descrição:");
@@ -291,6 +295,27 @@ public class vCadAdicionais extends vTelaPadrao {
 			}
 
 		}
+		else if(ev.getSource().equals(jbRelatorio)) {
+			
+			String texto;
+			texto ="SISTEMA PIZZARIA DELIVERY \n\n CADASTRO ADICIONAIS\n\n\n"+
+			"DESCRIÇÃO ADICIONAL:"+ jtfDesc.getText()+"\n"
+			+"PREÇO: "+ jtfPreco.getText()+ "--\n"
+			+"TIPO: "+ comboBox.getSelectedItem().toString()+"\n"
+			+"STATUS: "+jcbstatus.isSelected();
+			
+			
+			PrintTextFile f = new PrintTextFile();
+			try {
+				f.imprimindo(texto);
+			} catch (PrintException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
 	}
 
@@ -304,6 +329,7 @@ public class vCadAdicionais extends vTelaPadrao {
 				try {
 					preenchetela();
 					StatusBotoes(true, false, true, false, false);
+					jbRelatorio.setEnabled(true);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}

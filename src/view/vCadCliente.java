@@ -4,6 +4,7 @@ package view;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
@@ -15,6 +16,7 @@ import java.util.HashMap;
 
 import java.util.Map;
 
+import javax.print.PrintException;
 import javax.swing.JFormattedTextField;
 
 
@@ -37,6 +39,8 @@ import net.sf.jasperreports.engine.JRResultSetDataSource;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
+import relatorios.PrintTextFile;
+import relatorios.impressao;
 
 
 
@@ -323,8 +327,24 @@ public class vCadCliente extends vTelaPadrao {
 			
 		}
 		else if(ev.getSource().equals(jbRelatorio)) {
-
 			
+			String texto;
+			texto ="SISTEMA PIZZARIA DELIVERY \n\n CADASTRO CLIENTE\n\n\n"+
+			"NOME:"+ jtfNome.getText()+"\n"
+			+"TELEFONE: "+ jftTelefone1.getText()+ "--"+jftTelefone2.getText()+"\n"
+			+"RUA: "+jtfRua.getText()+"  NUMERO: "+ jtfNumero.getText()+"\n"
+			+" COMPLEMENTO: "+jtfComplemento.getText()+" BAIRRO: "+jtfBairro.getText()+"\n"
+			+"REFERENCIA DE ENTREGA: "+ jtaReferencia.getText();
+			PrintTextFile f = new PrintTextFile();
+			try {
+				f.imprimindo(texto);
+			} catch (PrintException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
  

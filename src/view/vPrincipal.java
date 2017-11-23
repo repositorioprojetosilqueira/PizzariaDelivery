@@ -206,7 +206,6 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
 		if(evento.getSource() == jMiPedidos || evento.getSource() == jbAtalhoPedido)
 			aparecePedido();
 			
-			
 	}	
 		
 	private void apareceAdicionais() {
