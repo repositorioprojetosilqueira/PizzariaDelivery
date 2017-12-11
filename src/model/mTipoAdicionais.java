@@ -5,17 +5,25 @@ public class mTipoAdicionais extends mTipoProduto{
 	private int codTipoProduto;
 	private int codAdicionais;
 	private int adictipoprod;
+	private String TipoProduto;
+	private boolean ativo;
+	
+	private float preco;
+	
 	
 	public mTipoAdicionais(){
 		
 	}
 	
-	public mTipoAdicionais(int codTipoProduto, int codAdicionais){
+
+	public mTipoAdicionais(int codTipoProduto, int codAdicionais, int adictipoprod,String TipoProduto, float preco, boolean ativo) {
 		super();
 		this.codTipoProduto = codTipoProduto;
 		this.codAdicionais = codAdicionais;
 		this.adictipoprod = adictipoprod;
+		this.preco = preco;
 		
+		this.adictipoprod = adictipoprod;
 	}
 
 	public int getCodTipoProduto() {
@@ -42,6 +50,35 @@ public class mTipoAdicionais extends mTipoProduto{
 		this.adictipoprod = adictipoprod;
 	}
 	
+	public String getTipoProduto() {
+		return TipoProduto;
+	}
+
+
+	public void setTipoProduto(String tipoProduto) {
+		TipoProduto = tipoProduto;
+	}
+
+
+	public float getPreco() {
+		return preco;
+	}
+
+	public void setPreco(float preco) {
+		this.preco = preco;
+	}
+
+
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+	
+
 	
 	
 }

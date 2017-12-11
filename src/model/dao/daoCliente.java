@@ -20,10 +20,14 @@ public class daoCliente extends DAOSuperClass<mCliente>{
 	@Override
 	public boolean insert(mCliente arg0) throws SQLException {
 		
-		String sql = "INSERT INTO cliente (cNome,cTelefone1,cTelefone2,cRua,cNumero,cBairro,cComplemento,cRefEntrega,cHistCompras) "
+		/*String sql = "INSERT INTO cliente (cNome,cTelefone1,cTelefone2,cRua,cNumero,cBairro,cComplemento,cRefEntrega,cHistCompras) "
 				+ "VALUES(?,?,?,?,?,?,?,?,?);";
-	
 		PreparedStatement stm = this.createPreparedStatement(sql);
+		*/
+		
+		String procedure = "CALL delivery.incluicliente(?, ?, ?,?, ?, ?, ?, ?, ?);"; 
+	
+		PreparedStatement stm = this.createPreparedStatement(procedure);
 		
 		stm.setString(1, arg0.getcNome());
 		stm.setString(2, arg0.getcTelefone1());

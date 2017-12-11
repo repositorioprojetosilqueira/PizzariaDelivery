@@ -5,6 +5,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import view.vCadCliente;
 import view.vLogin;
+import view.vPrincipal;
 
 
 public class main {
@@ -44,8 +45,8 @@ public class main {
 		
 		
  
-		new vLogin();
-				//new vPrincipal();
+		//new vLogin();
+		new vPrincipal();
 		}
 }
 

@@ -8,6 +8,9 @@ import java.io.IOException;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
+
+import grafica.painelCliente;
+
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -67,7 +70,7 @@ public class vCadCliente extends vTelaPadrao {
 	           
 	    	super("Cadastro Cliente","/imagens/cliente.png");
 	    	
-	    	initLayoutCliente(303, 11);
+	    	initLayoutCliente(300, 0);
 	    	
 	    	acoes();
 	    	criaJTable();
@@ -77,10 +80,8 @@ public class vCadCliente extends vTelaPadrao {
 	} 
 	    	
 	public void initLayoutCliente(int x, int y) {
-			
-			jbRelatorio.setVisible(true);
-		
-			JPanel jpCliente = new JPanel();
+		/*
+		 	JPanel jpCliente = new JPanel();
 			
 			jpCliente.setSize(483,406);
 			jpCliente.setLocation(x,y);
@@ -190,9 +191,42 @@ public class vCadCliente extends vTelaPadrao {
 			jpCliente.add(jtaHistorico);
 			
 			jtfNome.setNextFocusableComponent(jftTelefone1);
-			
-			
 			jpCentro.add(jpCliente);
+		*/
+			jbRelatorio.setVisible(true);
+			
+			painelCliente e = new painelCliente(x, y);
+			e.setVisible(true);
+			
+			jtfNome = new JTextField();
+			
+			jftTelefone1 = new JFormattedTextField();
+			jftTelefone2 = new JFormattedTextField();;
+			
+			jtfRua = new JTextField();
+
+			jtfNumero = new JTextField();
+			jtfComplemento = new JTextField();
+			jtfBairro = new JTextField();
+			
+			jtaReferencia = new JTextArea();
+			jtaHistorico = new JTextArea();
+			
+			jtfNome = e.jtfNome;
+			jftTelefone1 = e.jftTelefone1;
+			jftTelefone2 = e.jftTelefone2;
+			
+			jtfRua = e.jtfRua;
+			jtfNumero = e.jtfNumero;
+			jtfComplemento = e.jtfComplemento;
+			jtfBairro = e.jtfBairro;
+			
+			jtaReferencia = e.jtaReferencia;
+			jtaHistorico = e.jtaHistorico;
+			
+			jpCentro.add(e);
+			
+			
 		}
 			
 			@Override

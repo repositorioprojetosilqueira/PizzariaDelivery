@@ -16,7 +16,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import javax.swing.SwingConstants;
-
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
 import model.mAdicionais;
@@ -39,13 +39,14 @@ public class vCadAdicionais extends vTelaPadrao {
 
 	private DefaultTableModel modelo;
 	private JTable tabela;
-
+	
 	private int codAdicionais;
 	private int adictipoprod;
 
-
+	private AbstractTableModel absTabModel;
+	
 	public vCadAdicionais() {
-		super("Cadastro Adicionais","/imagens/usuario32x32.png");
+		super("Cadastro Adicionais","/imagens/adicionais32x32.png");
 
 		initLayout();
 
@@ -94,6 +95,8 @@ public class vCadAdicionais extends vTelaPadrao {
 	}
 
 	public void criaJTable() {
+		
+		//tabela de adicionais
 		modelo = new DefaultTableModel();
 
 		tabela  = new  JTable(modelo){
@@ -102,13 +105,13 @@ public class vCadAdicionais extends vTelaPadrao {
 			}  
 		};  
 
-		modelo.addColumn("Cd");
+		modelo.addColumn("Cdg:");
 		modelo.addColumn("Descrição");
 		modelo.addColumn("Preço");
 
-		tabela.getColumnModel().getColumn(0).setPreferredWidth(5);
-		tabela.getColumnModel().getColumn(1).setPreferredWidth(80);
-		tabela.getColumnModel().getColumn(2).setPreferredWidth(20);
+		tabela.getColumnModel().getColumn(0).setPreferredWidth(1);
+		tabela.getColumnModel().getColumn(1).setPreferredWidth(120);
+		tabela.getColumnModel().getColumn(2).setPreferredWidth(25);
 		
 		tabela.getTableHeader().setReorderingAllowed(false); 
 
@@ -119,9 +122,31 @@ public class vCadAdicionais extends vTelaPadrao {
 			e.printStackTrace();
 		}
 
-		lista(tabela,3,45,220, this.getHeight()-124);
-		campoPesquisa("Pesquisar : ", 5, 8, 70,218);
+		lista(tabela,3,45,260, this.getHeight()-124);
+		campoPesquisa("Pesquisar : ", 5, 8, 70,187);
 		tabela.addMouseListener(this); 
+		
+		//tabela dos tipos de produtos
+		absTabModel = new AbstractTableModel() {
+			
+			@Override
+			public Object getValueAt(int arg0, int arg1) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public int getRowCount() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+			
+			@Override
+			public int getColumnCount() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+		};
 
 	}
 

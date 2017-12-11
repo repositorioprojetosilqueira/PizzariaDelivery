@@ -3,27 +3,149 @@ package grafica;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
 
+import net.sf.jasperreports.engine.export.GenericElementJsonHandler;
 import view.paineis;
 
 public class painelCliente extends paineis{
 
-	//private JPanel jpCliente;
+	public JTextField jtfNome;
+	public JFormattedTextField jftTelefone1;
+	public JFormattedTextField jftTelefone2;
+	public JTextField jtfRua;
+	public JTextField jtfNumero;
+	public JTextField jtfComplemento;
+	public JTextField jtfBairro;
+	public JTextArea jtaReferencia;
+	public JTextArea jtaHistorico;
 	
-	public painelCliente(int x, int y) {
-		super(486, 431);
+	public painelCliente(int x, int y) { 
+		super(487, 420);
 		
 		setLayout(null);
 		setLocation(x, y);
-		//setSize(400, 376);
 		setVisible(true);
 		
-		componentes();
+		componentes2();
 		
 	}
+	
+	private void componentes2() {
+		
+		JLabel lbNome = new JLabel("Nome: ");
+		lbNome.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbNome.setBounds(0, 19, 67, 14);
+		
+		JLabel lbTelefone1 = new JLabel("Telefone: ");
+		lbTelefone1.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbTelefone1.setBounds(0, 66, 67, 14);
+		
+		JLabel lbTelefone2 = new JLabel("Telefone:");
+		lbTelefone2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbTelefone2.setBounds(247, 66, 73, 14);
+		
+		JLabel lbRua = new JLabel("Rua:");
+		lbRua.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbRua.setBounds(8, 119, 59, 14);
+		
+		JLabel lbNumero = new JLabel("N\u00BA:");
+		lbNumero.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbNumero.setBounds(342, 119, 38, 14);
+		
+		JLabel lbComplemento = new JLabel("Complemento:");
+		lbComplemento.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbComplemento.setBounds(247, 168, 86, 14);
+		
+		JLabel lbBairro = new JLabel("Bairro:");
+		lbBairro.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbBairro.setBounds(9, 168, 58, 14);
+		
+		JLabel lbReferencia = new JLabel("Refer\u00EAncia de Entrega:");
+		lbReferencia.setBounds(34, 214, 173, 14);
+		
+		JLabel lbHistorico = new JLabel("Historico de Compras: ");
+		lbHistorico.setBounds(34, 323, 175, 14);
+				
+		
+		jtfNome = new JTextField();
+		jtfNome.setColumns(10);
+		jtfNome.setBounds(77, 11, 395, 30);
+		
+		
+		
+		jftTelefone1 = new JFormattedTextField();
+		jftTelefone1.setBounds(77, 58, 142, 30);
+		
+		
+		jftTelefone2 = new JFormattedTextField();
+		jftTelefone2.setBounds(330, 58, 142, 30);
+		
+		
+		jtfRua = new JTextField();
+		jtfRua.setColumns(10);
+		jtfRua.setBounds(77, 111, 256, 30);
+		
+		
+		jtfNumero = new JTextField();
+		jtfNumero.setColumns(10);
+		jtfNumero.setBounds(390, 111, 82, 30);
+		
+		
+		jtfComplemento = new JTextField();
+		jtfComplemento.setColumns(10);
+		jtfComplemento.setBounds(335, 160, 137, 30);
+		
+		
+		jtfBairro = new JTextField();
+		jtfBairro.setColumns(10);
+		jtfBairro.setBounds(77, 160, 173, 30);
+		
+		
+		jtaReferencia = new JTextArea();
+		jtaReferencia.setWrapStyleWord(true);
+		jtaReferencia.setLineWrap(true);
+		jtaReferencia.setBounds(32, 239, 440, 73);
+		
+		
+		jtaHistorico = new JTextArea();
+		jtaHistorico.setWrapStyleWord(true);
+		jtaHistorico.setLineWrap(true);
+		jtaHistorico.setBounds(32, 348, 440, 48);
+		
+		
+		this.add(lbBairro);
+		this.add(lbComplemento);
+		this.add(lbHistorico);
+		this.add(lbNome);
+		this.add(lbNumero);
+		this.add(lbReferencia);
+		this.add(lbRua);
+		this.add(lbTelefone1);
+		this.add(lbTelefone2);
+		
+		
+		
+		this.add(jtfNome);
+		this.add(jftTelefone1);
+		this.add(jftTelefone2);
+		this.add(jtfRua);
+		this.add(jtfNumero);
+		this.add(jtfComplemento);
+		this.add(jtfBairro);
+		this.add(jtaReferencia);
+		this.add(jtaHistorico);
+		
+		jtfNome.setNextFocusableComponent(jftTelefone1);
+		
+		
+	}
+	
+	
 	private void componentes() {
 		
 		JLabel label = new JLabel("Nome: ");

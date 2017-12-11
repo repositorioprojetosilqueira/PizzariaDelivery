@@ -40,6 +40,7 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
 	private vCadUsuario vCadUsuario;
 	private vMovPedido vMovPedido;
 	private vMovCaixa vMovCaixa;
+	private vTestePainelCliente vTesteCliente;
 	
 	
 	public vPrincipal() {
@@ -272,7 +273,7 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
 	
 	
 	private void apareceCaixa() {
-        if(vMovCaixa == null){
+        /*if(vMovCaixa == null){
         	vMovCaixa = new vMovCaixa();
         	
         	vMovCaixa.setLocation(((desktopPane.getWidth()/2) - (vMovCaixa.getWidth()/2)), 
@@ -283,7 +284,20 @@ public class vPrincipal extends JFrame implements ActionListener, WindowListener
         else if(!vMovCaixa.isVisible()){
         	vMovCaixa= null;
             apareceCaixa();
+        }*/
+		if(vTesteCliente == null){
+			vTesteCliente = new vTestePainelCliente();
+        	
+			vTesteCliente.setLocation(((desktopPane.getWidth()/2) - (vTesteCliente.getWidth()/2)), 
+            					((desktopPane.getHeight()/2) - (vTesteCliente.getHeight()/2)) - 30);
+			vTesteCliente.setVisible(true);
+            desktopPane.add(vTesteCliente);
         }
+        else if(!vTesteCliente.isVisible()){
+        	vTesteCliente= null;
+            apareceCaixa();
+        }
+		
 	}
 	
 	private void aparecePedido() {
