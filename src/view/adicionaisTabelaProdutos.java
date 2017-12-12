@@ -8,8 +8,6 @@ import javax.swing.table.AbstractTableModel;
 import model.mTipoAdicionais;
 
 
-
-
 public class adicionaisTabelaProdutos extends AbstractTableModel {
 
 	private static final int COL_ID = 0;
@@ -23,6 +21,7 @@ public class adicionaisTabelaProdutos extends AbstractTableModel {
 
 	public adicionaisTabelaProdutos(List<mTipoAdicionais> tipoProduto) {
 		this.linhas = new ArrayList<>(tipoProduto);
+		
 	}
 
 	public int getRowCount() {
@@ -47,8 +46,6 @@ public class adicionaisTabelaProdutos extends AbstractTableModel {
 		return String.class;
 	}
 	
-	
-
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
 		if(columnIndex == COL_PRECO) 
 		return true;
@@ -98,26 +95,31 @@ public class adicionaisTabelaProdutos extends AbstractTableModel {
 
 	}
 
-	public mTipoAdicionais getContato(int indiceLinha) {
+	public mTipoAdicionais getTipoAdicionais(int indiceLinha) {
 		return linhas.get(indiceLinha);
 	}
 
-	public void addContato(mTipoAdicionais contato) {
+	public void addTipoAdicionais(mTipoAdicionais contato) {
 		linhas.add(contato);
 		int ultimoIndice = getRowCount() - 1;
 		fireTableRowsInserted(ultimoIndice, ultimoIndice);
 
 	}
 
-	public void updateContato(int indiceLinha, mTipoAdicionais marca) {
+	public void updateTipoAdicionais(int indiceLinha, mTipoAdicionais marca) {
 		linhas.set(indiceLinha, marca);
 		fireTableRowsUpdated(indiceLinha, indiceLinha);
 
 	}
 
-	public void removeContato(int indiceLinha) {
+	public void removeTipoAdicionais(int indiceLinha) {
 		linhas.remove(indiceLinha);
 		fireTableRowsDeleted(indiceLinha, indiceLinha);
+
+	}
+	public void removeTudoTipoAdicionais() {
+		linhas.removeAll(linhas);
+		fireTableRowsDeleted(0,1);
 
 	}
 }

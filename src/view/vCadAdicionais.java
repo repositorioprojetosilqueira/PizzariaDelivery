@@ -6,9 +6,11 @@ import javax.swing.JComboBox;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 
 import java.awt.event.*;
 import java.io.IOException;
+import java.util.List;
 import java.awt.*;
 
 import javax.swing.JTable;
@@ -17,13 +19,15 @@ import javax.swing.JTextField;
 
 import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import model.mAdicionais;
+import model.mTipoAdicionais;
 import model.mTipoProduto;
 
 import model.dao.daoAdicionais;
-
+import model.dao.daoTipoAdicionais;
 import model.dao.daoTipoProduto;
 import relatorios.PrintTextFile;
 
@@ -33,23 +37,25 @@ import relatorios.PrintTextFile;
 public class vCadAdicionais extends vTelaPadrao {  
 
 	private JTextField jtfDesc;
-	private JTextField jtfPreco;
+	//private JTextField jtfPreco;
 	private JCheckBox jcbstatus;
-	private JComboBox comboBox;
+	//private JComboBox comboBox;
 
 	private DefaultTableModel modelo;
 	private JTable tabela;
 	
 	private int codAdicionais;
-	private int adictipoprod;
 
-	private AbstractTableModel absTabModel;
-	
+	private adicionaisTabelaProdutos model;
+	private List<mTipoAdicionais> lista;
+	private JTable tabelaTipoProd;
+
 	public vCadAdicionais() {
 		super("Cadastro Adicionais","/imagens/adicionais32x32.png");
 
 		initLayout();
 
+		criaJTableAdicionais();
 		criaJTable();
 		StatusTelaComponentes(false);
 		StatusBotoes(true, false, false, false, false);
@@ -58,18 +64,19 @@ public class vCadAdicionais extends vTelaPadrao {
 
 	private void initLayout() {
 		jbRelatorio.setVisible(true);
-		setSize(674, 320);
-
+		setSize(674, 350);
+	
 		JLabel label = new JLabel("Descrição:");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
-		label.setBounds(312, 34, 71, 20);
+		label.setBounds(312, 8, 71, 20);
 		jpCentro.add(label);
 
 		jtfDesc = new JTextField();
 		jtfDesc.setColumns(10);
-		jtfDesc.setBounds(393, 26, 239, 30);
+		jtfDesc.setBounds(393, 8, 239, 30);
 		jpCentro.add(jtfDesc);
 
+		/*
 		JLabel label_1 = new JLabel("Tipo:");
 		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		label_1.setBounds(312, 90, 71, 20);
@@ -88,13 +95,17 @@ public class vCadAdicionais extends vTelaPadrao {
 		jtfPreco.setColumns(10);
 		jtfPreco.setBounds(393, 138, 86, 30);
 		jpCentro.add(jtfPreco);
-
+		*/
+		
 		jcbstatus = new JCheckBox("Ativo");
-		jcbstatus.setBounds(393, 204, 97, 30);
+		jcbstatus.setBounds(580, 225, 97, 30);
 		jpCentro.add(jcbstatus);
+		
+		
+		
 	}
 
-	public void criaJTable() {
+	public void criaJTableAdicionais() {
 		
 		//tabela de adicionais
 		modelo = new DefaultTableModel();
@@ -125,28 +136,6 @@ public class vCadAdicionais extends vTelaPadrao {
 		lista(tabela,3,45,260, this.getHeight()-124);
 		campoPesquisa("Pesquisar : ", 5, 8, 70,187);
 		tabela.addMouseListener(this); 
-		
-		//tabela dos tipos de produtos
-		absTabModel = new AbstractTableModel() {
-			
-			@Override
-			public Object getValueAt(int arg0, int arg1) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public int getRowCount() {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-			
-			@Override
-			public int getColumnCount() {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-		};
 
 	}
 
@@ -160,7 +149,7 @@ public class vCadAdicionais extends vTelaPadrao {
 		}
 
 	}
-	public void preencheCombox() throws Exception {
+	/*public void preencheCombox() throws Exception {
 		
 		daoTipoProduto daoTproduto= new daoTipoProduto();
 
@@ -169,7 +158,63 @@ public class vCadAdicionais extends vTelaPadrao {
 			 comboBox.addItem(mt1.gettDescTipo());
 			 }
 		 comboBox.setSelectedItem(null);
+	}*/
+	
+	public void criaJTable() {
+		tabelaTipoProd = new JTable(model);
+		pesquisar();
+
 	}
+
+	private void pesquisar() {
+		
+		daoTipoAdicionais dao;
+		try {
+			
+			dao = new daoTipoAdicionais();
+			lista = dao.selectTipoProd();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		model = new  adicionaisTabelaProdutos(lista);
+		tabelaTipoProd.setModel(model);      
+		
+		
+		
+		tabelaTipoProd.setFillsViewportHeight(true);
+		tabelaTipoProd.setRowSelectionInterval(0,0);
+		
+		DefaultTableCellRenderer direita = new DefaultTableCellRenderer();
+		direita.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		DefaultTableCellRenderer centro= new DefaultTableCellRenderer();
+		centro.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		tabelaTipoProd.getColumnModel().getColumn(0).setCellRenderer(centro);
+		tabelaTipoProd.getColumnModel().getColumn(2).setCellRenderer(direita);
+		
+		
+		tabelaTipoProd.getColumnModel().getColumn(0).setPreferredWidth(10);
+		tabelaTipoProd.getColumnModel().getColumn(1).setPreferredWidth(120);
+		tabelaTipoProd.getColumnModel().getColumn(2).setPreferredWidth(40);
+		tabelaTipoProd.getColumnModel().getColumn(3).setPreferredWidth(15);
+	
+		tabelaTipoProd.getTableHeader().setReorderingAllowed(false); 
+		
+		
+		JScrollPane scrollPaneT= new JScrollPane(tabelaTipoProd);
+		scrollPaneT.setBounds(320, 45, 313, 180);
+		 
+		
+		
+		jpCentro.add(scrollPaneT);
+		
+	}
+
+	
 	
 	public void preenchetela() throws Exception { 
 
@@ -186,15 +231,15 @@ public class vCadAdicionais extends vTelaPadrao {
 		mAdicionais m = dao.select(codAdicionais);
 		mAdicionais mtProduto = dao.selectCodAdTipoProd(codAdicionais);
 		
-		comboBox.removeAllItems();
+/*		comboBox.removeAllItems();
 		 for (mTipoProduto mt1 : daoTProduto.selectAll()) {
 			 comboBox.addItem(mt1.gettDescTipo());
 			 }
-		 
+		 */
 		jtfDesc.setText(m.getaDescricao());
-		jtfPreco.setText(m.getaPreco());
+		//jtfPreco.setText(m.getaPreco());
 		jcbstatus.setSelected(m.getaStatus());
-		comboBox.setSelectedIndex(mtProduto.getadictipoprod()-1);
+		//comboBox.setSelectedIndex(mtProduto.getadictipoprod()-1);
 
 
 
@@ -210,8 +255,8 @@ public class vCadAdicionais extends vTelaPadrao {
 	public void StatusTelaComponentes(boolean status) {
 
 		jtfDesc.setEnabled(status);
-		jtfPreco.setEnabled(status);
-		comboBox.setEnabled(status);
+		//jtfPreco.setEnabled(status);
+		//comboBox.setEnabled(status);
 		jcbstatus.setEnabled(status);
 
 
@@ -221,9 +266,12 @@ public class vCadAdicionais extends vTelaPadrao {
 	public void limpaTela() {
 
 		jtfDesc.setText(null);
-		jtfPreco.setText(null);
+		//jtfPreco.setText(null);
 		jcbstatus.setSelected(false);
-		comboBox.setSelectedItem(null);
+		//comboBox.setSelectedItem(null);
+		//model.removeTudoTipoAdicionais();
+		tabelaTipoProd.setEnabled(false);
+
 	}
 
 	@Override
@@ -237,12 +285,14 @@ public class vCadAdicionais extends vTelaPadrao {
 			jtfDesc.requestFocus();
 			jcbstatus.setSelected(true);
 			codAdicionais = -1;
-			try {
+			
+			
+			/*try {
 				preencheCombox();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 
 		}
 
@@ -251,13 +301,13 @@ public class vCadAdicionais extends vTelaPadrao {
 			mAdicionais novoAdicionais = new mAdicionais();
 			mAdicionais novoAdicTipo = new mAdicionais();
 			
-			int codTipProduto =comboBox.getSelectedIndex() + 1;
+			//int codTipProduto =comboBox.getSelectedIndex() + 1;
 
 			novoAdicionais.setCodAdicionais(codAdicionais);
 			novoAdicionais.setaDescricao(jtfDesc.getText());
-			novoAdicionais.setaPreco(jtfPreco.getText());
+			//novoAdicionais.setaPreco(jtfPreco.getText());
 			novoAdicionais.setaStatus(jcbstatus.isSelected());
-			novoAdicTipo.setCodTipoProduto(codTipProduto);
+			//novoAdicTipo.setCodTipoProduto(codTipProduto);
 			novoAdicTipo.setadictipoprod(codAdicionais);
 
 			daoAdicionais dAdicionais;
@@ -325,8 +375,8 @@ public class vCadAdicionais extends vTelaPadrao {
 			String texto;
 			texto ="SISTEMA PIZZARIA DELIVERY \n\n CADASTRO ADICIONAIS\n\n\n"+
 			"DESCRIÇÃO ADICIONAL:"+ jtfDesc.getText()+"\n"
-			+"PREÇO: "+ jtfPreco.getText()+ "--\n"
-			+"TIPO: "+ comboBox.getSelectedItem().toString()+"\n"
+			+"PREÇO: + jtfPreco.getText()+ "+"--\n"
+			+"TIPO:  comboBox.getSelectedItem().toString()"+"\n"
 			+"STATUS: "+jcbstatus.isSelected();
 			
 			
@@ -358,8 +408,6 @@ public class vCadAdicionais extends vTelaPadrao {
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-
-
 			}
 		}
 	}

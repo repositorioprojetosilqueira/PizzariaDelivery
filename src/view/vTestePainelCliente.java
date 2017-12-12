@@ -1,12 +1,17 @@
 package view;
 
+import java.awt.ComponentOrientation;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 
 import grafica.painelCliente;
 import model.mProduto;
@@ -66,9 +71,27 @@ public class vTestePainelCliente extends vTelaPadrao{
 		tabela.setFillsViewportHeight(true);
 		tabela.setRowSelectionInterval(0,0);
 		
-		scrollPane.setBounds(30, 30, 500, 200);
+		DefaultTableCellRenderer direita = new DefaultTableCellRenderer();
+		direita.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		DefaultTableCellRenderer centro= new DefaultTableCellRenderer();
+		centro.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		tabela.getColumnModel().getColumn(0).setCellRenderer(centro);
+		tabela.getColumnModel().getColumn(2).setCellRenderer(direita);
+		
+		
+		tabela.getColumnModel().getColumn(0).setPreferredWidth(10);
+		tabela.getColumnModel().getColumn(1).setPreferredWidth(120);
+		tabela.getColumnModel().getColumn(2).setPreferredWidth(40);
+		tabela.getColumnModel().getColumn(3).setPreferredWidth(15);
+	
+		tabela.getTableHeader().setReorderingAllowed(false); 
+		
+		scrollPane.setBounds(30, 30, 300, 200);
 		 
 		jpCentro.add(scrollPane);
+		
 		
 
 	}

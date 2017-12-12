@@ -119,7 +119,32 @@ public class daoTipoAdicionais extends DAOSuperClass<mTipoAdicionais> {
 		return retorno;
 
 	}
+	
+	public List<mTipoAdicionais> selectTipoProd() throws SQLException {
+	
+		String sql = "select tipoproduto.codTipoProduto, tipoproduto.tDescTipo from tipoproduto;";
 
+		PreparedStatement stm = this.createPreparedStatement(sql);
+		
+		ResultSet rs = stm.executeQuery();
+		List<mTipoAdicionais> retorno = new ArrayList();
+		
+		while(rs.next()) {
+			mTipoAdicionais temp = new mTipoAdicionais();
+			temp.setCodTipoProduto(rs.getInt(1));
+			temp.settDescTipo(rs.getString(2));
+			temp.setPreco(0);
+			temp.setAtivo(false);
+			
+			retorno.add(temp);
+			
+		}
+		
+		close(rs,stm);
+		fecha();
+		return retorno;
+
+	}
 	
 	@Override
 	public boolean insert(mTipoAdicionais arg0) throws SQLException {

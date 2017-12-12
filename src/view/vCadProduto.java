@@ -43,7 +43,7 @@ public class vCadProduto extends vTelaPadrao{
 	
 		private void initLayout() {
 				jbRelatorio.setVisible(true);
-				setBounds(100, 100, 674, 320);
+				setSize(674, 400);
 				
 				JLabel lbDescricao = new JLabel("Descrição:");
 				lbDescricao.setHorizontalAlignment(SwingConstants.RIGHT);
