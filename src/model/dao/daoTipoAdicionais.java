@@ -106,12 +106,12 @@ public class daoTipoAdicionais extends DAOSuperClass<mTipoAdicionais> {
 		while(rs.next()) {
 			mTipoAdicionais temp = new mTipoAdicionais();
 			temp.setCodTipoProduto(rs.getInt(1));
-			temp.settDescTipo(rs.getString(2));
+			temp.setTipoProduto(rs.getString(2));
 			temp.setPreco(rs.getFloat(3));
 			temp.setAtivo(rs.getBoolean(4));
 			
 			retorno.add(temp);
-			
+		
 		}
 		
 		close(rs,stm);
@@ -132,7 +132,7 @@ public class daoTipoAdicionais extends DAOSuperClass<mTipoAdicionais> {
 		while(rs.next()) {
 			mTipoAdicionais temp = new mTipoAdicionais();
 			temp.setCodTipoProduto(rs.getInt(1));
-			temp.settDescTipo(rs.getString(2));
+			temp.setTipoProduto(rs.getString(2));
 			temp.setPreco(0);
 			temp.setAtivo(false);
 			

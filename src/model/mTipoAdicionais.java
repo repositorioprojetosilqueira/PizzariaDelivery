@@ -1,6 +1,6 @@
 package model;
 
-public class mTipoAdicionais extends mTipoProduto{
+public class mTipoAdicionais{
 	
 	private int codTipoProduto;
 	private int codAdicionais;
@@ -21,6 +21,7 @@ public class mTipoAdicionais extends mTipoProduto{
 		this.codTipoProduto = codTipoProduto;
 		this.codAdicionais = codAdicionais;
 		this.adictipoprod = adictipoprod;
+		this.TipoProduto = TipoProduto;
 		this.preco = preco;
 		
 		this.adictipoprod = adictipoprod;

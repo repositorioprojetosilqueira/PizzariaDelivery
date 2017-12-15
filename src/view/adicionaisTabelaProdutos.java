@@ -63,7 +63,7 @@ public class adicionaisTabelaProdutos extends AbstractTableModel {
 		if (column == COL_ID) {
 			return m.getCodTipoProduto();
 		} else if (column == COL_TIPOPROD) {
-			return m.gettDescTipo();
+			return m.getTipoProduto();
 		} else if (column == COL_PRECO) {
 			return m.getPreco();
 		} 
@@ -80,7 +80,7 @@ public class adicionaisTabelaProdutos extends AbstractTableModel {
 		if (column == COL_ID) {
 			tp.setCodTipoProduto((Integer) aValue);			
 		} else if (column == COL_TIPOPROD) {
-			tp.settDescTipo(aValue.toString());
+			tp.getTipoProduto();
 		} else if (column == COL_PRECO) {
 			try {
 			tp.setPreco(Float.parseFloat(aValue.toString()));

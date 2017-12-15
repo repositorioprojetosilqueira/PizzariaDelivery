@@ -172,17 +172,18 @@ public class vCadAdicionais extends vTelaPadrao {
 		try {
 			
 			dao = new daoTipoAdicionais();
-			lista = dao.selectTipoProd();
+			preencherAdicionais(lista = dao.selectTipoProd());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	private void preencherAdicionais(List lista) {
 		
 		model = new  adicionaisTabelaProdutos(lista);
 		tabelaTipoProd.setModel(model);      
-		
-		
 		
 		tabelaTipoProd.setFillsViewportHeight(true);
 		tabelaTipoProd.setRowSelectionInterval(0,0);
@@ -222,8 +223,7 @@ public class vCadAdicionais extends vTelaPadrao {
 
 		daoAdicionais dao = new daoAdicionais();
 		
-		daoTipoProduto daoTProduto = new daoTipoProduto();
-		
+		daoTipoAdicionais daTAdicionais = new daoTipoAdicionais();
 		
 		
 		codAdicionais =Integer.parseInt(tabela.getModel().getValueAt(row, 0).toString());
@@ -231,11 +231,19 @@ public class vCadAdicionais extends vTelaPadrao {
 		mAdicionais m = dao.select(codAdicionais);
 		mAdicionais mtProduto = dao.selectCodAdTipoProd(codAdicionais);
 		
+		List<mTipoAdicionais> mt =daTAdicionais.selectAdicTipoProd(codAdicionais);
+		lista = mt;
+		preencherAdicionais(lista);
+		
+		
 /*		comboBox.removeAllItems();
 		 for (mTipoProduto mt1 : daoTProduto.selectAll()) {
 			 comboBox.addItem(mt1.gettDescTipo());
 			 }
 		 */
+		
+		
+		
 		jtfDesc.setText(m.getaDescricao());
 		//jtfPreco.setText(m.getaPreco());
 		jcbstatus.setSelected(m.getaStatus());
@@ -270,7 +278,7 @@ public class vCadAdicionais extends vTelaPadrao {
 		jcbstatus.setSelected(false);
 		//comboBox.setSelectedItem(null);
 		//model.removeTudoTipoAdicionais();
-		tabelaTipoProd.setEnabled(false);
+		//tabelaTipoProd.setEnabled(false);
 
 	}
 
